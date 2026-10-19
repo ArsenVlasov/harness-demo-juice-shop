@@ -6,6 +6,112 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 00:10: freeze `sealed`, pre-registration, generation script ready
+
+Start from: checkpoint 4. Arsen reads `sealed/mutants.md` and `bench/hypotheses.md` and gives his "yes" for the generation.
+Then run the commands below, one suite after the other. Each run costs money, at most 40 USD.
+
+1. `bench/start-app.sh stop`, then `bench/start-app.sh start`. This gives a clean database and a clean server build.
+2. `bench/run-generation.sh A 1`, then `bench/run-generation.sh B 1`.
+3. If the tests of a suite fail on the clean app after its run: `bench/run-generation.sh A 1 followup` (or `B 1 followup`). This is the one standard follow-up message.
+
+### Decisions of Arsen (human intervention)
+
+Arsen answered three questions at 23:50. Section 12 of the plan, items 14 to 16, has the decisions.
+
+- Item 4 (permissions): the list from the entry of 23:31, `env -i`, `--permission-mode acceptEdits`, the Playwright MCP only. In addition, `chmod 000 sealed/` during each generation run, then the old mode again.
+- Item 5 (user-level skills): during each generation run, `~/.claude/CLAUDE.md` and the skills `graphify` and `ponytail*` go into `~/.claude-harness-demo-hidden/`. After the run, they go back.
+- The first patch session: start it again. See below.
+
+### The step `sealed`
+
+- The first patch session started at 23:35. Somebody removed it before it wrote a file. At 23:44, `ls -la sealed/` showed an empty folder, and `get_session` gave `Session ... not found`.
+- At 23:51, this session started a new separate session with the working folder `sealed/`.
+  Before the start, I wrote `sealed/.claude/settings.json` (sha256 `f6782102f92d927745e746bd6157596a8ea7e2a69b4535a96d1df473471c3c45`).
+  It denies reads of `harness-demo-runs/`, `gerchik-autotest-project/`, the lab `LOG.md` and `bench/`. It denies writes to `test-cases/`, `LOG.md`, `bench/`, the suites and the plan.
+  `LOG.md` is on the list because it describes the harness.
+- The patch session sealed 14 patches on 2026-10-20 at 00:05:11 EEST: 11 realistic bugs and 3 operator mutants.
+  The descriptions, the checks and the open points for Arsen are in `sealed/mutants.md`.
+- This entry does not give the names of the patches. The reason: the generation agent has `Bash(cat *)`, and it can read `LOG.md`. The names go into the log after the generation.
+- sha256, checked by this session with `shasum -a 256`:
+
+  | File | sha256 |
+  |---|---|
+  | `sealed/sealed.tar` | `2a2dcc7d623dd235bb00e7ed8c52eb3abd2613710500a0b6b63800090ff1ff05` |
+  | patch 01 | `819ea60e50e1749cfd48f31bcba941cf6f5b698fd3c6af6f93648303a87ab866` |
+  | patch 03 | `451a56c07ba064a5d08cd6b8c17feb94ac583f7a396d7cad3186192e86ad72dc` |
+  | patch 05 | `c729deb5dfa86879bdc146f30955b0546379921c23202eba28dfa7bbd7af0346` |
+  | patch 06 | `10669996424d528093ac6d1db151deac4b91bda2b4d225d431999a2792e74615` |
+  | patch 07 | `4599f2e2a0c69f4e2541fb8d1f885e556477ef279eaf602de96341e813b5d446` |
+  | patch 08 | `ee4bd6f72a764587691049f7e8806d0ab6b5ecf794894b15f36e33e406c3c8f3` |
+  | patch 09 | `b10792ff0f894b790b25b367c39e1fe2ed9bb1ac0fc2abc211eee76b5ad4eda9` |
+  | patch 10 | `ca958586e02253f6738d66233fbf540e3b3c62bc46bd86bcc09fcac70bd434a1` |
+  | patch 11 | `e2d52ebbfc1c00dbe4f984046de22a700416c0bfd51d13cd578448dcdd8f4ffb` |
+  | patch 12 | `47c4c9a17364c9b4e778f4456de43f0600312f59ec81ad0ba42f97e9dbbc90ad` |
+  | patch 13 | `db71a33fea01e25569b0f468252bb5dddaf8b26c1c2e590cd5495d4e1b56fb84` |
+  | patch 14 | `43ec311589bc627304b7224993bd90bd5eb7a333d63737c18ce94a17ed9c03be` |
+  | patch 15 | `c7022544afa72d294e58461006e96d615cf9ff5969596e42605f31af702c0715` |
+  | patch 16 | `f28dda342884bd1f1b0a9a99aa7274ec1dce3d9f0411f5f838e0674c39dc3e83` |
+  | `sealed/mutants.md` | `8490378e5d1ab2581b375b21c3318fa515f7c3618ed4081649eb288aa556c30c` |
+
+- `tar -tvf sealed/sealed.tar` lists the 14 `.patch` files and `mutants.md` only.
+- `git -C juice-shop status --short` gives no output. `git -C juice-shop describe --tags` gives `v20.3.0` (commit `f189f521266f42c6bd05884468292000cee852ed`).
+- `build/routes/order.js` holds `wallet.balance >= totalPrice` 1 time, the original line. `git check-ignore -v sealed/sealed.tar` gives `.gitignore:4:sealed/`.
+- This session read the final report of the patch session. Thus it knows the list of patches. It does not write tests. The harness was frozen at 23:33, before the patches.
+
+### Test cases in the suites (pre-generation step 1 and 2 of `CLAUDE.md`)
+
+- `cp -R test-cases` into `suite-a/` and `suite-b/`. The hash command of the entry of 22:52 gives `096f5035db6fcc2b53709c2c0f69f56f5ea9a8e1959101974c7e5763c694d067` for the 3 copies. `diff -r` finds no difference.
+- Commits: `suite-a` `25a5dbf`, `suite-b` `268e15c` (`harness-v1-1-g268e15c`). The git tree of `test-cases/` is `50384a8f6d5240f928e8bf8cd5a79e6f820e27a2` in the two suites and in the lab tag `test-cases-v1`.
+
+### Pre-registration (plan section 5, step 5)
+
+- `bench/hypotheses.md`, sha256 `d7b41763e802f3e6eb12f8947c36d9c7b73c9101e8ff101230bfbb69525a62cf`. `ste-lint.py`: 0 hard violations.
+- It names no patch. Arsen approves it at checkpoint 4.
+
+### Generation script
+
+- `bench/run-generation.sh`, sha256 `04e5f3208e9f7e80d0f0178ece2fb77daf273af272d754f0111314e3705e76f0`.
+  It checks the CLI sha256, a clean `juice-shop/`, the app on :3000 and a clean suite. Then it locks `sealed/`, hides the user-level items and runs `claude -p`.
+  A trap restores `sealed/` and the user items on each exit.
+- `bench/prompt-generation.txt`: the prompt from section 5 of the plan, extracted with `awk`, 4 lines. sha256 of the file `1bda417b1472066ef6638a25de05cf740152ba1c7f898b4361bbe7d390fbad7b`.
+- Check run at 00:08:57: `bench/run-generation.sh A 0 check`. This mode uses Haiku and a temp folder, not a suite. The result, from `bench/results/gen-A-0-check.meta`:
+  - `locked: chmod 000 sealed/ (was 755)`, later `restored: chmod 755 sealed/`.
+  - `during: synced | CLAUDE.md: missing`, later `after: graphify ponytail ponytail-audit ponytail-debt ponytail-gain ponytail-help ponytail-review synced | CLAUDE.md: present`.
+  - `cli: 2.1.299 (Claude Code)`, `claude exit=0`, `is_error` `false`, `result` `ok`, `total_cost_usd` 0.00190407.
+
+### Facts for the generation
+
+- The CLI 2.1.299 also loads account-synced skills, for example `anthropic-skills:docx`, `anthropic-skills:pdf` and `anthropic-skills:asd-ste100`. It also loads its own built-in skills, for example `code-review` and `simplify`.
+  The proof is the `system` `init` event of `--output-format stream-json --verbose`. These skills hold no rules for test code. A and B both see them.
+- In the dry run, the CLI did not use the `permissions.allow` list of `suite-b/.claude/settings.json`, because nobody trusted the folder. The hooks ran. The generation keeps this state. Nobody accepts the trust dialog in `suite-a/` or `suite-b/`.
+- Section 4 of the plan in the vault holds the draft table of the patches. `Bash(cat *)` can read it. No file in the suites names the plan or the vault. This is the same for A and B.
+- From the patch session: a second app copy started in `juice-shop/` resets `data/juiceshop.sqlite` and removes `ftp/*.pdf`. The patch session ran its copy on :3001 from a separate runtime folder. `run-mutants.mjs` must do the same if two copies run at the same time.
+
+## 2026-10-19, 23:43: Claude Code 2.1.299 pinned for A and B (open item 3)
+
+Start from: the open items 4 and 5 of the entry of 23:33. Then checkpoint 4.
+
+- Arsen decided the open item 3 at 23:40: A and B both use Claude Code 2.1.299. This is a human intervention. Section 12 of the plan, item 13, has this decision.
+  The reason: the dry run of `harness-v1` used 2.1.299. The global CLI 2.1.139 cannot use Opus 5.5.
+- Install command, with Node 24.21.0 and npm 11.19.0:
+  `npm install --prefix ~/.local/claude-code-2.1.299 --no-fund --no-audit @anthropic-ai/claude-code@2.1.299`.
+  The output: `added 2 packages in 14s`. The global CLI `/usr/local/bin/claude` stays at 2.1.139.
+- npm 11 printed a warning that the `postinstall` script (`node install.cjs`) is not in `allowScripts`. The binary is in place all the same:
+  `bin/claude.exe` and `claude-code-darwin-x64/claude` have the same inode `42098332` (a hard link) and the size 257765072 bytes.
+- The path for `claude -p` in A and B: `~/.local/claude-code-2.1.299/node_modules/.bin/claude`.
+- `--version`: `2.1.299 (Claude Code)`.
+- sha256 of the binary: `099dcc53dabbbefabed8926dab25b0318775c175a7c87bb6ba6c54fde9f8ece2`.
+  The command: `shasum -a 256 ~/.local/claude-code-2.1.299/node_modules/@anthropic-ai/claude-code/bin/claude.exe`.
+- `codesign -dv` of the binary: `Identifier=com.anthropic.claude-code`, `TeamIdentifier=Q6L2SF6YDW`.
+- The dry run used the 2.1.299 build of the Claude desktop app, not this file:
+  `~/Library/Application Support/Claude/claude-code/2.1.299/d55abe38f797/claude.app/Contents/MacOS/claude`, sha256 `4e2f7e75be0616fea955e2bc7cbf897b7c288e2a44cba140b9cec140ef42e44b`.
+  The version is the same, but the two files are different. The desktop app updates its copy, so A and B must not use it.
+- Check call at 23:41:51, through `env -i` as in the dry run, with `DISABLE_AUTOUPDATER=1`:
+  `claude -p "Reply with the word ok." --model claude-opus-5-5 --output-format json --max-budget-usd 0.5`.
+  The result: `exit=0`, `is_error` `false`, `result` `ok`, `duration_ms` 2023, `num_turns` 1, `total_cost_usd` 0.240776. `modelUsage` has `claude-opus-5-5` only.
+- Use `DISABLE_AUTOUPDATER=1` for the generation of A and B too.
+
 ## 2026-10-19, 23:33: freeze `harness-v1`
 
 Start from: the separate session for `sealed/` (plan section 5, step 4). That session starts in `sealed/` and gets access only to `juice-shop/` and `test-cases/`.
