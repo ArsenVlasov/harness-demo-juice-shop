@@ -6,6 +6,194 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-19, 23:33: freeze `harness-v1`
+
+Start from: the separate session for `sealed/` (plan section 5, step 4). That session starts in `sealed/` and gets access only to `juice-shop/` and `test-cases/`.
+Before the generation, Arsen decides the open items 3 to 5 below.
+
+- Checkpoint 3: Arsen approved the harness and the decisions 1 and 2 at 23:33. This is a human intervention.
+  - Decision 1: `z85@0.0.2` stays in the baseline of both suites.
+  - Decision 2: step names are English. A spec links its test case through the annotation `{ type: 'test-case', description: 'TC-NN' }`.
+- Tag: `harness-v1`, an annotated tag in `suite-b/`. The tag object is `1aab2a8032b98854c6251d4c58692be482e3f363`.
+- Commit `29c5d5f82481a1b82494f88ef2dce18e3e6701b1`, tree `799785108e24cb49c94239ce8e335a27c30a7fa5`, 45 tracked files. `git status --short` gave no output before the tag.
+- Hash of the tracked files of `suite-b/`: `23a0c66d27b1648ec54bc134df466ec25d13808013f6424a951006e46f207220`.
+- Hash command, in `suite-b/`: `git ls-files -z | sort -z | xargs -0 shasum -a 256 | shasum -a 256`.
+- `sealed/` does not exist at the time of the tag.
+- Open items for checkpoint 4 (the generation), from the entries of 23:20 and 23:31:
+  3. The Claude Code version for A and B: the global CLI 2.1.139 cannot use Opus 5.5.
+  4. The permission list and the `env -i` start of `claude -p`.
+  5. The user-level `ponytail` skills, which both suites see.
+
+## 2026-10-19, 23:31: dry run done, checkpoint 3
+
+Start from: checkpoint 3. Arsen reads the harness in `suite-b/` (commit `29c5d5f`) and this entry.
+After his "yes": set the tag `harness-v1` in `suite-b/`, record the sha256, then start the separate session for `sealed/`.
+Before that, Arsen decides the open items of checkpoint 3 below.
+
+### What I did, with proof
+
+1. **The CLI login.** After the first sign-in of Arsen, `claude -p` still gave 401. The keychain item `Claude Code-credentials` had the date `20261019170829Z`, before the sign-in.
+   Arsen then ran `claude auth login` in a terminal. The new date is `20261019202319Z`. A test call `claude -p "Reply with the word ok." --model claude-haiku-5-5` gave `ok`.
+2. **The CLI version.** The run with `/usr/local/bin/claude` (Homebrew cask, 2.1.139) gave `API Error: 400 Claude Code 2.1.139 does not support this model; version 2.1.280 or newer is required.` The cost was 0.
+   I did not change the global install. For the dry run, I used the CLI of the Claude desktop app: `~/Library/Application Support/Claude/claude-code/2.1.299/.../claude`, `2.1.299 (Claude Code)`.
+3. **Environment of the run.** The shell of this session holds variables of the desktop app, for example `CLAUDE_CODE_SIMPLE` and `ANTHROPIC_BASE_URL`. I started `claude -p` through `env -i` with only `HOME`, `USER`, `LOGNAME`, `SHELL`, `TERM`, `LANG`, `TMPDIR` and `PATH`. `PATH` starts with `~/.local/node-v24.21.0/bin`.
+4. **App.** `bench/start-app.sh stop`, then `start`: `up: ... = 200 after 3s, node v24.21.0, pid 18954`. Thus the database was clean.
+5. **Dry run.** A new throwaway copy of `suite-b/` at `a79ecf2`, with `test-cases/README.md` and `test-cases/TC-90-product-search.md` only.
+   The command is the same as in the entry of 23:20: Opus 5.5, `--output-format json`, `--max-budget-usd 15`, `--permission-mode acceptEdits`, the Playwright MCP only, the same `--allowedTools`.
+   Start 23:25:17, end 23:29:07, `claude exit=0`. The JSON is `bench/results/dry-run-B-1.json` (sha256 `fef2b56ad88f61137bc46c5943d0a605e8646ae917b874a1856fe717f48defbc`):
+
+   | Field | Value |
+   |---|---|
+   | `is_error` | `false` |
+   | `duration_ms` | 226305 |
+   | `num_turns` | 42 |
+   | `total_cost_usd` | 1.3518927 (`claude-opus-5-5` 1.233, `claude-sonnet-5-5` 0.119) |
+   | `permission_denials` | 8 |
+
+6. **Evidence that the harness works in `claude -p`:**
+
+   | What | Proof |
+   |---|---|
+   | Hooks `log-action` and `guard` (PreToolUse, PostToolUse) | `npm run agent:log` in the copy: `Log: 96 entries across 1 session(s)`. Each tool has `proposed` and `ok` rows |
+   | Skill `ui-autotest` | Transcript: one `Skill` call with `skill: "ui-autotest"`. It was the first tool call of the agent |
+   | Agent `spec-reviewer` | Transcript: one `Agent` call with `subagent_type: "spec-reviewer"`. The subagent used only `Read` (10) and `Glob` (2). `modelUsage` shows `claude-sonnet-5-5`. Verdict: `CHANGES` |
+   | Rules | At the start: `juice-shop-app.md` and `project-base.md`. Later, 12 `nested_memory` attachments: each path-scoped rule loaded when the agent touched a matching file |
+   | Hook `post-edit-check` | It ran on each `Write` and `Edit` (same PostToolUse event as `log-action`). It gave no finding, because the code had no violation. A clean result gives no output. I ran it again on the new spec: exit 0 |
+   | Section 12 "Prove it" | The agent ran `npm run check`, a green run, and a mutation run: `Apple Pomace` → `Apple PomaceX`, the test failed on `Product card "Apple PomaceX" should be visible`. Then it reverted the change |
+
+7. **My own check of the result, in the copy:** `npm run check` exit 0 (`No new rule violations.`, `pass 9`, `fail 0`). `npx playwright test`: `1 passed (2.0s)`. The agent wrote 8 files:
+   - a spec and 2 page objects (59 and 21 lines)
+   - a fixture with the two cookies of `juice-shop-app.md`
+   - `ui-assertions.ts` and 3 constant files
+
+   It did not change `test-cases/` and did not commit.
+8. **Fix after the dry run.** Commit `29c5d5f` in `suite-b/`. My port said "each test uses a new customer". The source rule covers only tests that need a user. The agent asked whether a guest test must create a customer. Now the text says "each test that needs a customer account".
+   This does not change anything for TC-01 to TC-08: each of them needs a customer. STE lint: 0 hard on the 4 changed files. The grep of item 5 of the entry of 23:20 is still empty after this commit.
+
+### Findings of the dry run
+
+- **The tag dictionary.** TC-90 has the area "Catalog". No tag of the dictionary fits. The agent added `@catalog` to the dictionary and asked the human. This breaks the rule `autotest-tags.md`. I did not change the rule: TC-01 to TC-08 fit the five tags, and the source rule is the same.
+- **The project `allow` list is not used.** The stderr of the run: `Ignoring 7 permissions.allow entries from .claude/settings.json: this workspace has not been trusted.` The hooks still ran.
+  For the generation, this makes A and B more equal: only the `--allowedTools` of the command count. `suite-a/` has no settings file.
+- **8 permission denials.** Compound commands with `cd` or `for`, a heredoc and a `Write` into `/tmp`, and `rm ... && npm run check`. The agent found another way each time. The same list applies to A.
+- **The answer language.** The agent wrote its final answer in Russian, the language of the prompt. The code and the step names are English.
+
+### Open decisions for Arsen (checkpoint 3)
+
+These items of the entry of 23:20 stay open:
+
+- `z85` in the baseline
+- English step names
+- the `test-case` annotation
+- the parts that I did not port
+- the permission list
+- the user-level `ponytail` skills
+
+Two items are new:
+
+- **The Claude Code version for the generation.** The global CLI 2.1.139 cannot use Opus 5.5. The options are `brew upgrade --cask claude-code` (2.1.303 now) or the CLI of the desktop app (2.1.299). A and B must use the same version. Record it before the generation.
+- **The run environment.** I propose `env -i` with the variables of item 3 for both generation runs. The variables of the desktop app then cannot change the run.
+
+### Human interventions
+
+- After 23:20: Arsen signed in. The keychain item of the CLI did not change.
+- 23:23: Arsen ran `claude auth login` in a terminal. After that, `claude -p` worked.
+
+### What failed
+
+- `bench/results/dry-run-B-0-auth-401.json`: the run of 23:18, 401, cost 0.
+- `bench/results/dry-run-B-0-cli-too-old.json`: the run of 23:24, 400 for the CLI version, cost 0.
+
+## 2026-10-19, 23:20: baseline and harness done, dry run blocked by the CLI login
+
+Start from: Arsen signs in to the `claude` CLI again. Then run the dry run (item 6) and finish this entry. Then stop at checkpoint 3.
+
+A side session did this work. The parent session gave the task: the Tuesday tasks of section 9 of the plan, up to checkpoint 3.
+
+### What I did, with proof
+
+1. **Baseline (plan section 5, step 1).** `suite-a/` and `suite-b/` in `harness-demo-runs/` are two separate git repositories. Neither has a remote.
+   - Command, in `suite-a/`, with Node 24.21.0 first in `PATH`: `npm init playwright@1.17.139 -- --quiet --browser=chromium --lang=ts --no-examples`. Result: `@playwright/test` 1.64.1, no example spec.
+   - Changes to the generated files: `baseURL: process.env.BASE_URL ?? 'http://localhost:3000'`, reporter `[['list'], ['json', { outputFile: 'test-results/results.json' }]]`, package name `juice-shop-tests`.
+     The reason for the name: the blind judge must not see `suite-a` in `package.json`. The reason for the reporter: the generated `html` reporter starts a server after a failed run and waits for Ctrl+C. In `claude -p`, that stops the agent.
+   - `z85@0.0.2` is in the baseline. Juice Shop v20.3.0 uses the same package. See the open decisions.
+   - `suite-b/` got the same four files through `git archive` from `suite-a/`, then `npm ci`.
+   - Proof: both baseline commits have the tree `e07518ed4b2b68e40188f8b1b53017f155f38113`. The commits are `dbd7f98` (suite-a) and `06c74f1` (suite-b). Each repository has the tag `baseline`.
+   - `npx playwright test --list` on the baseline: `Error: No tests found`, exit 1.
+2. **Harness in `suite-b/` (plan section 1).** Commits `66c11c5` "Add the test harness" and `a79ecf2` (self-test fix). 45 tracked files. The source stayed read-only. I did not read the forbidden paths. I did not run anything in the source.
+   - Taken as they are: `.claude/hooks/log-action.mjs`, `scripts/agent-log-summary.mjs`, skill `karpathy-guidelines`, `eslint.config.mjs` (without the Allure ignore paths), `tsconfig.json`, `.githooks/pre-commit`.
+   - Adapted documents: `AGENTS.md` (74 lines), `CLAUDE.md`, `ARCHITECTURE.md`, `docs/core-beliefs.md`. The core beliefs are items 1-4, 6-8 and 10-12 of the source, with the numbers 1-10 now.
+   - Adapted harness parts: 13 rules, skill `ui-autotest` with 3 references, skill `bug-report` with its template, agent `spec-reviewer`, `.claude/settings.json`.
+   - Adapted scripts: hooks `guard.mjs` and `post-edit-check.mjs`, `scripts/rules-lint.mjs`, `scripts/harness/pre-commit.mjs`, `scripts/harness/edit-hooks.test.mjs`, `scripts/hooks-selftest.mjs`.
+   - New: the rule `juice-shop-app.md` (item 3) and `docs/references/endpoints.csv` with 15 endpoints from `server.ts`.
+   - `rules-lint` keeps 7 checks: `no-expect-in-regression-specs`, `no-hardcoded-waits`, `pom-size`, `no-tc-ids-in-names`, `no-relative-imports`, `no-hardcoded-endpoints`, `seconds-to-ms-max-30`. The baseline is `{}`.
+   - `npm run check` = typecheck + lint + specs:compile + rules:lint + harness:test.
+   - Harness dependencies, only in `suite-b/`: `eslint` 9.39.5, `@eslint/js` 9.39.5, `typescript` 5.9.3, `typescript-eslint` 8.72.0, `globals` 16.5.0. These are the majors of the source.
+   - `npm run hooks:install` ran in `suite-b/`. Thus `core.hooksPath = .githooks`. The commit `66c11c5` went through the pre-commit hook.
+3. **The rule `juice-shop-app`.** It holds the six facts from the entry of 22:50:
+   - quiet mode
+   - the cookie banner
+   - the language message
+   - a new database at each start
+   - the coupon month in the local time of the server
+   - 15 or 16 products on one page
+   I wrote it in about 15 minutes. I read the facts again in the code of the tag: `navbar.component.ts` (`checkLanguage`, 5 s message), `search-result.component.ts` (`Math.ceil(15 / columns) * columns`), `lib/utils.ts` (`toMMMYY`), `config/quiet.yml`.
+   It does not hold these facts: the totals that the order summary calculates in the browser, the wallet check `>=`, the random stock. These facts point to the planned bug patches of section 4. The harness must not know them.
+4. **Checks in `suite-b/`, with Node 24.21.0:**
+
+   | Command | Result |
+   |---|---|
+   | `npm run harness:test` | `tests 9`, `pass 9`, `fail 0` |
+   | `npm run hooks:selftest` | `All checks passed.` (28 checks: guard, post-edit-check, log-action) |
+   | `npm run typecheck` | exit 0 |
+   | `npm run lint` | `0 errors, 43 warnings` (all in `scripts/*.mjs`: `no-console`, return types) |
+   | `npm run rules:lint` | 7 × `✓ ... 0 file(s)`, `No new rule violations.` |
+   | `npm run check` | exit 1 at `specs:compile`: `Error: No tests found`. Expected: the suite has no spec yet, and zero is not a pass (core belief 4) |
+
+5. **Cleanup grep (plan section 1).** Command, in `harness-demo-runs/`:
+
+   ```
+   grep -riE "gerchik|GD-[0-9]|GD-TC|LMS|admin.panel|Ментор|pro.trading|stage\.json|aio|atlassian|jenkins|gitlab" suite-b /Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench --exclude-dir=node_modules --exclude-dir=.git
+   ```
+
+   Result: no output, `grep exit=1`.
+   With `node_modules/`, the same pattern matches 30 files of third-party packages (`playwright-core`, `typescript`, `js-yaml` and others). `node_modules/` is git-ignored and is not published.
+   A second grep for product examples (`HomePage|investment|CourseApi|Stripe|UserFactory|createStudent|linkTestCase|labelSuite|allure|Jira|UserManager|student`) found only two Allure ignore paths in `eslint.config.mjs`. I removed them.
+6. **Dry run (plan section 5, step 3): not done.**
+   - Throwaway copy: `cp -R suite-b` into the session scratch folder, as `suite-b-dry/`. No `CLAUDE.md` is in a parent folder of the copy.
+   - Test case outside the set: `TC-90` "Search for products by name", 3 steps. I checked each expected result on the clean app with a scratch Playwright script.
+     The results: `All Products`, 15 cards at 1280 px, `Search Results - apple` with `Apple Juice (1000ml)`, `Apple Pomace`, `Pineapple Juice (1000ml)`, then `No results found`.
+   - App: `bench/start-app.sh stop`, then `start`: `up: ... = 200 after 4s, node v24.21.0, pid 17473`.
+   - MCP: `bench/mcp-playwright.json` holds only `@playwright/mcp@0.0.83 --headless --isolated` (sha256 `7e02986be31b88c32f01e4978e0c9fd034fdbb1e3687c363f5aafe0103d7be5b`).
+   - Prompt: the text of section 5 without changes, sha256 `1bda417b1472066ef6638a25de05cf740152ba1c7f898b4361bbe7d390fbad7b`.
+   - Command, in `suite-b-dry/`: `claude -p "<prompt>" --model claude-opus-5-5 --output-format json --max-budget-usd 15 --permission-mode acceptEdits --strict-mcp-config --mcp-config bench/mcp-playwright.json --allowedTools <the list in the open decisions>`.
+   - Result at 23:18, in `bench/results/dry-run-B-0-auth-401.json` (the first name was `dry-run-B-1.json`): `"is_error":true`, `"api_error_status":401`, `"result":"Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue."`, `"total_cost_usd":0`.
+   - A second call `claude -p "Reply with the word ok." --model claude-haiku-5-5` gave the same 401. `claude auth status` gives `"loggedIn": true`. Thus the CLI keeps an expired token and does not refresh it.
+7. **STE.** I wrote each `.md` file by the rules of the `asd-ste100` skill. `ste-lint.py` gives `0 hard` for each of the 25 `.md` files in `suite-b/` and for the 2 files of the dry-run test case.
+
+### Open decisions for Arsen (checkpoint 3)
+
+- `z85@0.0.2` in the baseline of both suites. The reason: `suite-b/.claude/settings.json` keeps the rule of the source "ask before `npm install`". In `claude -p`, nobody can answer the question, so B cannot install a package. A also cannot install it with the proposed list below. With `z85` in the baseline, both suites can calculate the coupon code.
+- Step names in `test.step` are English. The source rule asks for Ukrainian names. Section 12, item 2 says that code is English.
+- `linkTestCase(id)` and Allure are gone. A spec links its test case through the Playwright annotation `{ type: 'test-case', description: 'TC-NN' }`.
+- Not ported:
+  - the hook `session-start.mjs`: it reads session notes, and the plan does not take them
+  - the line "Use plan mode" in `CLAUDE.md`: in `claude -p`, nobody approves a plan
+  - the script `collect-evidence.mjs` of `bug-report`: it reads Allure results
+  - the Jira duplicate search of `bug-report`, and the static users
+- Proposed permissions for the generation of A and B, the same for both: `--permission-mode acceptEdits` and `--allowedTools "Bash(npx playwright test)" "Bash(npx playwright test *)" "Bash(npm run *)" "Bash(npx tsc *)" "Bash(npx eslint *)" "Bash(node *)" "Bash(ls)" "Bash(ls *)" "Bash(cat *)" "Bash(head *)" "Bash(tail *)" "Bash(grep *)" "Bash(wc *)" "Bash(echo *)" "Bash(git status)" "Bash(git status *)" "Bash(git diff)" "Bash(git diff *)" "Bash(git log *)" "Skill" "Agent" "Task" "mcp__playwright"`.
+  The reason for `acceptEdits` and not `bypassPermissions`: the agent must not read the lab folder or another suite.
+- The user-level `~/.claude/` (pre-generation step 3 of `CLAUDE.md`): `CLAUDE.md` names the skills `graphify` and `api-test`. The folder `skills/` holds `graphify` and seven `ponytail*` skills. The description of `ponytail` says "Use on ANY coding task". Both suites see it. This can change the test code of A and B. No user-level hooks and no agents.
+
+### Human interventions
+
+- None in this part. The task came from the parent session.
+
+### What failed
+
+- The dry run did not start: the OAuth token of the `claude` CLI expired (item 6).
+- `hooks-selftest.mjs` left an empty folder `tests/specs/regression/` after its post-edit check. The fix is in commit `a79ecf2`.
+
 ## 2026-10-19, 22:52: freeze `test-cases-v1`
 
 Start from: the Tuesday tasks in section 9 of the plan. Port the harness into `suite-b/` and do the dry run. Then stop at checkpoint 3.
