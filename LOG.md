@@ -59,6 +59,12 @@ Start from: the background sequence of this entry: vague B-4, the measurements o
    The tool-call audit also covers the stopped B-3.
 3. The chain of `haiku`: `bench/run-chain.sh haiku 1 2 3` with `AGG_RUNS=1,2,3`.
 - The Mac is now on AC power. The redo costs about one B run (8 to 9 USD). This stays in the estimate of item 15.
+- The sequence is the new script `bench/resume-e2-e3.sh`. Before the start, I tested 2 parts of it on known data:
+  - `collect-metrics` with one `--suite` gives a summary with one column.
+  - The merge code (taken from the script with `awk`, run with `node -e`) put the A column of one file and the B column of another file into one file.
+    `aggregate-runs` read that file and gave the right values.
+  - The audit of the stopped B-3 uses its session id `a8607a75-091d-4563-b68a-155632680a90`, from the first event of `gen-vague-B-3.jsonl`.
+- At 23:35: `caffeinate -i bench/resume-e2-e3.sh >bench/.run/resume-e2-e3.log 2>&1`, in the background.
 
 ## 2026-10-20, 19:25: checkpoint 4 for E2 and E3, the chains start
 
