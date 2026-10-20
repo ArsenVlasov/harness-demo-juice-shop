@@ -6,6 +6,20 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 10:55: README draft and offer sentence draft, not published
+
+Start from: Arsen reads the two drafts and checks the judge by hand on 2 test cases in each suite. Nothing is published before checkpoint 5.
+
+- Arsen asked for a README draft in Ukrainian with a short English paragraph, and for the offer sentence, from `bench/results/summary.md`. He said: do not publish anything.
+- The drafts are in the vault folder `demo/`, not in the lab. The reason: `CLAUDE.md` allows only English `.md` files in the lab and in the suites, and the publication repository does not exist yet.
+  - `demo/juice-shop-readme-draft.md`: Ukrainian, with an English paragraph. It holds the result table, the setup, the freeze order and the result for each hypothesis.
+    It also holds the patch list, the commands, the limits and the full rule `juice-shop-app`.
+  - `demo/demo-block-draft.md`: Russian notes by the vault rules, with two Ukrainian variants of the sentence and the source of each number.
+- I compared each number in the drafts with `bench/results/summary.csv`, `flaky.json` and `judge/`. All numbers match. Cost ratio B to A: 3.01. Time ratio: 1.88.
+- `grep -c -P '[\x{2013}\x{2014}]'` gives 0 for both drafts (the vault rule: no em dash and no en dash).
+- The README draft has no diffs of the patches. Generation runs 2 and 3 are still ahead, and the vault is outside the lock of `run-generation.sh`. The diffs go into the README at publication.
+- Placeholders: the links to the DOU article, the repository and the video, and the result of the manual check of the judge.
+
 ## 2026-10-20, 10:40: measurements of run 1 done
 
 Start from: Arsen checks the judge by hand on 2 test cases in each suite (section 6 of the plan). Then the Thursday tasks of section 9: the README from `bench/results/summary.md`, the video and the offer sentence.
