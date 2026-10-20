@@ -1,0 +1,874 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/regression/auth/login.spec.ts",
+      "file": "specs/regression/auth/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [
+            "auth"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-01",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10160,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: create a new customer, nobody is logged in",
+                      "duration": 1280
+                    },
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 857
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 2236
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 2088
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 3113
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 94
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.664Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-01",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25206e6cf2d763aa16b3-f51faef1b2e4afbe78c7",
+          "file": "specs/regression/auth/login.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/add-to-basket.spec.ts",
+      "file": "specs/regression/basket/add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Add a product to the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-02",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 1409
+                    },
+                    {
+                      "title": "2. Click `Add to Basket` on the product",
+                      "duration": 4691
+                    },
+                    {
+                      "title": "3. Open the basket with the button `Your Basket`",
+                      "duration": 401
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 5
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.721Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-02",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9a4a5d3078af0a8f0db9-1a8856b501e441bad5e2",
+          "file": "specs/regression/basket/add-to-basket.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+      "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                    "line": 20,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 18602,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 3434
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 742
+                    },
+                    {
+                      "title": "3. Click the minus button in the row of product A",
+                      "duration": 1099
+                    },
+                    {
+                      "title": "4. Click the minus button in the row of product A again",
+                      "duration": 4590
+                    },
+                    {
+                      "title": "5. Click the trash button in the row of product A",
+                      "duration": 2139
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.678Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                        "line": 20,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3cb9ec625fb4361ae759-3d8149d9a00750d2efa3",
+          "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+          "line": 20,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/purchase-limit.spec.ts",
+      "file": "specs/regression/basket/purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Purchase limit for one product",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-04",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                    "line": 9,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 26610,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and click `Add to Basket` on the product",
+                      "duration": 6555
+                    },
+                    {
+                      "title": "2. Open the basket and click the plus button until the quantity is 5",
+                      "duration": 5166
+                    },
+                    {
+                      "title": "3. Click the plus button one more time",
+                      "duration": 83
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 9067
+                    },
+                    {
+                      "title": "5. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2198
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.727Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                        "line": 9,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "59a0bc4d1b9b9dba38fa-9c1a927fad57d5564dd5",
+          "file": "specs/regression/basket/purchase-limit.spec.ts",
+          "line": 9,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/checkout/card-order.spec.ts",
+      "file": "specs/regression/checkout/card-order.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                    "line": 26,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "failed",
+                  "duration": 19224,
+                  "error": {
+                    "message": "Error: Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 2\u001b[39m\n\u001b[31m+ Received  + 2\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"20.97¤\",\u001b[22m\n\u001b[2m    \"0.99¤\",\u001b[22m\n\u001b[32m-   \"2.10¤\",\u001b[39m\n\u001b[32m-   \"19.86¤\",\u001b[39m\n\u001b[31m+   \"2.20¤\",\u001b[39m\n\u001b[31m+   \"19.76¤\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\nCall log:\n\u001b[2m  - Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\" locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\u001b[22m\n\u001b[2m    14 × locator resolved to 4 elements\u001b[22m\n",
+                    "stack": "Error: Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 2\u001b[39m\n\u001b[31m+ Received  + 2\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"20.97¤\",\u001b[22m\n\u001b[2m    \"0.99¤\",\u001b[22m\n\u001b[32m-   \"2.10¤\",\u001b[39m\n\u001b[32m-   \"19.86¤\",\u001b[39m\n\u001b[31m+   \"2.20¤\",\u001b[39m\n\u001b[31m+   \"19.76¤\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\nCall log:\n\u001b[2m  - Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\" locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\u001b[22m\n\u001b[2m    14 × locator resolved to 4 elements\u001b[22m\n\n    at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/utils/assertions/ui-assertions.ts:24:72)\n    at OrderCompletionPage.shouldSeeTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/page-objects/checkout/order-completion-page.ts:53:21)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts:89:5\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts:86:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/utils/assertions/ui-assertions.ts",
+                      "column": 72,
+                      "line": 24
+                    },
+                    "snippet": "   at ../utils/assertions/ui-assertions.ts:24\n\n  22 |   description: string,\n  23 | ): Promise<void> {\n> 24 |   await expect(locator, `${description} must have the text \"${text}\"`).toHaveText(text);\n     |                                                                        ^\n  25 | }\n  26 |\n  27 | export async function expectContainText(locator: Locator, text: string, description: string): Promise<void> {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/utils/assertions/ui-assertions.ts",
+                        "column": 72,
+                        "line": 24
+                      },
+                      "message": "Error: Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 2\u001b[39m\n\u001b[31m+ Received  + 2\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"20.97¤\",\u001b[22m\n\u001b[2m    \"0.99¤\",\u001b[22m\n\u001b[32m-   \"2.10¤\",\u001b[39m\n\u001b[32m-   \"19.86¤\",\u001b[39m\n\u001b[31m+   \"2.20¤\",\u001b[39m\n\u001b[31m+   \"19.76¤\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\nCall log:\n\u001b[2m  - Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\" locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\u001b[22m\n\u001b[2m    14 × locator resolved to 4 elements\u001b[22m\n\n\n   at ../utils/assertions/ui-assertions.ts:24\n\n  22 |   description: string,\n  23 | ): Promise<void> {\n> 24 |   await expect(locator, `${description} must have the text \"${text}\"`).toHaveText(text);\n     |                                                                        ^\n  25 | }\n  26 |\n  27 | export async function expectContainText(locator: Locator, text: string, description: string): Promise<void> {\n    at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/utils/assertions/ui-assertions.ts:24:72)\n    at OrderCompletionPage.shouldSeeTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/page-objects/checkout/order-completion-page.ts:53:21)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts:89:5\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts:86:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 5405
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 380
+                    },
+                    {
+                      "title": "3. Check out and continue with the saved address",
+                      "duration": 412
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 366
+                    },
+                    {
+                      "title": "5. Redeem the 10% coupon of the current month",
+                      "duration": 305
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 295
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 873
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 5030,
+                      "error": {
+                        "message": "Error: Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 2\u001b[39m\n\u001b[31m+ Received  + 2\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"20.97¤\",\u001b[22m\n\u001b[2m    \"0.99¤\",\u001b[22m\n\u001b[32m-   \"2.10¤\",\u001b[39m\n\u001b[32m-   \"19.86¤\",\u001b[39m\n\u001b[31m+   \"2.20¤\",\u001b[39m\n\u001b[31m+   \"19.76¤\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\nCall log:\n\u001b[2m  - Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\" locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\u001b[22m\n\u001b[2m    14 × locator resolved to 4 elements\u001b[22m\n",
+                        "stack": "Error: Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 2\u001b[39m\n\u001b[31m+ Received  + 2\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"20.97¤\",\u001b[22m\n\u001b[2m    \"0.99¤\",\u001b[22m\n\u001b[32m-   \"2.10¤\",\u001b[39m\n\u001b[32m-   \"19.86¤\",\u001b[39m\n\u001b[31m+   \"2.20¤\",\u001b[39m\n\u001b[31m+   \"19.76¤\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\nCall log:\n\u001b[2m  - Order summary `Items`, `Delivery`, `Promotion`, `Total Price` must have the text \"20.97¤,0.99¤,2.10¤,19.86¤\" locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')\u001b[22m\n\u001b[2m    14 × locator resolved to 4 elements\u001b[22m\n\n    at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/utils/assertions/ui-assertions.ts:24:72)\n    at OrderCompletionPage.shouldSeeTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/page-objects/checkout/order-completion-page.ts:53:21)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts:89:5\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts:86:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/utils/assertions/ui-assertions.ts",
+                          "column": 72,
+                          "line": 24
+                        },
+                        "snippet": "   at ../utils/assertions/ui-assertions.ts:24\n\n  22 |   description: string,\n  23 | ): Promise<void> {\n> 24 |   await expect(locator, `${description} must have the text \"${text}\"`).toHaveText(text);\n     |                                                                        ^\n  25 | }\n  26 |\n  27 | export async function expectContainText(locator: Locator, text: string, description: string): Promise<void> {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.711Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                        "line": 26,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/test-results/specs-regression-checkout--8df86-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/utils/assertions/ui-assertions.ts",
+                    "column": 72,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6fbebc3a348484f47e52-d527a5d0b5cd549ff11d",
+          "file": "specs/regression/checkout/card-order.spec.ts",
+          "line": 26,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+      "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-06",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                    "line": 23,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 15052,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 2927
+                    },
+                    {
+                      "title": "2. Select `One Day Delivery` and click `Continue`",
+                      "duration": 265
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 2290
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month",
+                      "duration": 2381
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 183
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.713Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                        "line": 23,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c893c862839a34d15697-ba86d86967a01a06f250",
+          "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+          "line": 23,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/coupon/valid-coupon.spec.ts",
+      "file": "specs/regression/coupon/valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Valid coupon on the payment step",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-05",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                    "line": 27,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 12526,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click `Checkout`",
+                      "duration": 2728
+                    },
+                    {
+                      "title": "2. Select the saved address and click `Continue`",
+                      "duration": 218
+                    },
+                    {
+                      "title": "3. Select `One Day Delivery` and click `Continue`",
+                      "duration": 560
+                    },
+                    {
+                      "title": "4. Redeem the 10% coupon of the current month",
+                      "duration": 854
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 312
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.671Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                        "line": 27,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c514813ea4b0c6c80f4e-dc8ffd1a7408ebacebb4",
+          "file": "specs/regression/coupon/valid-coupon.spec.ts",
+          "line": 27,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/wallet/wallet-payment.spec.ts",
+      "file": "specs/regression/wallet/wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                    "line": 25,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 15313,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 2829
+                    },
+                    {
+                      "title": "2. Select `Standard Delivery` and click `Continue`",
+                      "duration": 575
+                    },
+                    {
+                      "title": "3. Read the wallet pay button",
+                      "duration": 7
+                    },
+                    {
+                      "title": "4. Open `Order History` from the account menu",
+                      "duration": 708
+                    },
+                    {
+                      "title": "5. Open `Digital Wallet` from the account menu",
+                      "duration": 937
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 108
+                    },
+                    {
+                      "title": "6. Check out again with the saved address and `Standard Delivery`",
+                      "duration": 745
+                    },
+                    {
+                      "title": "7. Click the wallet pay button",
+                      "duration": 152
+                    },
+                    {
+                      "title": "8. Click `Place your order and pay`",
+                      "duration": 133
+                    },
+                    {
+                      "title": "9. Open `Digital Wallet` from the account menu",
+                      "duration": 636
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 664
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:12:27.719Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                        "line": 25,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb4296d08ac7aa3630c8-0b9638c58cc5f1e41ab4",
+          "file": "specs/regression/wallet/wallet-payment.spec.ts",
+          "line": 25,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T07:12:26.387Z",
+    "duration": 29547.851,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

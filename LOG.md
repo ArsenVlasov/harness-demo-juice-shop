@@ -6,6 +6,56 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 10:40: measurements of run 1 done
+
+Start from: Arsen checks the judge by hand on 2 test cases in each suite (section 6 of the plan). Then the Thursday tasks of section 9: the README from `bench/results/summary.md`, the video and the offer sentence.
+Before generation runs 2 and 3, close the lock gap of the entry of 10:10.
+
+### Commands and real results
+
+The chain ran from 10:10:56 to 10:37:54 under `caffeinate -i`. Each step gave exit 0. The full output is in `bench/.run/measure-chain.log` (not in git).
+After the chain: `git -C juice-shop status --short` gave no output, and `bench/start-app.sh status` gave `down`.
+
+1. `node bench/run-mutants.mjs`, 10:10:56 to 10:26:21. Output: `bench/results/mutants.{json,md}` and 32 raw reports in `bench/results/mutants/`.
+   - Clean build: A `8/8`, B `8/8`. Recheck with `--repeat-each=3`: A `24/24`, B `24/24`. No catch was dropped by the recheck.
+   - Each of the 14 patches failed at least one test in each suite. A: 11 of 11 bugs caught, 14 of 14 patches (score 1). B: the same.
+   - For each patch, the catching test is the test case that `sealed/mutants.md` names. A and B have the same list of catching test cases for each patch. Examples: M08 is caught by TC-05 and TC-07. M15 is caught by TC-02 to TC-08.
+2. `node bench/run-flaky.mjs`, 10:26:21 to 10:34:25. 4 chunks of 5 runs for each suite, with an app restart before each chunk. Output: `bench/results/flaky.{json,md}`.
+   - A: 160 test runs, 7 stable tests, 1 flaky test, 0 broken tests. The flaky test is TC-08: 19 passed, 1 failed, in chunk 1.
+     The failure: `apiRequestContext.put: read ECONNRESET` on `PUT /rest/wallet/balance`, in the API top-up before part 2 (`support/api.ts:110`). It started at 07:26:34 UTC, 13 seconds after the app start, with 40 tests in parallel.
+     It is not a wrong check. The server closed the connection. Neither suite retries an API call. Under the pre-registered rule, the test counts as flaky.
+   - B: 160 test runs, 8 stable tests, 0 flaky tests, 0 broken tests.
+3. `node bench/run-judge.mjs --model claude-opus-5-5 --budget 10`, 10:34:25 to 10:37:54. Output: `bench/results/judge.md` and `bench/results/judge/`. Mapping: `suite-1` = A, `suite-2` = B.
+   - A (`suite-1`): 49 of 49 steps, `covered` 47, `partial` 2, `missing` 0. Cost 0.6099514 USD, 35 turns, 0 permission denials.
+     - TC-01 step 1, `partial`: the code checks that the fields are visible, but not the labels `Email` and `Password`.
+     - TC-04 step 2, `partial`: for "No error message shows", the code checks only that the limit message is absent.
+   - B (`suite-2`): 49 of 49 steps, `covered` 49, `partial` 0, `missing` 0. Cost 0.7164904 USD, 43 turns, 0 permission denials.
+   - The Haiku test at 10:03 gave 47, 2, 0 for both suites. Thus the result of the judge depends on the model. There is one judge run for each suite.
+4. `node bench/collect-metrics.mjs`, 10:37:54. Output: `bench/results/summary.{md,csv}`.
+5. `ste-lint.py` on `mutants.md`, `flaky.md`, `judge.md` and `summary.md` in `bench/results/`: 0 hard violations.
+
+sha256: `mutants.json` `29d676d16f24f1138afa27afee7a2abfc4544a81350e8536774698b13f4ee37d`, `flaky.json` `4bee9742c010006e0d86505674da3e64ad389ef54ac2e92c765c29f6e6bdc898`, `summary.md` `758c8c7ba07131d6f9a1ccd9b12a44ed625a846cdbe592f219e10432d215c8e4`.
+
+### Result for each pre-registered hypothesis (`bench/hypotheses.md`)
+
+| Hypothesis | A | B | Result |
+|---|---|---|---|
+| 1. B misses fewer realistic bugs | 0 of 11 missed | 0 of 11 missed | Not supported. No difference |
+| 2. B has a higher mutation score | 14 of 14 | 14 of 14 | Not supported. No difference |
+| 3. B has fewer flaky tests | 1 (a connection reset in an API precondition) | 0 | Supported, by 1 test in 1 of 160 runs. A weak difference |
+| 4. The judge marks fewer steps `missing` in B | 0 | 0 | Not supported. `partial`: A 2, B 0 |
+| 5. B takes more time and costs more | 0.34 USD and 1.5 min for each test case | 1.01 USD and 2.9 min for each test case | Supported |
+
+The publication rule of `bench/hypotheses.md` applies: A caught as many bugs as B. Thus the offer sentence must not claim that the harness catches more bugs.
+It can name only the metrics with a difference: the 2 partial steps, the 1 flaky test and the cost. The sample is 1 run for each suite.
+
+## 2026-10-20, 10:11: judge model decided, full measurements start
+
+- At 10:10, Arsen chose Opus 5.5 (`claude-opus-5-5`) for the judge, as section 6 of the plan says. This is a human intervention. Section 12 of the plan, item 18, has this decision.
+  The README must name in its limits that the judge and the writer of the tests are the same model.
+- Arsen told me to run the full measurements now, one after the other: `run-mutants.mjs`, `run-flaky.mjs`, `run-judge.mjs --model claude-opus-5-5 --budget 10`, `collect-metrics.mjs`.
+- The chain runs under `caffeinate -i`. The results follow in the next entry.
+
 ## 2026-10-20, 10:10: measurement scripts ready, tested on small sets
 
 Start from: Arsen decides the judge model (section 12 of the plan, item 3). Then run the full measurements, one after the other, because they use the same app on :3000:

@@ -1,0 +1,3515 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "--repeat-each=5"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/test-results",
+        "repeatEach": 5,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/test-results",
+        "repeatEach": 5,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/regression/auth/login.spec.ts",
+      "file": "specs/regression/auth/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [
+            "auth"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-01",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7852,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: create a new customer, nobody is logged in",
+                      "duration": 550
+                    },
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 520
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 1552
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 2041
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 2777
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 87
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.109Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-01",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25206e6cf2d763aa16b3-f51faef1b2e4afbe78c7",
+          "file": "specs/regression/auth/login.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [
+            "auth"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-01",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6731,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: create a new customer, nobody is logged in",
+                      "duration": 220
+                    },
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 790
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 463
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 2078
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 2928
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 71
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:18.528Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-01",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25206e6cf2d763aa16b3-b21d35680a1e4db2d15b",
+          "file": "specs/regression/auth/login.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [
+            "auth"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-01",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: create a new customer, nobody is logged in",
+                      "duration": 137
+                    },
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 503
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 1049
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 2048
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 2902
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 78
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:27.152Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-01",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25206e6cf2d763aa16b3-60368bcd6f9e10fed6c3",
+          "file": "specs/regression/auth/login.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [
+            "auth"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-01",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7319,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: create a new customer, nobody is logged in",
+                      "duration": 225
+                    },
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 522
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 1604
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 2040
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 2702
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 85
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:36.920Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-01",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25206e6cf2d763aa16b3-43324115e4f5c66aa501",
+          "file": "specs/regression/auth/login.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [
+            "auth"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-01",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 7972,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: create a new customer, nobody is logged in",
+                      "duration": 1315
+                    },
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 526
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 457
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 2076
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 3355
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 74
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:49.251Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-01",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/auth/login.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25206e6cf2d763aa16b3-2f4d5ea46365c479ddee",
+          "file": "specs/regression/auth/login.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/add-to-basket.spec.ts",
+      "file": "specs/regression/basket/add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Add a product to the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-02",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6830,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 1367
+                    },
+                    {
+                      "title": "2. Click `Add to Basket` on the product",
+                      "duration": 2764
+                    },
+                    {
+                      "title": "3. Open the basket with the button `Your Basket`",
+                      "duration": 361
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.134Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-02",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9a4a5d3078af0a8f0db9-1a8856b501e441bad5e2",
+          "file": "specs/regression/basket/add-to-basket.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Add a product to the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-02",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3384,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 852
+                    },
+                    {
+                      "title": "2. Click `Add to Basket` on the product",
+                      "duration": 961
+                    },
+                    {
+                      "title": "3. Open the basket with the button `Your Basket`",
+                      "duration": 117
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:19.627Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-02",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9a4a5d3078af0a8f0db9-eb01b9fbe5af32e220dc",
+          "file": "specs/regression/basket/add-to-basket.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Add a product to the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-02",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 3254,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 871
+                    },
+                    {
+                      "title": "2. Click `Add to Basket` on the product",
+                      "duration": 1345
+                    },
+                    {
+                      "title": "3. Open the basket with the button `Your Basket`",
+                      "duration": 194
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:30.937Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-02",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9a4a5d3078af0a8f0db9-14ffa8658f67453da3e1",
+          "file": "specs/regression/basket/add-to-basket.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Add a product to the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-02",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3796,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 875
+                    },
+                    {
+                      "title": "2. Click `Add to Basket` on the product",
+                      "duration": 1811
+                    },
+                    {
+                      "title": "3. Open the basket with the button `Your Basket`",
+                      "duration": 168
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:42.055Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-02",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9a4a5d3078af0a8f0db9-47772c823123accf84d0",
+          "file": "specs/regression/basket/add-to-basket.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "Add a product to the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-02",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                    "line": 8,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 2669,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 375
+                    },
+                    {
+                      "title": "2. Click `Add to Basket` on the product",
+                      "duration": 551
+                    },
+                    {
+                      "title": "3. Open the basket with the button `Your Basket`",
+                      "duration": 904
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 9
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:53.464Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-02",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                        "line": 8,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9a4a5d3078af0a8f0db9-671e8f99f0c8a0d9c9c3",
+          "file": "specs/regression/basket/add-to-basket.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+      "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                    "line": 20,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 15718,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 2370
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 929
+                    },
+                    {
+                      "title": "3. Click the minus button in the row of product A",
+                      "duration": 776
+                    },
+                    {
+                      "title": "4. Click the minus button in the row of product A again",
+                      "duration": 4772
+                    },
+                    {
+                      "title": "5. Click the trash button in the row of product A",
+                      "duration": 2148
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.141Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                        "line": 20,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3cb9ec625fb4361ae759-3d8149d9a00750d2efa3",
+          "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                    "line": 20,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 11293,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 908
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 745
+                    },
+                    {
+                      "title": "3. Click the minus button in the row of product A",
+                      "duration": 256
+                    },
+                    {
+                      "title": "4. Click the minus button in the row of product A again",
+                      "duration": 5026
+                    },
+                    {
+                      "title": "5. Click the trash button in the row of product A",
+                      "duration": 2363
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:20.428Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                        "line": 20,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3cb9ec625fb4361ae759-d97083b25824654f324b",
+          "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                    "line": 20,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11557,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 913
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 1186
+                    },
+                    {
+                      "title": "3. Click the minus button in the row of product A",
+                      "duration": 202
+                    },
+                    {
+                      "title": "4. Click the minus button in the row of product A again",
+                      "duration": 5773
+                    },
+                    {
+                      "title": "5. Click the trash button in the row of product A",
+                      "duration": 2144
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:31.843Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                        "line": 20,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3cb9ec625fb4361ae759-cbb319d2b2edafcb6a66",
+          "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                    "line": 20,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14551,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 1408
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 2113
+                    },
+                    {
+                      "title": "3. Click the minus button in the row of product A",
+                      "duration": 2177
+                    },
+                    {
+                      "title": "4. Click the minus button in the row of product A again",
+                      "duration": 4666
+                    },
+                    {
+                      "title": "5. Click the trash button in the row of product A",
+                      "duration": 2969
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:43.396Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                        "line": 20,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3cb9ec625fb4361ae759-71e7a4c9b248bcbe14a9",
+          "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                    "line": 20,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12329,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 934
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 1189
+                    },
+                    {
+                      "title": "3. Click the minus button in the row of product A",
+                      "duration": 2118
+                    },
+                    {
+                      "title": "4. Click the minus button in the row of product A again",
+                      "duration": 4317
+                    },
+                    {
+                      "title": "5. Click the trash button in the row of product A",
+                      "duration": 2158
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:53.714Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/basket-quantity-and-remove.spec.ts",
+                        "line": 20,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3cb9ec625fb4361ae759-d13dfb9f0ba5266fbbc7",
+          "file": "specs/regression/basket/basket-quantity-and-remove.spec.ts",
+          "line": 20,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/purchase-limit.spec.ts",
+      "file": "specs/regression/basket/purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Purchase limit for one product",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-04",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                    "line": 9,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 23916,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and click `Add to Basket` on the product",
+                      "duration": 4736
+                    },
+                    {
+                      "title": "2. Open the basket and click the plus button until the quantity is 5",
+                      "duration": 4446
+                    },
+                    {
+                      "title": "3. Click the plus button one more time",
+                      "duration": 167
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 9685
+                    },
+                    {
+                      "title": "5. Open the product list and click `Add to Basket` on the product",
+                      "duration": 3046
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.129Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                        "line": 9,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "59a0bc4d1b9b9dba38fa-9c1a927fad57d5564dd5",
+          "file": "specs/regression/basket/purchase-limit.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "Purchase limit for one product",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-04",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                    "line": 9,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 22988,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and click `Add to Basket` on the product",
+                      "duration": 1943
+                    },
+                    {
+                      "title": "2. Open the basket and click the plus button until the quantity is 5",
+                      "duration": 6448
+                    },
+                    {
+                      "title": "3. Click the plus button one more time",
+                      "duration": 336
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 10267
+                    },
+                    {
+                      "title": "5. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2988
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:22.552Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                        "line": 9,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "59a0bc4d1b9b9dba38fa-c44094e09bf575760ab7",
+          "file": "specs/regression/basket/purchase-limit.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "Purchase limit for one product",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-04",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                    "line": 9,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 22352,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2635
+                    },
+                    {
+                      "title": "2. Open the basket and click the plus button until the quantity is 5",
+                      "duration": 5610
+                    },
+                    {
+                      "title": "3. Click the plus button one more time",
+                      "duration": 551
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 9565
+                    },
+                    {
+                      "title": "5. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2282
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:32.864Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                        "line": 9,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "59a0bc4d1b9b9dba38fa-2de4e2bd1f908b2c8032",
+          "file": "specs/regression/basket/purchase-limit.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "Purchase limit for one product",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-04",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                    "line": 9,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 22359,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2461
+                    },
+                    {
+                      "title": "2. Open the basket and click the plus button until the quantity is 5",
+                      "duration": 6329
+                    },
+                    {
+                      "title": "3. Click the plus button one more time",
+                      "duration": 712
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 9129
+                    },
+                    {
+                      "title": "5. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2322
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:43.607Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                        "line": 9,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "59a0bc4d1b9b9dba38fa-b358484d26789f513e67",
+          "file": "specs/regression/basket/purchase-limit.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "Purchase limit for one product",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-04",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                    "line": 9,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 19479,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2976
+                    },
+                    {
+                      "title": "2. Open the basket and click the plus button until the quantity is 5",
+                      "duration": 4695
+                    },
+                    {
+                      "title": "3. Click the plus button one more time",
+                      "duration": 55
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 8496
+                    },
+                    {
+                      "title": "5. Open the product list and click `Add to Basket` on the product",
+                      "duration": 2203
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:55.563Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                        "line": 9,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "59a0bc4d1b9b9dba38fa-0a483d77cfd71e1372dd",
+          "file": "specs/regression/basket/purchase-limit.spec.ts",
+          "line": 9,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/checkout/card-order.spec.ts",
+      "file": "specs/regression/checkout/card-order.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": true,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                    "line": 26,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 10973,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 4147
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 384
+                    },
+                    {
+                      "title": "3. Check out and continue with the saved address",
+                      "duration": 329
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 154
+                    },
+                    {
+                      "title": "5. Redeem the 10% coupon of the current month",
+                      "duration": 210
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 378
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 1359
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 24
+                    },
+                    {
+                      "title": "9. Read the basket counter and open the basket",
+                      "duration": 39
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 665
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.121Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                        "line": 26,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fbebc3a348484f47e52-d527a5d0b5cd549ff11d",
+          "file": "specs/regression/checkout/card-order.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": true,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                    "line": 26,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7772,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 2874
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 1357
+                    },
+                    {
+                      "title": "3. Check out and continue with the saved address",
+                      "duration": 233
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 205
+                    },
+                    {
+                      "title": "5. Redeem the 10% coupon of the current month",
+                      "duration": 300
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 375
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 130
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 22
+                    },
+                    {
+                      "title": "9. Read the basket counter and open the basket",
+                      "duration": 27
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 592
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:23.339Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                        "line": 26,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fbebc3a348484f47e52-5b27964a8cf97629c6b5",
+          "file": "specs/regression/checkout/card-order.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": true,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                    "line": 26,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8271,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 4386
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 268
+                    },
+                    {
+                      "title": "3. Check out and continue with the saved address",
+                      "duration": 197
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 213
+                    },
+                    {
+                      "title": "5. Redeem the 10% coupon of the current month",
+                      "duration": 138
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 198
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 136
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 24
+                    },
+                    {
+                      "title": "9. Read the basket counter and open the basket",
+                      "duration": 31
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 623
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:34.284Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                        "line": 26,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fbebc3a348484f47e52-daf91a5fe5d63c8e120e",
+          "file": "specs/regression/checkout/card-order.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": true,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                    "line": 26,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7961,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 2737
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 867
+                    },
+                    {
+                      "title": "3. Check out and continue with the saved address",
+                      "duration": 401
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 291
+                    },
+                    {
+                      "title": "5. Redeem the 10% coupon of the current month",
+                      "duration": 426
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 378
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 114
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 22
+                    },
+                    {
+                      "title": "9. Read the basket counter and open the basket",
+                      "duration": 32
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 627
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:44.689Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                        "line": 26,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fbebc3a348484f47e52-907b209e10e680bc1bd3",
+          "file": "specs/regression/checkout/card-order.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": true,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                    "line": 26,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7541,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 3592
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 272
+                    },
+                    {
+                      "title": "3. Check out and continue with the saved address",
+                      "duration": 179
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 227
+                    },
+                    {
+                      "title": "5. Redeem the 10% coupon of the current month",
+                      "duration": 136
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 184
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 234
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 16
+                    },
+                    {
+                      "title": "9. Read the basket counter and open the basket",
+                      "duration": 28
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 614
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:56.002Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                        "line": 26,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fbebc3a348484f47e52-e45d642d42ebbcebfeac",
+          "file": "specs/regression/checkout/card-order.spec.ts",
+          "line": 26,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+      "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-06",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                    "line": 23,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 12663,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 2365
+                    },
+                    {
+                      "title": "2. Select `One Day Delivery` and click `Continue`",
+                      "duration": 459
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 2238
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month",
+                      "duration": 2367
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 160
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.131Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                        "line": 23,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c893c862839a34d15697-ba86d86967a01a06f250",
+          "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-06",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                    "line": 23,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 10858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 2993
+                    },
+                    {
+                      "title": "2. Select `One Day Delivery` and click `Continue`",
+                      "duration": 188
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 2225
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month",
+                      "duration": 2417
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 929
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:24.162Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                        "line": 23,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c893c862839a34d15697-89b964099c7bde18ada5",
+          "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-06",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                    "line": 23,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 8302,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 1151
+                    },
+                    {
+                      "title": "2. Select `One Day Delivery` and click `Continue`",
+                      "duration": 240
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 2525
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month",
+                      "duration": 2163
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 155
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:34.498Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                        "line": 23,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c893c862839a34d15697-09a6770d631b790ef33a",
+          "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-06",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                    "line": 23,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10677,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 1887
+                    },
+                    {
+                      "title": "2. Select `One Day Delivery` and click `Continue`",
+                      "duration": 945
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 2973
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month",
+                      "duration": 2123
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 171
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:44.529Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                        "line": 23,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c893c862839a34d15697-8393b236b30ce3de1a92",
+          "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-06",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                    "line": 23,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 9605,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 2650
+                    },
+                    {
+                      "title": "2. Select `One Day Delivery` and click `Continue`",
+                      "duration": 340
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 2145
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month",
+                      "duration": 2110
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 174
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:56.487Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                        "line": 23,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c893c862839a34d15697-63fe915ed873731b6f49",
+          "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+          "line": 23,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/coupon/valid-coupon.spec.ts",
+      "file": "specs/regression/coupon/valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Valid coupon on the payment step",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-05",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                    "line": 27,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 8838,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click `Checkout`",
+                      "duration": 2100
+                    },
+                    {
+                      "title": "2. Select the saved address and click `Continue`",
+                      "duration": 178
+                    },
+                    {
+                      "title": "3. Select `One Day Delivery` and click `Continue`",
+                      "duration": 511
+                    },
+                    {
+                      "title": "4. Redeem the 10% coupon of the current month",
+                      "duration": 593
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 447
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.134Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                        "line": 27,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c514813ea4b0c6c80f4e-dc8ffd1a7408ebacebb4",
+          "file": "specs/regression/coupon/valid-coupon.spec.ts",
+          "line": 27,
+          "column": 5
+        },
+        {
+          "title": "Valid coupon on the payment step",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-05",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                    "line": 27,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 5033,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click `Checkout`",
+                      "duration": 1079
+                    },
+                    {
+                      "title": "2. Select the saved address and click `Continue`",
+                      "duration": 1449
+                    },
+                    {
+                      "title": "3. Select `One Day Delivery` and click `Continue`",
+                      "duration": 185
+                    },
+                    {
+                      "title": "4. Redeem the 10% coupon of the current month",
+                      "duration": 448
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 343
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:24.981Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                        "line": 27,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c514813ea4b0c6c80f4e-5fa62be5673842e7e7cc",
+          "file": "specs/regression/coupon/valid-coupon.spec.ts",
+          "line": 27,
+          "column": 5
+        },
+        {
+          "title": "Valid coupon on the payment step",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-05",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                    "line": 27,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 5453,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click `Checkout`",
+                      "duration": 1597
+                    },
+                    {
+                      "title": "2. Select the saved address and click `Continue`",
+                      "duration": 155
+                    },
+                    {
+                      "title": "3. Select `One Day Delivery` and click `Continue`",
+                      "duration": 171
+                    },
+                    {
+                      "title": "4. Redeem the 10% coupon of the current month",
+                      "duration": 160
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 234
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:35.476Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                        "line": 27,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c514813ea4b0c6c80f4e-e39712b1cf397d11635a",
+          "file": "specs/regression/coupon/valid-coupon.spec.ts",
+          "line": 27,
+          "column": 5
+        },
+        {
+          "title": "Valid coupon on the payment step",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-05",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                    "line": 27,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 5629,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click `Checkout`",
+                      "duration": 1125
+                    },
+                    {
+                      "title": "2. Select the saved address and click `Continue`",
+                      "duration": 333
+                    },
+                    {
+                      "title": "3. Select `One Day Delivery` and click `Continue`",
+                      "duration": 226
+                    },
+                    {
+                      "title": "4. Redeem the 10% coupon of the current month",
+                      "duration": 437
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 187
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:46.727Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                        "line": 27,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c514813ea4b0c6c80f4e-363758cbe1babc268e53",
+          "file": "specs/regression/coupon/valid-coupon.spec.ts",
+          "line": 27,
+          "column": 5
+        },
+        {
+          "title": "Valid coupon on the payment step",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-05",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                    "line": 27,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 6046,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click `Checkout`",
+                      "duration": 1611
+                    },
+                    {
+                      "title": "2. Select the saved address and click `Continue`",
+                      "duration": 1290
+                    },
+                    {
+                      "title": "3. Select `One Day Delivery` and click `Continue`",
+                      "duration": 417
+                    },
+                    {
+                      "title": "4. Redeem the 10% coupon of the current month",
+                      "duration": 435
+                    },
+                    {
+                      "title": "5. Select the saved card and click `Continue`",
+                      "duration": 222
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:56.446Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                        "line": 27,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c514813ea4b0c6c80f4e-0b93c1e94c2ca9943e0c",
+          "file": "specs/regression/coupon/valid-coupon.spec.ts",
+          "line": 27,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/wallet/wallet-payment.spec.ts",
+      "file": "specs/regression/wallet/wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                    "line": 25,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 13372,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 1701
+                    },
+                    {
+                      "title": "2. Select `Standard Delivery` and click `Continue`",
+                      "duration": 472
+                    },
+                    {
+                      "title": "3. Read the wallet pay button",
+                      "duration": 6
+                    },
+                    {
+                      "title": "4. Open `Order History` from the account menu",
+                      "duration": 649
+                    },
+                    {
+                      "title": "5. Open `Digital Wallet` from the account menu",
+                      "duration": 885
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 164
+                    },
+                    {
+                      "title": "6. Check out again with the saved address and `Standard Delivery`",
+                      "duration": 1325
+                    },
+                    {
+                      "title": "7. Click the wallet pay button",
+                      "duration": 146
+                    },
+                    {
+                      "title": "8. Click `Place your order and pay`",
+                      "duration": 127
+                    },
+                    {
+                      "title": "9. Open `Digital Wallet` from the account menu",
+                      "duration": 1396
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 636
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:10.120Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                        "line": 25,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb4296d08ac7aa3630c8-0b9638c58cc5f1e41ab4",
+          "file": "specs/regression/wallet/wallet-payment.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                    "line": 25,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10444,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 1186
+                    },
+                    {
+                      "title": "2. Select `Standard Delivery` and click `Continue`",
+                      "duration": 544
+                    },
+                    {
+                      "title": "3. Read the wallet pay button",
+                      "duration": 7
+                    },
+                    {
+                      "title": "4. Open `Order History` from the account menu",
+                      "duration": 589
+                    },
+                    {
+                      "title": "5. Open `Digital Wallet` from the account menu",
+                      "duration": 657
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 23
+                    },
+                    {
+                      "title": "6. Check out again with the saved address and `Standard Delivery`",
+                      "duration": 1393
+                    },
+                    {
+                      "title": "7. Click the wallet pay button",
+                      "duration": 890
+                    },
+                    {
+                      "title": "8. Click `Place your order and pay`",
+                      "duration": 829
+                    },
+                    {
+                      "title": "9. Open `Digital Wallet` from the account menu",
+                      "duration": 779
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 662
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:25.694Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                        "line": 25,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb4296d08ac7aa3630c8-27d6463f5043153bd530",
+          "file": "specs/regression/wallet/wallet-payment.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                    "line": 25,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 11615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 1703
+                    },
+                    {
+                      "title": "2. Select `Standard Delivery` and click `Continue`",
+                      "duration": 283
+                    },
+                    {
+                      "title": "3. Read the wallet pay button",
+                      "duration": 6
+                    },
+                    {
+                      "title": "4. Open `Order History` from the account menu",
+                      "duration": 603
+                    },
+                    {
+                      "title": "5. Open `Digital Wallet` from the account menu",
+                      "duration": 699
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 28
+                    },
+                    {
+                      "title": "6. Check out again with the saved address and `Standard Delivery`",
+                      "duration": 1435
+                    },
+                    {
+                      "title": "7. Click the wallet pay button",
+                      "duration": 262
+                    },
+                    {
+                      "title": "8. Click `Place your order and pay`",
+                      "duration": 1885
+                    },
+                    {
+                      "title": "9. Open `Digital Wallet` from the account menu",
+                      "duration": 1402
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 611
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:36.330Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                        "line": 25,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb4296d08ac7aa3630c8-e3156bc0e3b4dce5930b",
+          "file": "specs/regression/wallet/wallet-payment.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                    "line": 25,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8605,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 1968
+                    },
+                    {
+                      "title": "2. Select `Standard Delivery` and click `Continue`",
+                      "duration": 623
+                    },
+                    {
+                      "title": "3. Read the wallet pay button",
+                      "duration": 6
+                    },
+                    {
+                      "title": "4. Open `Order History` from the account menu",
+                      "duration": 607
+                    },
+                    {
+                      "title": "5. Open `Digital Wallet` from the account menu",
+                      "duration": 669
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 25
+                    },
+                    {
+                      "title": "6. Check out again with the saved address and `Standard Delivery`",
+                      "duration": 406
+                    },
+                    {
+                      "title": "7. Click the wallet pay button",
+                      "duration": 93
+                    },
+                    {
+                      "title": "8. Click `Place your order and pay`",
+                      "duration": 136
+                    },
+                    {
+                      "title": "9. Open `Digital Wallet` from the account menu",
+                      "duration": 608
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 637
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:46.123Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                        "line": 25,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb4296d08ac7aa3630c8-469d413fbfb317748203",
+          "file": "specs/regression/wallet/wallet-payment.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                    "line": 25,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 8041,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out and continue with the saved address",
+                      "duration": 1180
+                    },
+                    {
+                      "title": "2. Select `Standard Delivery` and click `Continue`",
+                      "duration": 188
+                    },
+                    {
+                      "title": "3. Read the wallet pay button",
+                      "duration": 6
+                    },
+                    {
+                      "title": "4. Open `Order History` from the account menu",
+                      "duration": 602
+                    },
+                    {
+                      "title": "5. Open `Digital Wallet` from the account menu",
+                      "duration": 675
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 23
+                    },
+                    {
+                      "title": "6. Check out again with the saved address and `Standard Delivery`",
+                      "duration": 318
+                    },
+                    {
+                      "title": "7. Click the wallet pay button",
+                      "duration": 111
+                    },
+                    {
+                      "title": "8. Click `Place your order and pay`",
+                      "duration": 234
+                    },
+                    {
+                      "title": "9. Open `Digital Wallet` from the account menu",
+                      "duration": 576
+                    },
+                    {
+                      "title": "10. Open `Order History` from the account menu",
+                      "duration": 666
+                    }
+                  ],
+                  "startTime": "2026-10-20T07:32:57.571Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                        "line": 25,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb4296d08ac7aa3630c8-6165d27c956503bc83d5",
+          "file": "specs/regression/wallet/wallet-payment.spec.ts",
+          "line": 25,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T07:32:09.350Z",
+    "duration": 66060.753,
+    "expected": 40,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

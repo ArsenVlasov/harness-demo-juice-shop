@@ -1,0 +1,26 @@
+# Summary: suite A and suite B, run 1
+
+Source: `bench/collect-metrics.mjs`, 2026-10-20T07:37:54.617Z. Inputs: `mutants`, `flaky`, `judge`.
+
+| Metric | A (no harness) | B (harness) | Source |
+|---|---|---|---|
+| Realistic bugs missed | 0 of 11 | 0 of 11 | `mutants.json` |
+| Bugs missed (IDs) | none | none | `mutants.json` |
+| Mutation score | 14 of 14 (1) | 14 of 14 (1) | `mutants.json` |
+| Flaky tests (20 runs) | 1 | 0 | `flaky.json` |
+| Broken tests (20 runs) | 0 | 0 | `flaky.json` |
+| Judge: steps covered / partial / missing | 47 / 2 / 0 of 49 | 49 / 0 / 0 of 49 | `judge/` |
+| Judge model | claude-opus-5-5 | claude-opus-5-5 | `judge/` |
+| Generation cost, USD | 2.69 | 8.12 | `gen-*-1.json` |
+| Cost for each test case, USD | 0.34 | 1.01 | `gen-*-1.json` |
+| Work time, min | 12.4 | 23.3 | `transcript` |
+| Work time for each test case, min | 1.5 | 2.9 | `transcript` |
+| Sleep of the computer during the run, min | 0 | 534.8 | `transcript` |
+| Tool calls of the main agent | 96 | 155 | `transcript` |
+| Subagents | 0 | 4 | `gen-*-1.json` |
+| Follow-up messages | 0 | 0 | `gen-*-1.json` |
+| Tests | 8 | 8 | `clean-*-1.json` |
+| Files written | 26 | 42 | `git diff gen-1~1 gen-1` |
+| Lines written | 1246 | 1953 | `git diff gen-1~1 gen-1` |
+
+Not measured: `rules:lint` for suite A. The linter checks only the folder layout of the harness, so its numbers for A do not compare with B.
