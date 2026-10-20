@@ -6,6 +6,25 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 16:55: checkpoint 2, part 1: the vague writer session starts
+
+Start from: the result of the vague writer session in `bench/results/vague-writer-1.*`. The next entry records it and the steps "After" of section 8 of `bench/vague-rule.md`.
+
+- At 16:48, Arsen gave "yes" to the rule `bench/vague-rule.md` of commit `ba6f689`. He also gave "yes" to the session that applies it: model `claude-opus-5-5`, `--max-budget-usd 5`.
+  This is a human intervention. Section 10 of the stage 2 plan, item 10, has it.
+- `bench/claude-locked.sh`: new options `--allow <tool>` (repeated, replaces the generation tool list), `--deny <tool>` and `--no-mcp`. The reason: section 8 of the rule gives the session other tools and no MCP server.
+  - Sandbox test at 16:52 with `CL_FAKE_CLAUDE` and all roots in a temp folder. With the new options, the arguments were `--strict-mcp-config --allowedTools Read Write Edit Glob Grep Bash(node check-vague.mjs *) --disallowedTools WebFetch WebSearch Agent Task`, with no `--mcp-config`.
+  - With no new option, the arguments were the same as before: the generation tool list and `--mcp-config`. All modes came back after each test.
+- The work folder `harness-demo-runs/tc-rewrite/`, made at 16:50 by section 8, steps 1 and 2. It holds only these 3 inputs:
+  - `test-cases/` from `git archive test-cases-v1 test-cases`. Folder sha256 `096f5035db6fcc2b53709c2c0f69f56f5ea9a8e1959101974c7e5763c694d067`, the hash of `test-cases-v1`.
+  - `vague-rule.md` from `git show ba6f689:bench/vague-rule.md`, sha256 `44c1a2b2ef840d5046c938a66a25b335584ffe0b4d3d75efc937e6e9dd2873ad`. It is byte for byte the lab copy.
+  - `check-vague.mjs`, taken by `awk` from the `~~~js` block of that file, sha256 `33de4bb4b4bfb10033a75e055deca54ac2a76fc171209c005ecedc23ebfcec5c`. `node --check`: no error.
+- The prompt: `bench/prompt-vague-writer.txt`, taken by `awk` from the `~~~text` block of section 8, sha256 `0a7bc2184a377cfb58dac15a8376b4ac3692d37b34be5c7bd95f0d138b9727e3`.
+- The command (section 8, step 4), with the output in `bench/.run/vague-writer.log`:
+  `bench/claude-locked.sh --dir harness-demo-runs/tc-rewrite --prompt-file bench/prompt-vague-writer.txt --model claude-opus-5-5 --tag vague-writer-1 --budget 5`
+  plus `--allow Read --allow Write --allow Edit --allow Glob --allow Grep --allow "Bash(node check-vague.mjs *)"`, `--deny WebFetch --deny WebSearch --deny Agent --deny Task --deny Skill --deny NotebookEdit` and `--no-mcp`.
+  `--deny Skill`: the synced user skills (for example `asd-ste100`) must not change the words of the cells.
+
 ## 2026-10-20, 16:50: runs 2 and 3 measured (n = 3 for the precise test cases), vague rule revised
 
 Start from: checkpoint 2 of the stage 2 plan. Arsen gives "yes" to the rule `bench/vague-rule.md`.

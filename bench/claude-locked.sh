@@ -4,6 +4,7 @@
 #
 #   bench/claude-locked.sh --dir <work dir> --prompt-file <file> --model <id> --tag <result name>
 #                          [--resume <session id>] [--budget <usd>] [--check] [--note <line>]...
+#                          [--allow <tool>]... [--deny <tool>]... [--no-mcp]
 #
 #   --dir          the working folder of the agent. It must be inside RUNS, except with --check.
 #   --prompt-file  the prompt. The script reads it before the lock. /dev/stdin also works.
@@ -16,6 +17,10 @@
 #   --check        a cheap check of this script: the work dir can be outside RUNS (a temp folder). The tag gets
 #                  the suffix -check-<HHMMSS>.
 #   --note         one more line for the .meta file, for example the template of the run. Repeat it for more lines.
+#   --allow        a tool for --allowedTools. Repeat it for more tools. With one or more --allow, the list replaces the
+#                  generation list ALLOWED_TOOLS (for other sessions, for example the vague writer of bench/vague-rule.md).
+#   --deny         a tool for --disallowedTools. Repeat it for more tools.
+#   --no-mcp       no MCP server: no --mcp-config (--strict-mcp-config stays, so the session gets no MCP server at all).
 #
 # Exit code: the exit code of claude. 2: a usage error. 1: a check before the run failed, or the restore failed.
 # 129, 130 or 143: the script got HUP, INT or TERM. It stops claude and its child processes before the restore.
@@ -38,11 +43,12 @@ usage() { sed -n '4,5p' "$0" >&2; exit 2; }
 die() { echo "error: $*" >&2; exit 1; }
 log() { echo "[$(date +%H:%M:%S)] $*"; }
 
-WORK_ARG=""; PROMPT_FILE=""; MODEL=""; TAG=""; SESSION_ID=""; BUDGET_USD=""; CHECK=0; NOTES=()
+WORK_ARG=""; PROMPT_FILE=""; MODEL=""; TAG=""; SESSION_ID=""; BUDGET_USD=""; CHECK=0; NOTES=(); ALLOW=(); DENY=(); NO_MCP=0
 while [ $# -gt 0 ]; do
   case "$1" in
     --check) CHECK=1; shift; continue ;;
-    --dir|--prompt-file|--model|--tag|--resume|--budget|--note) [ $# -ge 2 ] || usage ;;
+    --no-mcp) NO_MCP=1; shift; continue ;;
+    --dir|--prompt-file|--model|--tag|--resume|--budget|--note|--allow|--deny) [ $# -ge 2 ] || usage ;;
     *) echo "error: unknown argument: $1" >&2; usage ;;
   esac
   case "$1" in
@@ -53,6 +59,8 @@ while [ $# -gt 0 ]; do
     --resume) SESSION_ID="$2" ;;
     --budget) BUDGET_USD="$2" ;;
     --note) NOTES+=("$2") ;;
+    --allow) ALLOW+=("$2") ;;
+    --deny) DENY+=("$2") ;;
   esac
   shift 2
 done
@@ -85,6 +93,9 @@ ALLOWED_TOOLS=(
   "Bash(echo *)" "Bash(git status)" "Bash(git status *)" "Bash(git diff)" "Bash(git diff *)" "Bash(git log *)"
   "Skill" "Agent" "Task" "mcp__playwright"
 )
+[ ${#ALLOW[@]} -eq 0 ] || ALLOWED_TOOLS=("${ALLOW[@]}")
+DENY_ARGS=(); [ ${#DENY[@]} -eq 0 ] || DENY_ARGS=(--disallowedTools "${DENY[@]}")
+MCP_ARGS=(--mcp-config "$MCP_CONFIG"); [ "$NO_MCP" = 0 ] || MCP_ARGS=()
 # Decision 15 of stage 1: user-level items that both suites would see. They are hidden during the run only.
 USER_ITEMS=("$USER_CLAUDE/CLAUDE.md" "$USER_CLAUDE/skills/graphify" "$USER_CLAUDE/skills/ponytail"
   "$USER_CLAUDE/skills/ponytail-audit" "$USER_CLAUDE/skills/ponytail-debt" "$USER_CLAUDE/skills/ponytail-gain"
@@ -335,6 +346,8 @@ say "during: $(user_state)"
 RESUME=(); [ -z "$SESSION_ID" ] || RESUME=(--resume "$SESSION_ID")
 CMD="$CLAUDE_BIN"; [ -z "$FAKE_CLAUDE" ] || CMD="$FAKE_CLAUDE"
 say "model $MODEL, budget $BUDGET_USD, caffeinate -i, output stream-json$([ -z "$SESSION_ID" ] || echo ", resume $SESSION_ID")"
+say "allowed tools: ${ALLOWED_TOOLS[*]}"
+say "disallowed tools: ${DENY[*]:-none}. MCP: $([ "$NO_MCP" = 1 ] && echo 'none (--strict-mcp-config, no --mcp-config)' || echo "$(rel "$MCP_CONFIG")")"
 say "prompt sha256: $(printf '%s' "$PROMPT" | shasum -a 256 | cut -d' ' -f1)"
 if [ -z "$FAKE_CLAUDE" ]; then say "cli: $("$CLAUDE_BIN" --version 2>/dev/null)"; else say "cli: FAKE CLAUDE $FAKE_CLAUDE (test only, not the pinned CLI)"; fi
 say "locked during the run: chmod 000 $(rel "$LOCK_DIR") (was $LOCK_DIR_MODE): the outputs and this log"
@@ -352,8 +365,8 @@ set +e
   SHELL="${SHELL:-/bin/zsh}" TERM="${TERM:-xterm-256color}" LANG="${LANG:-en_US.UTF-8}" TMPDIR="${TMPDIR:-/tmp}" \
   PATH="$NODE_HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" DISABLE_AUTOUPDATER=1 \
   "$CMD" -p "$PROMPT" ${RESUME[@]+"${RESUME[@]}"} --model "$MODEL" --output-format stream-json --verbose \
-  --max-budget-usd "$BUDGET_USD" --permission-mode acceptEdits --strict-mcp-config --mcp-config "$MCP_CONFIG" \
-  --allowedTools "${ALLOWED_TOOLS[@]}") </dev/null >&3 2>&4 3>&- 4>&- &
+  --max-budget-usd "$BUDGET_USD" --permission-mode acceptEdits --strict-mcp-config ${MCP_ARGS[@]+"${MCP_ARGS[@]}"} \
+  --allowedTools "${ALLOWED_TOOLS[@]}" ${DENY_ARGS[@]+"${DENY_ARGS[@]}"}) </dev/null >&3 2>&4 3>&- 4>&- &
 CHILD=$!
 wait "$CHILD"
 RC=$?
