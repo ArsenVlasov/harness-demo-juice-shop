@@ -6,6 +6,37 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 18:15: the tamper list is bound and checked (checkpoint 3 waits for Arsen)
+
+Start from: checkpoint 3. Arsen reviews `bench/hypotheses-v2.md` (12 open questions) and the tamper list `bench/tamper-rules.json`.
+
+### The binder session, with proof
+
+- `bench/claude-locked.sh ... --tag binder-1` from 18:06:06 to 18:08:00, `claude exit=0, wall 112s`. Output: `bench/results/binder-1.*` and `bench/.run/binder.log`.
+- Result line: `"subtype":"success","is_error":false,"session_id":"6714c8d7-5a0a-4ab0-a942-baa8da9d94ba","num_turns":13,"total_cost_usd":0.7249854,"permission_denials":3`.
+- After the session: the modes came back, and `after: ... synced | CLAUDE.md: present`. No lock folder and no folder of hidden items stayed.
+- The rules file `harness-demo-runs/field-map/tamper-rules.json`: 22 bound rules, `"unbound": []`. sha256 `ebca83b3b167f65720a0c411df7206c0e411c17a9548a0e42f4c572b1c5d8027`.
+  The lab copy `bench/tamper-rules.json` has the same sha256.
+- Step 4 in the lab: `node bench/check-tamper-rules.mjs <field-map>/tamper-rules.json <field-map>/binding-tables.md <field-map>/capture-c1.jsonl <field-map>/capture-c2.jsonl`.
+  The result: 22 `ok` lines, 3 `note K5` lines (T11-a, T14-a and T14-b have no text literal) and `PASSED: all checks`, exit 0.
+- Choices of the binder, from its last message:
+  - T15-d, T15-e, T15-f and T16-a change texts in the translation file `GET /assets/i18n/en.json`. The page shows these texts from that file, not from an API response.
+  - The binder removed T15-a ("Placed … into basket.") and T15-c ("Your discount of …"). In `en.json` they are templates with placeholders, and K5 accepts only the exact text.
+  - "Invalid email or password." is in no JSON field of the capture. T15 has other bound texts, so it is not in `unbound`.
+  - It removed T08-c (the price total of each product row of the saved order), because its values are not values of T08.
+- Step 5, the tool-call audit: `node bench/audit-tool-calls.mjs --session 6714c8d7-5a0a-4ab0-a942-baa8da9d94ba --out audit-binder-1`, exit 0.
+  12 tool calls, 0 forbidden, 0 outside, 0 `../`. Each path is in `harness-demo-runs/field-map/`.
+
+### A correction: the allow list does not stop each shell command
+
+- In the binder session, these commands ran with no matching `--allow` rule: `cd`, `ls`, `cat` and `grep` inside the work folder.
+  Also `grep -v ... tamper-rules.json > tamper-rules.tmp && mv tamper-rules.tmp tamper-rules.json`.
+  The CLI refused only the 3 commands with a shell variable, a `for` loop or a heredoc. Its reasons: "A variable in this command can't be checked before it runs" and "Contains brace with quote character".
+- Thus Claude Code 2.1.299 runs read-only shell commands without a rule. With `--permission-mode acceptEdits`, it also runs a file change in the work folder.
+- The same applies to the vague writer session of 16:51. The entry of 16:55 says that the session "gets only these tools". That is not exact.
+  The audit of 17:00 shows that its calls stayed in its folder: 10 `Read`, 9 `Write` and 4 `Bash` calls ran, and 1 `Bash` call was denied.
+- The guards of each locked session are the `chmod 000` lock and the tool-call audit. The tool list only makes some calls harder.
+
 ## 2026-10-20, 18:10: the binder package, the binder folder, the binder session starts
 
 Start from: the result of the binder session in `bench/results/binder-1.*`. Then the check in the lab (step 4), the tool-call audit (step 5) and checkpoint 3.

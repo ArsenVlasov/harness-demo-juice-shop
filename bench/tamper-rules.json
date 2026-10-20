@@ -1,0 +1,27 @@
+{
+  "rules": [
+    {"id": "T01-a", "what": "the price of a product in the product list", "method": "GET", "path": "^/rest/products/search\\?q=", "field": "data[*].price", "op": "add", "value": 1},
+    {"id": "T02-a", "what": "the price of a product in the basket", "method": "GET", "path": "^/rest/basket/\\d+$", "field": "data.Products[*].price", "op": "add", "value": 1},
+    {"id": "T03-a", "what": "the quantity of a basket item, also the source of the basket counter", "method": "GET", "path": "^/rest/basket/\\d+$", "field": "data.Products[*].BasketItem.quantity", "op": "add", "value": 1},
+    {"id": "T04-a", "what": "the price of each delivery speed in the list", "method": "GET", "path": "^/api/Deliverys$", "field": "data[*].price", "op": "add", "value": 1},
+    {"id": "T04-b", "what": "the price of the selected delivery speed", "method": "GET", "path": "^/api/Deliverys/\\d+$", "field": "data.price", "op": "add", "value": 1},
+    {"id": "T05-a", "what": "the discount percentage of the coupon", "method": "PUT", "path": "^/rest/basket/\\d+/coupon/[^/?]+$", "field": "discount", "op": "add", "value": 1},
+    {"id": "T06-a", "what": "the total price of the saved order on the confirmation page", "method": "GET", "path": "^/rest/track-order/[^/?]+$", "field": "data[*].totalPrice", "op": "add", "value": 1},
+    {"id": "T07-a", "what": "the quantity of a product in the saved order on the confirmation page", "method": "GET", "path": "^/rest/track-order/[^/?]+$", "field": "data[*].products[*].quantity", "op": "add", "value": 1},
+    {"id": "T08-a", "what": "the line Delivery of the saved order on the confirmation page", "method": "GET", "path": "^/rest/track-order/[^/?]+$", "field": "data[*].deliveryPrice", "op": "add", "value": 1},
+    {"id": "T08-b", "what": "the line Promotion of the saved order on the confirmation page", "method": "GET", "path": "^/rest/track-order/[^/?]+$", "field": "data[*].promotionalAmount", "op": "addNumberString", "value": 1},
+    {"id": "T09-a", "what": "the total price of an order in the order history", "method": "GET", "path": "^/rest/order-history$", "field": "data[*].totalPrice", "op": "add", "value": 1},
+    {"id": "T10-a", "what": "the quantity of a product in the order history", "method": "GET", "path": "^/rest/order-history$", "field": "data[*].products[*].quantity", "op": "add", "value": 1},
+    {"id": "T11-a", "what": "the order ID in the order history", "method": "GET", "path": "^/rest/order-history$", "field": "data[*].orderId", "op": "set", "value": "MUT"},
+    {"id": "T12-a", "what": "the bonus points of an order in the order history", "method": "GET", "path": "^/rest/order-history$", "field": "data[*].bonus", "op": "add", "value": 1},
+    {"id": "T13-a", "what": "the wallet balance", "method": "GET", "path": "^/rest/wallet/balance$", "field": "data", "op": "add", "value": 1},
+    {"id": "T14-a", "what": "the email of the customer in the session", "method": "GET", "path": "^/rest/user/whoami$", "field": "user.email", "op": "set", "value": "mut@example.test"},
+    {"id": "T14-b", "what": "the email of the customer in the session, email-only query", "method": "GET", "path": "^/rest/user/whoami\\?fields=email$", "field": "user.email", "op": "set", "value": "mut@example.test"},
+    {"id": "T15-b", "what": "the error text You can order only up to 5 items of this product.", "method": "PUT", "path": "^/api/BasketItems/\\d+$", "field": "error", "op": "set", "value": "MUT"},
+    {"id": "T15-d", "what": "the error text Invalid coupon.", "method": "GET", "path": "^/assets/i18n/en\\.json$", "field": "INVALID_COUPON", "op": "set", "value": "MUT"},
+    {"id": "T15-e", "what": "the message text Thank you for your purchase!", "method": "GET", "path": "^/assets/i18n/en\\.json$", "field": "THANKS_FOR_PURCHASE", "op": "set", "value": "MUT"},
+    {"id": "T15-f", "what": "the message text You have not placed any orders yet.", "method": "GET", "path": "^/assets/i18n/en\\.json$", "field": "NO_ORDERS_PLACED", "op": "set", "value": "MUT"},
+    {"id": "T16-a", "what": "the name of the payment method Digital Wallet", "method": "GET", "path": "^/assets/i18n/en\\.json$", "field": "DIGITAL_WALLET", "op": "set", "value": "MUT"}
+  ],
+  "unbound": []
+}
