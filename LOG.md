@@ -6,6 +6,67 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 11:30: `run-generation.sh` ready for runs 2 and 3, lock gap closed
+
+Start from: runs 2 and 3 of A and B after 22.10, with `bench/run-generation.sh A <n>` and `bench/run-generation.sh B <n>`.
+Each run needs "yes" from Arsen at checkpoint 4. Before each run, start the app with `bench/start-app.sh start`.
+
+### Changes in `bench/run-generation.sh`
+
+sha256 after the change: `d58b1a6640c47947ae999207d9096f73c7490439db4ad0ab77bbbd654932487e`.
+
+1. Lock. During the run, these paths have mode 000: `sealed/`, `bench/results/`, `LOG.md` and each `bench/.run/measure*.log`.
+   - I added `bench/.run/measure-chain.log`, because it has one line for each patch with the file name of the patch. The task did not name this file.
+   - After the lock, the script tries `ls` or `cat` on each locked path. If a read works, the script stops.
+   - During the run, the outputs go to `bench/.run/generation.lock/out/`. On exit, the trap restores the modes and the user items. Then it moves the outputs into `bench/results/` and removes the lock folder.
+   - The trap runs on a normal exit, on an error, and on `HUP`, `INT` or `TERM`. On `TERM`, bash waits until `claude` stops and then restores. Thus the lock stays while the agent works.
+   - If the trap cannot run (`kill -9` or a power loss), the lock folder stays and the next run stops. The file `bench/.run/generation.lock/restore.txt` has the `chmod` commands with the old modes.
+2. Sleep. `claude -p` runs under `caffeinate -i`. This stops the idle sleep. It does not stop the sleep when the lid closes (`Clamshell Sleep` in run B-1). Thus keep the lid open on AC power.
+3. Output. `--output-format stream-json --verbose` writes all events into `gen-<S>-<n>.jsonl`. The script writes the last `result` event into `gen-<S>-<n>.json`.
+   This is the same object as the `json` output of run 1. The `.meta` file also gives `result_events`, the number of result events.
+4. A check run adds the time to its name, for example `gen-A-0-check-112855`. The reason: `gen-A-0-check.json` of 00:09 exists, and the script does not write over a result.
+5. No change in these items:
+   - the pinned CLI and its sha256, `env -i` and the model `claude-opus-5-5`
+   - the allowed tools, `--permission-mode acceptEdits` and the MCP config
+   - the hidden user items, the budget of 40 USD, the prompt and the follow-up text
+
+`bench/collect-metrics.mjs` needs no change. It reads `gen-<S>-<n>.json`, takes the cost from the last result event and takes the time from the transcript.
+
+### Commands and real results
+
+1. `SKIP_BUILD=1 bench/start-app.sh start` at 11:28: `up: http://localhost:3000/rest/admin/application-version = 200 after 4s`.
+2. `bench/run-generation.sh A 0 check`, from 11:28:57 to 11:29:02, script exit 0. An outside loop wrote `stat` of the 4 paths each second. Output: `bench/results/gen-A-0-check-112855.*`.
+   - Script output: 4 `locked: chmod 000` lines, 4 `probe` lines with `Permission denied`, `during: synced | CLAUDE.md: missing` and `claude exit=0, wall 5s`.
+   - Result line: `{"result_events":1,"subtype":"success","is_error":false,...,"total_cost_usd":0.00190487,"permission_denials":0}`.
+   - Then 4 `restored: chmod` lines, `restored: user items back in ~/.claude` and `after: graphify ponytail ponytail-audit ponytail-debt ponytail-gain ponytail-help ponytail-review synced | CLAUDE.md: present`.
+   - Outside loop, 6 lines from 11:28:57 to 11:29:02: each line gave `0 sealed 0 bench/results 0 LOG.md 0 bench/.run/measure-chain.log`.
+     From 11:28:58 to 11:29:01, the skill list was `synced` and one `caffeinate -i` process ran `claude`.
+   - After the run: `stat` gave `755 sealed`, `755 bench/results`, `644 LOG.md` and `644 bench/.run/measure-chain.log`. `~/.claude-harness-demo-hidden` and `bench/.run/generation.lock` did not exist.
+3. Output format: `gen-A-0-check-112855.jsonl` has 4 events: `system:init`, `assistant`, `rate_limit_event` and `result:success`.
+   The keys of `gen-A-0-check-112855.json` are the same as the keys of `gen-A-1.json` and of `gen-A-0-check.json`.
+4. `node bench/collect-metrics.mjs --run 0-check-112855 --out summary-check-try`: the script read the new file.
+   For A, it gave `Generation cost, USD` 0 (0.0019 USD, rounded to 2 places), `Subagents` 0 and `Follow-up messages` 0. The work time was 0, because a check runs in a temp folder with no suite transcript.
+   I removed the 2 `summary-check-try` files.
+5. Stop test: `bench/run-generation.sh A 0 check` in the background, then `kill -TERM` at 11:29:37 while the 4 paths had mode 000. Script exit 143.
+   - The restore ran at 11:29:41, after `claude` stopped: the 4 `restored: chmod` lines and the user items back in `~/.claude`.
+   - `saved: gen-A-0-check-112934.jsonl gen-A-0-check-112934.meta gen-A-0-check-112934.stderr in bench/results/`. There is no `.json`, because the script stopped before that step.
+   - After the test: the same modes as before the test, no hidden folder and no lock folder.
+6. Cost of the 2 check runs: 0.00190487 USD each, from the last result event of each `.jsonl`.
+7. `bench/start-app.sh stop`: `down: port 3000`. `git -C juice-shop status --short`: no output.
+
+### Facts for the next steps
+
+- I examined the 342 tool calls in the run 1 transcripts of A and B, with the 4 subagents of B. No tool call has a path in the lab, in `sealed/`, in `~/.claude/projects/` or in the session notes.
+  The 2 matches in A were the XPath `../..` in a page locator.
+- The lock does not cover these paths:
+  - `~/.claude/projects/` has the transcripts of the lab sessions and of the session that wrote the patches. This path was also open in run 1.
+  - The shared notes folder of the lab sessions has `sealed-hashes.md` with the file names of the patches. This path was also open in run 1.
+  - The lab `.git` folder has the old `bench/results/` files as compressed objects.
+  - The vault folder `demo/` has `juice-shop-readme-draft.md` with the patch list (entry of 10:55).
+  - `Bash(node *)` lets the agent run any code, also `chmod`. Thus mode 000 stops `cat`, `ls` and `grep`, but not an agent that tries to go around the lock.
+  - Arsen decides if runs 2 and 3 keep this state or if the lock covers more paths.
+- `collect-metrics.mjs` (function `volume`) and `run-judge.mjs` (`TAG`) use the tag `gen-1`. For runs 2 and 3, they must use `gen-<n>`.
+
 ## 2026-10-20, 10:55: README draft and offer sentence draft, not published
 
 Start from: Arsen reads the two drafts and checks the judge by hand on 2 test cases in each suite. Nothing is published before checkpoint 5.
