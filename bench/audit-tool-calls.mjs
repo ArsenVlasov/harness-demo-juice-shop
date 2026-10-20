@@ -26,7 +26,7 @@ const FORBIDDEN = [
 ]
 const TOOL_ROOTS = [
   path.join(os.homedir(), '.local', 'node-v24.21.0'), path.join(os.homedir(), 'Library', 'Caches', 'ms-playwright'),
-  '/usr/', '/bin/', '/sbin/', '/opt/homebrew/', '/dev/null'
+  '~/.local/node-v24.21.0', '~/Library/Caches/ms-playwright', '/usr/', '/bin/', '/sbin/', '/opt/homebrew/', '/dev/null'
 ]
 const ABS_PATH = /(?:~|\/(?:Users|private|var|tmp|etc|opt|Volumes|Library))\/[^\s'"`),\]}]*/g
 const RUNS_PATH = /\/Users\/[^\s'"`),\]}]*\/harness-demo-runs(?:\/[^\s'"`),\]}]*)?/g
@@ -71,15 +71,24 @@ function auditSession (s) {
   }
   if (!workDir) throw new Error(`no cwd in the transcript of ${s.id}`)
   const under = p => p === workDir || p.startsWith(workDir + '/')
+  // The folder of this session in the transcripts: Claude Code saves large tool outputs there (tool-results/), and the
+  // agent can read them back. It is the session's own data, not another session.
+  const ownSession = path.join(PROJECTS, workDir.replace(/[^A-Za-z0-9]/g, '-'), s.id) + '/'
   const flagged = { forbidden: [], outside: [], dotdot: [] }
   for (const c of calls) {
-    const hits = FORBIDDEN.filter(f => c.input.includes(f))
+    const input = c.input.split(ownSession).join('<own session>/')
+    const hits = FORBIDDEN.filter(f => input.includes(f))
     // A path to another run folder, for example .../harness-demo-runs/set-1/run-1/suite-b while the work dir is .../run-2/suite-b.
-    for (const p of c.input.match(RUNS_PATH) ?? []) if (!under(p)) hits.push(`runs path ${p}`)
+    // An end mark of a sentence after the path ("suite-b.") is not part of the path.
+    for (const m of input.match(RUNS_PATH) ?? []) {
+      const p = m.replace(/[.,:;]+$/, '')
+      if (!under(p)) hits.push(`runs path ${p}`)
+    }
     if (hits.length) flagged.forbidden.push({ ...c, hits: [...new Set(hits)] })
-    const outside = (c.input.match(ABS_PATH) ?? []).filter(p => !under(p) && !TOOL_ROOTS.some(r => p.startsWith(r)))
+    const outside = (input.match(ABS_PATH) ?? []).map(p => p.replace(/[.,:;]+$/, ''))
+      .filter(p => !under(p) && !TOOL_ROOTS.some(r => p.startsWith(r)))
     if (outside.length && !hits.length) flagged.outside.push({ ...c, paths: [...new Set(outside)] })
-    if (c.input.includes('../')) flagged.dotdot.push(c)
+    if (input.includes('../')) flagged.dotdot.push(c)
   }
   return { ...s, workDir, transcripts: files.length, calls: calls.length, ...flagged }
 }

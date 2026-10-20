@@ -1,0 +1,25 @@
+# Summary: suite A and suite B, run 3
+
+Source: `bench/collect-metrics.mjs`, 2026-10-20T13:32:47.957Z. Inputs: `mutants-precise-3`, `flaky-precise-3`, `judge-precise-3`.
+
+| Metric | A (no harness) | B (harness) | Source |
+|---|---|---|---|
+| Realistic bugs missed | 0 of 11 | 4 of 11 | `mutants-precise-3.json` |
+| Bugs missed (IDs) | none | M01 M03 M09 M13 | `mutants-precise-3.json` |
+| Mutation score | 14 of 14 (1) | 10 of 14 (0.714) | `mutants-precise-3.json` |
+| Flaky tests (20 runs) | 0 | 2 | `flaky-precise-3.json` |
+| Broken tests (20 runs) | 0 | 0 | `flaky-precise-3.json` |
+| Judge: steps covered / partial / missing | 46 / 3 / 0 of 49 | 49 / 0 / 0 of 49 | `judge-precise-3/` |
+| Judge model | claude-opus-5-5 | claude-opus-5-5 | `judge-precise-3/` |
+| Generation cost, USD | 2.06 | 6.49 | `gen-precise-*-3.json` |
+| Cost for each test case, USD | 0.26 | 0.81 | `gen-precise-*-3.json` |
+| Work time, min | 10.9 | 22.6 | `transcript` |
+| Work time for each test case, min | 1.4 | 2.8 | `transcript` |
+| Tool calls of the main agent | 63 | 150 | `transcript` |
+| Subagents | 0 | 3 | `gen-precise-*-3.json` |
+| Follow-up messages | 0 | 0 | `gen-precise-*-3.json` |
+| Tests | 8 | 8 | `clean-precise-*-3.json` |
+| Files written | 19 | 42 | `git diff gen-3~1 gen-3` |
+| Lines written | 1027 | 1960 | `git diff gen-3~1 gen-3` |
+
+Not measured: `rules:lint` for suite A. The linter checks only the folder layout of the harness, so its numbers for A do not compare with B.

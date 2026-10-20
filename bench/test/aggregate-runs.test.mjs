@@ -65,8 +65,8 @@ test('precise runs 1 to 3: mean, min, max and n for each suite', () => {
   const r = aggregate('--cond', 'precise', '--runs', '1,2,3')
   assert.equal(r.status, 0, r.stderr)
   const rows = readAggregate('precise')
-  assert.deepEqual(rows['Realistic bugs missed|A'], { mean: '1', min: '0', max: '2', n: '3', values: '0 of 11; 1 of 11; 2 of 11' })
-  assert.deepEqual(rows['Realistic bugs missed|B'], { mean: '0.33', min: '0', max: '1', n: '3', values: '0 of 11; 0 of 11; 1 of 11' })
+  assert.deepEqual(rows['Realistic bugs missed|A'], { mean: '1', min: '0', max: '2', n: '3', values: '0 of 11 / 1 of 11 / 2 of 11' })
+  assert.deepEqual(rows['Realistic bugs missed|B'], { mean: '0.33', min: '0', max: '1', n: '3', values: '0 of 11 / 0 of 11 / 1 of 11' })
   assert.equal(rows['Mutation score|A'].mean, '13')
   assert.equal(rows['Generation cost, USD|B'].mean, '8.24')
   assert.equal(rows['Generation cost, USD|B'].max, '9.1')
@@ -74,15 +74,15 @@ test('precise runs 1 to 3: mean, min, max and n for each suite', () => {
 
 test('the judge metric gives three metrics: covered, partial, missing', () => {
   const rows = readAggregate('precise')
-  assert.deepEqual(rows['Judge: steps covered|A'], { mean: '46', min: '45', max: '47', n: '3', values: '47; 46; 45' })
-  assert.deepEqual(rows['Judge: steps partial|A'], { mean: '2.67', min: '2', max: '3', n: '3', values: '2; 3; 3' })
-  assert.deepEqual(rows['Judge: steps missing|A'], { mean: '0.33', min: '0', max: '1', n: '3', values: '0 of 49; 0 of 49; 1 of 49' })
+  assert.deepEqual(rows['Judge: steps covered|A'], { mean: '46', min: '45', max: '47', n: '3', values: '47 / 46 / 45' })
+  assert.deepEqual(rows['Judge: steps partial|A'], { mean: '2.67', min: '2', max: '3', n: '3', values: '2 / 3 / 3' })
+  assert.deepEqual(rows['Judge: steps missing|A'], { mean: '0.33', min: '0', max: '1', n: '3', values: '0 of 49 / 0 of 49 / 1 of 49' })
   assert.equal(rows['Judge: steps partial|B'].mean, '0.33')
 })
 
 test('empty and n/a values do not count in n', () => {
   const rows = readAggregate('precise')
-  assert.deepEqual(rows['Work time, min|A'], { mean: '12.4', min: '12.4', max: '12.4', n: '1', values: '12.4; n/a; n/a' })
+  assert.deepEqual(rows['Work time, min|A'], { mean: '12.4', min: '12.4', max: '12.4', n: '1', values: '12.4 / n/a / n/a' })
   assert.equal(rows['Work time, min|B'].n, '3')
 })
 
@@ -92,14 +92,14 @@ test('text metrics are not in the table and the md lists them', () => {
   const md = fs.readFileSync(path.join(tmp, 'aggregate-precise.md'), 'utf8')
   assert.match(md, /Text metrics, not in the table: `Bugs missed \(IDs\)`, `Judge model`\./)
   assert.match(md, /Inputs: `summary\.csv`, `summary-precise-2\.csv`, `summary-precise-3\.csv`/)
-  assert.match(md, /\| Realistic bugs missed \| A \| 1 \| 0 \| 2 \| 3 \| 0 of 11; 1 of 11; 2 of 11 \|/)
+  assert.match(md, /\| Realistic bugs missed \| A \| 1 \| 0 \| 2 \| 3 \| 0 of 11 \/ 1 of 11 \/ 2 of 11 \|/)
 })
 
 test('vague run 1 reads summary-vague-1.csv, not the legacy summary.csv', () => {
   const r = aggregate('--cond', 'vague', '--runs', '1,2')
   assert.equal(r.status, 0, r.stderr)
   const rows = readAggregate('vague')
-  assert.deepEqual(rows['Realistic bugs missed|A'], { mean: '5', min: '4', max: '6', n: '2', values: '4 of 11; 6 of 11' })
+  assert.deepEqual(rows['Realistic bugs missed|A'], { mean: '5', min: '4', max: '6', n: '2', values: '4 of 11 / 6 of 11' })
   assert.match(fs.readFileSync(path.join(tmp, 'aggregate-vague.md'), 'utf8'), /Inputs: `summary-vague-1\.csv`, `summary-vague-2\.csv`/)
 })
 
@@ -156,6 +156,6 @@ test('a metric with only n/a values stays in the table with n 0', () => {
   fs.writeFileSync(path.join(tmp, 'summary-haiku-1.csv'), fs.readFileSync(path.join(tmp, 'summary-haiku-1.csv'), 'utf8') + '"Tests","n/a","n/a"\n')
   const r2 = aggregate('--cond', 'haiku', '--runs', '1,2')
   assert.equal(r2.status, 0, r2.stderr)
-  assert.deepEqual(readAggregate('haiku')['Tests|A'], { mean: '', min: '', max: '', n: '0', values: 'n/a; n/a' })
+  assert.deepEqual(readAggregate('haiku')['Tests|A'], { mean: '', min: '', max: '', n: '0', values: 'n/a / n/a' })
   assert.match(fs.readFileSync(path.join(tmp, 'aggregate-haiku.md'), 'utf8'), /Text metrics, not in the table: `Bugs missed \(IDs\)`, `Judge model`\./)
 })

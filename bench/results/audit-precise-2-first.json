@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-10-20T12:31:11.555Z",
+  "results": [
+    {
+      "suite": "A",
+      "file": "gen-precise-A-2.json",
+      "id": "8d708ec4-bb43-468a-8d95-95248cb89299",
+      "workDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a",
+      "transcripts": 1,
+      "calls": 68,
+      "forbidden": [],
+      "outside": [
+        {
+          "where": "8d708ec4-bb43-468a-8d95-95248cb89299.jsonl:41",
+          "tool": "Bash",
+          "input": "{\"command\":\"curl -sI http://localhost:3000 | head -5; curl -s \\\"http://localhost:3000/rest/products/search?q=\\\" | head -c 600; echo; curl -s http://localhost:3000/rest/admin/application-version; npx playwright --version; ls ~/Library/Caches/ms-playwright 2>/dev/null\",\"description\":\"Check app availability and Playwright setup\"}",
+          "paths": [
+            "~/Library/Caches/ms-playwright"
+          ]
+        }
+      ],
+      "dotdot": []
+    },
+    {
+      "suite": "B",
+      "file": "gen-precise-B-2.json",
+      "id": "8f7f9cc3-f988-4abd-9cea-30573a1bb321",
+      "workDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b",
+      "transcripts": 5,
+      "calls": 247,
+      "forbidden": [
+        {
+          "where": "8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:50",
+          "tool": "Read",
+          "input": "{\"file_path\":\"/Users/arsenvlasov/.claude/projects/-Users-arsenvlasov-Documents-WorkFolder-harness-demo-runs-set-1-run-2-suite-b/8f7f9cc3-f988-4abd-9cea-30573a1bb321/tool-results/bk8jg1xb2.txt\",\"allow_large\":true}",
+          "hits": [
+            ".claude/projects"
+          ]
+        },
+        {
+          "where": "8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:538",
+          "tool": "Agent",
+          "input": "{\"subagent_type\":\"spec-reviewer\",\"description\":\"Review login + add-to-basket specs\",\"prompt\":\"Review two specs (each separately, with its own coverage matrix and verdict):\\n1. Spec `tests/specs/regression/auth/login.spec.ts` against test case `test-cases/TC-01-login.md`.\\n2. Spec `tests/specs/regression/basket/add-to-basket.spec.ts` against test case `test-cases/TC-02-add-to-basket.md`.\\nAlso read `test-cases/README.md`. Follow every POM method, fixture (`fixtures/`), helper (`tests/helpers/`, `core/api/customer-setup.ts`) and assertion wrapper (`utils/assertions/ui-assertions.ts`) down to the real assertion. Repo root: /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b. Both specs already ran green on the live app and failed on purpose under a mutation. Return the coverage matrix, rule violations with path:line, and a verdict line per spec.\"}",
+          "hits": [
+            "runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b."
+          ]
+        },
+        {
+          "where": "8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:540",
+          "tool": "Agent",
+          "input": "{\"subagent_type\":\"spec-reviewer\",\"description\":\"Review basket quantity + limit specs\",\"prompt\":\"Review two specs (each separately, with its own coverage matrix and verdict):\\n1. Spec `tests/specs/regression/basket/basket-quantity.spec.ts` against test case `test-cases/TC-03-basket-quantity-and-remove.md`.\\n2. Spec `tests/specs/regression/basket/purchase-limit.spec.ts` against test case `test-cases/TC-04-purchase-limit.md`.\\nAlso read `test-cases/README.md`. Follow every POM method, fixture (`fixtures/`), helper (`tests/helpers/`, `core/api/customer-setup.ts`) and assertion wrapper (`utils/assertions/ui-assertions.ts`) down to the real assertion. Repo root: /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b. Both specs already ran green on the live app and failed on purpose under a mutation. Return the coverage matrix, rule violations with path:line, and a verdict line per spec.\"}",
+          "hits": [
+            "runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b."
+          ]
+        },
+        {
+          "where": "8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:542",
+          "tool": "Agent",
+          "input": "{\"subagent_type\":\"spec-reviewer\",\"description\":\"Review coupon specs\",\"prompt\":\"Review two specs (each separately, with its own coverage matrix and verdict):\\n1. Spec `tests/specs/regression/coupon/valid-coupon.spec.ts` against test case `test-cases/TC-05-valid-coupon.md`.\\n2. Spec `tests/specs/regression/coupon/invalid-coupon.spec.ts` against test case `test-cases/TC-06-invalid-and-expired-coupon.md`.\\nAlso read `test-cases/README.md`. Follow every POM method, fixture (`fixtures/`), helper (`tests/helpers/`, `core/api/customer-setup.ts`, `utils/helpers/coupon-helper.ts`) and assertion wrapper (`utils/assertions/ui-assertions.ts`) down to the real assertion. Repo root: /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b. Both specs already ran green on the live app and failed on purpose under a mutation. Return the coverage matrix, rule violations with path:line, and a verdict line per spec.\"}",
+          "hits": [
+            "runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b."
+          ]
+        },
+        {
+          "where": "8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:544",
+          "tool": "Agent",
+          "input": "{\"subagent_type\":\"spec-reviewer\",\"description\":\"Review card order + wallet specs\",\"prompt\":\"Review two specs (each separately, with its own coverage matrix and verdict):\\n1. Spec `tests/specs/regression/checkout/card-order.spec.ts` against test case `test-cases/TC-07-card-order-end-to-end.md`.\\n2. Spec `tests/specs/regression/wallet/wallet-payment.spec.ts` against test case `test-cases/TC-08-wallet-payment.md`.\\nAlso read `test-cases/README.md`. Follow every POM method, fixture (`fixtures/`), helper (`tests/helpers/`, `core/api/customer-setup.ts`, `utils/helpers/coupon-helper.ts`) and assertion wrapper (`utils/assertions/ui-assertions.ts`) down to the real assertion. Repo root: /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b. Both specs already ran green on the live app and failed on purpose under a mutation. Return the coverage matrix, rule violations with path:line, and a verdict line per spec.\"}",
+          "hits": [
+            "runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b."
+          ]
+        }
+      ],
+      "outside": [
+        {
+          "where": "8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:485",
+          "tool": "Bash",
+          "input": "{\"command\":\"cd /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b/tests/specs/regression && cp -r . /tmp/specs-backup-mutation && \\\\\\nperl -0pi -e 's/shouldSeeAccountMenuItem\\\\(ACCOUNT_MENU_ITEMS\\\\.logout\\\\)/shouldSeeAccountMenuItem(ACCOUNT_MENU_ITEMS.login)/' auth/login.spec.ts && \\\\\\nperl -0pi -e 's/(clickAddToBasket\\\\(PRODUCT\\\\);\\\\n.*\\\\n\\\\s*await searchPage\\\\.navbar\\\\.shouldSeeBasketCounter\\\\()1\\\\)/${1}2)/' basket/add-to-basket.spec.ts && \\\\\\nperl -0pi -e \\\"s/onlyProductB: '8.99¤'/onlyProductB: '8.98¤'/\\\" basket/basket-quantity.spec.ts && \\\\\\nperl -0pi -e 's/(waitForMessagesToClose[\\\\s\\\\S]*shouldKeepBasketCounter\\\\()PURCHASE_LIMIT_PER_PRODUCT\\\\)/${1}6)/' basket/purchase-limit.spec.ts && \\\\\\nperl -0pi -e \\\"s/promotion: '1.80¤'/promotion: '1.81¤'/\\\" coupon/valid-coupon.spec.ts && \\\\\\nperl -0pi -e \\\"s/totalPrice: '18.97¤'/totalPrice: '17.17¤'/\\\" coupon/invalid-coupon.spec.ts && \\\\\\nperl -0pi -e 's/shouldSeeOrderId\\\\(0, orderId\\\\)/shouldSeeOrderId(0, `\\\\${orderId}x`)/' checkout/card-order.spec.ts && \\\\\\nperl -0pi -e \\\"s/afterOrderWithBonus: '1.00'/afterOrderWithBonus: '0.00'/\\\" wallet/wallet-payment.spec.ts && \\\\\\ndiff -r /tmp/specs-backup-mutation . | grep '^[<>]'\",\"description\":\"Apply one mutation per spec and show the diff\"}",
+          "paths": [
+            "/tmp/specs-backup-mutation"
+          ]
+        },
+        {
+          "where": "8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:551",
+          "tool": "Bash",
+          "input": "{\"command\":\"npm run check > /tmp/check.log 2>&1; echo \\\"check exit=$?\\\"; grep -E \\\"problems|✓|✗|violations|ℹ (pass|fail)\\\" /tmp/check.log; npx playwright test 2>&1 | grep -E \\\"✓|✘|passed|failed\\\"; git status --short\",\"description\":\"Run check and full test run after revert\",\"timeout\":400000}",
+          "paths": [
+            "/tmp/check.log",
+            "/tmp/check.log;"
+          ]
+        }
+      ],
+      "dotdot": []
+    }
+  ]
+}

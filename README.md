@@ -9,11 +9,28 @@ This is the working lab, not the public repository. Arsen owns the experiment. T
 
 ## Status
 
-- Run 1 of each suite is done and measured.
+- Runs 1, 2 and 3 of each suite on the precise test cases are done and measured (n = 3).
 - Stage 2 started on 20.10. Its plan is `aqa-harness-integration/demo/demo-plan-v2-juice-shop.md` in the vault.
-  The stage 2 scripts are in `bench/`. Runs 2 and 3 of A and B on the precise test cases run on the night of 20.10.
+  The next steps are the vague test cases (E2) and the Haiku runs (E3). The rule for the vague set waits for checkpoint 2.
 - The Ukrainian README for the public repository is a draft in the vault: `aqa-harness-integration/demo/juice-shop-readme-draft.md`.
 - Nothing is published. Publication is checkpoint 5 in `CLAUDE.md`.
+
+## Results of runs 1 to 3, precise test cases
+
+Source: `bench/results/aggregate-precise.md`. Values for runs 1, 2 and 3.
+
+| Metric | A (no harness) | B (harness) |
+|---|---|---|
+| Realistic bugs missed, of 11 | 0 / 0 / 0 | 0 / 0 / 4 |
+| Mutation score, of 14 | 14 / 14 / 14 | 14 / 14 / 10 |
+| Flaky tests in 20 runs | 1 / 0 / 0 | 0 / 0 / 2 |
+| Blind judge: steps partial, of 49 | 2 / 0 / 3 | 0 / 1 / 0 |
+| Generation cost for each test case, USD | 0.34 / 0.26 / 0.26 | 1.01 / 0.86 / 0.81 |
+| Work time for each test case, min | 1.5 / 1.3 / 1.4 | 2.9 / 2.3 / 2.8 |
+
+- In run 3, the TC-07 test of B failed on each of the 4 missed patches. It also failed one recheck run on the clean build, so the pre-registered rule does not count these catches.
+  The failure is a timing failure right after an app start: the product list was not visible in time.
+- No step was `missing` for the judge in any run.
 
 ## Results of run 1
 

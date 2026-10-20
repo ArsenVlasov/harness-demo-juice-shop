@@ -1,0 +1,830 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4452,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 1042
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 1184
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 55
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 969
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 146
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.925Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b34bf74f2c2ef7a26f68-3f13381083f9e449f15d",
+          "file": "tc-01-login.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-02-add-to-basket.spec.ts",
+      "file": "tc-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 11752,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts:21:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts:18:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts",
+                      "column": 40,
+                      "line": 21
+                    },
+                    "snippet": "  19 |     await productList.addToBasket(product.name);\n  20 |     await expect(productList.message(`Placed ${product.name} into basket.`)).toBeVisible();\n> 21 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  22 |   });\n  23 |\n  24 |   await test.step('3. Open the basket', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts",
+                        "column": 40,
+                        "line": 21
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  19 |     await productList.addToBasket(product.name);\n  20 |     await expect(productList.message(`Placed ${product.name} into basket.`)).toBeVisible();\n> 21 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  22 |   });\n  23 |\n  24 |   await test.step('3. Open the basket', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts:21:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts:18:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 2947
+                    },
+                    {
+                      "title": "2. Add the product to the basket",
+                      "duration": 7721,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts:21:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts:18:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts",
+                          "column": 40,
+                          "line": 21
+                        },
+                        "snippet": "  19 |     await productList.addToBasket(product.name);\n  20 |     await expect(productList.message(`Placed ${product.name} into basket.`)).toBeVisible();\n> 21 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  22 |   });\n  23 |\n  24 |   await test.step('3. Open the basket', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.907Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results/tc-02-add-to-basket-TC-02-Add-a-product-to-the-basket-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-02-add-to-basket.spec.ts",
+                    "column": 40,
+                    "line": 21
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "22d97df45c3a3424b0cc-872148d67706da033e98",
+          "file": "tc-02-add-to-basket.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-03-basket-quantity-and-remove.spec.ts",
+      "file": "tc-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 12176,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" \"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> </span>\u001b[22m\n\u001b[2m       - unexpected value \" \"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" \"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> </span>\u001b[22m\n\u001b[2m       - unexpected value \" \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:16:50\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:13:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                      "column": 50,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     await basket.open();\n  15 |     await expect(basket.rows).toHaveCount(2);\n> 16 |     await expect(basket.quantity(productA.name)).toHaveText('1');\n     |                                                  ^\n  17 |     await expect(basket.quantity(productB.name)).toHaveText('1');\n  18 |     await expect(basket.totalPrice).toHaveText('Total Price: 13.98¤');\n  19 |     await expect(navBar.basketCounter).toHaveText('2');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                        "column": 50,
+                        "line": 16
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" \"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> </span>\u001b[22m\n\u001b[2m       - unexpected value \" \"\u001b[22m\n\n\n  14 |     await basket.open();\n  15 |     await expect(basket.rows).toHaveCount(2);\n> 16 |     await expect(basket.quantity(productA.name)).toHaveText('1');\n     |                                                  ^\n  17 |     await expect(basket.quantity(productB.name)).toHaveText('1');\n  18 |     await expect(basket.totalPrice).toHaveText('Total Price: 13.98¤');\n  19 |     await expect(navBar.basketCounter).toHaveText('2');\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:16:50\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:13:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 8014,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" \"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> </span>\u001b[22m\n\u001b[2m       - unexpected value \" \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" \"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity span.cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> </span>\u001b[22m\n\u001b[2m       - unexpected value \" \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:16:50\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:13:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                          "column": 50,
+                          "line": 16
+                        },
+                        "snippet": "  14 |     await basket.open();\n  15 |     await expect(basket.rows).toHaveCount(2);\n> 16 |     await expect(basket.quantity(productA.name)).toHaveText('1');\n     |                                                  ^\n  17 |     await expect(basket.quantity(productB.name)).toHaveText('1');\n  18 |     await expect(basket.totalPrice).toHaveText('Total Price: 13.98¤');\n  19 |     await expect(navBar.basketCounter).toHaveText('2');"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.907Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results/tc-03-basket-quantity-and--20eb8-ove-a-product-in-the-basket-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                    "column": 50,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4d01b774c6877a42b8c3-ab007e0ba36e8931538d",
+          "file": "tc-03-basket-quantity-and-remove.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-04-purchase-limit.spec.ts",
+      "file": "tc-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 11253,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts:15:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts:11:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                      "column": 40,
+                      "line": 15
+                    },
+                    "snippet": "  13 |     await productList.addToBasket(product.name);\n  14 |     await expect(productList.message(`Placed ${product.name} into basket.`)).toBeVisible();\n> 15 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  16 |   });\n  17 |\n  18 |   await test.step('2. Increase the quantity to 5 in the basket', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                        "column": 40,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  13 |     await productList.addToBasket(product.name);\n  14 |     await expect(productList.message(`Placed ${product.name} into basket.`)).toBeVisible();\n> 15 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  16 |   });\n  17 |\n  18 |   await test.step('2. Increase the quantity to 5 in the basket', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts:15:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts:11:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add the product to the basket from the product list",
+                      "duration": 10372,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts:15:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts:11:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                          "column": 40,
+                          "line": 15
+                        },
+                        "snippet": "  13 |     await productList.addToBasket(product.name);\n  14 |     await expect(productList.message(`Placed ${product.name} into basket.`)).toBeVisible();\n> 15 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  16 |   });\n  17 |\n  18 |   await test.step('2. Increase the quantity to 5 in the basket', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.922Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results/tc-04-purchase-limit-TC-04-Purchase-limit-for-one-product-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                    "column": 40,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4047ea462fa680f9ce53-49908356d3b6a68d004c",
+          "file": "tc-04-purchase-limit.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "failed",
+                  "duration": 13222,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts:44:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts:42:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                      "column": 46,
+                      "line": 44
+                    },
+                    "snippet": "  42 |   await test.step('5. Select the saved card and continue', async () => {\n  43 |     await payment.selectCardAndContinue('1111');\n> 44 |     await expect(orderSummary.line('Items')).toHaveText('17.98¤');\n     |                                              ^\n  45 |     await expect(orderSummary.line('Delivery')).toHaveText('0.99¤');\n  46 |     await expect(orderSummary.line('Promotion')).toHaveText('1.80¤');\n  47 |     await expect(orderSummary.line('Total Price')).toHaveText('17.17¤');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                        "column": 46,
+                        "line": 44
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n\n\n  42 |   await test.step('5. Select the saved card and continue', async () => {\n  43 |     await payment.selectCardAndContinue('1111');\n> 44 |     await expect(orderSummary.line('Items')).toHaveText('17.98¤');\n     |                                              ^\n  45 |     await expect(orderSummary.line('Delivery')).toHaveText('0.99¤');\n  46 |     await expect(orderSummary.line('Promotion')).toHaveText('1.80¤');\n  47 |     await expect(orderSummary.line('Total Price')).toHaveText('17.17¤');\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts:44:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts:42:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click Checkout",
+                      "duration": 3100
+                    },
+                    {
+                      "title": "2. Select the saved address and continue",
+                      "duration": 180
+                    },
+                    {
+                      "title": "3. Select One Day Delivery and continue",
+                      "duration": 220
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the current month",
+                      "duration": 235
+                    },
+                    {
+                      "title": "5. Select the saved card and continue",
+                      "duration": 5130,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts:44:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts:42:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                          "column": 46,
+                          "line": 44
+                        },
+                        "snippet": "  42 |   await test.step('5. Select the saved card and continue', async () => {\n  43 |     await payment.selectCardAndContinue('1111');\n> 44 |     await expect(orderSummary.line('Items')).toHaveText('17.98¤');\n     |                                              ^\n  45 |     await expect(orderSummary.line('Delivery')).toHaveText('0.99¤');\n  46 |     await expect(orderSummary.line('Promotion')).toHaveText('1.80¤');\n  47 |     await expect(orderSummary.line('Total Price')).toHaveText('17.17¤');"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.911Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results/tc-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                    "column": 46,
+                    "line": 44
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c10621caa65da8f16e6b-2a214647788f0c9e1be2",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "failed",
+                  "duration": 13029,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:40:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:38:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts",
+                      "column": 46,
+                      "line": 40
+                    },
+                    "snippet": "  38 |   await test.step('5. Select the saved card and continue', async () => {\n  39 |     await payment.selectCardAndContinue('1111');\n> 40 |     await expect(orderSummary.line('Items')).toHaveText('17.98¤');\n     |                                              ^\n  41 |     await expect(orderSummary.line('Delivery')).toHaveText('0.99¤');\n  42 |     await expect(orderSummary.line('Promotion')).toHaveText('0.00¤');\n  43 |     await expect(orderSummary.line('Total Price')).toHaveText('18.97¤');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts",
+                        "column": 46,
+                        "line": 40
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n\n\n  38 |   await test.step('5. Select the saved card and continue', async () => {\n  39 |     await payment.selectCardAndContinue('1111');\n> 40 |     await expect(orderSummary.line('Items')).toHaveText('17.98¤');\n     |                                              ^\n  41 |     await expect(orderSummary.line('Delivery')).toHaveText('0.99¤');\n  42 |     await expect(orderSummary.line('Promotion')).toHaveText('0.00¤');\n  43 |     await expect(orderSummary.line('Total Price')).toHaveText('18.97¤');\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:40:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:38:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout with the saved address",
+                      "duration": 2696
+                    },
+                    {
+                      "title": "2. Select One Day Delivery and continue",
+                      "duration": 505
+                    },
+                    {
+                      "title": "3. Redeem an invalid code",
+                      "duration": 208
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month",
+                      "duration": 109
+                    },
+                    {
+                      "title": "5. Select the saved card and continue",
+                      "duration": 5134,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\nExpected: \u001b[32m\"\u001b[7m17.98\u001b[27m¤\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0.00\u001b[27m¤\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').getByText('Items', { exact: true }) }).locator('td.price')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"mat-cell price\" _ngcontent-ng-c4138824240=\"\">0.00¤</td>\u001b[22m\n\u001b[2m       - unexpected value \"0.00¤\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:40:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:38:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts",
+                          "column": 46,
+                          "line": 40
+                        },
+                        "snippet": "  38 |   await test.step('5. Select the saved card and continue', async () => {\n  39 |     await payment.selectCardAndContinue('1111');\n> 40 |     await expect(orderSummary.line('Items')).toHaveText('17.98¤');\n     |                                              ^\n  41 |     await expect(orderSummary.line('Delivery')).toHaveText('0.99¤');\n  42 |     await expect(orderSummary.line('Promotion')).toHaveText('0.00¤');\n  43 |     await expect(orderSummary.line('Total Price')).toHaveText('18.97¤');"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.930Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results/tc-06-invalid-and-expired--a7088-d-coupon-and-expired-coupon-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts",
+                    "column": 46,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2e2fd1be63dc96462f88-d7f60360ce76065565b4",
+          "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-07-card-order-end-to-end.spec.ts",
+      "file": "tc-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "failed",
+                  "duration": 11831,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:20:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:17:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                      "column": 40,
+                      "line": 20
+                    },
+                    "snippet": "  18 |     await productList.open();\n  19 |     await productList.addToBasket(productA.name);\n> 20 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  21 |     await productList.addToBasket(productA.name);\n  22 |     await expect(navBar.basketCounter).toHaveText('2');\n  23 |     await productList.addToBasket(productB.name);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                        "column": 40,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  18 |     await productList.open();\n  19 |     await productList.addToBasket(productA.name);\n> 20 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  21 |     await productList.addToBasket(productA.name);\n  22 |     await expect(navBar.basketCounter).toHaveText('2');\n  23 |     await productList.addToBasket(productB.name);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:20:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:17:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time",
+                      "duration": 7770,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:20:40\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:17:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                          "column": 40,
+                          "line": 20
+                        },
+                        "snippet": "  18 |     await productList.open();\n  19 |     await productList.addToBasket(productA.name);\n> 20 |     await expect(navBar.basketCounter).toHaveText('1');\n     |                                        ^\n  21 |     await productList.addToBasket(productA.name);\n  22 |     await expect(navBar.basketCounter).toHaveText('2');\n  23 |     await productList.addToBasket(productB.name);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.941Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                    "column": 40,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5b5235fa264a4d697318-e62662abf4411df83dcd",
+          "file": "tc-07-card-order-end-to-end.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 7,
+                  "status": "failed",
+                  "duration": 13167,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:24:29\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:21:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                      "column": 29,
+                      "line": 24
+                    },
+                    "snippet": "  22 |     await chooseDelivery(shop, 'Standard Delivery');\n  23 |     await expect(payment.walletBalance).toHaveText('Wallet Balance 5.00');\n> 24 |     await expect(payButton).toBeVisible();\n     |                             ^\n  25 |   });\n  26 |\n  27 |   await test.step('3. The wallet button is disabled', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                        "column": 29,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\u001b[22m\n\n\n  22 |     await chooseDelivery(shop, 'Standard Delivery');\n  23 |     await expect(payment.walletBalance).toHaveText('Wallet Balance 5.00');\n> 24 |     await expect(payButton).toBeVisible();\n     |                             ^\n  25 |   });\n  26 |\n  27 |   await test.step('3. The wallet button is disabled', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:24:29\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:21:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout with the saved address",
+                      "duration": 1293
+                    },
+                    {
+                      "title": "2. Select Standard Delivery and continue",
+                      "duration": 5270,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('button').filter({ hasText: 'Pay 8.99¤' })\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:24:29\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:21:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                          "column": 29,
+                          "line": 24
+                        },
+                        "snippet": "  22 |     await chooseDelivery(shop, 'Standard Delivery');\n  23 |     await expect(payment.walletBalance).toHaveText('Wallet Balance 5.00');\n> 24 |     await expect(payButton).toBeVisible();\n     |                             ^\n  25 |   });\n  26 |\n  27 |   await test.step('3. The wallet button is disabled', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T13:14:10.904Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/test-results/tc-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                    "column": 29,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7c1eb09259c3bc780cd1-dfca555ecf4eda14da7e",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T13:14:09.896Z",
+    "duration": 15357.925,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

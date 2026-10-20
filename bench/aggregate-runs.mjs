@@ -111,7 +111,7 @@ function main () {
     .flatMap(m => Object.entries(table[m]).map(([s, values]) => ({ metric: m, suite: s, ...stats(values), values })))
 
   const show = v => (v == null ? 'n/a' : v)
-  const shown = values => values.map(v => (isEmpty(v) ? 'n/a' : v.trim())).join('; ')
+  const shown = values => values.map(v => (isEmpty(v) ? 'n/a' : v.trim())).join(' / ')
   const md = [
     `# Aggregate: condition ${cond}, runs ${runs.join(', ')}`,
     '',

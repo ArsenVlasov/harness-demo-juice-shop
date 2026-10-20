@@ -6,6 +6,150 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 16:50: runs 2 and 3 measured (n = 3 for the precise test cases), vague rule revised
+
+Start from: checkpoint 2 of the stage 2 plan. Arsen gives "yes" to the rule `bench/vague-rule.md`.
+Then a separate locked session writes `test-cases-vague/` (section 8 of the rule), and Arsen reads each changed cell.
+After that: checkpoint 3 (`bench/hypotheses-v2.md`).
+
+### Measurements of runs 2 and 3, with proof
+
+The commands ran one after the other from 15:50:07 to 16:32:48, each with exit 0. The output is in `bench/.run/measure-precise-2-3.log` (not in git).
+`run-mutants` run 2 ran in the chain before the stop (entry of 15:55).
+
+1. `node bench/run-flaky.mjs --cond precise --run 2`, 15:50:07 to 15:57:57. A: 9 tests, 180 test runs, 9 stable. B: 8 tests, 160 test runs, 8 stable.
+2. `node bench/run-judge.mjs --cond precise --run 2 --model claude-opus-5-5 --budget 10`, to 16:01:55. Mapping: `suite-1` = A, `suite-2` = B.
+   - A: 49 of 49 steps, `covered` 49, `partial` 0, `missing` 0. Cost 0.5713158 USD.
+   - B: 49 of 49 steps, `covered` 48, `partial` 1, `missing` 0. Cost 0.7489724 USD.
+     The partial step is TC-06 step 4. The note: the error from step 3 can pass the check of the expired coupon.
+3. `node bench/run-mutants.mjs --cond precise --run 3`, 16:01:55 to 16:17:48. A: 11 of 11 bugs, 14 of 14 patches. B: 7 of 11 bugs, 10 of 14 patches.
+   - B missed M01, M03, M09 and M13. For each of them, the TC-07 test of B failed on the build with the patch.
+     The TC-07 test also failed 1 of the 3 recheck runs on the clean build. The pre-registered rule (`bench/hypotheses.md`, hypothesis 1) then does not count the catch.
+     Thus the misses come from a flaky test, not from a weak check.
+   - The recheck failure: `Error: Product list should be visible`, `expect(locator).toBeVisible() failed`, `Locator: getByRole('article').first()`.
+4. `node bench/run-flaky.mjs --cond precise --run 3`, to 16:28:59. A: 8 tests, 160 test runs, 8 stable. B: 8 tests, 160 test runs, 6 stable, 2 flaky.
+   - The flaky tests of B are TC-04 and TC-07, each 19 passed and 1 failed. Both failures are in chunk 1 (`B-1.json`), with the same error as the recheck failure.
+   - Chunk 1 and the recheck both start right after an app start, with the tests in parallel. The flaky test of A-1 failed in the same place (entry of 10:40).
+5. `node bench/run-judge.mjs --cond precise --run 3 --model claude-opus-5-5 --budget 10`, to 16:32:47. Mapping: `suite-1` = A, `suite-2` = B.
+   - A: `covered` 46, `partial` 3, `missing` 0. Cost 0.573344 USD. Partial: TC-03 step 4, TC-04 step 5, TC-06 step 4.
+     All 3 notes say that the check can pass on the page state of the step before.
+   - B: `covered` 49, `partial` 0, `missing` 0. Cost 0.7920594 USD.
+6. `node bench/collect-metrics.mjs --cond precise --run 2` and `--run 3`: `bench/results/summary-precise-2.{md,csv}` and `summary-precise-3.{md,csv}`.
+7. `node bench/aggregate-runs.mjs --cond precise --runs 1,2,3`: `bench/results/aggregate-precise.{md,csv}`.
+   I changed the separator of the run values from a semicolon to " / " (STE has no semicolon). I updated the tests: `node --test bench/test/aggregate-runs.test.mjs` gave `tests 12`, `pass 12`, `fail 0`. Then I ran the aggregate again.
+8. `ste-lint.py` on each new `.md` file in `bench/results/`: 0 hard violations.
+
+The generation runs, from `gen-precise-<S>-<n>.json`. Each has `subtype` `success` and `is_error` `false`:
+
+| Run | Suite | Session | Cost, USD | Clean run |
+|---|---|---|---|---|
+| 2 | A | `8d708ec4-bb43-468a-8d95-95248cb89299` | 2.0601526 | `9 passed (11.3s)` |
+| 2 | B | `8f7f9cc3-f988-4abd-9cea-30573a1bb321` | 6.9024895 | `8 passed (24.4s)` |
+| 3 | A | `adada483-23a5-4fb9-99c2-43a81df8fd90` | 2.0575258 | `8 passed (12.0s)` |
+| 3 | B | `f32e8e6a-72cb-427c-8d05-32c943a95c83` | 6.4910248 | `8 passed (18.7s)` |
+
+Cost of runs 2 and 3: 17.51 USD for the generation, 2.69 USD for the judge, 0.0019 USD for the check run.
+
+### The precise test cases, n = 3 (runs 1, 2, 3)
+
+| Metric | A, values | B, values | A mean | B mean |
+|---|---|---|---|---|
+| Realistic bugs missed, of 11 | 0 / 0 / 0 | 0 / 0 / 4 | 0 | 1.33 |
+| Mutation score, of 14 | 14 / 14 / 14 | 14 / 14 / 10 | 14 | 12.67 |
+| Flaky tests, 20 runs | 1 / 0 / 0 | 0 / 0 / 2 | 0.33 | 0.67 |
+| Judge `partial`, of 49 | 2 / 0 / 3 | 0 / 1 / 0 | 1.67 | 0.33 |
+| Judge `missing`, of 49 | 0 / 0 / 0 | 0 / 0 / 0 | 0 | 0 |
+| Cost for each test case, USD | 0.34 / 0.26 / 0.26 | 1.01 / 0.86 / 0.81 | 0.29 | 0.89 |
+| Work time for each test case, min | 1.5 / 1.3 / 1.4 | 2.9 / 2.3 / 2.8 | 1.4 | 2.67 |
+
+The stage 1 hypotheses (`bench/hypotheses.md`) with n = 3. This reading is descriptive. The n = 3 reading rule of `bench/hypotheses-v2.md` came after the first measurement of run 2. Thus it does not apply here.
+
+| Hypothesis | Result with n = 3 |
+|---|---|
+| 1. B misses fewer realistic bugs | Not supported. A missed 0 in each run. B missed 4 in run 3, through a flaky test |
+| 2. B has a higher mutation score | Not supported. A 14 in each run, B 14, 14 and 10 |
+| 3. B has fewer flaky tests | Not supported. A 1, 0, 0. B 0, 0, 2. In run 1 the direction was the other way |
+| 4. The judge marks fewer steps `missing` in B | Not supported. 0 for both in each run. `partial`: B is lower in 2 of 3 runs |
+| 5. B takes more time and costs more | Supported in each run |
+
+### The vague rule, revised for decision 6 (workflow `wf_49f4ee96-f4f`, 16:00 to 16:36)
+
+- 4 agents, 0 errors: 1 author, 2 reviewers and 1 fix. Only `bench/vague-rule.md` changed. No agent wrote a vague set into the lab.
+- New rule D for the test data: each value part is an input or an output. An input stays, an output goes. A row with no input goes.
+  In the text lines, an action sentence stays, and a calculation or a result sentence goes.
+  `check-vague.mjs --classes` prints each test data line that rule D gives. The new check C14 compares each line, character for character.
+- The reviewers found 3 minor problems, and the fix agent fixed all 3. C5 now also finds non-ASCII digits, and C6 finds more number words.
+- Tests of the fix agent:
+  - A full vague set of the 8 files that obeys the rule: `PASSED: all checks`.
+  - 21 broken variants: each one failed with the expected check.
+  - The worked example TC-90: `PASSED`.
+  - `ste-lint.py`: 0 hard violations.
+- At 16:40, Arsen answered 3 questions about the rule. These are human interventions. Section 10 of the stage 2 plan, items 7 to 9, has them.
+  1. The first balance of TC-08 stays as an input, because the test sets it.
+  2. The text before `## Preconditions` and the preconditions stay word for word. They hold business rules, as a Jira ticket does.
+  3. The price of `Eggfruit Juice (500ml)` can come from TC-08 (first balance plus top-up, and `Pay 8.99¤` in the step column). This stays as a known limit.
+- I added these decisions to `bench/vague-rule.md`. `ste-lint.py`: `0 violations (0 hard, baseline 0), 5182 words`.
+
+## 2026-10-20, 15:55: the chain stopped by hand, measurements resumed
+
+- At about 15:47, Arsen stopped the background task of the chain by accident. This is a human intervention. He said that the work can go on.
+- The stop came in `node bench/run-flaky.mjs --cond precise --run 2`, after 2 of its 8 chunks. The last line of `bench/.run/chain-precise-2-3.log` is `[15:46:32]   suite set-1/run-2/suite-a A-2.json: 45/45 test runs passed, exit 0`.
+- The steps before the stop, from the chain log, each with exit 0:
+  - the generation, the clean run and the commit of A-2, B-2, A-3 and B-3, from 14:09:47 to 15:31:10
+  - `node bench/run-mutants.mjs --cond precise --run 2`, from 15:31:11 to 15:44:20
+- No clean run failed. Thus no run got the follow-up message.
+- State at 15:48:54: `git -C juice-shop status --short` gave no output, and the app was `down`.
+  `bench/.run/generation.lock` and `~/.claude-harness-demo-hidden` did not exist, and `~/.claude/CLAUDE.md` was in place.
+  `sealed`, `bench/results`, `LOG.md`, `.git` and `test-cases` had their normal modes.
+- I removed the partial output `bench/results/flaky-precise-2/` (the files `A-1.json` and `A-2.json`). The new run writes it again.
+
+### The tool-call audit of run 2: 5 false alarms, script fixed
+
+- In the chain, `node bench/audit-tool-calls.mjs --cond precise --run 2` gave exit 1 with 5 forbidden calls in B-2. I kept this output as `bench/results/audit-precise-2-first.{txt,json}`.
+  The raw report is a `.txt` file, because it quotes a shell command with a semicolon.
+  - 4 calls were `Agent` calls to `spec-reviewer`. Their text holds "repo root: .../set-1/run-2/suite-b." with a period at the end.
+    The regex took that period into the path.
+    The path is the work dir of B-2.
+  - 1 call was a `Read` of `~/.claude/projects/<key of B-2>/8f7f9cc3-f988-4abd-9cea-30573a1bb321/tool-results/bk8jg1xb2.txt`.
+    This is a large tool output of the same session, which Claude Code saved in the folder of that session. The lock keeps this folder open on purpose.
+- The fix in `bench/audit-tool-calls.mjs`: an end mark after a path is not part of the path. The folder of the session itself is allowed.
+  The `~` form of the Playwright browser folder and of Node is also allowed.
+- The new audit at 15:49:51, exit 0 for each run:
+
+| Run | Suite | Session | Transcripts | Tool calls | Forbidden | Outside | `../` |
+|---|---|---|---|---|---|---|---|
+| 2 | A | `8d708ec4-bb43-468a-8d95-95248cb89299` | 1 | 68 | 0 | 0 | 0 |
+| 2 | B | `8f7f9cc3-f988-4abd-9cea-30573a1bb321` | 5 | 247 | 0 | 2 | 0 |
+| 3 | A | `adada483-23a5-4fb9-99c2-43a81df8fd90` | 1 | 63 | 0 | 0 | 1 |
+| 3 | B | `f32e8e6a-72cb-427c-8d05-32c943a95c83` | 4 | 232 | 0 | 1 | 0 |
+
+- The outside paths are `/tmp/specs-backup-mutation` and `/tmp/check.log` (B-2) and `/tmp/check.log` (B-3). B writes them in its own mutation step and check step.
+  The `../` in A-3 is an import in `tests/support/fixtures.ts`.
+- Item 1.5: no tool call of runs 2 and 3 has a path in the lab, in the vault or in another run folder.
+  No tool call has a path in a transcript of another session.
+
+### Measurements resumed
+
+At about 15:52, I started the rest of the chain in the background, one step after the other. The output goes to `bench/.run/measure-precise-2-3.log`:
+`run-flaky` run 2, `run-judge` run 2 (`claude-opus-5-5`, budget 10), `collect-metrics` run 2.
+Then `run-mutants`, `run-flaky`, `run-judge` and `collect-metrics` for run 3, then `aggregate-runs --cond precise --runs 1,2,3`.
+
+## 2026-10-20, 15:50: two decisions of Arsen during the chain
+
+The chain locked `LOG.md` and the vault during each generation run. Thus I record these decisions after the last generation run.
+Section 10 of the stage 2 plan, items 5 and 6, has them. Both are human interventions.
+
+1. At 14:31: the extra locks stay. These are the items of `bench/claude-locked.sh` that the decision of 12:13 did not name:
+   - the transcripts and temp folders of earlier runs and of the patch session
+   - the lab copies of the test case sets, the lab `README.md`, `bench/*.md` and `bench/conditions.json`
+2. At 15:47: in the vague set, the test data tables of the TC files keep only the inputs. Inputs are the values that the user types or selects:
+   product names, the quantity to enter, the coupon code, the wallet top-up and the like.
+   The app outputs go: prices, the coupon percentage, the purchase limit, sums, bonus points and balances.
+   The reason: else an agent can calculate the expected values from the test data, and the vague set gives the same ceiling as stage 1.
+   I change `bench/vague-rule.md` and its check script. Arsen approves the rule at checkpoint 2.
+
+At 15:47, all 4 run folders of runs 2 and 3 had their tag (`gen-2` or `gen-3`). The next entry gives the results of the chain.
+
 ## 2026-10-20, 14:10: stage 2 scripts done, run 1 moved, lock checked, runs 2 and 3 start
 
 Start from: the result of the chain `bench/run-chain.sh precise 2 3` in `bench/.run/chain-precise-2-3.log`. The next entry records it.

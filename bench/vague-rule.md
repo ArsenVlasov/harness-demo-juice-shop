@@ -1,11 +1,14 @@
 # Rule: from precise test cases to vague test cases
 
 Status: draft for checkpoint 2 of the stage 2 plan. Arsen approves it. Nothing is frozen.
+It follows the decisions 6 to 9 in section 10 of the stage 2 plan.
 
 This rule makes the vague set `test-cases-vague/` from the precise set at the tag `test-cases-v1` (plan v2, experiment E2).
 The vague set gets the tag `test-cases-v2-vague`.
 A separate session applies the rule. That session sees only the precise set, this file and the check script.
 The rule is mechanical: two people who apply it must get almost the same text.
+For rules B and D, the text must be the same, character for character.
+Rule D follows decision 6 of the plan v2 (20.10, 15:47): the test data keeps only the inputs.
 The script `check-vague.mjs` (section 6) checks each part of the rule that a script can check.
 
 ## 1. Input and output of the session
@@ -21,9 +24,11 @@ Only the parts in section 3 change. All other text stays the same, character for
 - the file names
 - `README.md`, all of it
 - in each test case file: the title line, the field table (`ID`, `Title`, `Area`) and the text before `## Preconditions`
-- the preconditions, all headings and the test data tables
-- in the steps table: the header row, the step numbers and the step column
-- the text lines in the section `## Steps` outside the table
+- the preconditions and all headings
+- in each test data table: the header row and the separator row
+- in each test data row that rule D keeps: the name of the row and each part of the value that rule D keeps
+- in each text line of the sections `## Test data` and `## Steps`: each sentence that rule D keeps
+- in the steps tables: the header row, the step numbers and the step column
 
 In the column "Expected result", these parts also stay word for word, with their quotes:
 
@@ -35,10 +40,13 @@ In the column "Expected result", these parts also stay word for word, with their
 
 ## 3. What changes
 
-Two parts change:
+Three parts change:
 
 1. Each expected block outside the steps table (rule B).
-2. The column "Expected result" of the steps table (rules M, L, V, K and S).
+2. The test data and the text lines outside the steps tables (rule D).
+3. The column "Expected result" of the steps table (rules M, L, V, K and S).
+
+Apply rule B first, then rule D, then the rules of the column "Expected result".
 
 ### Rule B: expected blocks
 
@@ -49,6 +57,110 @@ The block holds that line, the table under it and the empty lines around the tab
 - Do not change the test data table above the block.
 
 Reason: an expected block gives the expected results as a table. It is not test data, also when it stands under the heading `## Test data`.
+
+### Rule D: test data and text lines
+
+Rule D applies after rule B, to two parts of each test case file:
+
+- the section `## Test data`: its table and its text lines
+- the text lines of the section `## Steps` outside the steps tables
+
+A text line is a line that is not empty and is not a heading or a table line.
+
+Rule D keeps the inputs and removes the outputs:
+
+- An input is a value that the test chooses. The user types it or selects it, or the test sets it before a step. Examples: a product name, a quantity, a coupon code, a password, the money that the test adds to the wallet.
+- An output is a value that the app gives. Examples: a price, the discount of a coupon, the purchase limit, a total, bonus points, a balance that the app shows.
+
+Reason (decision 6 of the plan v2): when the test data keeps the outputs, an agent calculates each expected value from the test data. Then the vague set gives the same ceiling as the precise set.
+
+The script applies rule D. `node check-vague.mjs --classes test-cases` prints one line for each test data row and for each text line.
+The line gives the class of each part or sentence in square brackets. After `=>`, it gives the new line, `REMOVE THE ROW` or `REMOVE THE LINE`.
+A line that the output marks `NO CHANGE` stays word for word.
+Copy each new line character for character. Do not decide a class by hand. Check C14 compares each line with the result of the script.
+
+#### D1: the parts of a test data value
+
+The value of a test data row is a list of parts. A comma and a space outside quotes end a part.
+For example, "`Eggfruit Juice (500ml)`, price `8.99¤`, quantity 2" has three parts.
+
+In rule D, a number is a digit outside a quoted text with a letter.
+A reference to a step or to a part ("step 6", "part 2") is not a number. A number word ("one") is not a number.
+Thus `Eggfruit Juice (500ml)`, `Passw0rd!tc01` and "one more character" hold no number.
+
+A calculation is one of these signs outside quotes: `+`, `−`, `×`, `=`, or a `/` or a `-` between two spaces.
+A word of the list `CALC` outside quotes is also a calculation, for example "sum" or "round".
+
+Give each part one class. Use the first test in this list that matches:
+
+| Order | Test | Class | Example |
+|---|---|---|---|
+| 1 | The part holds no number. | input | `Eggfruit Juice (500ml)`, "not a coupon" |
+| 2 | The part holds a calculation. | output | "round(8.99 / 10) × 1 = `1`" |
+| 3 | The part holds `%`. | output | "the 10% coupon of the current month" |
+| 4 | The noun of the number is in the list `INPUT`: `quantity`, `characters`, `first balance`, `top-up`. | input | "quantity 2", "10 characters" |
+| 5 | All other parts. | output | "price `8.99¤`", "5 items in one basket" |
+
+The noun of the number is the first available item of this list:
+
+1. The word directly before the number, when the list `NOT_NOUN` does not hold it. "price `8.99¤`" gives "price".
+2. The word directly after the number, when the list `NOT_NOUN` does not hold it. "10 characters" gives "characters".
+3. The name of the row, in lowercase. The row `Order total` with the value "`8.99¤`" gives "order total".
+
+A noun matches an item of `INPUT` when the noun is the same as the item, or when it starts with the item and a space. Thus "top-up for part 2" matches `top-up`.
+The items of `INPUT` are the inputs of the set that hold a number:
+
+- `quantity`: the user sets the quantity in the basket.
+- `characters`: the length of a code that the user types.
+- `first balance` and `top-up`: the test adds this money to the wallet with the saved card.
+
+Decision 6 names balances as outputs. Rule D keeps the first balance of TC-08 as an input, because the test sets it.
+Precondition 5 of TC-08 adds `5` to the wallet of the new account, and it keeps `5.00¤` in any case.
+Arsen approved this on 20.10 at 16:40 (stage 2 plan, section 10, decision 7).
+
+The actions:
+
+1. Keep each input part.
+2. Remove each output part with the comma and the space before it. For the first part, remove the comma and the space after it.
+3. Exception: the number of an output part can stand between an article (a, an, the) and a word. Then the number describes that word.
+   Remove only the number, with its quotes and its sign, and the space after it. "the 10% coupon of the current month" becomes "the coupon of the current month".
+   The exception does not apply to a calculation.
+
+#### D2: a row with no part left
+
+When rule D1 removes all parts of a value, remove the row. Do not write a neutral value in its place.
+The header row and the separator row of a table always stay.
+
+Reasons:
+
+1. A neutral value is new text. Two people can write it in different words.
+2. The steps table keeps the check of the value, for example "the correct total price" in TC-08 step 7. The row name alone is not an input.
+3. Rule B removes an expected value outside the steps table in the same way.
+
+In the set, rule D2 removes the row `Limit` of TC-04 and the rows `Order total` and `Bonus points of the order` of TC-08.
+
+#### D3: text lines
+
+Split each text line into sentences, as rule S does. Give each sentence one class. Use the first test in this list that matches:
+
+| Order | Test | Class | Action |
+|---|---|---|---|
+| 1 | The first word, or the first word after the first comma, is in the list `ACTIONS`: add, click, close, enter, open, read, select, type. Quoted texts do not count. | action | Keep the sentence. |
+| 2 | The sentence holds a calculation, as in rule D1. | calculation | Remove the sentence. |
+| 3 | The sentence holds a number, as in rule D1. | result | Remove the sentence. |
+| 4 | All other sentences. | kept | Keep the sentence. |
+
+Remove a sentence with the space before it. For the first sentence, remove the space after it.
+When no sentence of a line stays, remove the line and the empty line after it.
+Do not apply rule V to a result sentence. Remove it.
+
+Reasons:
+
+1. An action sentence tells the user what to type or to select. Its values are inputs.
+2. A calculation tells how the app calculates an output.
+   An example is the line "In each step, the basket total is the sum of price × quantity for all rows." in TC-03.
+3. A result sentence gives an expected result outside the steps table, as an expected block does (rule B). The steps table keeps the same check.
+   For example, rule D3 removes "The balance is then `8.99¤`." in TC-08, and TC-08 step 6 checks the wallet balance.
 
 ### The class of each quoted text
 
@@ -82,7 +194,7 @@ The meaning is one clause in the present simple, with 8 words or fewer. It must 
 
 - It holds no number and no quoted text.
 - It holds no run of 3 words from the message text, in any letter case. For a message of 2 words, the limit is a run of 2 words.
-- It holds a word of the message only when the test case file holds that word outside the column "Expected result".
+- It holds a word of the message only when the test case file holds that word outside the column "Expected result". For this limit, use the file after rules B and D.
 - It does not hold all the content words of the message.
 
 Content words are all words except articles, pronouns, prepositions, conjunctions and auxiliary verbs. The script holds the full list (`STOP`).
@@ -146,7 +258,7 @@ A sentence ends with `.`, `!` or `?` before a space and a capital letter, or at 
 
 ## 4. What the session must not do
 
-- Do not add, remove, merge, split or reorder steps, rows, sentences or files. Only rule S2 can split a sentence.
+- Do not add, remove, merge, split or reorder steps, rows, lines, sentences or files. Only rules B and D can remove a row, a line or a sentence. Only rule S2 can split a sentence.
 - Do not change text outside the parts of section 3.
 - Do not add hints: no "exactly", no "equals", no formula, no range, no "calculate", no notes, no examples, no reasons.
 - Do not add a quoted text that the precise file does not hold.
@@ -175,7 +287,7 @@ A gift card pays a part of the order. The shop takes the value of the gift card 
 ## Preconditions
 
 1. A new customer account exists.
-2. The basket holds the product with quantity 2. No other products are in the basket.
+2. The basket of the customer is empty.
 
 ## Test data
 
@@ -184,6 +296,9 @@ A gift card pays a part of the order. The shop takes the value of the gift card 
 | Product | `Mango Smoothie (300ml)`, price `3.49¤`, quantity 2 |
 | Gift card | `GIFT-4000`, value `4.00¤` |
 | Wrong code | `GIFT-0000` |
+| Gift card balance after the order | `0.00¤` |
+
+The total price is the sum of price × quantity, minus the value of the gift card.
 
 Expected receipt:
 
@@ -195,6 +310,8 @@ Expected receipt:
 
 ## Steps
 
+Before step 1, click `Add to Basket` on the product two times. The basket counter then shows `2`.
+
 | # | Step | Expected result |
 |---|---|---|
 | 1 | Open the basket `/#/basket`. Click `Checkout`. | The page `Payment` shows the field `Gift card code` and the button `Apply`. The basket counter shows `2`. |
@@ -203,10 +320,21 @@ Expected receipt:
 | 4 | Click `Pay 2.98¤`. | The page `Receipt` shows `Items` `6.98¤`, `Gift card` `4.00¤` and `Total Price` `2.98¤`. The gift card balance is `0.00`: 4.00 − 4.00. |
 ~~~
 
-Vague version. Rule B removed the block `Expected receipt:`. The text above the steps table did not change.
+Vague version. Rule B removed the block `Expected receipt:`. Rule D changed the test data and the text line under `## Steps`.
+The text above `## Test data` did not change.
 
 ~~~markdown
+## Test data
+
+| Name | Value |
+|---|---|
+| Product | `Mango Smoothie (300ml)`, quantity 2 |
+| Gift card | `GIFT-4000` |
+| Wrong code | `GIFT-0000` |
+
 ## Steps
+
+Before step 1, click `Add to Basket` on the product two times.
 
 | # | Step | Expected result |
 |---|---|---|
@@ -216,7 +344,22 @@ Vague version. Rule B removed the block `Expected receipt:`. The text above the 
 | 4 | Click `Pay 2.98¤`. | The page `Receipt` shows the correct items, gift card and total price. The gift card balance is correct. |
 ~~~
 
-The changes, one by one:
+The changes of rule D, one by one:
+
+| Line | Precise text | Class | Rule | Vague text |
+|---|---|---|---|---|
+| `Product` | `Mango Smoothie (300ml)` | input, no number | D1, test 1 | the same |
+| `Product` | price `3.49¤` | output, noun "price" | D1, test 5 | removed, with the comma before it |
+| `Product` | quantity 2 | input, noun "quantity" | D1, test 4 | the same |
+| `Gift card` | value `4.00¤` | output, noun "value" | D1, test 5 | removed |
+| `Gift card balance after the order` | `0.00¤` | output, noun from the row name | D1, test 5, and D2 | the row goes |
+| text line under `## Test data` | The total price is the sum of price × quantity, minus the value of the gift card. | calculation | D3, test 2 | the line goes, with the empty line after it |
+| text line under `## Steps`, sentence 1 | Before step 1, click `Add to Basket` on the product two times. | action | D3, test 1 | the same |
+| text line under `## Steps`, sentence 2 | The basket counter then shows `2`. | result | D3, test 3 | removed |
+
+The action sentence keeps the number word "two": in rule D, a number word is not a number. The cell of step 1 still checks the basket counter.
+
+The changes in the column "Expected result", one by one:
 
 | Step | Precise text | Class | Rule | Vague text |
 |---|---|---|---|---|
@@ -244,10 +387,10 @@ When a check fails, change only the cell or the line that the check names. Then 
 |---|---|---|
 | C1 | The same files | The two folders hold the same file names. |
 | C2 | Other files stay | Each file that is not a test case file (for example `README.md`) is byte for byte the same. |
-| C3 | The same structure | After rule B on the precise file, both files have the same number of lines. Each line outside the steps table is the same. Each step row has the same number and the same step text. |
+| C3 | The same structure | After rules B and D on the precise file, both files have the same headings. Each line outside the sections `## Test data` and `## Steps` is the same. In `## Steps`, the tables have the same lines in the same places. Each step row has the same number and the same step text. Each other table line is the same. |
 | C4 | No expected block | No line in a vague file starts with `Expected`. |
-| C5 | No value | The vague expected cell holds no digit, no `¤` and no `%`. The script ignores step references and quoted inputs from the test data. |
-| C6 | No number word | The vague expected cell holds none of these words outside quotes: zero to ten, once, twice, single, double, half. |
+| C5 | No value | The vague expected cell holds no digit, no `¤` and no `%`. A digit of a different script, for example a full-width digit, is also a digit. The script ignores step references and quoted inputs from the test data. |
+| C6 | No number word | The vague expected cell holds none of these words outside quotes: zero to ten, once, twice, single, double, half. It also holds no other number word that the precise cell does not hold. These words are eleven to nineteen, twenty to ninety, hundred, thousand, million, dozen and the ordinals, for example first, fifth and twentieth. |
 | C7 | No quoted message | No quoted text in the vague expected cell ends with `.`, `!`, `?` or `:`. |
 | C8 | The quoted texts | The quoted texts of the vague cell are the kept quoted texts of the precise cell, in the same order. A kept text with a value is there without its value. Thus no label, message, value or new quote stays. |
 | C9 | The phrases with "correct" | Each phrase that rules V and K give is in the vague cell, as many times as the rules give it. Each label is in the vague cell in lowercase, after the word "correct" in the same sentence. |
@@ -255,6 +398,7 @@ When a check fails, change only the cell or the line that the check names. Then 
 | C11 | Cells with no change | A precise cell with no value, label, message, number or number word is the same in the vague set, character for character. |
 | C12 | Sentences and length | The vague cell has the same number of sentences as the precise cell. Rule S2 can add one sentence for each precise sentence that can grow past 25 words. The cell also stays under a word limit that the script calculates from the precise cell. |
 | C13 | No new hint | The vague cell holds no hint word that the precise cell does not hold. The hint words are in the script (`HINTS`), for example "exactly", "equals", "minus", "plus", "sum" and "tenth". |
+| C14 | Rule D | Each line of the section `## Test data` and each text line of the section `## Steps` is the same as the line that rule D gives, character for character. The vague file has no extra line and no missing line there. `--classes` prints these lines. |
 
 The script is below. It uses only Node built-ins.
 The main session puts it into the work folder as `check-vague.mjs` (section 8). Run it with Node 24:
@@ -265,29 +409,38 @@ node check-vague.mjs test-cases test-cases-vague
 node check-vague.mjs --sha256 test-cases-vague
 ~~~
 
-Exit 0 and the line `PASSED: all checks` mean that all checks pass. Exit 1 lists each problem with the file, the step and the check ID.
+Exit 0 and the line `PASSED: all checks` mean that all checks pass. Exit 1 lists each problem with the file, the step or the line, and the check ID.
 
 ~~~js
 #!/usr/bin/env node
-// Checks a vague test case set against the precise set (bench/vague-rule.md, checks C1 to C13).
+// Checks a vague test case set against the precise set (bench/vague-rule.md, checks C1 to C14).
 //
 //   node check-vague.mjs <precise dir> <vague dir>   run the checks, exit 1 when a check fails
-//   node check-vague.mjs --classes <precise dir>     print the class of each quote and the phrases that each cell needs
+//   node check-vague.mjs --classes <precise dir>     print the lines that rule D gives, the class of each quote
+//                                                    and the phrases that each cell needs
 //   node check-vague.mjs --sha256 <dir>              print the sha256 of each file and of the folder (section 7)
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 
 const ROW = /^\| (\d+) \| (.+?) \| (.+) \|$/
+const DATA_ROW = /^\| (.+?) \| (.+) \|$/
 const VALUE = /^[^A-Za-z]*\d[^A-Za-z]*$/
 const LABEL_COLON = /^[A-Za-z][^:]*: [^A-Za-z]*\d[^A-Za-z]*$/
 const NUMBER_WORDS = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|once|twice|single|double|half)\b/i
+// Check C6: the other number words and the ordinals. A vague cell can hold one only when the precise cell holds it.
+const MORE_NUMBER_WORDS = /\b(eleven|twelve|(?:thir|four|fif|six|seven|eigh|nine)teen|(?:twen|thir|for|fif|six|seven|eigh|nine)ty|hundreds?|thousands?|millions?|dozens?|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|[a-z]+teenth|[a-z]+ieth)\b/gi
 const HINTS = /\b(exactly|equals?|calculat\w*|comput\w*|formula|api|locator|selector|regex|approximately|round\w*|minus|plus|sums?|times|multipl\w*|divid\w*|percent|tenths?|for example)\b|e\.g\./gi
-const STEP_REF = /\bsteps? \d+( (and|to) \d+)?/g
+const STEP_REF = /\b(?:[Ss]teps?|[Pp]arts?) \d+(?: (?:and|to) \d+)?/g
 const STOP = new Set(('a an the this that these those it its you your we our they their he she his her i me my of to in on at for with ' +
   'by from into onto up out about as and or but nor not no is are was were be been being am do does did have has had will would ' +
   'can could shall should may might must any some all there here than then so if when').split(' '))
 const NOT_NOUN = new Set('is are was shows show says with of and or has have keeps keep stays the a an to at by from than its their until for in on'.split(' '))
+// Rule D: the nouns of the inputs, the verbs of an action sentence, the signs and words of a calculation.
+const INPUT = ['quantity', 'characters', 'first balance', 'top-up']
+const ACTIONS = new Set('add click close enter open read select type'.split(' '))
+const CALC = /[+−×=]|\s[/-]\s|\b(sums?|round\w*|divided|multipl\w*|minus|plus|percent)\b/i
+const ADJ = /\b(?:a|an|the) (`?\d[\d.,]*[¤%]?`? )(?=[A-Za-z])/i
 
 const read = (dir, f) => fs.readFileSync(path.join(dir, f), 'utf8')
 const tcFiles = dir => fs.readdirSync(dir).filter(f => /^TC-\d\d.*\.md$/.test(f)).sort()
@@ -303,6 +456,8 @@ const plural = n => (/(s|x|ch|sh)$/.test(n) ? `${n}es` : /[^aeiou]y$/.test(n) ? 
 const escape = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 const count = (text, re) => (text.match(re) ?? []).length
 const without = (text, list) => [...list].reduce((t, s) => t.split(s).join(' '), text)
+// Rule D: the text without the quotes that hold a letter and without the references to steps and parts.
+const bare = text => text.replace(/`[^`]*`/g, q => (/[A-Za-z]/.test(q) ? ' ' : q.slice(1, -1))).replace(STEP_REF, ' ')
 
 // The quotes of a text, each with the text after it and the next quote.
 function quotes (text) {
@@ -343,14 +498,78 @@ function dropExpectedBlocks (lines) {
   return out
 }
 
-// For each file: the inputs (quotes with a letter in the test data and README.md), all quotes, the step rows and the
-// stems of the words outside the expected-result column. For the set: the message texts.
+// Rule D1: splits a test data value into parts at each comma and space outside quotes.
+function splitParts (value) {
+  const parts = ['']
+  let quoted = false
+  for (let i = 0; i < value.length; i++) {
+    if (value[i] === '`') quoted = !quoted
+    if (!quoted && value.startsWith(', ', i)) { parts.push(''); i++ } else parts[parts.length - 1] += value[i]
+  }
+  return parts
+}
+
+// Rule D1: the class of one part of a test data value.
+function partClass (part, name) {
+  const b = bare(part)
+  if (!/\d/.test(b)) return 'input'
+  if (CALC.test(noQuotes(part))) return 'output, calculation'
+  if (b.includes('%')) return 'output, percentage'
+  const t = b.match(/[A-Za-z][A-Za-z-]*|\d[\d.,]*\d|\d/g)
+  const k = t.findIndex(x => /^\d/.test(x))
+  const noun = ([t[k - 1], t[k + 1]].find(x => /^[A-Za-z]/.test(x ?? '') && !NOT_NOUN.has(x.toLowerCase())) ?? name).toLowerCase()
+  return `${INPUT.some(n => noun === n || noun.startsWith(`${n} `)) ? 'input' : 'output'}, noun "${noun}"`
+}
+
+// Rule D3: the class of one sentence of a text line.
+function sentenceClass (s) {
+  const n = noQuotes(s)
+  const first = text => (text.match(/[A-Za-z]+/)?.[0] ?? '').toLowerCase()
+  const comma = n.indexOf(', ')
+  if (ACTIONS.has(first(n)) || (comma >= 0 && ACTIONS.has(first(n.slice(comma + 2))))) return 'action'
+  if (CALC.test(n)) return 'calculation'
+  if (/\d/.test(bare(s))) return 'result'
+  return 'kept'
+}
+
+// Rule D: keeps the inputs and removes the outputs in the section "## Test data" and in the text lines of "## Steps".
+// Gives the new lines and one report line for each test data row and each text line.
+function ruleD (lines) {
+  const out = []
+  const report = []
+  let section = ''
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i]
+    if (l.startsWith('## ')) section = l
+    const data = section === '## Test data'
+    const row = data && lines[i - 1]?.startsWith('|') && !/^\|[-| ]+\|$/.test(l) ? l.match(DATA_ROW) : null
+    if (row) {
+      const parts = splitParts(row[2]).map(p => ({ p, c: partClass(p, row[1]) }))
+      const kept = parts.flatMap(({ p, c }) => (c.startsWith('input') ? [p] : c.endsWith('calculation') || !ADJ.test(p) ? [] : [p.replace(ADJ, (all, num) => all.slice(0, -num.length))]))
+      const next = kept.length ? `| ${row[1]} | ${kept.join(', ')} |` : null
+      if (next !== null) out.push(next)
+      report.push(`test data "${row[1]}": ${next === l ? 'NO CHANGE | ' : ''}${parts.map(x => `[${x.p}] ${x.c}`).join(' | ')}${next === l ? '' : ` => ${next ?? 'REMOVE THE ROW'}`}`)
+      continue
+    }
+    if (!(data || section === '## Steps') || !l.trim() || l.startsWith('|') || l.startsWith('#')) { out.push(l); continue }
+    const ss = sentences(l).map(s => ({ s, c: sentenceClass(s) }))
+    const kept = ss.filter(x => x.c === 'action' || x.c === 'kept').map(x => x.s)
+    const next = kept.length === ss.length ? l : kept.length ? kept.join(' ') : null
+    if (next !== null) out.push(next)
+    else if (lines[i + 1] === '') i++
+    report.push(`${data ? 'test data' : 'steps'} text: ${next === l ? 'NO CHANGE | ' : ''}${ss.map(x => `[${x.s}] ${x.c}`).join(' | ')}${next === l ? '' : ` => ${next ?? 'REMOVE THE LINE'}`}`)
+  }
+  return { lines: out, report }
+}
+
+// For each file: the lines after rules B and D, the report of rule D, the inputs (quotes with a letter in the test data
+// and README.md), the step rows and the stems of the words outside the expected-result column. For the set: the message texts.
 function context (dir) {
   const readme = fs.existsSync(path.join(dir, 'README.md')) ? read(dir, 'README.md') : ''
   const files = {}
   const messages = []
   for (const f of tcFiles(dir)) {
-    const lines = dropExpectedBlocks(read(dir, f).split('\n'))
+    const { lines, report } = ruleD(dropExpectedBlocks(read(dir, f).split('\n')))
     const testData = []
     let inside = false
     for (const l of lines) {
@@ -360,7 +579,7 @@ function context (dir) {
     const inputs = new Set([...spans(testData.join('\n')), ...spans(readme)].filter(s => /[A-Za-z]/.test(s)))
     const rows = lines.map(l => l.match(ROW)).filter(Boolean)
     const outside = lines.map(l => l.match(ROW)?.[2] ?? l).join(' ')
-    files[f] = { inputs, spans: spans(read(dir, f)), rows, allowed: new Set(words(outside).map(stem)) }
+    files[f] = { lines, report, inputs, rows, allowed: new Set(words(outside).map(stem)) }
     for (const r of rows) messages.push(...quotes(r[3]).map(q => q.s).filter(s => /[.!?]$/.test(s)))
   }
   return { files, messages }
@@ -453,8 +672,10 @@ function checkCell (at, precise, vague, file, ctx, fail) {
   const vq = quotes(vague).map(q => q.s)
   const plain = vague.replace(/`[^`]*`/g, m => (file.inputs.has(m.slice(1, -1)) ? ' ' : m)).replace(STEP_REF, ' ')
   const text = noQuotes(vague).toLowerCase().replace(/\s+/g, ' ')
-  if (/[\d¤%]/.test(plain)) fail(at, 'C5 a digit, ¤ or % is left')
+  if (/[\p{Nd}¤%]/u.test(plain)) fail(at, 'C5 a digit, ¤ or % is left')
   if (NUMBER_WORDS.test(noQuotes(vague))) fail(at, 'C6 a number word is left')
+  const more = [...noQuotes(vague).matchAll(MORE_NUMBER_WORDS)].map(m => m[0].toLowerCase()).filter(w => !words(noQuotes(precise)).includes(w))
+  if (more.length) fail(at, `C6 a number word that the precise cell does not hold: ${[...new Set(more)].join(', ')}`)
   if (vq.some(q => /[.!?:]$/.test(q))) fail(at, 'C7 a quoted text ends with . ! ? or :')
   if (vq.join('\n') !== a.kept.join('\n')) fail(at, `C8 the quotes are [${vq.join('] [')}], the rule gives [${a.kept.join('] [')}]`)
   const need = {}
@@ -476,6 +697,20 @@ function checkCell (at, precise, vague, file, ctx, fail) {
   if (added.length) fail(at, `C13 a hint word: ${[...new Set(added)].join(', ')}`)
 }
 
+// Splits the lines of a file into sections at each heading "## ". Each line keeps its line number.
+function sectionsOf (lines) {
+  const out = [{ head: '', lines: [] }]
+  lines.forEach((t, i) => (t.startsWith('## ') ? out.push({ head: t, lines: [] }) : out.at(-1).lines.push({ t, n: i + 1 })))
+  return out
+}
+
+// Reports the first line that is not the line that the rules give.
+function differ (at, id, where, want, got, fail) {
+  const i = [...Array(Math.max(want.length, got.length)).keys()].find(k => want[k]?.t !== got[k]?.t)
+  if (i === undefined) return
+  fail(at, `${id} ${where}: ${got[i] ? `line ${got[i].n} is "${got[i].t}"` : 'a line is missing'}, the rules give ${want[i] ? `"${want[i].t}"` : 'no line'}`)
+}
+
 function check (pDir, vDir) {
   const failures = []
   const fail = (at, msg) => failures.push(`${at}: ${msg}`)
@@ -488,16 +723,30 @@ function check (pDir, vDir) {
   }
   const ctx = context(pDir)
   for (const f of tcs.filter(f => vNames.includes(f))) {
-    const pLines = dropExpectedBlocks(read(pDir, f).split('\n'))
     const vLines = read(vDir, f).split('\n')
     if (vLines.some(l => /^Expected\b/.test(l))) fail(f, 'C4 a line starts with "Expected"')
-    if (pLines.length !== vLines.length) { fail(f, `C3 ${vLines.length} lines, ${pLines.length} expected`); continue }
-    pLines.forEach((p, i) => {
-      const pr = p.match(ROW)
-      const vr = vLines[i].match(ROW)
-      if (!pr) { if (p !== vLines[i]) fail(f, `C3 line ${i + 1} changed`); return }
-      if (!vr || vr[1] !== pr[1] || vr[2] !== pr[2]) { fail(f, `C3 step ${pr[1]}: the step number or the step text changed`); return }
-      checkCell(`${f} step ${pr[1]}`, pr[3], vr[3], ctx.files[f], ctx, fail)
+    const es = sectionsOf(ctx.files[f].lines)
+    const vs = sectionsOf(vLines)
+    if (es.map(s => s.head).join('\n') !== vs.map(s => s.head).join('\n')) { fail(f, 'C3 the headings changed'); continue }
+    const table = s => s.lines.filter(l => l.t.startsWith('|'))
+    const text = s => s.lines.filter(l => !l.t.startsWith('|'))
+    es.forEach((e, k) => {
+      const v = vs[k]
+      if (e.head === '## Test data') return differ(f, 'C14', e.head, e.lines, v.lines, fail)
+      if (e.head !== '## Steps') return differ(f, 'C3', e.head || 'the top of the file', e.lines, v.lines, fail)
+      differ(f, 'C14', `${e.head}, the text lines`, text(e), text(v), fail)
+      const et = table(e)
+      const vt = table(v)
+      if (et.length !== vt.length) return fail(f, `C3 the steps tables have ${vt.length} lines, ${et.length} expected`)
+      const shape = s => s.lines.map(l => l.t.startsWith('|')).join()
+      if (shape(e) !== shape(v)) fail(f, 'C3 a text line or a table moved in the section ## Steps')
+      et.forEach((p, i) => {
+        const pr = p.t.match(ROW)
+        const vr = vt[i].t.match(ROW)
+        if (!pr) { if (p.t !== vt[i].t) fail(f, `C3 line ${vt[i].n} changed`); return }
+        if (!vr || vr[1] !== pr[1] || vr[2] !== pr[2]) { fail(f, `C3 step ${pr[1]}: the step number or the step text changed`); return }
+        checkCell(`${f} step ${pr[1]}`, pr[3], vr[3], ctx.files[f], ctx, fail)
+      })
     })
   }
   return failures
@@ -506,6 +755,7 @@ function check (pDir, vDir) {
 function printClasses (dir) {
   const ctx = context(dir)
   for (const [f, file] of Object.entries(ctx.files)) {
+    for (const r of file.report) console.log(`${f.slice(0, 5)} ${r}`)
     for (const r of file.rows) {
       const a = analyse(r[3], file, ctx)
       const qs = quotes(r[3]).map((q, i, all) => {
@@ -595,8 +845,9 @@ After:
    Run the shell commands of section 7 on the lab copy. The folder hash must be the same as in the output of the session.
 3. Run `ste-lint.py` on each vague file. It must report 0 hard violations.
    If it reports one, give the lint lines to the same session. The session changes only the named cells and runs the checks again.
-4. Arsen reads each changed cell next to its precise cell and says "yes" (checkpoint 2).
-   He does not edit a cell. If he finds a problem, the rule or the script changes, and a new session applies the new rule to all files.
+4. Arsen reads each changed cell and each line that rule D changed next to the precise text.
+   He also reads each part that the output of `--classes` marks `input, noun "<noun>"` and each sentence that it marks `action`. Each of these parts keeps a number, and an action sentence can keep one.
+   Then he says "yes" (checkpoint 2). He does not edit a cell. If he finds a problem, the rule or the script changes, and a new session applies the new rule to all files.
 5. Commit `test-cases-vague/` in the lab and add the tag `test-cases-v2-vague`. Record the tag, the folder hash, the date and the time in `LOG.md`.
 6. `bench/make-template.sh` adds the set at its tag to the templates of `suite-a` and `suite-b`, as `test-cases/`.
    Before each generation of the condition `vague`, calculate the folder hash of the lab copy and of the two copies in the run folders.
@@ -606,18 +857,38 @@ If `LOG.md` names another hash command for `test-cases-v1`, use that command for
 
 ## 9. Known limits of the rule
 
-The rule keeps the step column, the test data and the text around them word for word. Thus some exact values stay in the vague set:
+Rule D removes the outputs from the test data (decision 6). Some exact values, or a way to get them, stay in the vague set:
 
-- The test data tables keep the prices, the quantities, the coupon percentage and the purchase limit.
-- In TC-08, the test data table keeps the order total and the bonus points of the order. The line before step 6 keeps the balance.
-- Some step texts hold values, for example a button name with a price or "until the quantity is `5`".
+- The step column stays word for word (plan v2, E2: the actions do not change). TC-04 step 2 holds "until the quantity is `5`". This is the purchase limit.
+  TC-08 steps 3 and 7 hold the button `Pay 8.99¤`. This is the order total.
+- `README.md` stays word for word (plan v2, E2). It tells that the part `<NN>` of a coupon code is the discount, and its examples give a coupon with a 10% discount.
+  Thus an agent can find the discount from the coupon code. The code is an input, so rule D keeps it.
+  `README.md` also tells that the prices come from the shop catalog.
+- In TC-08, rule D keeps the first balance and the top-up as inputs, because the test sets them. Their sum is the order total.
+  The boundary test needs this by design: "Part 2: the wallet holds exactly the order total."
+  Decision 6 names balances as outputs. Arsen approved the first balance as an input (decision 7).
+- In TC-08, the order total is the price of `Eggfruit Juice (500ml)` (quantity 1) plus the price of `Standard Delivery`.
+  The vague set does not give the price of `Standard Delivery`. If an agent uses `0.00¤` for it, the agent gets the price of `Eggfruit Juice (500ml)`.
+  TC-02, TC-03, TC-05, TC-06 and TC-07 use this product. With this price, the quantities and the 10% examples of `README.md`, an agent can calculate these values:
+  the values of TC-02, the total of TC-03 step 5, and the items and the promotion of TC-05 and TC-06.
+  Arsen accepted this limit (decision 9). The step column stays word for word, as the plan says.
+  Also, the agent sees the running app through Playwright MCP and can read each price there.
+- Rule D does not apply to the text before `## Preconditions` and to the preconditions.
+  In TC-08, this text keeps the calculation of the bonus points and "1 point = `1.00¤`".
+  It also keeps the first balance and the balance of a new account (`0.00¤`).
+  In TC-05, this text tells which part of the order gets the discount. In TC-07, it tells where the shop calculates the totals.
 
-An agent can calculate many expected values from these inputs. This is like a Jira ticket that gives the product data but not the expected values.
+Thus an agent can still find some expected values. This is like a Jira ticket that names the products and the actions, but not the prices and the expected values.
 
 Other limits:
 
 - The meaning of a message (rule M) is the free part of the rule. C10 limits its words, but two people can still choose different words.
 - The checks cannot find each wrong change. For example, a short clause inside a sentence passes when it has no hint word and the cell stays under the word limit.
-  For this reason, Arsen reads each changed cell at checkpoint 2.
+  A value can also stand as a word that the lists of C6 do not hold, for example "a couple of items".
+  For this reason, Arsen reads each changed cell and each line that rule D changed at checkpoint 2.
 - The script finds a noun with a list of words that are not nouns. A rare word before a value can give a wrong noun.
-  The output of `--classes` shows each phrase before the session writes the cell.
+  Rule D uses the same method and the short lists `INPUT`, `ACTIONS` and `CALC`. A new kind of test data can need a new item in a list.
+  The output of `--classes` shows each phrase and each class before the session writes the file.
+- Rule D keeps number words, for example "one more character" in TC-01. In the set, they tell about inputs.
+- Rule D finds an action sentence by its first word, or by the first word after its first comma. A sentence with a different form can get the wrong class.
+  In the set, only TC-08 has an action sentence in a text line.

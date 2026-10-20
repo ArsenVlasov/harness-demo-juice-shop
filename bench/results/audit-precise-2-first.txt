@@ -1,0 +1,17 @@
+# Tool-call audit (audit-precise-2)
+
+Source: `bench/audit-tool-calls.mjs`, 2026-10-20T12:31:11.554Z. Plan v2, item 1.5.
+
+| Suite | Result file | Session | Transcripts | Tool calls | Forbidden | Outside | `../` |
+|---|---|---|---|---|---|---|---|
+| A | `gen-precise-A-2.json` | `8d708ec4-bb43-468a-8d95-95248cb89299` | 1 | 68 | 0 | 1 | 0 |
+| B | `gen-precise-B-2.json` | `8f7f9cc3-f988-4abd-9cea-30573a1bb321` | 5 | 247 | 5 | 2 | 0 |
+
+- Outside, A, `8d708ec4-bb43-468a-8d95-95248cb89299.jsonl:41`, Bash: ~/Library/Caches/ms-playwright
+- Forbidden, B, `8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:50`, Read: .claude/projects. Input: `{"file_path":"/Users/arsenvlasov/.claude/projects/-Users-arsenvlasov-Documents-WorkFolder-harness-demo-runs-set-1-run-2-suite-b/8f7f9cc3-f988-4abd-9cea-30573a1b...`
+- Forbidden, B, `8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:538`, Agent: runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b.. Input: `{"subagent_type":"spec-reviewer","description":"Review login + add-to-basket specs","prompt":"Review two specs (each separately, with its own coverage matrix an...`
+- Forbidden, B, `8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:540`, Agent: runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b.. Input: `{"subagent_type":"spec-reviewer","description":"Review basket quantity + limit specs","prompt":"Review two specs (each separately, with its own coverage matrix ...`
+- Forbidden, B, `8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:542`, Agent: runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b.. Input: `{"subagent_type":"spec-reviewer","description":"Review coupon specs","prompt":"Review two specs (each separately, with its own coverage matrix and verdict):\n1....`
+- Forbidden, B, `8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:544`, Agent: runs path /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-b.. Input: `{"subagent_type":"spec-reviewer","description":"Review card order + wallet specs","prompt":"Review two specs (each separately, with its own coverage matrix and ...`
+- Outside, B, `8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:485`, Bash: /tmp/specs-backup-mutation
+- Outside, B, `8f7f9cc3-f988-4abd-9cea-30573a1bb321.jsonl:551`, Bash: /tmp/check.log, /tmp/check.log;

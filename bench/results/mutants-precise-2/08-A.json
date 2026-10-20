@@ -1,0 +1,756 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "coupon.spec.ts",
+      "file": "coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "coupon codes match the examples in test-cases/README.md",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T12:36:09.627Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6ff94abeb6e6490bd61d-b5901e8a5711e33c30de",
+          "file": "coupon.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 607
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 1076
+                    },
+                    {
+                      "title": "3. Account menu shows Login and no email",
+                      "duration": 47
+                    },
+                    {
+                      "title": "4. Log in with the correct password",
+                      "duration": 470
+                    },
+                    {
+                      "title": "5. Account menu shows the email and Logout",
+                      "duration": 51
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.626Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b34bf74f2c2ef7a26f68-3f13381083f9e449f15d",
+          "file": "tc-01-login.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-02-add-to-basket.spec.ts",
+      "file": "tc-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 5488,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 1394
+                    },
+                    {
+                      "title": "2. Click Add to Basket",
+                      "duration": 1449
+                    },
+                    {
+                      "title": "3. Open the basket with Your Basket",
+                      "duration": 1365
+                    },
+                    {
+                      "title": "4. Read the basket total",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.640Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "22d97df45c3a3424b0cc-872148d67706da033e98",
+          "file": "tc-02-add-to-basket.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-03-basket-quantity-and-remove.spec.ts",
+      "file": "tc-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7397,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 1375
+                    },
+                    {
+                      "title": "2. Plus on product A",
+                      "duration": 963
+                    },
+                    {
+                      "title": "3. Minus on product A",
+                      "duration": 288
+                    },
+                    {
+                      "title": "4. Minus on product A again",
+                      "duration": 180
+                    },
+                    {
+                      "title": "5. Trash on product A",
+                      "duration": 131
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.633Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4d01b774c6877a42b8c3-ab007e0ba36e8931538d",
+          "file": "tc-03-basket-quantity-and-remove.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-04-purchase-limit.spec.ts",
+      "file": "tc-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 8566,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add the product from the product list",
+                      "duration": 2014
+                    },
+                    {
+                      "title": "2. Plus until the quantity is 5",
+                      "duration": 2666
+                    },
+                    {
+                      "title": "3. Plus one more time",
+                      "duration": 182
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 19
+                    },
+                    {
+                      "title": "5. Add the product from the product list again",
+                      "duration": 1547
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.658Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4047ea462fa680f9ce53-49908356d3b6a68d004c",
+          "file": "tc-04-purchase-limit.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "failed",
+                  "duration": 11992,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.97¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.97¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:39:37\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:36:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                      "column": 37,
+                      "line": 39
+                    },
+                    "snippet": "  37 |     await shop.payment.openCouponPanel();\n  38 |     await shop.payment.redeemCoupon(coupon);\n> 39 |     await expect(shop.payment.root).toContainText('Your discount of 10% will be applied during checkout.');\n     |                                     ^\n  40 |   });\n  41 |\n  42 |   await test.step('5. Select the saved card', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                        "column": 37,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.97¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\n\n  37 |     await shop.payment.openCouponPanel();\n  38 |     await shop.payment.redeemCoupon(coupon);\n> 39 |     await expect(shop.payment.root).toContainText('Your discount of 10% will be applied during checkout.');\n     |                                     ^\n  40 |   });\n  41 |\n  42 |   await test.step('5. Select the saved card', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:39:37\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:36:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout from the basket",
+                      "duration": 1679
+                    },
+                    {
+                      "title": "2. Select the saved address",
+                      "duration": 168
+                    },
+                    {
+                      "title": "3. Select One Day Delivery",
+                      "duration": 387
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the current month",
+                      "duration": 5457,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.97¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.97¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 18.95¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:39:37\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:36:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                          "column": 37,
+                          "line": 39
+                        },
+                        "snippet": "  37 |     await shop.payment.openCouponPanel();\n  38 |     await shop.payment.redeemCoupon(coupon);\n> 39 |     await expect(shop.payment.root).toContainText('Your discount of 10% will be applied during checkout.');\n     |                                     ^\n  40 |   });\n  41 |\n  42 |   await test.step('5. Select the saved card', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.621Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/test-results/tc-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                    "column": 37,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c10621caa65da8f16e6b-2a214647788f0c9e1be2",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 6990,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout and select the saved address",
+                      "duration": 1751
+                    },
+                    {
+                      "title": "2. Select One Day Delivery",
+                      "duration": 248
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 237
+                    },
+                    {
+                      "title": "4. Redeem the expired coupon",
+                      "duration": 173
+                    },
+                    {
+                      "title": "5. Select the saved card",
+                      "duration": 233
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.624Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2e2fd1be63dc96462f88-d7f60360ce76065565b4",
+          "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-07-card-order-end-to-end.spec.ts",
+      "file": "tc-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 7,
+                  "status": "failed",
+                  "duration": 12350,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.96¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.96¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:53:37\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:50:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                      "column": 37,
+                      "line": 53
+                    },
+                    "snippet": "  51 |     await shop.payment.openCouponPanel();\n  52 |     await shop.payment.redeemCoupon(coupon);\n> 53 |     await expect(shop.payment.root).toContainText('Your discount of 10% will be applied during checkout.');\n     |                                     ^\n  54 |   });\n  55 |\n  56 |   await test.step('6. Select the saved card', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                        "column": 37,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.96¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\n\n  51 |     await shop.payment.openCouponPanel();\n  52 |     await shop.payment.redeemCoupon(coupon);\n> 53 |     await expect(shop.payment.root).toContainText('Your discount of 10% will be applied during checkout.');\n     |                                     ^\n  54 |   });\n  55 |\n  56 |   await test.step('6. Select the saved card', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:53:37\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:50:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time",
+                      "duration": 2876
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 239
+                    },
+                    {
+                      "title": "3. Checkout and select the saved address",
+                      "duration": 250
+                    },
+                    {
+                      "title": "4. Select One Day Delivery",
+                      "duration": 302
+                    },
+                    {
+                      "title": "5. Redeem the coupon",
+                      "duration": 5156,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.96¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment')\nExpected substring: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nReceived string:    \u001b[31m\"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment')\u001b[22m\n\u001b[2m    - locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m    - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.96¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\u001b[2m    13 × locator resolved to <app-payment _nghost-ng-c1132546424=\"\">…</app-payment>\u001b[22m\n\u001b[2m       - unexpected value \"My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 0.00 Pay 21.94¤  Add a coupon  Add a coupon code to receive discounts Your discount of 0.1% will be applied during checkout. CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:53:37\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:50:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                          "column": 37,
+                          "line": 53
+                        },
+                        "snippet": "  51 |     await shop.payment.openCouponPanel();\n  52 |     await shop.payment.redeemCoupon(coupon);\n> 53 |     await expect(shop.payment.root).toContainText('Your discount of 10% will be applied during checkout.');\n     |                                     ^\n  54 |   });\n  55 |\n  56 |   await test.step('6. Select the saved card', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.619Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/test-results/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                    "column": 37,
+                    "line": 53
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5b5235fa264a4d697318-e62662abf4411df83dcd",
+          "file": "tc-07-card-order-end-to-end.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10293,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout and select the saved address",
+                      "duration": 1908
+                    },
+                    {
+                      "title": "2. Select Standard Delivery",
+                      "duration": 520
+                    },
+                    {
+                      "title": "3. The wallet pay button is disabled",
+                      "duration": 6
+                    },
+                    {
+                      "title": "4. Order History is empty",
+                      "duration": 613
+                    },
+                    {
+                      "title": "5. Digital Wallet shows 5.00",
+                      "duration": 686
+                    },
+                    {
+                      "title": "6. Checkout again to the payment page",
+                      "duration": 409
+                    },
+                    {
+                      "title": "7. Pay with the wallet",
+                      "duration": 93
+                    },
+                    {
+                      "title": "8. Place the order",
+                      "duration": 356
+                    },
+                    {
+                      "title": "9. Digital Wallet shows 1.00",
+                      "duration": 599
+                    },
+                    {
+                      "title": "10. Order History shows the order with the bonus",
+                      "duration": 694
+                    }
+                  ],
+                  "startTime": "2026-10-20T12:36:09.704Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c1eb09259c3bc780cd1-dfca555ecf4eda14da7e",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T12:36:08.837Z",
+    "duration": 13920.557999999999,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
