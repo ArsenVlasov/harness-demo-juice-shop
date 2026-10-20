@@ -6,6 +6,25 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 19:25: checkpoint 4 for E2 and E3, the chains start
+
+Start from: the results of the 2 chains in `bench/.run/chain-vague-1-3.log` and `bench/.run/chain-haiku-1-3.log`. The next entry records them.
+Then the selection of the client suite for E4 (the frozen rule of `bench/hypotheses-v2.md`).
+
+- At 19:21, Arsen gave "yes" to the generation of E2 and E3 with the measurements. This is a human intervention. Section 10 of the stage 2 plan, item 15, has it.
+- Records before the generation, at 19:21:
+  - `~/.claude/CLAUDE.md` sha256 `34e89d97e28b08be9465cd96b652cfeb3199217a9cc82f3ba74e15c65a8f5b70`, the same as at 14:07.
+  - `skills/`: `graphify`, 7 `ponytail*` skills and `synced`. The manifest of `synced` has sha256 `237ada3fe59f8af7a542987801012e57371983f00151abda1241eff1c1d3e372`, the same as at 14:07.
+  - No `agents/`, no `hooks/`, no installed plugin. `settings.json`: `{"skipWorkflowUsageWarning":true,"theme":"dark"}`.
+  - `git -C juice-shop status --short`: no output. The app: `down`. No lock folder.
+  - The test case sets: `bench/run-generation.sh` checks the hash of `test-cases/` in each new run folder against the lab copy at the tag of the set.
+    For `vague`, this is `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898`. For `haiku`, this is `096f5035db6fcc2b53709c2c0f69f56f5ea9a8e1959101974c7e5763c694d067`.
+- The command, one chain after the other, in the background, with the output in files that the lock covers:
+  - `AGG_RUNS=1,2,3 caffeinate -i bench/run-chain.sh vague 1 2 3 >bench/.run/chain-vague-1-3.log 2>&1`
+  - then `AGG_RUNS=1,2,3 caffeinate -i bench/run-chain.sh haiku 1 2 3 >bench/.run/chain-haiku-1-3.log 2>&1`
+- The order inside each chain: A-1, B-1, A-2, B-2, A-3, B-3. Then for each run: the audit, the patches, flaky, the judge and the summary. Then the aggregate.
+  The folders: `set-2/run-<n>/` for `vague`, `set-3/run-<n>/` for `haiku`. The judge is `claude-opus-5-5`, with 10 USD for each suite (answer 8).
+
 ## 2026-10-20, 19:30: freezes of stage 2: the vague set, the tamper list, `hypotheses-v2.md`
 
 Start from: checkpoint 4 of E2 and E3 (the generation of the conditions `vague` and `haiku`, 3 runs each). It needs "yes" from Arsen, because it costs money.
