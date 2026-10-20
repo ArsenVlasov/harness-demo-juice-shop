@@ -424,6 +424,9 @@ The main session knows the bug patches, so it does not make the binding. A blind
    - the operator table, the table of candidate values and the table "The rules" of this file
    - the capture files with the tests, from step 1
    - `bench/tamper-rules.example.json`, for the format
+   - `bench/check-tamper-rules.mjs` as `check-tamper-rules.mjs`, the check of step 4. The binder runs it in its folder until it passes.
+     Its mode `--fields` lists the paths and the fields of the capture, because `Read` cuts long JSON lines.
+   `bench/make-binder-folder.sh` makes the folder and prints the sha256 of each file.
 3. **Binding.** The binder works on each rule T01 to T16. It gives each pair of a path and a field where the capture holds the value of the rule.
    It binds the response that the page of the rule's steps shows the value from. When more than one response can be the source, it binds each of them.
    When no JSON field holds the value, it writes "no JSON field", and the rule has no run.
@@ -431,7 +434,8 @@ The main session knows the bug patches, so it does not make the binding. A blind
 4. **Check.** A script of the main session checks the rules file. Each bound field must exist in a captured browser response that matches the path.
    When the rows of the rule give a literal value, the field must hold one of these values in the capture.
    Each rule T01 to T16 must have a binding or "no JSON field". The operators must follow the operator table.
-   If the check fails, the same binder session continues, with the check output as the only new input.
+   The binder runs the check in its folder. After the session, the main session runs the same check again in the lab, on the same files.
+   If that check fails, the same binder session continues, with the check output as the only new input.
 5. **Audit of the tool calls** of the binder, as in plan v2 item 1.5. The main session records it in `LOG.md`.
 6. **Approval.** Arsen looks at the list at checkpoint 3. He cannot add, remove or change a bound rule.
    He can reject the full list only for a failed check or a broken format. Then the binder runs again.

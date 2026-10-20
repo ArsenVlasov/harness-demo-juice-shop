@@ -6,6 +6,45 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 18:10: the binder package, the binder folder, the binder session starts
+
+Start from: the result of the binder session in `bench/results/binder-1.*`. Then the check in the lab (step 4), the tool-call audit (step 5) and checkpoint 3.
+
+- The workflow `wf_8a5196e5-ed6`, 17:15 to 18:00: 3 agents, 0 errors (1 author, 1 reviewer, 1 fix agent). New files:
+  - `bench/make-binder-folder.sh`: it makes the binder folder and prints the sha256 of each file.
+  - `bench/prompt-binder.txt`: the prompt. It names no bug, patch, experiment, harness or suite. `ste-lint.py`: 0 hard violations.
+  - `bench/check-tamper-rules.mjs`: the check of step 4 (checks K0 to K5), standalone. Its mode `--fields` lists the paths and fields of the capture.
+  - `bench/test/check-tamper-rules.test.mjs`.
+- The reviewer found 2 major and 4 minor problems. The fix agent fixed both major problems:
+  - A rule in `unbound` whose text is in a JSON field now fails K2.
+  - An ID of hex text in a path now becomes `[^/?]+`.
+  It rejected 4 parts, each with a reason. The rejected parts are in files of other owners.
+- My changes after the workflow:
+  - `bench/tamper-rules.example.json`: the text "in the pre-registration" is gone, because it names a part of the experiment. New sha256 `d62a08d409a09a291ec4dc19ab1e15570a86a1150f9a83a97371b1ed185b4416`.
+  - `bench/hypotheses-v2.md`, binding steps 2 and 4: the binder folder also holds the check, and the binder runs it. Then the main session runs the same check again in the lab.
+    This is a change from the procedure of 17:20. `ste-lint.py`: 0 hard violations.
+- `node --test bench/test/tamper-proxy.test.mjs bench/test/check-tamper-rules.test.mjs` at 18:04: `tests 155`, `pass 154`, `fail 0`. The skipped test runs only with `TAMPER_REQUIRE_BROWSER=1`.
+
+### The binder folder `harness-demo-runs/field-map/`, made at 18:05:15
+
+`bash bench/make-binder-folder.sh ../harness-demo-runs/field-map bench/results/capture-tagged/capture-c1.jsonl bench/results/capture-tagged/capture-c2.jsonl`, exit 0.
+
+| File | sha256 |
+|---|---|
+| `binding-tables.md` (from `bench/hypotheses-v2.md` with sha256 `1478dbe70829888843d658124ea21ee2d394afe5588a75a4c0c87a77143a634f`) | `7b0ea13e0456702f8fbf49c5649fd57135423fe4296b2c0f0c434ccf3f824590` |
+| `capture-c1.jsonl` | `5d1669e0a7b78b2ec791a8899fc146f0da392095a38a124e088b9d1e43ff21a4` |
+| `capture-c2.jsonl` | `737947529c3c998a8d55eb6dcd0e7743af2df49e977887c89f0a69ccad6da0f4` |
+| `tamper-rules.example.json` | `d62a08d409a09a291ec4dc19ab1e15570a86a1150f9a83a97371b1ed185b4416` |
+| `test-cases/` (folder hash, the hash of `test-cases-v1`) | `096f5035db6fcc2b53709c2c0f69f56f5ea9a8e1959101974c7e5763c694d067` |
+| `check-tamper-rules.mjs`, copied after the builder | `133e9225ffc8f4885c83d61005732c158a14a9d50482f759109d298e2b06c491` |
+| the folder, after the copy of the check | `720917335d469e5f5d64fbd01e468df59cde09aabb22b3bb5f873a440b9af607` |
+
+- The captures in the folder are the tagged captures of the entry of 17:40, with the same sha256.
+- The prompt: `bench/prompt-binder.txt`, sha256 `f9c2859810e1c701a9d633a4b4ce1dcd1cc92e38d1a27a0c65b2bc7063114888`.
+- The command (decision 11), with the output in `bench/.run/binder.log`:
+  `bench/claude-locked.sh --dir ../harness-demo-runs/field-map --prompt-file bench/prompt-binder.txt --model claude-opus-5-5 --tag binder-1 --budget 5`
+  plus `--allow Read --allow Write --allow Edit --allow Glob --allow Grep --allow "Bash(node check-tamper-rules.mjs *)"`, `--deny WebFetch --deny WebSearch --deny Agent --deny Task --deny Skill --deny NotebookEdit` and `--no-mcp`.
+
 ## 2026-10-20, 17:40: checkpoint 3: the documents and the proxy updated, the capture of step 1 done
 
 Start from: the binder session (decision 11), after the workflow `wf_8a5196e5-ed6` gives the binder package. Then the check of its rules file and the audit of its tool calls.

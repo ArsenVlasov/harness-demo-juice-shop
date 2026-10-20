@@ -1,0 +1,66 @@
+Your work folder holds these files:
+
+- test-cases/ holds the test cases TC-01 to TC-08 of a web shop.
+- binding-tables.md holds three tables. The table "The rules" gives the rules T01 to T16. Each rule names a value that the server sends and that a page shows. The table of candidate values gives the test case steps of each rule and the values that these steps name. The operator table gives the change for each type of value.
+- Each .jsonl file holds captured responses of the shop to browser requests. Each line is one JSON object. The key "method" is the HTTP method. The key "path" is the request path with the query. The key "status" is the status code. The key "body" is the parsed JSON body, or null when the body is not JSON. The key "tc" names the test case of the request. The key "test" is the number of the test in the order of the run. For a response out of all tests, these two keys are null.
+- tamper-rules.example.json shows the format of a rules file.
+- check-tamper-rules.mjs is the check of your rules file.
+
+Limits:
+
+- Use only the files in the work folder.
+- Do not open the app.
+- Do not use the internet.
+- Do not open a file or a folder outside the work folder.
+- Do not change a file of the work folder. Write only the new file tamper-rules.json.
+
+Task: for each rule T01 to T16, find the JSON fields in the captured responses that hold the value of the rule. Do these steps for each rule:
+
+1. Read the rule in the table "The rules". Read its rows in the table of candidate values. Read its test case steps in test-cases/.
+2. Find the response that the page of these steps shows the value from. When more than one response can be the source of the value, use each of them.
+3. For each pair of a request path and a JSON field that holds the value, write one entry in the array "rules".
+4. When no JSON field holds the value, write the rule in the array "unbound".
+
+Notes on the table of candidate values:
+
+- In the column "Source", "browser (TC-07)" means that TC-07 says that the browser calculates the value. Such a value gets no entry of its own. The rules on its inputs cover it.
+- "unknown" means that you decide from the capture.
+- Do not fill the column "JSON field". Write your result only in tamper-rules.json.
+
+Write tamper-rules.json as one JSON object with two keys, "rules" and "unbound".
+
+Each entry of "rules" has the format of the entries in tamper-rules.example.json. Do not copy the entries of the example. Use these values:
+
+- "id": the rule ID with a small letter. For example, the entries of T02 are T02-a, T02-b and so on.
+- "what": the value of the rule, in plain words.
+- "method": the HTTP method of the captured request, for example "GET".
+- "path": a regular expression that starts with ^ and matches the captured path with the query. The output of --fields (see below) writes \d+ for a number ID and [^/?]+ for a text ID, for example a1b2-c3d4e5f60718. Write the same in your path:
+  - When a number ID in the path changes from one request to a different request, write \d+ in its place.
+  - For a text ID of hex digits, with or without dashes, always write [^/?]+. Such an ID changes from one run to the next run.
+  - In JSON, write each backslash two times, as in the example.
+- "field": the location of the value in the JSON body. Use the notation of the example: dot notation, [*] for each array item, [n] for item n.
+- "op" and "value": use the operator table. The type of the captured values at the field gives the operator:
+  - When all values are numbers, write "op": "add" and "value": 1.
+  - When all values are strings that hold a decimal number, for example "5.00", write "op": "addNumberString" and "value": 1.
+  - For other strings, write "op": "set". The value is "mut@example.test" when each value is an email. Else the value is "MUT".
+
+Each entry of "unbound" has the form {"rule": "T15", "reason": "no JSON field ..."}. The reason starts with the words "no JSON field". Then it tells what you looked for, and where. When each rule has an entry in "rules", write "unbound": []. Write a rule in "unbound" only when no JSON field holds its value. When the capture holds a text of the rule in a JSON field, the check does not accept the rule in "unbound".
+
+Each rule T01 to T16 must have entries in "rules" or one entry in "unbound". A rule must not have both.
+
+To see the JSON fields of the captured responses, use these commands:
+
+- node check-tamper-rules.mjs --fields <capture files> gives one line for each method and form of path.
+- node check-tamper-rules.mjs --fields --match <regex> <capture files> also gives the fields and some values of each line that matches the regular expression.
+- node check-tamper-rules.mjs --fields --value <text> <capture files> gives each path and each field where a value holds the text.
+
+In these commands, <capture files> is the list of the .jsonl files of the work folder.
+
+At the end, run this command:
+
+node check-tamper-rules.mjs tamper-rules.json binding-tables.md <capture files>
+
+When the check fails, correct tamper-rules.json and run the check again. Continue until the last line of the output is "PASSED: all checks".
+A line that starts with "note" is not a problem. A note can show a value of a rule in a JSON field that you did not bind. Read each note. When the page of the rule's steps shows the value from that field, bind the field.
+A line that starts with K0 shows a problem in a file that you must not change. When you get a K0 line, stop and give the output.
+In your last message, give the full output of the last check.
