@@ -6,6 +6,60 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 23:20: the Mac shut down during vague B-3, manual restore, B-3 does not count
+
+Start from: the background sequence of this entry: vague B-4, the measurements of `vague`, then the chain of `haiku`. The next entry records the results.
+
+### What happened, with proof
+
+- The vague chain ran from 19:22:00. These steps gave exit 0, from `bench/.run/chain-vague-1-3.log`:
+  - the generation, the clean run and the commit of A-1, B-1, A-2, B-2 and A-3, from 19:22:04 to 20:55:13
+  - `RUN: bench/run-generation.sh vague B 3` at 20:55:18, and `claude runs in .../set-2/run-3/suite-b` at 20:55:39. The log has no later line.
+- The Mac ran on battery. `pmset -g log` gives at 20:13:57 `BatteryHealth Warning level: 2 time: 45` and at 20:32:57 `Warning level: 3 time: 18`.
+  The last write of `gen-vague-B-3.jsonl` was at 21:18. `sysctl kern.boottime` gives `Tue Oct 20 23:02:55 2026`. At 23:05, `pmset -g batt` gave `AC Power`, 26 %, charging.
+  Thus the battery ran out, and the Mac shut down during B-3. The Claude Code session of the lab also stopped. The chain of `haiku` did not start.
+- The trap of `bench/claude-locked.sh` did not run, because the processes stopped with the power.
+  At 23:04 the lock folder `bench/.run/generation.lock` and the locked paths had mode 000, and the user items were in `~/.claude-harness-demo-hidden` (since 20:55).
+- At 23:04, no process of the generation ran. `pgrep` found only the Playwright MCP servers of the Claude app and two `test-server` processes of the Playwright extension of VS Code.
+  VS Code started them at 23:03:49 with the system Node 22, in its workspaces `harness-demo-runs` and `gerchik-autotest-project`. They are not part of the experiment.
+
+### The manual restore at 23:06 (the case "kill -9" of the header of `bench/claude-locked.sh`)
+
+1. `chmod 755 bench/.run/generation.lock`, then `bash bench/.run/generation.lock/restore.txt` (86 lines).
+   The `chmod` lines for `/private/tmp/claude-501/...` gave "No such file or directory": macOS clears `/private/tmp` at a start.
+2. `CLAUDE.md` back into `~/.claude/`, the 8 skill folders back into `~/.claude/skills/`, `rmdir ~/.claude-harness-demo-hidden`.
+   After: `skills/` holds `graphify`, 7 `ponytail*` skills and `synced`, and `~/.claude/CLAUDE.md` exists.
+3. The 3 outputs `gen-vague-B-3.jsonl`, `.meta` and `.stderr` moved into `bench/results/`, then the lock folder was removed.
+4. `find` with `-perm 000` in the lab, in `harness-demo-runs/`, in the vault `demo/`, in `~/.claude/projects`, in `~/.claude/file-history` and in the notes folder: no path.
+   `git -C juice-shop status --short`: no output. The app: `down`.
+
+### The class of the stop (section "Stopped runs" of `bench/hypotheses-v2.md`)
+
+- Vague B-3 is an **outside cause**: "the Mac slept or shut down". I record the class here, before any measurement of `vague`.
+- By the frozen rule, B-3 does not count, and nobody measures it. The run is done again with the next free run number: **B-4** in `set-2/run-4/suite-b`.
+  The run folder `set-2/run-3/suite-b` stays as the stop left it, with no commit and no tag.
+  It has 47 untracked files and no change in tracked files. The sha256 of the list of their hashes is `5e8717a2d7c996bfc32a421f97c8c6b5c7fad4264c4fb741f4eaf210aae09bc5`.
+- `gen-vague-B-3.jsonl` has 363 assistant events and no result event, so no cost total exists for B-3.
+- The completed runs of `vague`, from `gen-vague-<S>-<n>.json`, each `success`, `is_error` `false`:
+  - A-1: 2.5814886 USD. A-2: 2.6647486 USD. A-3: 2.4633298 USD. B-1: 8.4544828 USD. B-2: 8.4205507 USD.
+  - The clean runs: A-1 `8 passed (12.0s)`, A-2 `8 passed (12.0s)`, A-3 `8 passed (18.4s)`, B-1 `8 passed (24.9s)`, B-2 `8 passed (20.9s)`. No run got the follow-up.
+
+### A fact about all B runs: the trust warning
+
+- Each `gen-*-B-*.stderr`, also `gen-B-1.stderr` of run 1, holds: "Ignoring 7 permissions.allow entries from .claude/settings.json: this workspace has not been trusted."
+  Thus the CLI ignored the 7 `allow` entries of the harness in each B run, and in the same way in each run.
+- `--allowedTools` of the generation holds each of these 7 commands. The hooks of the harness ran in each B run.
+  `.agent-log/actions.jsonl` has 479 lines in `set-1/run-1`, 484 and 453 in runs 2 and 3, and 610, 633 and 522 in `set-2` runs 1 to 3.
+
+### The plan for the rest of E2 and E3 (the "yes" of 19:21, item 15)
+
+1. Vague B-4: `bench/run-generation.sh vague B 4`, the clean run, the one follow-up if the clean run fails, the commit with the tag `gen-4`.
+2. The measurements of `vague`: runs 1 and 2 as pairs, as in the chain. The third pair is A-3 and B-4, measured in one call: `--suite A=set-2/run-3/suite-a --suite B=set-2/run-4/suite-b --ref HEAD --out <kind>-vague-3`.
+   `collect-metrics` runs for A with `--run 3` and for B with `--run 4`. A script then puts the A column and the B column into `summary-vague-3.csv` for the aggregate.
+   The tool-call audit also covers the stopped B-3.
+3. The chain of `haiku`: `bench/run-chain.sh haiku 1 2 3` with `AGG_RUNS=1,2,3`.
+- The Mac is now on AC power. The redo costs about one B run (8 to 9 USD). This stays in the estimate of item 15.
+
 ## 2026-10-20, 19:25: checkpoint 4 for E2 and E3, the chains start
 
 Start from: the results of the 2 chains in `bench/.run/chain-vague-1-3.log` and `bench/.run/chain-haiku-1-3.log`. The next entry records them.
