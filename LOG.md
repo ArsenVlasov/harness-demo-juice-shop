@@ -6,6 +6,24 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 11:37: unneeded files removed, lab README added
+
+Start from: the "Start from" line of the entry of 11:30.
+
+- Arsen chose the files to remove and the form of the README at 11:33. This is a human intervention.
+- Removed from the lab, 35 paths with `git rm`. They stay in the git history at commit `ab3230a`:
+  - The outputs of the script tests: `bench/results/*-try*` (22 files).
+  - The outputs of the check runs of `run-generation.sh`: `bench/results/gen-A-0-check*` (10 files).
+  - The failed dry-run tries: `bench/results/dry-run-B-0-auth-401.json` and `dry-run-B-0-cli-too-old.json`. The dry run `dry-run-B-1.*` stays, because it is the proof for `harness-v1`.
+  - `KICKOFF.md`: the instructions of the first session. All its steps are done.
+- Removed from disk: `start-claude.command`, the launcher of the first session. It was not in git.
+- The older entries of this log name some of the removed files. To read such a file, use `git show ab3230a:<path>`.
+- `CLAUDE.md`: the layout and the list of tracked files now name `README.md`, not `KICKOFF.md`. `ste-lint.py`: 0 hard violations.
+- New `README.md` in English: the purpose of the lab, the status, the results of run 1 and the order of the freezes.
+  It also gives the layout, the commands and the limits. `ste-lint.py`: 0 hard violations.
+  It names no patch. The reason: the lock of `run-generation.sh` does not cover `README.md`, and the agent of runs 2 and 3 must not see the patches.
+  The Ukrainian README for the public repository stays a draft in the vault.
+
 ## 2026-10-20, 11:30: `run-generation.sh` ready for runs 2 and 3, lock gap closed
 
 Start from: runs 2 and 3 of A and B after 22.10, with `bench/run-generation.sh A <n>` and `bench/run-generation.sh B <n>`.

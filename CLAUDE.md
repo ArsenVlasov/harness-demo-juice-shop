@@ -34,7 +34,7 @@ The result is real numbers for the offer.
 ```
 WorkFolder/
   harness-demo-juice-shop/   the lab (this folder)
-    CLAUDE.md, KICKOFF.md, LOG.md
+    README.md, CLAUDE.md, LOG.md
     test-cases/              master copy of the test cases
     bench/                   measurement scripts, the judge, results/
     juice-shop/              clone of Juice Shop v20.3.0, the bench scripts apply the bug patches here
@@ -49,7 +49,7 @@ A suite inside the lab would load this file and see the rules of the experiment.
 
 Git:
 
-- The lab repository tracks `CLAUDE.md`, `KICKOFF.md`, `LOG.md`, `.claude/`, `test-cases/` and `bench/`.
+- The lab repository tracks `README.md`, `CLAUDE.md`, `LOG.md`, `.claude/`, `test-cases/` and `bench/`.
 - The lab `.gitignore` holds `juice-shop/` and `sealed/`.
 - `suite-a/` and `suite-b/` are separate git repositories. The generation agent must not see the history of the other suite or the bug patches.
 - `sealed/` stays out of git until the measurements end. Record its sha256 in `LOG.md`.
