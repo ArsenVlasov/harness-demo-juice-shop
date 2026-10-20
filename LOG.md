@@ -6,6 +6,66 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 09:50: generation run 1 of A and B done, both suites pass on a clean app
+
+Start from: Arsen decides if run B-1 stays valid after the sleep of the Mac (see "What failed"). Then the Wednesday tasks of section 9: `run-mutants.mjs`, `run-flaky.mjs`, the judge and `collect-metrics.mjs`.
+
+### Generation, with proof
+
+The command for each suite: `bench/run-generation.sh A 1` and `bench/run-generation.sh B 1`, in one background chain with an app restart before each run.
+The full output is in `bench/.run/generation-chain.log` (not in git). The numbers below come from `bench/results/gen-A-1.json`, `gen-B-1.json` and the session transcripts in `~/.claude/projects/`.
+
+| Item | A-1 | B-1 |
+|---|---|---|
+| Session | `053d47d4-ecc4-45f4-b32f-c7f7a78e83e6` | `fba4515d-3f52-47a5-99d2-856588a726b1` |
+| Start, end | 00:13:53, 00:26:18 | 00:26:30, 09:44:37 |
+| `claude exit` | 0 | 0 |
+| `subtype`, `is_error` | `success`, `false` | `success`, `false` |
+| `total_cost_usd` | 2.6937032 | 8.1161744 (Opus 7.2811094, Sonnet 0.835065) |
+| `duration_api_ms` | 470457 | 1142262 |
+| Wall time | 745 s | 33487 s, of which the Mac slept 32088 s. Without the sleep: 1399 s |
+| Tool calls in the main transcript | 96 | 155 |
+| Subagents | 0 | 4, all `spec-reviewer` |
+| Skill calls | none | 1, `ui-autotest` |
+| `permission_denials` | 4 | 0 in the last result. The agent log shows 8 blocked `Bash` and 5 blocked `browser_run_code_unsafe` calls |
+| Files changed | 27, +1254 lines | 45, +2008 lines |
+| Follow-up message | not needed | not needed |
+
+- In `gen-B-1.json`, `duration_ms` 27052 and `num_turns` 2 cover only the last of 5 result events (`result_index` 4, `origin` `task-notification`). The reason: the agent started its 4 reviewers in the background.
+  `total_cost_usd` is the sum of all events: it is equal to the sum of `modelUsage`. Thus `collect-metrics.mjs` must take the turns and the time from the transcript, not from `num_turns` and `duration_ms`.
+- `npm run agent:log` in `suite-b/`: `Log: 479 entries across 1 session(s)`.
+- Commit of each output, unchanged, with the tag `gen-1`:
+  - `suite-a` `f7d78f03682f0b98ca5be006e33b5cb5391225d7`, tree `dc4c52c58649cf4291c260601de81b8b3c32b1b6`.
+  - `suite-b` `12286c65dfb0c0b2a1c47ef0e09e1dd777b337bb`, tree `2a22235ccbc8a98cc10b0d777ad16faeda4118fe`.
+  - From now on, `git diff gen-1` in each suite must show no change in the test code.
+- After each run: `restored: chmod 755 sealed/` and `restored: user items back in ~/.claude`.
+
+### Run on a clean app, with proof
+
+Command, for each suite after `bench/start-app.sh stop` and `start`: `npx playwright test --retries=0` with Node 24.21.0.
+
+| Suite | Result | Time | Output |
+|---|---|---|---|
+| A | `8 passed (14.1s)`, exit 0 | 09:46:14 to 09:46:30 | `bench/results/clean-A-1.txt`, `clean-A-1.json` |
+| B | `8 passed (25.4s)`, exit 0 | 09:46:42 to 09:47:09 | `bench/results/clean-B-1.txt`, `clean-B-1.json` |
+
+Both suites pass. Thus no suite gets the follow-up message (section 5 of the plan).
+
+sha256: `gen-A-1.json` `8476928216efa26b249133d095b721ee5e147dfee7004ef7997215c505c79cbd`, `gen-B-1.json` `1d13e33648c73485fe46a4c41bc815a264798950296c5747806316c3d18009cf`.
+
+### What failed
+
+- The Mac went to sleep during run B-1. `pmset -g log` shows `Entering Sleep state due to 'Clamshell Sleep'` at 00:35:14 for 32088 s, and `Wake` at 09:30:02.
+  The transcript of B-1 has no event between 00:35:12 and 09:30:01. At 09:30:01 it has `API Error: Your computer went to sleep mid-response. The response above may be incomplete.`
+  The agent then continued and finished. One model response was cut. Run A-1 had no sleep. This is not a human intervention in the code, but it is a difference between A and B.
+- For the next runs: start each run with `caffeinate -i` and keep the lid open on AC power. Also keep all result events (`--output-format stream-json --verbose`), because `json` keeps only the last one.
+
+## 2026-10-20, 00:13: checkpoint 4, generation of A and B starts
+
+- Checkpoint 4: Arsen approved the patch set and `bench/hypotheses.md` at 00:12. He told me to run the generation of suite A, then suite B, with at most 40 USD for each run. This is a human intervention.
+- Before the start: `git status --short` in the lab, in `suite-a/` and in `suite-b/` gives no changed path. Lab commit `f2ad506`.
+- The results follow in the next entry.
+
 ## 2026-10-20, 00:10: freeze `sealed`, pre-registration, generation script ready
 
 Start from: checkpoint 4. Arsen reads `sealed/mutants.md` and `bench/hypotheses.md` and gives his "yes" for the generation.
