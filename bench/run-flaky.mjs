@@ -1,8 +1,14 @@
 #!/usr/bin/env node
-// Runs each suite many times on the clean build and finds flaky and broken tests (plan sections 6 and 7).
+// Runs each selected suite many times on the clean build and finds flaky and broken tests (plan sections 6 and 7).
 //
-//   node bench/run-flaky.mjs                          20 runs of each test, in chunks of 5
+//   node bench/run-flaky.mjs                          precise run 1: suites A and B, 20 runs of each test, in chunks of 5
+//   node bench/run-flaky.mjs --cond vague --run 2     suites A and B of run 2 of condition vague
+//   node bench/run-flaky.mjs --suite before=<dir> --suite after=<dir> --out flaky-e4
 //   node bench/run-flaky.mjs --repeats 2 --chunk 1 --out flaky-try
+//   node bench/run-flaky.mjs --list-suites            print the selected suites and exit
+//
+// Default --out: flaky-<cond>-<run>, or flaky for precise run 1. With --suite, --out is necessary.
+// The suite selector is in bench/lib.mjs.
 //
 // Why chunks: the app gives each product a random stock of 30 to 99 at each start. TC-07 and TC-08 buy
 // 3 items of one product in each run, so 20 runs on one app start can empty the stock. The app restarts
@@ -11,28 +17,29 @@
 // stable: passed in all runs. flaky: passed in some runs and failed in other runs. broken: failed in all runs.
 import fs from 'node:fs'
 import path from 'node:path'
-import { RESULTS, SUITES, appTreeIsClean, log, opt, runSuite, startApp, stopApp } from './lib.mjs'
+import { RESULTS, appTreeIsClean, log, opt, outOption, runSuiteAt, selectSuites, startApp, stopApp } from './lib.mjs'
 
 const REPEATS = Number(opt('--repeats', 20))
 const CHUNK = Number(opt('--chunk', 5))
-const OUT = opt('--out', 'flaky')
-const RAW = path.join(RESULTS, OUT)
 
 function main () {
+  const SUITES = selectSuites()
+  const OUT = outOption('flaky')
+  const RAW = path.join(RESULTS, OUT)
   if (REPEATS % CHUNK !== 0) throw new Error('--repeats must be a multiple of --chunk')
   if (!appTreeIsClean()) throw new Error('juice-shop/ has changes. Revert them before this run.')
   const chunks = REPEATS / CHUNK
-  log(`${REPEATS} runs of each test, ${chunks} chunks of ${CHUNK}, suites ${Object.keys(SUITES).join(' ')}`)
+  log(`${REPEATS} runs of each test, ${chunks} chunks of ${CHUNK}, suites ${Object.entries(SUITES).map(([s, d]) => `${s}=${d}`).join(' ')}`)
 
   const out = { generatedAt: new Date().toISOString(), repeats: REPEATS, chunk: CHUNK, suites: {} }
   let built = false
-  for (const s of Object.keys(SUITES)) {
+  for (const [s, dir] of Object.entries(SUITES)) {
     const tests = {}
     for (let i = 1; i <= chunks; i++) {
       stopApp()
       startApp(!built)
       built = true
-      const rep = runSuite(s, path.join(RAW, `${s}-${i}.json`), [`--repeat-each=${CHUNK}`])
+      const rep = runSuiteAt(dir, path.join(RAW, `${s}-${i}.json`), [`--repeat-each=${CHUNK}`])
       for (const [k, t] of Object.entries(rep.tests)) {
         tests[k] ??= { tc: t.tc, passed: 0, failed: 0, other: {} }
         for (const st of t.statuses) {

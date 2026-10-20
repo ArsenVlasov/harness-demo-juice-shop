@@ -1,0 +1,40 @@
+{
+  "about": "Example rules for bench/tamper-proxy.mjs on a made-up endpoint /api/example. They show the format only. The real rules come from the test cases, in the pre-registration.",
+  "format": {
+    "id": "a unique name: letters, digits, _, . or -. Two ids must not differ only in letter case",
+    "what": "the value that the test case names, in plain words",
+    "method": "optional: the HTTP method. Without it, all methods match",
+    "path": "a regular expression on the request path with the query",
+    "field": "the path in the JSON body: dot notation, [*] for each array item, [n] for item n",
+    "op": "add (number + value), mul (number * value), set (value replaces the field), suffix (string + value)",
+    "value": "a number for add and mul, a string for suffix, any JSON value for set"
+  },
+  "rules": [
+    {
+      "id": "example-item-price-plus-1",
+      "what": "the price of each item in the list",
+      "method": "GET",
+      "path": "^/api/example/items(\\?|$)",
+      "field": "data[*].price",
+      "op": "add",
+      "value": 1
+    },
+    {
+      "id": "example-order-total-x2",
+      "what": "the total of the order",
+      "path": "^/api/example/orders/\\d+$",
+      "field": "data.total",
+      "op": "mul",
+      "value": 2
+    },
+    {
+      "id": "example-order-status",
+      "what": "the status of the order",
+      "method": "GET",
+      "path": "^/api/example/orders/\\d+$",
+      "field": "data.status",
+      "op": "set",
+      "value": "cancelled"
+    }
+  ]
+}

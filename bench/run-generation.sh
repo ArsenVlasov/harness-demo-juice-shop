@@ -1,172 +1,181 @@
 #!/usr/bin/env bash
-# Runs one generation of suite A or B with `claude -p` (plan section 5, decisions 13 to 15 in section 12).
+# Runs one generation of suite A or B for one condition of plan v2 (bench/conditions.json) with `claude -p`.
 #
-#   bench/run-generation.sh A 1            first run of suite A: the prompt from bench/prompt-generation.txt
-#   bench/run-generation.sh A 1 followup   the one standard follow-up message, in the session of that run
-#   bench/run-generation.sh A 0 check      cheap check of this script: Haiku, a temp folder, no suite change
+#   bench/run-generation.sh precise A 2            first run: a new run folder from the template, then the prompt
+#   bench/run-generation.sh precise A 2 followup   the one standard follow-up message, in the session of that run
+#   bench/run-generation.sh precise A 0 check      cheap check of the scripts: Haiku, a temp folder, no run folder
 #
-# Output in bench/results/: gen-<A|B>-<n>.jsonl (all stream events), gen-<A|B>-<n>.json (the last result event),
-# plus .stderr and .meta files. A follow-up adds -followup to the name. A check adds -check-<time>.
-# During the run, sealed/, bench/results/, LOG.md and bench/.run/measure*.log have mode 000, so the agent cannot
-# read the patch names. The outputs go to the lock folder. On exit, a trap restores the modes and the user items,
-# then moves the outputs into bench/results/. If the trap cannot run (kill -9), see bench/.run/generation.lock/restore.txt.
-# The script costs money. Run it only after Arsen says "yes" at checkpoint 4.
+# <n> is 1 or more for first and followup. A check accepts any number, for example 0.
+# Run folder: RUNS/<dir of the condition>/run-<n>/suite-<a|b>. The first run makes it from the template
+# RUNS/templates/suite-<a|b>-<tcSet>.git, installs node_modules and checks test-cases/ against the lab tag of the set.
+# It removes the reflog of the clone, because the reflog names the template and so the test case set.
+# Then bench/claude-locked.sh runs claude with the lock. It writes bench/results/gen-<condition>-<A|B>-<n>.jsonl,
+# .json, .meta and .stderr. A follow-up adds -followup to the name, a check adds -check-<HHMMSS>.
+# This script does not commit in the run folder. bench/finish-run.sh does that.
+# The script costs money. Run it only after Arsen says "yes" (plan v2, checkpoint 4).
+#
+# Env, for tests only: CL_LAB, CL_RUNS and the other CL_* variables of bench/claude-locked.sh.
+# RG_SKIP_APP_CHECK=1 skips the check of the app on :3000. The .meta file records it.
+# Bash 3.2 (macOS /bin/bash) and later.
 set -euo pipefail
 
-SUITE_ID="${1:-}"; RUN="${2:-}"; MODE="${3:-first}"
-case "$SUITE_ID" in A) SUITE_DIR_NAME=suite-a ;; B) SUITE_DIR_NAME=suite-b ;; *) echo "usage: $0 A|B <run> [followup]" >&2; exit 2 ;; esac
-[[ "$RUN" =~ ^[0-9]+$ ]] || { echo "usage: $0 A|B <run> [followup]" >&2; exit 2; }
-[[ "$MODE" == first || "$MODE" == followup || "$MODE" == check ]] || { echo "error: mode is first, followup or check" >&2; exit 2; }
+usage() { echo "usage: $0 <condition> A|B <n> [first|followup|check]" >&2; exit 2; }
+die() { echo "error: $*" >&2; exit 1; }
+log() { echo "[$(date +%H:%M:%S)] $*"; }
 
-LAB="$(cd "$(dirname "$0")/.." && pwd)"
-SUITE="$(cd "$LAB/../harness-demo-runs/$SUITE_DIR_NAME" && pwd)"
+COND="${1:-}"; SUITE_ID="${2:-}"; RUN="${3:-}"; MODE="${4:-first}"
+case "$SUITE_ID" in A) S=a ;; B) S=b ;; *) usage ;; esac
+case "$MODE" in first|followup) [[ "$RUN" =~ ^[1-9][0-9]*$ ]] || usage ;; check) [[ "$RUN" =~ ^[0-9]+$ ]] || usage ;; *) usage ;; esac
+
+LAB="$(cd "${CL_LAB:-$(dirname "$0")/..}" && pwd -P)"
+RUNS="$(cd "${CL_RUNS:-$LAB/../harness-demo-runs}" && pwd -P)"
+export CL_LAB="$LAB" CL_RUNS="$RUNS"   # claude-locked.sh uses the same roots
 RESULTS="$LAB/bench/results"
-SEALED="$LAB/sealed"
 NODE_HOME="$HOME/.local/node-v24.21.0"
 NODE="$NODE_HOME/bin/node"
-CLAUDE_BIN="$HOME/.local/claude-code-2.1.299/node_modules/.bin/claude"
-CLAUDE_REAL="$HOME/.local/claude-code-2.1.299/node_modules/@anthropic-ai/claude-code/bin/claude.exe"
-CLAUDE_SHA256="099dcc53dabbbefabed8926dab25b0318775c175a7c87bb6ba6c54fde9f8ece2"
-MCP_CONFIG="$LAB/bench/mcp-playwright.json"
-MODEL="claude-opus-5-5"
-BUDGET_USD="40"
+export PATH="$NODE_HOME/bin:$PATH"     # npm ci runs with Node 24
+LOCKED="$LAB/bench/claude-locked.sh"
+PROMPT_FILE="$LAB/bench/prompt-generation.txt"
 FOLLOWUP_TEXT="Тести падають на запущеному застосунку. Запусти їх і полагодь."
-TAG="gen-$SUITE_ID-$RUN"; [ "$MODE" = first ] || TAG="$TAG-$MODE"
-[ "$MODE" != check ] || TAG="$TAG-$(date +%H%M%S)"
-ALLOWED_TOOLS=(
-  "Bash(npx playwright test)" "Bash(npx playwright test *)" "Bash(npm run *)" "Bash(npx tsc *)" "Bash(npx eslint *)"
-  "Bash(node *)" "Bash(ls)" "Bash(ls *)" "Bash(cat *)" "Bash(head *)" "Bash(tail *)" "Bash(grep *)" "Bash(wc *)"
-  "Bash(echo *)" "Bash(git status)" "Bash(git status *)" "Bash(git diff)" "Bash(git diff *)" "Bash(git log *)"
-  "Skill" "Agent" "Task" "mcp__playwright"
-)
-# Decision 15: user-level items that both suites would see. They are hidden during the run only.
-USER_ITEMS=("$HOME/.claude/CLAUDE.md" "$HOME/.claude/skills/graphify" "$HOME/.claude/skills/ponytail" "$HOME/.claude/skills/ponytail-audit"
-  "$HOME/.claude/skills/ponytail-debt" "$HOME/.claude/skills/ponytail-gain" "$HOME/.claude/skills/ponytail-help" "$HOME/.claude/skills/ponytail-review")
-HIDE_DIR="$HOME/.claude-harness-demo-hidden"
-LOCK_DIR="$LAB/bench/.run/generation.lock"
-STAGE="$LOCK_DIR/out"   # the outputs of the run, while bench/results/ is locked
-META="$STAGE/$TAG.meta"
-# Paths with the patches or their names (the results and the log of the measurements). Mode 000 during the run.
-LOCK_PATHS=("$SEALED" "$RESULTS" "$LAB/LOG.md")
-for f in "$LAB"/bench/.run/measure*.log; do if [ -e "$f" ]; then LOCK_PATHS+=("$f"); fi; done
+CHECK_MODEL="claude-haiku-5-5"
 
-die() { echo "error: $*" >&2; exit 1; }
-say() { echo "$*" | tee -a "$META"; }
-rel() { echo "${1#"$LAB"/}"; }
-
-# --- checks before anything changes ---------------------------------------------------------
-for f in "$RESULTS/$TAG.json" "$RESULTS/$TAG.jsonl"; do [ ! -e "$f" ] || die "$f exists. Use another run number."; done
-[ -x "$CLAUDE_BIN" ] || die "no CLI at $CLAUDE_BIN"
-[ "$(shasum -a 256 "$CLAUDE_REAL" | cut -d' ' -f1)" = "$CLAUDE_SHA256" ] || die "sha256 of $CLAUDE_REAL is not $CLAUDE_SHA256"
-[ -x "$NODE" ] || die "no Node at $NODE"
-command -v caffeinate >/dev/null || die "no caffeinate"
-[ -d "$SEALED" ] || die "no $SEALED: the patches must be sealed before the generation"
-[ -f "$LAB/LOG.md" ] || die "no LOG.md"
-[ -f "$LAB/bench/prompt-generation.txt" ] || die "no bench/prompt-generation.txt"
-[ -z "$(git -C "$LAB/juice-shop" status --short)" ] || die "juice-shop/ has changes: a patch is applied"
-"$LAB/bench/start-app.sh" status | grep -qx up || die "the app does not answer on :3000. Run: bench/start-app.sh start"
-LOCK_MODES=()
-for p in "${LOCK_PATHS[@]}"; do
-  LOCK_MODES+=("$(stat -f '%Lp' "$p")")
-  [ "${LOCK_MODES[-1]}" != 0 ] || die "$p has mode 000: a run did not restore it. See $LOCK_DIR/restore.txt"
-done
-if [ "$MODE" = check ]; then
-  :
-elif [ "$MODE" = first ]; then
-  [ -z "$(git -C "$SUITE" status --short)" ] || die "$SUITE has uncommitted changes"
-  [ -d "$SUITE/test-cases" ] || die "no test-cases/ in $SUITE"
-  [ ! -e "$RESULTS/gen-$SUITE_ID-$RUN-followup.json" ] || die "a follow-up for this run exists"
-else
-  [ -f "$RESULTS/gen-$SUITE_ID-$RUN.json" ] || die "no first run $RESULTS/gen-$SUITE_ID-$RUN.json"
-  SESSION_ID="$("$NODE" -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1],'utf8')).session_id)" "$RESULTS/gen-$SUITE_ID-$RUN.json")"
-  [ -n "$SESSION_ID" ] || die "no session_id in the first run"
-fi
-mkdir -p "$RESULTS" "$LAB/bench/.run"
-mkdir "$LOCK_DIR" 2>/dev/null || die "another generation runs, or a run stopped without the restore ($LOCK_DIR). If no run is active, see $LOCK_DIR/restore.txt"
-[ -e "$HIDE_DIR" ] && { rmdir "$LOCK_DIR"; die "$HIDE_DIR exists: a run did not restore the user items. Check it by hand."; }
-mkdir "$STAGE"
-{ for i in "${!LOCK_PATHS[@]}"; do echo "chmod ${LOCK_MODES[$i]} '${LOCK_PATHS[$i]}'"; done
-  echo "# Then move CLAUDE.md from $HIDE_DIR into ~/.claude and the skill folders into ~/.claude/skills."
-  echo "# Then move the files from $STAGE into $RESULTS and remove $LOCK_DIR."; } >"$LOCK_DIR/restore.txt"
-
-# --- lock the paths and hide the user items; restore both on any exit -------------------------
-restore() {
-  local rc=$? i item f
-  set +e
-  for i in "${!LOCK_PATHS[@]}"; do
-    chmod "${LOCK_MODES[$i]}" "${LOCK_PATHS[$i]}" && say "restored: chmod ${LOCK_MODES[$i]} $(rel "${LOCK_PATHS[$i]}")"
-  done
-  if [ -d "$HIDE_DIR" ]; then
-    for item in "${USER_ITEMS[@]}"; do
-      [ -e "$HIDE_DIR/$(basename "$item")" ] && mv "$HIDE_DIR/$(basename "$item")" "$item"
-    done
-    rmdir "$HIDE_DIR" && say "restored: user items back in ~/.claude"
-  fi
-  say "after: $(ls ~/.claude/skills | tr '\n' ' ')| CLAUDE.md: $([ -e ~/.claude/CLAUDE.md ] && echo present || echo missing)"
-  for f in "$STAGE"/*; do [ -e "$f" ] && mv -n "$f" "$RESULTS/"; done
-  if rmdir "$STAGE"; then
-    META="$RESULTS/$TAG.meta"
-    say "saved: $(cd "$RESULTS" && ls -d "$TAG".* | tr '\n' ' ')in bench/results/"
-    rm -f "$LOCK_DIR/restore.txt" && rmdir "$LOCK_DIR"
-  else
-    echo "error: outputs stay in $STAGE and the lock stays. See $LOCK_DIR/restore.txt" >&2
-    [ "$rc" != 0 ] || rc=1
-  fi
-  exit "$rc"
+# Prints "<dir> <tcSet> <model> <labDir> <labTag> <dir of precise>" for condition $1.
+read_condition() {
+  "$NODE" -e '
+const c = JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"));
+const k = c.conditions[process.argv[2]];
+if (!k) { console.error(`no condition "${process.argv[2]}". Known: ${Object.keys(c.conditions).join(", ")}`); process.exit(1) }
+const t = c.tcSets[k.tcSet];
+if (!t) { console.error(`no tcSet "${k.tcSet}" in tcSets`); process.exit(1) }
+console.log([k.dir, k.tcSet, k.model, t.labDir, t.labTag, c.conditions.precise.dir].join(" "))' "$LAB/bench/conditions.json" "$1"
 }
-trap restore EXIT
-trap 'exit 129' HUP; trap 'exit 130' INT; trap 'exit 143' TERM
+# sha256 of a test case folder: the method of the freeze of test-cases-v1.
+tc_hash() { (cd "$1" && find . -type f -print0 | LC_ALL=C sort -z | xargs -0 shasum -a 256 | shasum -a 256 | cut -d' ' -f1); }
+sha_of() { shasum -a 256 | cut -d' ' -f1; }
 
-: >"$META"
-say "run: $TAG, mode $MODE, suite $SUITE, start $(date '+%Y-%m-%d %H:%M:%S %Z')"
-say "before: $(ls ~/.claude/skills | tr '\n' ' ')| CLAUDE.md: $([ -e ~/.claude/CLAUDE.md ] && echo present || echo missing)"
-chmod 000 "${LOCK_PATHS[@]}"
-for i in "${!LOCK_PATHS[@]}"; do say "locked: chmod 000 $(rel "${LOCK_PATHS[$i]}") (was ${LOCK_MODES[$i]})"; done
-for p in "${LOCK_PATHS[@]}"; do
-  if [ -d "$p" ]; then probe=(ls "$p"); else probe=(cat "$p"); fi
-  ! "${probe[@]}" >/dev/null 2>&1 || die "${probe[*]} works after chmod 000"
-  say "probe: $("${probe[@]}" 2>&1 >/dev/null | head -1)"
+FIELDS="$(read_condition "$COND")" || die "bad condition: $COND"
+read -r DIR TCSET MODEL LAB_DIR LAB_TAG PRECISE_DIR <<<"$FIELDS"
+for v in "$DIR" "$TCSET" "$MODEL" "$LAB_DIR" "$LAB_TAG" "$PRECISE_DIR"; do
+  [[ "$v" =~ ^[A-Za-z0-9._-]+$ ]] || die "bad value in bench/conditions.json: '$v'"
 done
-mkdir "$HIDE_DIR"
-for item in "${USER_ITEMS[@]}"; do [ -e "$item" ] && mv "$item" "$HIDE_DIR/"; done
-say "hidden: $(ls "$HIDE_DIR" | tr '\n' ' ')"
-say "during: $(ls ~/.claude/skills | tr '\n' ' ')| CLAUDE.md: $([ -e ~/.claude/CLAUDE.md ] && echo present || echo missing)"
+case "$DIR" in .|..|templates|maintenance) die "bad dir in bench/conditions.json: $DIR" ;; esac
+RUN_DIR="$RUNS/$DIR/run-$RUN/suite-$S"
+TEMPLATE="$RUNS/templates/suite-$S-$TCSET.git"
+TAG="gen-$COND-$SUITE_ID-$RUN"
+NOTES=(--note "condition $COND (dir $DIR, tcSet $TCSET, model $MODEL), suite $SUITE_ID, run $RUN, mode $MODE")
 
-# --- the run -----------------------------------------------------------------------------------
-WORK_DIR="$SUITE"
-if [ "$MODE" = check ]; then
-  PROMPT="Reply with the word ok."; RESUME=(); MODEL="claude-haiku-5-5"; BUDGET_USD="0.5"; WORK_DIR="$(mktemp -d)"
-elif [ "$MODE" = first ]; then
-  PROMPT="$(cat "$LAB/bench/prompt-generation.txt")"; RESUME=()
+# --- the checks of run 1, for each mode -------------------------------------------------------
+[ -d "$LAB/sealed" ] || die "no $LAB/sealed: the patches must be sealed before the generation"
+[ -f "$LAB/LOG.md" ] || die "no LOG.md"
+[ -f "$PROMPT_FILE" ] || die "no $PROMPT_FILE"
+[ -x "$LOCKED" ] || die "no $LOCKED"
+APP_STATUS="$(git -C "$LAB/juice-shop" status --short)" || die "no git repository in $LAB/juice-shop"
+[ -z "$APP_STATUS" ] || die "juice-shop/ has changes: a patch is applied"
+if [ "${RG_SKIP_APP_CHECK:-0}" = 1 ]; then
+  NOTES+=(--note "app check: SKIPPED (RG_SKIP_APP_CHECK=1, test only)")
 else
-  PROMPT="$FOLLOWUP_TEXT"; RESUME=(--resume "$SESSION_ID")
+  "$LAB/bench/start-app.sh" status | grep -qx up || die "the app does not answer on :3000. Run: bench/start-app.sh start"
 fi
-say "work dir: $WORK_DIR, model $MODEL, budget $BUDGET_USD, caffeinate -i, output stream-json"
-say "prompt sha256: $(printf '%s' "$PROMPT" | shasum -a 256 | cut -d' ' -f1)"
-say "cli: $("$CLAUDE_BIN" --version 2>/dev/null)"
-STARTED=$SECONDS
-set +e
-# caffeinate -i: no idle sleep of the Mac during the run. It does not stop a sleep when the lid closes.
-(cd "$WORK_DIR" && caffeinate -i env -i HOME="$HOME" USER="$USER" LOGNAME="${LOGNAME:-$USER}" SHELL="${SHELL:-/bin/zsh}" TERM="${TERM:-xterm-256color}" \
-  LANG="${LANG:-en_US.UTF-8}" TMPDIR="${TMPDIR:-/tmp}" PATH="$NODE_HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" \
-  DISABLE_AUTOUPDATER=1 \
-  "$CLAUDE_BIN" -p "$PROMPT" "${RESUME[@]}" --model "$MODEL" --output-format stream-json --verbose --max-budget-usd "$BUDGET_USD" \
-  --permission-mode acceptEdits --strict-mcp-config --mcp-config "$MCP_CONFIG" --allowedTools "${ALLOWED_TOOLS[@]}" \
-  >"$STAGE/$TAG.jsonl" 2>"$STAGE/$TAG.stderr")
-RC=$?
-set -e
-say "claude exit=$RC, wall $((SECONDS - STARTED))s, end $(date '+%Y-%m-%d %H:%M:%S %Z')"
-# <tag>.json is the last result event: the same object as `--output-format json` of run 1. Its total_cost_usd covers all events.
-"$NODE" -e "
-const fs = require('fs');
-const results = fs.readFileSync(process.argv[1], 'utf8').split('\n').filter(Boolean)
-  .map(l => { try { return JSON.parse(l) } catch { return {} } }).filter(e => e.type === 'result');
-if (results.length === 0) process.exit(1);
-const d = results.at(-1);
-fs.writeFileSync(process.argv[2], JSON.stringify(d));
-const pick = ({ subtype, is_error, session_id, num_turns, duration_ms, total_cost_usd, permission_denials }) =>
-  ({ result_events: results.length, subtype, is_error, session_id, num_turns, duration_ms, total_cost_usd, permission_denials: (permission_denials || []).length });
-console.log(JSON.stringify(pick(d)));
-" "$STAGE/$TAG.jsonl" "$STAGE/$TAG.json" | tee -a "$META" || say "warning: no result event in $TAG.jsonl. See $TAG.stderr"
-say "suite changes: $(git -C "$SUITE" status --short | wc -l | tr -d ' ') paths"
-exit $RC
+[ ! -e "$LAB/bench/.run/generation.lock" ] || die "a locked run is active, or a run stopped without the restore ($LAB/bench/.run/generation.lock)"
+
+# --- check: Haiku in a temp folder, no run folder ----------------------------------------------
+if [ "$MODE" = check ]; then
+  WORK="$(mktemp -d "$(cd "${TMPDIR:-/tmp}" && pwd -P)/run-generation-check.XXXXXX")"
+  log "check run in $WORK"
+  exec "$LOCKED" --check --dir "$WORK" --prompt-file /dev/stdin --model "$CHECK_MODEL" --budget 0.5 --tag "$TAG" \
+    "${NOTES[@]}" --note "check run: temp folder $WORK, prompt 'Reply with the word ok.'" <<<"Reply with the word ok."
+fi
+
+# --- followup: the standard follow-up message in the session of the first run -------------------
+if [ "$MODE" = followup ]; then
+  [ -d "$RUN_DIR/.git" ] || die "no run folder $RUN_DIR"
+  FIRST="$RESULTS/$TAG.json"
+  # Run 1 of precise has the legacy name gen-<A|B>-1.json.
+  [ -f "$FIRST" ] || [ "$COND-$RUN" != precise-1 ] || FIRST="$RESULTS/gen-$SUITE_ID-1.json"
+  [ -f "$FIRST" ] || die "no first run $FIRST"
+  ! git -C "$RUN_DIR" rev-parse -q --verify "refs/tags/gen-$RUN" >/dev/null || die "the run has the tag gen-$RUN: its test code is frozen"
+  SESSION_ID="$("$NODE" -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1],'utf8')).session_id || '')" "$FIRST")"
+  [ -n "$SESSION_ID" ] || die "no session_id in $FIRST"
+  log "follow-up of $TAG in $RUN_DIR, session $SESSION_ID"
+  exec "$LOCKED" --dir "$RUN_DIR" --prompt-file /dev/stdin --model "$MODEL" --tag "$TAG-followup" --resume "$SESSION_ID" \
+    "${NOTES[@]}" --note "first run: $(basename "$FIRST"), run folder HEAD $(git -C "$RUN_DIR" rev-parse HEAD)" <<<"$FOLLOWUP_TEXT"
+fi
+
+# --- first: (a) checks ----------------------------------------------------------------------------
+[ ! -e "$RUN_DIR" ] || die "$RUN_DIR exists. A first run makes a new run folder"
+for f in "$RESULTS/$TAG".json "$RESULTS/$TAG".jsonl "$RESULTS/$TAG-followup".json; do [ ! -e "$f" ] || die "$f exists"; done
+[ "$COND-$RUN" != precise-1 ] || die "run 1 of precise is the run of stage 1"
+[ -d "$TEMPLATE" ] || die "no template $TEMPLATE. Run bench/migrate-layout.sh or bench/make-template.sh"
+[ "$(git -C "$TEMPLATE" symbolic-ref HEAD)" = refs/heads/main ] || die "HEAD of $TEMPLATE is not main"
+TPL_HEAD="$(git -C "$TEMPLATE" rev-parse --verify 'main^{commit}')"
+TPL_TREE="$(git -C "$TEMPLATE" rev-parse 'main^{tree}')"
+TPL_REFS="$(git -C "$TEMPLATE" for-each-ref --format='%(objectname) %(refname)')"
+git -C "$LAB" rev-parse -q --verify "refs/tags/$LAB_TAG" >/dev/null || die "no tag $LAB_TAG in the lab"
+TMP="$(mktemp -d "$(cd "${TMPDIR:-/tmp}" && pwd -P)/run-generation.XXXXXX")"
+trap 'rm -rf "$TMP"' EXIT
+git -C "$LAB" archive "$LAB_TAG" "$LAB_DIR" | tar -x -C "$TMP"
+LAB_TC_SHA="$(tc_hash "$TMP/$LAB_DIR")"
+log "lab $LAB_TAG:$LAB_DIR sha256 $LAB_TC_SHA"
+
+# --- (b) the run folder from the template ----------------------------------------------------
+log "clone $TEMPLATE into $RUN_DIR"
+mkdir -p "$(dirname "$RUN_DIR")"
+git clone -q --no-local --no-hardlinks "$TEMPLATE" "$RUN_DIR"
+git -C "$RUN_DIR" remote remove origin
+# The reflog says "clone: from RUNS/templates/suite-<s>-<tcSet>.git". The agent can read it with git log -g.
+rm -rf "$RUN_DIR/.git/logs"
+LEAK="$(grep -rIilF --exclude-dir=objects -e "templates/" -e "$TCSET" -e "$COND" "$RUN_DIR/.git" || true)"
+[ -z "$LEAK" ] || die "these files in $RUN_DIR/.git name the template, the set or the condition: $LEAK"
+HOOKS="none"
+if [ "$SUITE_ID" = B ]; then git -C "$RUN_DIR" config core.hooksPath .githooks; HOOKS=".githooks"; fi
+[ "$(git -C "$RUN_DIR" rev-parse HEAD)" = "$TPL_HEAD" ] || die "HEAD of $RUN_DIR is not main of the template"
+[ "$(git -C "$RUN_DIR" symbolic-ref --short HEAD)" = main ] || die "the branch of $RUN_DIR is not main"
+[ "$(git -C "$RUN_DIR" for-each-ref --format='%(objectname) %(refname)')" = "$TPL_REFS" ] || die "the refs of $RUN_DIR are not the refs of the template"
+[ -z "$(git -C "$RUN_DIR" remote)" ] || die "$RUN_DIR has a remote"
+[ "$(git -C "$RUN_DIR" config --get core.hooksPath || echo none)" = "$HOOKS" ] || die "core.hooksPath of $RUN_DIR is not $HOOKS"
+# No object of another generation run: the gen-* tags and commits of each run folder in RUNS.
+CHECKED=0
+for other in "$RUNS"/*/run-*/suite-a "$RUNS"/*/run-*/suite-b; do
+  [ -d "$other/.git" ] && [ "$other" != "$RUN_DIR" ] || continue
+  for obj in $(git -C "$other" for-each-ref --format='%(objectname) %(*objectname)' 'refs/tags/gen-*'); do
+    ! git -C "$RUN_DIR" cat-file -e "$obj" 2>/dev/null || die "$RUN_DIR has object $obj of $other"
+    CHECKED=$((CHECKED + 1))
+  done
+done
+TAGS="$(git -C "$RUN_DIR" tag | paste -sd ' ' -)"
+log "run folder: HEAD $TPL_HEAD, branch main, tags $TAGS, no remote, no reflog, core.hooksPath $HOOKS, $CHECKED objects of other runs absent"
+
+# --- (c) node_modules ----------------------------------------------------------------------------
+git clone -q --no-local --no-hardlinks "$TEMPLATE" "$TMP/npm-try"
+if (cd "$TMP/npm-try" && npm ci --offline --no-audit --no-fund) >"$TMP/npm-try.log" 2>&1; then
+  log "npm ci --offline works in a temp clone. Run it in the run folder."
+  (cd "$RUN_DIR" && npm ci --offline --no-audit --no-fund) >"$TMP/npm-run.log" 2>&1 || { tail -20 "$TMP/npm-run.log" >&2; die "npm ci --offline fails in $RUN_DIR"; }
+  NM_METHOD="npm ci --offline, node $(node -v), npm $(npm -v)"
+else
+  log "npm ci --offline fails in a temp clone: $(grep -m1 -i 'err' "$TMP/npm-try.log" || tail -1 "$TMP/npm-try.log")"
+  SRC="$RUNS/$PRECISE_DIR/run-1/suite-$S"
+  TPL_LOCK="$(git -C "$TEMPLATE" show main:package-lock.json | sha_of)"
+  SRC_LOCK="$(sha_of <"$SRC/package-lock.json")"
+  [ "$SRC_LOCK" = "$TPL_LOCK" ] || die "package-lock.json of $SRC ($SRC_LOCK) is not the one of the template ($TPL_LOCK)"
+  [ -d "$SRC/node_modules" ] || die "no $SRC/node_modules"
+  cp -Rp "$SRC/node_modules" "$RUN_DIR/node_modules"
+  NM_METHOD="cp -Rp from $SRC/node_modules, package-lock.json sha256 $TPL_LOCK equals the template"
+fi
+NM_LOCK="none"
+[ ! -f "$RUN_DIR/node_modules/.package-lock.json" ] || NM_LOCK="$(sha_of <"$RUN_DIR/node_modules/.package-lock.json")"
+log "node_modules: $NM_METHOD"
+[ -z "$(git -C "$RUN_DIR" status --short)" ] || die "$RUN_DIR has changes after the install of node_modules"
+
+# --- (d) test-cases/ equals the lab copy at its tag ---------------------------------------------
+RUN_TC_SHA="$(tc_hash "$RUN_DIR/test-cases")"
+[ "$RUN_TC_SHA" = "$LAB_TC_SHA" ] || die "sha256 of $RUN_DIR/test-cases ($RUN_TC_SHA) is not the sha256 of $LAB_TAG:$LAB_DIR ($LAB_TC_SHA)"
+log "test-cases sha256 $RUN_TC_SHA equals $LAB_TAG:$LAB_DIR"
+
+# --- (e) the locked claude run -------------------------------------------------------------------
+NOTES+=(--note "template: $TEMPLATE, main $TPL_HEAD, tree $TPL_TREE"
+  --note "run folder: $RUN_DIR, branch main, tags $TAGS, no remote, no reflog, core.hooksPath $HOOKS, $CHECKED objects of other runs absent"
+  --note "test-cases sha256: $RUN_TC_SHA, equals the lab copy $LAB_TAG:$LAB_DIR"
+  --note "node_modules: $NM_METHOD; node_modules/.package-lock.json sha256 $NM_LOCK")
+rm -rf "$TMP"; trap - EXIT
+log "start bench/claude-locked.sh. If it stops before the run, $RUN_DIR has no agent changes: remove it and run again."
+exec "$LOCKED" --dir "$RUN_DIR" --prompt-file "$PROMPT_FILE" --model "$MODEL" --tag "$TAG" "${NOTES[@]}"

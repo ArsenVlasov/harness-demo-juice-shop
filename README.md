@@ -10,7 +10,8 @@ This is the working lab, not the public repository. Arsen owns the experiment. T
 ## Status
 
 - Run 1 of each suite is done and measured.
-- Runs 2 and 3 come after 22.10. `bench/run-generation.sh` is ready for them.
+- Stage 2 started on 20.10. Its plan is `aqa-harness-integration/demo/demo-plan-v2-juice-shop.md` in the vault.
+  The stage 2 scripts are in `bench/`. Runs 2 and 3 of A and B on the precise test cases run on the night of 20.10.
 - The Ukrainian README for the public repository is a draft in the vault: `aqa-harness-integration/demo/juice-shop-readme-draft.md`.
 - Nothing is published. Publication is checkpoint 5 in `CLAUDE.md`.
 
@@ -53,27 +54,44 @@ WorkFolder/
     README.md                this file
     CLAUDE.md                the rules of the experiment
     LOG.md                   the experiment log, the newest entry at the top
-    test-cases/              the master copy of TC-01 to TC-08
-    bench/                   the scripts, the judge rubric, the prompt and results/
+    test-cases/              the master copy of TC-01 to TC-08 (the precise set)
+    bench/                   the scripts, the judge rubric, the prompt, conditions.json and results/
     juice-shop/              Juice Shop v20.3.0, built from source (not in git)
     sealed/                  the bug patches (not in git until the measurements end)
   harness-demo-runs/
-    suite-a/                 suite A, a separate git repository
-    suite-b/                 suite B with the harness, a separate git repository
+    templates/               the start state of a generation run, one bare git repository for each suite and set
+    set-<k>/run-<n>/suite-a/ suite A of run n, a separate git repository
+    set-<k>/run-<n>/suite-b/ suite B of run n, with the harness, a separate git repository
 ```
+
+`bench/conditions.json` maps the conditions to the folders:
+
+- `set-1`: the precise test cases with Opus.
+- `set-2`: the vague test cases with Opus.
+- `set-3`: the precise test cases with Haiku.
+
+Run 1 of stage 1 is in `set-1/run-1/`.
 
 ## Commands
 
 Use Node 24.21.0 from `~/.local/node-v24.21.0`. Run the measurements one after the other, because they use the same app on port 3000.
+`<c>` is a condition of `bench/conditions.json`: `precise`, `vague` or `haiku`. `<n>` is the run number.
 
 | Command | What it does |
 |---|---|
 | `bench/start-app.sh start` | Builds the server, starts the app in quiet mode and waits for HTTP 200 |
-| `bench/run-generation.sh A 1` | One generation run of suite A with `claude -p`. It costs money |
-| `node bench/run-mutants.mjs` | Runs both suites on the clean build and on each patch |
-| `node bench/run-flaky.mjs` | Runs each test 20 times on the clean build |
-| `node bench/run-judge.mjs --model claude-opus-5-5 --budget 10` | Runs the blind judge on both suites. It costs money |
-| `node bench/collect-metrics.mjs` | Writes `bench/results/summary.md` and `summary.csv` |
+| `bench/run-generation.sh <c> A <n>` | One generation run of suite A in a new run folder, with the lock. It costs money |
+| `bench/finish-run.sh <c> A <n> clean` | Runs the suite once on a clean app |
+| `bench/finish-run.sh <c> A <n> commit` | Commits the run folder as the agent left it, with the tag `gen-<n>` |
+| `bench/run-chain.sh <c> <n>...` | All of the above for A and B, then the measurements. It costs money |
+| `node bench/audit-tool-calls.mjs --cond <c> --run <n>` | Checks the tool calls of the generation sessions for paths outside the run folder |
+| `node bench/run-mutants.mjs --cond <c> --run <n>` | Runs both suites on the clean build and on each patch |
+| `node bench/run-flaky.mjs --cond <c> --run <n>` | Runs each test 20 times on the clean build |
+| `node bench/run-judge.mjs --cond <c> --run <n> --model claude-opus-5-5 --budget 10` | Runs the blind judge on both suites. It costs money |
+| `node bench/collect-metrics.mjs --cond <c> --run <n>` | Writes `bench/results/summary-<c>-<n>.md` and `.csv` (`summary` for run 1) |
+| `node bench/aggregate-runs.mjs --cond <c> --runs 1,2,3` | Writes the mean, the min and the max over the runs |
+
+The E4 and E5 scripts (`tamper-proxy.mjs`, `run-audit-tamper.mjs`, `run-audit-mutate.mjs`, `run-ui-change.mjs`, `prepare-review.mjs`, `review-timer.mjs`) have their usage in their header comments.
 
 ## Limits
 

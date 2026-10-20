@@ -1,10 +1,15 @@
 #!/usr/bin/env node
-// Runs suites A and B against the clean build and against each sealed patch (plan sections 6 and 7).
+// Runs the selected suites against the clean build and against each sealed patch (plan sections 6 and 7).
 //
-//   node bench/run-mutants.mjs                    all patches, both suites, recheck 3
-//   node bench/run-mutants.mjs --only 01,05       only these patch numbers (for a test of this script)
-//   node bench/run-mutants.mjs --out mutants-try  write to bench/results/mutants-try/ and mutants-try.{json,md}
+//   node bench/run-mutants.mjs                            precise run 1: suites A and B, all patches, recheck 3
+//   node bench/run-mutants.mjs --cond vague --run 2       suites A and B of run 2 of condition vague
+//   node bench/run-mutants.mjs --suite before=<dir> --suite after=<dir> --out mutants-e4
+//   node bench/run-mutants.mjs --only 01,05               only these patch numbers (for a test of this script)
+//   node bench/run-mutants.mjs --out mutants-try          write to bench/results/mutants-try/ and mutants-try.{json,md}
+//   node bench/run-mutants.mjs --list-suites              print the selected suites and exit
 //
+// Default --out: mutants-<cond>-<run>, or mutants for precise run 1. With --suite, --out is necessary.
+// The suite selector is in bench/lib.mjs.
 // A patch counts as caught by a suite when a test of that suite:
 //   1. passes on the clean build,
 //   2. fails on the build with the patch,
@@ -12,12 +17,11 @@
 // The app restarts before each suite run, so each run starts with a clean database.
 import fs from 'node:fs'
 import path from 'node:path'
-import { APP_DIR, RESULTS, SEALED, SUITES, appTreeIsClean, log, must, opt, passedAll, runSuite, startApp, stopApp } from './lib.mjs'
+import { APP_DIR, RESULTS, SEALED, appTreeIsClean, log, must, opt, outOption, passedAll, runSuiteAt, selectSuites, startApp, stopApp } from './lib.mjs'
 
 const ONLY = opt('--only')?.split(',').map(s => s.padStart(2, '0'))
-const OUT = opt('--out', 'mutants')
 const RECHECK = Number(opt('--recheck', 3))
-const RAW = path.join(RESULTS, OUT)
+let SUITES, OUT, RAW
 
 // Kinds and expected test case steps come from the summary table of sealed/mutants.md.
 function readMutants () {
@@ -27,25 +31,28 @@ function readMutants () {
 }
 
 // Builds the app once, then runs each suite on a fresh start of the app.
-function runBothSuites (label, extraArgs) {
+function runAllSuites (label, extraArgs) {
   const reports = {}
-  Object.keys(SUITES).forEach((suiteId, i) => {
+  Object.entries(SUITES).forEach(([suiteId, dir], i) => {
     stopApp()
     startApp(i === 0)
-    reports[suiteId] = runSuite(suiteId, path.join(RAW, `${label}-${suiteId}.json`), extraArgs)
+    reports[suiteId] = runSuiteAt(dir, path.join(RAW, `${label}-${suiteId}.json`), extraArgs)
   })
   stopApp()
   return reports
 }
 
 function main () {
+  SUITES = selectSuites()
+  OUT = outOption('mutants')
+  RAW = path.join(RESULTS, OUT)
   if (!appTreeIsClean()) throw new Error('juice-shop/ has changes. Revert them before this run.')
   const mutants = readMutants().filter(m => !ONLY || ONLY.includes(m.patch.slice(0, 2)))
   if (mutants.length === 0) throw new Error('no patch selected')
-  log(`patches: ${mutants.map(m => m.id).join(' ')}. Suites: ${Object.keys(SUITES).join(' ')}. Raw reports: ${RAW}`)
+  log(`patches: ${mutants.map(m => m.id).join(' ')}. Suites: ${Object.entries(SUITES).map(([s, d]) => `${s}=${d}`).join(' ')}. Raw reports: ${RAW}`)
 
   log('clean build')
-  const clean = runBothSuites('clean')
+  const clean = runAllSuites('clean')
 
   const results = []
   for (const m of mutants) {
@@ -55,7 +62,7 @@ function main () {
     must('git', ['-C', APP_DIR, 'apply', patchFile])
     let reports
     try {
-      reports = runBothSuites(m.patch.slice(0, 2))
+      reports = runAllSuites(m.patch.slice(0, 2))
     } finally {
       try { stopApp() } catch (e) { log(`warning: ${e.message}`) }
       must('git', ['-C', APP_DIR, 'apply', '-R', patchFile])
@@ -65,7 +72,7 @@ function main () {
   }
 
   log(`recheck: ${RECHECK} more runs on the clean build`)
-  const recheck = RECHECK > 0 ? runBothSuites('recheck', [`--repeat-each=${RECHECK}`]) : null
+  const recheck = RECHECK > 0 ? runAllSuites('recheck', [`--repeat-each=${RECHECK}`]) : null
   must('npm', ['run', '--silent', 'build:server'], { cwd: APP_DIR })
   if (!appTreeIsClean()) throw new Error('juice-shop/ is not clean at the end')
 
@@ -108,14 +115,15 @@ function main () {
     }
   }
 
+  const labels = Object.keys(SUITES)
   const md = [
     `# Patches and suites (${OUT})`,
     '',
     `Source: \`bench/run-mutants.mjs\`, ${out.generatedAt}. Recheck runs on the clean build: ${RECHECK}.`,
     '',
-    '| ID | Kind | Expected catch | A | B |',
-    '|---|---|---|---|---|',
-    ...out.mutants.map(m => `| ${m.id} | ${m.kind} | ${m.expected} | ${m.suites.A.caught ? 'caught' : 'missed'} | ${m.suites.B.caught ? 'caught' : 'missed'} |`),
+    `| ID | Kind | Expected catch | ${labels.join(' | ')} |`,
+    `|---|---|---|${labels.map(() => '---|').join('')}`,
+    ...out.mutants.map(m => `| ${m.id} | ${m.kind} | ${m.expected} | ${labels.map(s => (m.suites[s].caught ? 'caught' : 'missed')).join(' | ')} |`),
     '',
     '| Suite | Bugs caught | Bugs missed | Mutation score |',
     '|---|---|---|---|',

@@ -14,6 +14,9 @@ The result is real numbers for the offer.
 
 - **Plan, the source of truth:** `/Users/arsenvlasov/Documents/aqa-harness-integration/demo/demo-plan-juice-shop.md`.
   Read all of the plan before you start work. Write the decisions of Arsen into the plan, in a new section «12. Решения».
+- **Plan for stage 2, the source of truth for stage 2:** `/Users/arsenvlasov/Documents/aqa-harness-integration/demo/demo-plan-v2-juice-shop.md`.
+  Read all of it before you start stage 2 work. Write the stage 2 decisions of Arsen into its section «10. Решения».
+  The rules of stage 1 stay in force in stage 2.
 - **Harness source, read-only:** `/Users/arsenvlasov/Documents/WorkFolder/gerchik-autotest-project`.
 - **Experiment log:** `LOG.md` in this folder. Record these items in it:
   - each freeze: the tag, the sha256, the date and the time
@@ -35,14 +38,19 @@ The result is real numbers for the offer.
 WorkFolder/
   harness-demo-juice-shop/   the lab (this folder)
     README.md, CLAUDE.md, LOG.md
-    test-cases/              master copy of the test cases
-    bench/                   measurement scripts, the judge, results/
+    test-cases/              master copy of the precise test cases (tag test-cases-v1)
+    bench/                   measurement scripts, the judge, conditions.json, results/
     juice-shop/              clone of Juice Shop v20.3.0, the bench scripts apply the bug patches here
     sealed/                  the bug patches, create this folder only after the tag harness-v1
   harness-demo-runs/         generation folders, outside the lab on purpose
-    suite-a/                 Playwright project, the agent without the harness
-    suite-b/                 the same project with the harness
+    templates/               bare git repositories: the start state of a generation run, one for each suite and test case set
+    set-<k>/run-<n>/suite-a/ Playwright project, the agent without the harness
+    set-<k>/run-<n>/suite-b/ the same project with the harness
 ```
+
+`bench/conditions.json` maps each condition to its folder `set-<k>`, its test case set and its model.
+The folder names are neutral, because the generation agent sees the path of its working folder (stage 2 plan, section 10, item 3).
+`set-1/run-1/` holds run 1 of stage 1.
 
 The suites are outside the lab for this reason: Claude Code loads each `CLAUDE.md` from the working folder up to the root folder.
 A suite inside the lab would load this file and see the rules of the experiment.
@@ -50,14 +58,15 @@ A suite inside the lab would load this file and see the rules of the experiment.
 Git:
 
 - The lab repository tracks `README.md`, `CLAUDE.md`, `LOG.md`, `.claude/`, `test-cases/` and `bench/`.
-- The lab `.gitignore` holds `juice-shop/` and `sealed/`.
-- `suite-a/` and `suite-b/` are separate git repositories. The generation agent must not see the history of the other suite or the bug patches.
+- The lab `.gitignore` holds `juice-shop/`, `sealed/`, `sealed-ui/` and `bench/node_modules/`.
+- Each run folder `suite-a/` and `suite-b/` is a separate git repository. The generation agent must not see the history of another suite, another run or the bug patches.
+  `bench/run-generation.sh` makes each new run folder from a template, with no history of other runs.
 - `sealed/` stays out of git until the measurements end. Record its sha256 in `LOG.md`.
 
 Before generation:
 
-1. Copy `test-cases/` into `suite-a/test-cases/` and into `suite-b/test-cases/`.
-2. Calculate the hashes of the three copies. They must be the same. Record them in `LOG.md`.
+1. The template of each suite holds the test case set. `bench/run-generation.sh` checks that the hash of `test-cases/` in the new run folder is the hash of the lab copy at the tag of the set.
+2. Record the hashes in `LOG.md`.
 3. Record in `LOG.md` the contents of the user-level `~/.claude/` folder: `CLAUDE.md`, skills, agents and hooks.
    Both suites see these files. If they hold rules for test code, stop and ask Arsen.
 
@@ -65,6 +74,7 @@ Before generation:
 
 1. Follow the order in section 5 of the plan. Do not skip a step:
    `test-cases-v1` → `harness-v1` → `sealed` → pre-registration → generation of A and B → measurements.
+   In stage 2, also follow the freeze order in section 4 of the stage 2 plan.
 2. Before the tag `harness-v1`, nobody creates or reads `sealed/`.
 3. A **separate** Claude Code session writes the bug patches. That session starts in `sealed/`.
    It gets access only to `juice-shop/` and `test-cases/`. It does not change the harness.
@@ -99,3 +109,5 @@ Before generation:
 3. The harness in `suite-b/` and the dry run, before the tag `harness-v1`.
 4. The generation of A and B, before it starts. It costs money.
 5. The publication of the repository.
+
+In stage 2, also stop at each checkpoint in section 5 of the stage 2 plan.

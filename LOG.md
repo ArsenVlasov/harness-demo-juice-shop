@@ -6,6 +6,103 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 14:10: stage 2 scripts done, run 1 moved, lock checked, runs 2 and 3 start
+
+Start from: the result of the chain `bench/run-chain.sh precise 2 3` in `bench/.run/chain-precise-2-3.log`. The next entry records it.
+After the chain, Arsen reviews the drafts `bench/vague-rule.md` and `bench/hypotheses-v2.md` (checkpoints 2 and 3 of the stage 2 plan).
+
+### The build workflow (run `wf_5b82493d-52b`, 12:10 to 13:58)
+
+- 24 agents, 0 errors. 7 agents wrote the files, 9 reviewers tried to break them, 7 agents fixed the findings, and 1 agent checked the interfaces.
+- The reviewers found 78 problems: 8 critical, 34 major and 36 minor. The fix agents fixed 81 items and rejected 10 with a reason.
+- The most important fixes:
+  - `claude-locked.sh`: a second signal during the restore stopped the restore. The lock did not cover the temp folder of the patch session or the transcripts of other runs.
+  - `run-audit-mutate.mjs`: mutants under `.not` cannot fail, but the script counted them as weak checks.
+  - `weakening.mjs`: it did not count the wrappers `expectX(...)` of suite B.
+  - `run-generation.sh`: the reflog of a new run folder named the template and the test case set.
+- The agents had instructions, not a lock: they must not open `sealed/`, `LOG.md`, the patch results, the stage 1 plan or the README draft. Each agent reports that it did not open them.
+- New files in `bench/`:
+  - for the runs: `conditions.json`, `claude-locked.sh`, `finish-run.sh`, `migrate-layout.sh`, `make-template.sh`, `aggregate-runs.mjs`
+  - for E4: `tamper-proxy.mjs`, `run-audit-tamper.mjs`, `tamper-rules.example.json`, `run-audit-mutate.mjs`, `package.json` (TypeScript for the parser)
+  - for E5: `run-ui-change.mjs`, `weakening.mjs` (ported from `scripts/loop/stabilize.mjs` of the harness source), `prompt-repair.txt`, `prepare-review.mjs`, `review-timer.mjs`, `review-log.csv`, `review-checklist.md`
+  - the drafts for checkpoints 2 and 3: `vague-rule.md` and `hypotheses-v2.md`
+  - `test/` with the offline tests
+- Changed: `lib.mjs`, `run-generation.sh`, `run-mutants.mjs`, `run-flaky.mjs`, `run-judge.mjs` and `collect-metrics.mjs`.
+- I wrote 2 more scripts after the workflow:
+  - `audit-tool-calls.mjs`, the tool-call audit of item 1.5.
+  - `run-chain.sh`, the chain of generation and measurements.
+- I changed the commit message of `finish-run.sh` to the form of run 1. The reason: the message must not name the condition, because a later agent in a copy of the run folder can read `git log`.
+
+### Checks with proof
+
+1. `node --test bench/test/*.test.mjs` at 14:06, after the migration: `tests 125`, `pass 124`, `fail 0`, `skipped 1`.
+   The skipped test runs only with `TAMPER_REQUIRE_BROWSER=1`. The integration agent ran that test earlier: Chromium through the proxy passed.
+2. `bench/migrate-layout.sh` at 14:01:59, exit 0:
+   - `moved: RUNS/suite-a -> RUNS/set-1/run-1/suite-a`, the same for suite B.
+   - `templates/suite-a-precise.git`: `main` `25a5dbfad88f4029ccf0a5aa3140c4cde6e28ee9` (`gen-1~1` of run 1), tree `8b481e783e807cd1f3598ec3671b07600e7bc056`, refs `main` and `baseline`.
+   - `templates/suite-b-precise.git`: `main` `268e15c92998a28cd86f262b53f7e6094ef7f13a`, tree `24b7406547fcc2362f420cb2ec05dba1d33b3aaa`, refs `main`, `baseline` and `harness-v1`.
+   - In each template, `git cat-file -e` fails for the `gen-1` commit and the `gen-1` tag object.
+   - `test-cases sha256 in main` for both templates: `096f5035db6fcc2b53709c2c0f69f56f5ea9a8e1959101974c7e5763c694d067`. This is the hash of `test-cases-v1` in the entry of 19.10, 22:52.
+   - After the move: `git status --short` is empty in both run 1 folders, and `HEAD` is `gen-1` in both.
+3. Item 1.3: `node bench/collect-metrics.mjs --cond precise --run 1 --out summary-migrate-check` at 14:02, after the move.
+   `diff` with `summary.csv`: no difference. `diff` with `summary.md`: only the line with the time stamp. I removed the check files.
+4. `node bench/run-judge.mjs --cond precise --run 1 --prepare-only` at 14:02: A 25 files, code tree sha256 `b4695c62422a6154120c4894fe9d5ec124a1fa41ce5c5dd818eadc2beda5f6f9`.
+   B 42 files, `da910f1fbb72ee95fd752bc076209c8c2cc0931a66ce9870eb924f9cf7b85777`. These are the values before the move.
+5. Lock check: `bench/run-generation.sh precise A 0 check` from 14:02:30 to 14:02:38, exit 0. Output: `bench/results/gen-precise-A-0-check-140230.*`.
+   - 41 paths got mode 000. Each probe gave `Permission denied`.
+   - `during: synced | CLAUDE.md: missing`. Result line: `"subtype":"success","is_error":false,"total_cost_usd":0.0019040700000000001,"permission_denials":0`.
+   - Then 41 `restored` lines and `after: graphify ponytail ponytail-audit ponytail-debt ponytail-gain ponytail-help ponytail-review synced | CLAUDE.md: present`.
+   - An outside loop wrote the modes of 11 locked paths each second, from 14:02:28 to 14:02:39. All 11 had mode 000 from 14:02:33 to 14:02:37, and the old modes after.
+6. `bench/audit-tool-calls.mjs` on the 2 sessions of run 1, as a test: 96 and 246 tool calls, 0 forbidden.
+   The sum 342 is the same number as in the check of 11:30.
+   It found 2 outside paths in B (`/tmp/spec-backup`, `/tmp/check.log`: the mutation step of B). It found 3 `../` in A (an import and an XPath). I removed the test output.
+
+### Records before runs 2 and 3
+
+- The test cases: the hash of each template is in item 2 above. `bench/run-generation.sh` checks the hash of `test-cases/` in each new run folder.
+- The user-level `~/.claude/` at 14:07. The lock hides `CLAUDE.md`, `graphify` and the 7 `ponytail*` skills during each run, as in run 1.
+  - `CLAUDE.md` sha256 `34e89d97e28b08be9465cd96b652cfeb3199217a9cc82f3ba74e15c65a8f5b70`
+  - `skills/`: `graphify`, 7 `ponytail*` skills and `synced`.
+  - `synced` holds `asd-ste100 docs docx google-workspace import-memory morning pdf pptx skill-creator xlsx`, manifest sha256 `237ada3fe59f8af7a542987801012e57371983f00151abda1241eff1c1d3e372`.
+    The folder was there before run 1 (19.10, 23:25). It stays visible, as in run 1.
+  - No `agents/`, no `hooks/`, no installed plugin. `settings.json`: `{"skipWorkflowUsageWarning":true,"theme":"dark"}`.
+- Folders of the conditions (decision 3): `set-1` = `precise`, `set-2` = `vague`, `set-3` = `haiku`.
+- The chain command: `caffeinate -i bench/run-chain.sh precise 2 3 >bench/.run/chain-precise-2-3.log 2>&1` with `AGG_RUNS=1,2,3`.
+  The order: A-2, B-2, A-3, B-3. Then for each run: the audit, the patches, flaky, the judge and the summary.
+  The judge is `claude-opus-5-5` with 10 USD for each suite. The output goes to a file that the lock covers.
+
+## 2026-10-20, 12:13: checkpoint 1 of stage 2, and "yes" for runs 2 and 3
+
+Arsen answered 3 questions at 12:13. These are human interventions. Section 10 of the stage 2 plan, items 2 to 4, has these decisions.
+
+1. Lock gaps (item 1.2): the recommended set. During each generation run, these paths also get mode 000:
+   - the lab `.git` folder
+   - the vault folder `demo/`
+   - the notes folder with `sealed-hashes.md`
+   - the transcripts of the patch session in `~/.claude/projects/`
+   - each other run folder and the templates in `harness-demo-runs/`
+
+   The transcripts of the lab session and `Bash(node *)` stay open. The tool-call audit after each run (item 1.5) covers them.
+   The last item of the list is a new gap. In the new layout, the finished suites of earlier runs are next to the new run folder.
+2. Folder names of the conditions: neutral names, because the generation agent sees its working folder path.
+   - `set-1` is `precise` (the precise test cases, model Opus).
+   - `set-2` is `vague` (the vague test cases, model Opus).
+   - `set-3` is `haiku` (the precise test cases, model Haiku).
+
+   Layout: `harness-demo-runs/set-<k>/run-<n>/suite-a|suite-b`. Each run starts in a new folder from a template of the start state.
+   The new folder has no history of other runs.
+3. Checkpoint 4 for runs 2 and 3 of A and B on the precise test cases: "yes", tonight. Before the runs, the new scripts must pass their checks and the layout migration must pass its checks.
+
+## 2026-10-20, 12:10: stage 2 starts, step 0 done
+
+- At about 12:00, Arsen gave the stage 2 plan `demo/demo-plan-v2-juice-shop.md`. He told me to create or update the harness files and to go through the new plan. This is a human intervention.
+  Section 10 of the stage 2 plan, item 1, has this decision.
+- I read "the harness files" as the lab files in section 4 of the stage 2 plan. The frozen harness `harness-v1` in suite B stays unchanged, because E2 and E3 of the plan say "Харнес не меняем".
+- Step 0 of section 4: `CLAUDE.md` now names the stage 2 plan as the source of truth for stage 2. It also names the stage 2 freeze order and the stage 2 checkpoints.
+  `ste-lint.py CLAUDE.md`: `0 violations (0 hard, baseline 0), 844 words`.
+- A background workflow (run `wf_5b82493d-52b`) builds the stage 2 scripts in `bench/` and the drafts for checkpoints 2 and 3. Its agents must not read `sealed/`, `LOG.md`, the patch results, the stage 1 plan or the README draft.
+  They must not start the app, call `claude`, change the suites or lock real paths. The results follow in a later entry.
+
 ## 2026-10-20, 11:40: the pause in run B-1 removed from the README and the summary
 
 Start from: the "Start from" line of the entry of 11:30.
