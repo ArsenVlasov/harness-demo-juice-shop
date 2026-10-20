@@ -6,6 +6,23 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 19:10: E5a, round 1: the blind review copies
+
+Start from: Arsen reviews `harness-demo-runs/review/suite-1` first, then `suite-2`, with `bench/review-timer.mjs` and `bench/review-checklist.md`. Checkpoints 2 (part 2) and 3 still wait for Arsen.
+
+- At about 19:00, Arsen said "yes, make the E5a copies". This is a human intervention.
+- `node bench/prepare-review.mjs --suite A1=../harness-demo-runs/set-1/run-1/suite-a@gen-1 --suite B1=../harness-demo-runs/set-1/run-1/suite-b@gen-1`, 19:05:35 to 19:05:50, exit 0.
+  - The script removed the harness paths: 44 files and the folders `.agent-log/`, `.claude/`, `.githooks/`, `.playwright-mcp/` and `test-results/`.
+  - `suite-1`: commit `94286ee` "Review start", 55 files. `suite-2`: commit `ad7051b` "Review start", 37 files. `git status --short` is empty in both.
+  - The mapping is only in `bench/results/review-mapping.json`. I did not open it. Arsen must not open it before both reviews end.
+- Checks after the script:
+  - No copy holds `.claude/`, `.githooks/`, `AGENTS.md`, `CLAUDE.md`, `ARCHITECTURE.md`, `docs/`, `scripts/`, the ESLint config or `.agent-log/`.
+  - `package.json` of each copy has only `{"test":"playwright test"}` as its scripts.
+  - `npx playwright test --list` in each copy: `Total: 8 tests in 8 files`, with no app.
+  - `git status --short` is empty in `set-1/run-1/suite-a` and `suite-b`.
+- A limit of the blindness: the two copies have a different layout and a different number of files. Arsen knows the harness, so he can guess which copy is B. `bench/hypotheses-v2.md` names this limit.
+- During a locked session, `bench/claude-locked.sh` locks `harness-demo-runs/review/`. Then the review must wait.
+
 ## 2026-10-20, 18:15: the tamper list is bound and checked (checkpoint 3 waits for Arsen)
 
 Start from: checkpoint 3. Arsen reviews `bench/hypotheses-v2.md` (12 open questions) and the tamper list `bench/tamper-rules.json`.
