@@ -6,6 +6,56 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 10:10: measurement scripts ready, tested on small sets
+
+Start from: Arsen decides the judge model (section 12 of the plan, item 3). Then run the full measurements, one after the other, because they use the same app on :3000:
+
+1. `node bench/run-mutants.mjs` (about 15 minutes).
+2. `node bench/run-flaky.mjs` (20 runs of each test).
+3. `node bench/run-judge.mjs --model <judge model> --budget 10` (costs money).
+4. `node bench/collect-metrics.mjs`.
+
+Use Node 24.21.0: `~/.local/node-v24.21.0/bin/node`.
+
+### Human intervention
+
+- At 09:49, Arsen decided that run B-1 stays valid after the sleep of the Mac. The README must name the sleep in its limits. Section 12 of the plan, item 17, has this decision.
+
+### What I did, with proof
+
+All test outputs have the suffix `-try`. They test the scripts. They are not measurements, and they do not go into the README.
+
+1. `bench/lib.mjs`: the shared helpers. They give the paths and the app start and stop through `bench/start-app.sh`.
+   They also give one suite run with `--retries=0 --reporter=json` and the parser of the Playwright JSON report.
+2. `bench/run-mutants.mjs`: it runs the clean build first. Then, for each patch, it applies the patch, builds, starts the app for each suite and reverts the patch.
+   At the end, it runs the recheck on the clean build.
+   A patch is caught when a test passes on the clean build, fails with the patch and passes the recheck. The kinds come from the summary table of `sealed/mutants.md`.
+   - Test 1 at 09:50: `--only 12,15 --recheck 1`. Clean: A `8/8`, B `8/8`. M12: A `7/8`, B `7/8`. M15: A `1/8`, B `1/8`. Recheck: A `8/8`, B `8/8`. Both suites caught both patches. The run took 3.5 minutes.
+   - Test 2 at 09:55, after the move of the helpers into `lib.mjs`: `--only 12 --recheck 1`. M12 caught by A and B. Output: `bench/results/mutants-try.*`.
+   - After each test: `git -C juice-shop status --short` gave no output, and the app was down.
+3. `bench/run-flaky.mjs`: 20 runs of each test, in chunks of 5 with an app restart before each chunk. The reason for the chunks: the random stock of 30 to 99 items (entry of 22:50 on 19.10).
+   - Test at 10:00: `--repeats 2 --chunk 1`. A: 16 test runs, 8 stable. B: 16 test runs, 8 stable. Output: `bench/results/flaky-try.*`.
+4. `bench/judge.md` (the rubric) and `bench/run-judge.mjs`. The script copies the folders `tests`, `core`, `fixtures`, `page-objects` and `utils` of the tag `gen-1` into a new temp folder.
+   The name is `suite-1` or `suite-2` at random. The judge gets the pinned CLI, `env -i`, no MCP, and no `Bash`, `Write`, `Edit`, `Agent` or `Skill`. The script writes the mapping only after both judge runs. It removes the temp folders.
+   - Test at 10:03: `--model claude-haiku-5-5 --budget 1 --out judge-try`. Each suite: 49 of 49 steps judged, `covered` 47, `partial` 2, `missing` 0.
+     Cost: `suite-1` 0.04136093 USD, 43 turns. `suite-2` 0.01798023 USD, 36 turns. 0 permission denials. Mapping: `suite-1` = B, `suite-2` = A.
+5. `bench/collect-metrics.mjs`: it writes `summary.md` and `summary.csv`. It takes the time from the transcript and removes gaps of more than 10 minutes as sleep.
+   - Test at 10:08 with the `-try` inputs: work time A 12.4 min, B 23.3 min. Sleep during B 534.8 min. Cost for each test case A 0.34 USD, B 1.01 USD. Output: `bench/results/summary-try.*`.
+6. `ste-lint.py` on `bench/judge.md` and on the 4 `-try` summaries: 0 hard violations.
+
+### What failed
+
+- The Claude app quit at about 09:59, during the first test of `run-flaky.mjs`. The shell command ended with exit 137.
+  After the restart, I checked the state. `juice-shop/` had no changes. The app was down with an old PID file. `sealed/` had mode 755. `~/.claude-harness-demo-hidden` did not exist, and the user skills were in place. `git diff` in the lab was empty.
+  I removed the partial output `bench/results/flaky-try/` and ran the test again.
+
+### Facts for the next steps
+
+- `rules:lint` does not compare A and B. The linter checks only the paths of the harness layout (`tests/specs/regression/`, `page-objects/`). `collect-metrics.mjs` states this and gives no number.
+- Before generation runs 2 and 3: `bench/results/` now holds the names of the patches (`mutants-try.json`). It will hold all results. The generation agent can read them with `Bash(cat *)`, because the lock covers only `sealed/`.
+  Before runs 2 and 3, extend the lock of `run-generation.sh` to `bench/results/` and `LOG.md`, or move these files out of the lab during each run.
+- For runs 2 and 3, also add `caffeinate -i` and `--output-format stream-json --verbose` to `run-generation.sh` (entry of 09:50).
+
 ## 2026-10-20, 09:50: generation run 1 of A and B done, both suites pass on a clean app
 
 Start from: Arsen decides if run B-1 stays valid after the sleep of the Mac (see "What failed"). Then the Wednesday tasks of section 9: `run-mutants.mjs`, `run-flaky.mjs`, the judge and `collect-metrics.mjs`.
