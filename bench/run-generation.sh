@@ -146,7 +146,7 @@ say "prompt sha256: $(printf '%s' "$PROMPT" | shasum -a 256 | cut -d' ' -f1)"
 say "cli: $("$CLAUDE_BIN" --version 2>/dev/null)"
 STARTED=$SECONDS
 set +e
-# caffeinate -i: no idle sleep of the Mac during the run (the Mac slept during run B-1). It does not stop a sleep when the lid closes.
+# caffeinate -i: no idle sleep of the Mac during the run. It does not stop a sleep when the lid closes.
 (cd "$WORK_DIR" && caffeinate -i env -i HOME="$HOME" USER="$USER" LOGNAME="${LOGNAME:-$USER}" SHELL="${SHELL:-/bin/zsh}" TERM="${TERM:-xterm-256color}" \
   LANG="${LANG:-en_US.UTF-8}" TMPDIR="${TMPDIR:-/tmp}" PATH="$NODE_HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" \
   DISABLE_AUTOUPDATER=1 \

@@ -1,6 +1,6 @@
 # Summary: suite A and suite B, run 1
 
-Source: `bench/collect-metrics.mjs`, 2026-10-20T07:37:54.617Z. Inputs: `mutants`, `flaky`, `judge`.
+Source: `bench/collect-metrics.mjs`, 2026-10-20T08:38:59.668Z. Inputs: `mutants`, `flaky`, `judge`.
 
 | Metric | A (no harness) | B (harness) | Source |
 |---|---|---|---|
@@ -15,7 +15,6 @@ Source: `bench/collect-metrics.mjs`, 2026-10-20T07:37:54.617Z. Inputs: `mutants`
 | Cost for each test case, USD | 0.34 | 1.01 | `gen-*-1.json` |
 | Work time, min | 12.4 | 23.3 | `transcript` |
 | Work time for each test case, min | 1.5 | 2.9 | `transcript` |
-| Sleep of the computer during the run, min | 0 | 534.8 | `transcript` |
 | Tool calls of the main agent | 96 | 155 | `transcript` |
 | Subagents | 0 | 4 | `gen-*-1.json` |
 | Follow-up messages | 0 | 0 | `gen-*-1.json` |

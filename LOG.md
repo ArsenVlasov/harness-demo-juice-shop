@@ -6,6 +6,17 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 11:40: the pause in run B-1 removed from the README and the summary
+
+Start from: the "Start from" line of the entry of 11:30.
+
+- At 11:38, Arsen decided that the README and the summary must not name the pause in run B-1. This is a human intervention. Section 12 of the plan, item 19, has this decision. It changes the second part of item 17.
+- Removed: the line in the limits of `README.md` and the line in the limits of the README draft `demo/juice-shop-readme-draft.md`.
+  Also removed: the row of the pause in `bench/results/summary.{md,csv}`.
+- `bench/collect-metrics.mjs` no longer writes that row. It still leaves gaps of more than 10 minutes out of the work time. The comment in `bench/run-generation.sh` no longer names run B-1.
+- `node bench/collect-metrics.mjs`, then `diff` with the old `summary.md`: only the time stamp and the removed row are different. All other numbers are the same.
+- The older entries of this log stay as they are. They are the record of the experiment.
+
 ## 2026-10-20, 11:37: unneeded files removed, lab README added
 
 Start from: the "Start from" line of the entry of 11:30.

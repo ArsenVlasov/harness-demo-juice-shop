@@ -6,7 +6,7 @@
 //
 // Time comes from the session transcript of each generation run, not from duration_ms: with background
 // subagents, the JSON output keeps only the last result event. Gaps of more than 10 minutes between two
-// transcript events count as sleep of the computer and do not count as work time.
+// transcript events are pauses and do not count as work time.
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -36,23 +36,23 @@ function transcript (suiteDir, sessionId) {
     if (Array.isArray(content)) toolCalls += content.filter(c => c.type === 'tool_use').length
   }
   times.sort((a, b) => a - b)
-  let workMs = 0; let sleptMs = 0
+  let workMs = 0
   for (let i = 1; i < times.length; i++) {
     const d = times[i] - times[i - 1]
-    if (d > GAP_MS) sleptMs += d; else workMs += d
+    if (d <= GAP_MS) workMs += d
   }
-  return { workMs, sleptMs, toolCalls }
+  return { workMs, toolCalls }
 }
 
 function generation (s) {
   const parts = [`gen-${s}-${RUN}.json`, `gen-${s}-${RUN}-followup.json`].map(f => readJson(path.join(RESULTS, f))).filter(Boolean)
   if (parts.length === 0) return null
-  const r = { cost: 0, workMs: 0, sleptMs: 0, toolCalls: 0, followups: parts.length - 1, subagents: 0 }
+  const r = { cost: 0, workMs: 0, toolCalls: 0, followups: parts.length - 1, subagents: 0 }
   for (const p of parts) {
     r.cost += p.total_cost_usd
     r.subagents += p.subagent_stats?.spawned ?? 0
     const t = transcript(SUITES[s], p.session_id)
-    if (t) { r.workMs += t.workMs; r.sleptMs += t.sleptMs; r.toolCalls += t.toolCalls }
+    if (t) { r.workMs += t.workMs; r.toolCalls += t.toolCalls }
   }
   return r
 }
@@ -93,7 +93,6 @@ function main () {
   add('Cost for each test case, USD', s => round(gen[s]?.cost / TEST_CASES), `gen-*-${RUN}.json`)
   add('Work time, min', s => round(gen[s]?.workMs / 60000, 1), 'transcript')
   add('Work time for each test case, min', s => round(gen[s]?.workMs / 60000 / TEST_CASES, 1), 'transcript')
-  add('Sleep of the computer during the run, min', s => round(gen[s]?.sleptMs / 60000, 1), 'transcript')
   add('Tool calls of the main agent', s => gen[s]?.toolCalls, 'transcript')
   add('Subagents', s => gen[s]?.subagents, `gen-*-${RUN}.json`)
   add('Follow-up messages', s => gen[s]?.followups, `gen-*-${RUN}.json`)

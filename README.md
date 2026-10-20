@@ -78,5 +78,4 @@ Use Node 24.21.0 from `~/.local/node-v24.21.0`. Run the measurements one after t
 ## Limits
 
 - One app, 8 test cases, 14 patches, one generation run for each suite, one model.
-- The Mac slept for 8.9 hours during the generation of suite B. The work time of B does not include the sleep.
 - The judge is the same model as the writer of the tests.
