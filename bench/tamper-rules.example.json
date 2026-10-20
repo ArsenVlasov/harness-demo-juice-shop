@@ -6,8 +6,8 @@
     "method": "optional: the HTTP method. Without it, all methods match",
     "path": "a regular expression on the request path with the query",
     "field": "the path in the JSON body: dot notation, [*] for each array item, [n] for item n",
-    "op": "add (number + value), mul (number * value), set (value replaces the field), suffix (string + value)",
-    "value": "a number for add and mul, a string for suffix, any JSON value for set"
+    "op": "add (number + value), mul (number * value), set (value replaces the field), suffix (string + value), addNumberString (a string with a decimal number, for example \"8.99\" or \"5\": the number + value, with the same number of decimals, so \"8.99\" + 1 gives \"9.99\" and \"0.50\" + 1 gives \"1.50\")",
+    "value": "a number for add, mul and addNumberString, a string for suffix, any JSON value for set"
   },
   "rules": [
     {
@@ -35,6 +35,15 @@
       "field": "data.status",
       "op": "set",
       "value": "cancelled"
+    },
+    {
+      "id": "example-order-total-text-plus-1",
+      "what": "the total of the order, as a text",
+      "method": "GET",
+      "path": "^/api/example/orders/\\d+$",
+      "field": "data.totalText",
+      "op": "addNumberString",
+      "value": 1
     }
   ]
 }

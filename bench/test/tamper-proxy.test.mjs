@@ -3,7 +3,9 @@
 //   node --test bench/test/tamper-proxy.test.mjs
 //
 // A fake upstream runs as a child process (this file with TAMPER_FAKE_UPSTREAM=1) on a random port. It serves JSON,
-// gzip, deflate and br JSON, chunked JSON, text, broken JSON, an HTML page, a request echo and a websocket echo.
+// gzip, deflate and br JSON, chunked JSON, text, broken JSON, very deep JSON, an HTML page, a request echo and a
+// websocket echo.
+// The tests also check the capture of the bodies (--capture) and the op addNumberString.
 // The real-browser tests use Playwright from a suite: TAMPER_TEST_PLAYWRIGHT=<node_modules folder>, else the
 // node_modules folder of the first suite in harness-demo-runs (suite-a, suite-b, or <set>/run-<n>/suite-a|b) that has
 // Playwright. Without Playwright, they skip. TAMPER_REQUIRE_BROWSER=1: a test fails when no Playwright is found.
@@ -33,7 +35,10 @@ const { NODE_TEST_CONTEXT, ...CHILD_ENV } = process.env
 const BROWSER = { 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty' }
 const FETCH_METADATA = ['sec-fetch-site', 'sec-fetch-mode', 'sec-fetch-dest']
 const ITEMS = { data: [{ name: 'apple', price: 1.5, qty: 2 }, { name: 'pear', price: 2, qty: 1 }], total: 5 }
-const ORDER = { data: { id: 7, total: 12.5, status: 'placed' } }
+const ORDER = { data: { id: 7, total: 12.5, totalText: '12.50', status: 'placed' } }
+// Valid JSON that JSON.parse() accepts, but too deep for JSON.stringify() (V8 stops near depth 7000).
+const DEEP = `${'['.repeat(20000)}${']'.repeat(20000)}`
+const DEEP_TOTAL = `{"total":5,"deep":${DEEP}}`
 const PAGE = `<!doctype html><title>shop</title><p id="total">...</p><p id="names">...</p>
 <script>fetch('/api/example/items').then(r => r.json()).then(j => {
   document.querySelector('#total').textContent = String(j.total)
@@ -52,7 +57,9 @@ function serveFakeUpstream () {
     '/api/example/br': ['application/json', zlib.brotliCompressSync(json), { 'content-encoding': 'br' }],
     '/api/example/text': ['text/plain', Buffer.from('price 1.5')],
     '/api/example/broken': ['application/json', Buffer.from('{"price": 1.5')],
-    '/api/example/bad-gzip': ['application/json', Buffer.from('not gzip'), { 'content-encoding': 'gzip' }]
+    '/api/example/bad-gzip': ['application/json', Buffer.from('not gzip'), { 'content-encoding': 'gzip' }],
+    '/api/example/deep': ['application/json', Buffer.from(DEEP)],
+    '/api/example/deep-total': ['application/json', Buffer.from(DEEP_TOTAL)]
   }
   const server = http.createServer((req, res) => {
     const { pathname } = new URL(req.url, 'http://upstream')
@@ -140,6 +147,11 @@ async function withProxy (opts, fn) {
   }
 }
 
+// A capture line without its time. The time must be an ISO date.
+const noTime = ({ time, ...rest }) => { assert.ok(!Number.isNaN(Date.parse(time)), `time ${time}`); return rest }
+const JSON_TYPE = { status: 200, contentType: 'application/json' }
+const readLines = file => fs.readFileSync(file, 'utf8').trim().split('\n').map(l => JSON.parse(l))
+
 const freePort = () => new Promise(resolve => {
   const s = net.createServer().listen(0, () => { const { port } = s.address(); s.close(() => resolve(port)) })
 })
@@ -184,7 +196,9 @@ function registerTests () {
   describe('rules file', () => {
     test('the example file loads', () => {
       const rules = loadRules(EXAMPLE)
-      assert.deepEqual(rules.map(r => [r.id, r.op]), [['example-item-price-plus-1', 'add'], ['example-order-total-x2', 'mul'], ['example-order-status', 'set']])
+      assert.deepEqual(rules.map(r => [r.id, r.op]), [
+        ['example-item-price-plus-1', 'add'], ['example-order-total-x2', 'mul'], ['example-order-status', 'set'], ['example-order-total-text-plus-1', 'addNumberString']
+      ])
       assert.equal(rules[0].method, 'GET')
       assert.ok(rules[0].re.test('/api/example/items?page=2'))
       assert.ok(!rules[0].re.test('/api/example/items2'))
@@ -193,7 +207,8 @@ function registerTests () {
     test('a bad rule stops with a clear message', () => {
       const good = { id: 'x', what: 'w', path: '^/a$', field: 'a', op: 'add', value: 1 }
       const cases = [
-        [{ op: 'pow' }, /"op" must be one of: add, mul, set, suffix/],
+        [{ op: 'pow' }, /"op" must be one of: add, mul, set, suffix, addNumberString$/],
+        [{ op: 'addNumberString', value: '1' }, /"value" must be a number for op addNumberString/],
         [{ path: '(' }, /"path" is not a regular expression/],
         [{ field: 'data..price' }, /"field" must be like data\[\*\]\.price/],
         [{ value: '1' }, /"value" must be a number for op add/],
@@ -234,6 +249,24 @@ function registerTests () {
       assert.deepEqual(json.data.map(d => d.name), ['apple X', 'pear X'])
       assert.deepEqual(applyRule(json, makeRule({ path: '.', field: 'total', op: 'suffix', value: 'X' })), [])
       assert.deepEqual(applyRule(json, makeRule({ path: '.', field: 'data[*].name', op: 'add', value: 1 })), [])
+    })
+    test('addNumberString: "8.99", "5" and "0.50" keep their decimals; a number field and other strings do not change', () => {
+      const rule = (value, field = 'v') => makeRule({ path: '.', field, op: 'addNumberString', value })
+      const one = (v, value = 1) => { const json = { v }; return [applyRule(json, rule(value)), json.v] }
+      assert.deepEqual(one('8.99'), [[{ field: 'v', old: '8.99', new: '9.99' }], '9.99'])
+      assert.deepEqual(one('5'), [[{ field: 'v', old: '5', new: '6' }], '6'])
+      assert.deepEqual(one('0.50'), [[{ field: 'v', old: '0.50', new: '1.50' }], '1.50'])
+      assert.deepEqual(one('-1.25'), [[{ field: 'v', old: '-1.25', new: '-0.25' }], '-0.25'])
+      assert.deepEqual(one('0.1', 0.2), [[{ field: 'v', old: '0.1', new: '0.3' }], '0.3'])
+      assert.deepEqual(one('8.99', -1), [[{ field: 'v', old: '8.99', new: '7.99' }], '7.99'])
+      assert.deepEqual(one('5', 0.4), [[], '5'], 'the result rounds to the decimals of the field: no change')
+      assert.deepEqual(one(8.99), [[], 8.99], 'a JSON number')
+      for (const v of ['abc', '', '8,99', '8.', '.5', '+5', ' 5', '1e3', '0x10', 'NaN', 'Infinity', `0.${'1'.repeat(101)}`, '9'.repeat(400), null, true, ['5'], { v: '5' }]) {
+        assert.deepEqual(one(v), [[], v], JSON.stringify(v))
+      }
+      const json = { data: [{ price: '1.50' }, { price: 2 }, { price: 'n/a' }, { price: '10' }] }
+      assert.deepEqual(applyRule(json, rule(1, 'data[*].price')), [{ field: 'data[0].price', old: '1.50', new: '2.50' }, { field: 'data[3].price', old: '10', new: '11' }])
+      assert.deepEqual(json.data.map(d => d.price), ['2.50', 2, 'n/a', '11'])
     })
     test('[*] at the top, [n], nested [*][*], and missing paths', () => {
       const top = [{ price: 1 }, { price: 2 }]
@@ -363,6 +396,7 @@ function registerTests () {
       assert.deepEqual((await get(rules[0], '/api/example/items?page=1')).data.map(d => d.price), [2.5, 3])
       assert.equal((await get(rules[1], '/api/example/orders/7')).data.total, 25)
       assert.equal((await get(rules[2], '/api/example/orders/7')).data.status, 'cancelled')
+      assert.deepEqual((await get(rules[3], '/api/example/orders/7')).data, { ...ORDER.data, totalText: '13.50' })
       const suffix = makeRule({ path: '^/api/example/items$', field: 'data[*].name', op: 'suffix', value: ' (fake)' })
       assert.deepEqual((await get(suffix, '/api/example/items')).data.map(d => d.name), ['apple (fake)', 'pear (fake)'])
     })
@@ -393,6 +427,17 @@ function registerTests () {
           ['/api/example/text', 'the body is not JSON'], ['/api/example/broken', 'the body is not JSON'], ['/api/example/bad-gzip', 'cannot decode gzip']
         ])
       })
+    })
+
+    test('addNumberString on a number field or on a string with no number: a skip line with the reason', async () => {
+      for (const field of ['data.total', 'data.status']) {
+        const rule = makeRule({ path: '^/api/example/orders/7$', field, op: 'addNumberString', value: 1 })
+        await withProxy({ rule }, async (port, events) => {
+          const [direct, via] = await Promise.all([request(upstream.port, '/api/example/orders/7'), request(port, '/api/example/orders/7', { headers: BROWSER })])
+          assert.ok(via.body.equals(direct.body), field)
+          assert.deepEqual(events.filter(e => ['change', 'skip'].includes(e.type)).map(e => [e.type, e.path, e.reason]), [['skip', '/api/example/orders/7', `no value to change at ${field}`]])
+        })
+      }
     })
 
     test('method and path with the query must match', async () => {
@@ -432,6 +477,76 @@ function registerTests () {
       })
     })
 
+    test('capture with no rule: a line for each response to a browser request (JSON, gzip, deflate, br, not JSON); the bytes do not change', async () => {
+      const lines = []
+      await withProxy({ capture: e => lines.push(e) }, async (port, events) => {
+        const headers = { ...BROWSER, 'accept-encoding': 'gzip, deflate, br' }
+        for (const p of ['/api/example/items?page=2', '/api/example/gzip', '/api/example/deflate', '/api/example/br', '/api/example/chunked', '/api/example/text', '/api/example/broken', '/api/example/bad-gzip', '/missing', '/']) {
+          const [direct, via] = await Promise.all([request(upstream.port, p, { headers }), request(port, p, { headers })])
+          assert.equal(via.status, direct.status, p)
+          assert.ok(via.body.equals(direct.body), `body of ${p}`)
+          for (const h of ['content-type', 'content-encoding', 'content-length', 'etag']) assert.equal(via.headers[h], direct.headers[h], `${h} of ${p}`)
+        }
+        const echo = JSON.parse((await request(port, '/echo?a=1', { method: 'POST', headers: { ...BROWSER, 'content-type': 'text/plain' }, body: 'abc' })).body)
+        // Not browser requests: no line.
+        await request(port, '/api/example/items')
+        await request(port, '/api/example/items', { headers: { 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin' } })
+        assert.equal((await (await fetch(`http://localhost:${port}/api/example/items`)).json()).total, 5)
+        const { ws } = await wsEcho(`ws://localhost:${port}/socket`, 'x')
+        ws.close()
+        assert.equal(events[0].capture, true, 'the listening line says that the capture is on')
+        const all = lines.map(noTime)
+        assert.match(all[7].reason, /^cannot decode gzip: /)
+        assert.deepEqual(all, [
+          { method: 'GET', path: '/api/example/items?page=2', ...JSON_TYPE, body: ITEMS },
+          { method: 'GET', path: '/api/example/gzip', ...JSON_TYPE, body: ITEMS },
+          { method: 'GET', path: '/api/example/deflate', ...JSON_TYPE, body: ITEMS },
+          { method: 'GET', path: '/api/example/br', ...JSON_TYPE, body: ITEMS },
+          { method: 'GET', path: '/api/example/chunked', ...JSON_TYPE, body: ITEMS },
+          { method: 'GET', path: '/api/example/text', status: 200, contentType: 'text/plain', body: null, bodyBytes: Buffer.byteLength('price 1.5'), reason: 'the body is not JSON' },
+          { method: 'GET', path: '/api/example/broken', ...JSON_TYPE, body: null, bodyBytes: Buffer.byteLength('{"price": 1.5'), reason: 'the body is not JSON' },
+          { method: 'GET', path: '/api/example/bad-gzip', ...JSON_TYPE, body: null, bodyBytes: Buffer.byteLength('not gzip'), reason: all[7].reason },
+          { method: 'GET', path: '/missing', status: 404, contentType: null, body: null, bodyBytes: 0, reason: 'the body is not JSON' },
+          { method: 'GET', path: '/', status: 200, contentType: 'text/html', body: null, bodyBytes: Buffer.byteLength(PAGE), reason: 'the body is not JSON' },
+          { method: 'POST', path: '/echo?a=1', ...JSON_TYPE, body: echo }
+        ])
+        assert.equal(echo.body, 'abc')
+      })
+    })
+
+    test('capture with a rule: the changed body and "changed": true; other responses: the body that the client got', async () => {
+      const rule = makeRule({ id: 'price', path: '^/api/example/(gzip|text|orders/7)$', field: 'data[*].price', op: 'add', value: 1 })
+      const changedItems = { ...ITEMS, data: ITEMS.data.map(d => ({ ...d, price: d.price + 1 })) }
+      const lines = []
+      await withProxy({ rule, capture: e => lines.push(e) }, async (port, events) => {
+        const via = await request(port, '/api/example/gzip', { headers: { ...BROWSER, 'accept-encoding': 'gzip' } })
+        assert.deepEqual(JSON.parse(via.body), changedItems)
+        await request(port, '/api/example/text', { headers: BROWSER }) // matches, not JSON: skip
+        await request(port, '/api/example/orders/7', { headers: BROWSER }) // matches, JSON, no data[*].price: skip
+        await request(port, '/api/example/items', { headers: BROWSER }) // does not match the rule
+        await request(port, '/api/example/gzip') // matches, but not a browser request: no change, no line
+        assert.deepEqual(events.filter(e => ['change', 'skip'].includes(e.type)).map(e => [e.type, e.path]), [['change', '/api/example/gzip'], ['skip', '/api/example/text'], ['skip', '/api/example/orders/7']])
+      })
+      assert.deepEqual(lines.map(noTime), [
+        { method: 'GET', path: '/api/example/gzip', ...JSON_TYPE, body: changedItems, changed: true },
+        { method: 'GET', path: '/api/example/text', status: 200, contentType: 'text/plain', body: null, bodyBytes: Buffer.byteLength('price 1.5'), reason: 'the body is not JSON' },
+        { method: 'GET', path: '/api/example/orders/7', ...JSON_TYPE, body: ORDER },
+        { method: 'GET', path: '/api/example/items', ...JSON_TYPE, body: ITEMS }
+      ], 'the request with no Fetch Metadata gives no line')
+      // Scope all: the rule changes the response to a request that is not from a browser, but that response gives no line.
+      const more = []
+      await withProxy({ rule, scope: 'all', capture: e => more.push(e) }, async port => {
+        assert.deepEqual(JSON.parse((await request(port, '/api/example/gzip', { headers: { 'accept-encoding': 'gzip' } })).body), changedItems)
+      })
+      assert.deepEqual(more, [])
+    })
+
+    test('without capture: no capture key in the listening line', async () => {
+      await withProxy({}, async (port, events) => {
+        assert.deepEqual(Object.keys(events[0]).sort(), ['port', 'rule', 'scope', 'target', 'time', 'type'])
+      })
+    })
+
     test('upstream down: 502 and an error line', async () => {
       const port = await freePort()
       const events = []
@@ -452,6 +567,83 @@ function registerTests () {
       assert.equal(r.status, 0)
       assert.match(r.stdout, /Rules file: \{"rules"/)
       assert.match(r.stdout, /Sec-Fetch-Mode/)
+    })
+
+    test('--capture with no file stops with exit 1', () => {
+      for (const args of [['--capture'], ['--capture', '--log', path.join(TMP, 'x.jsonl')]]) {
+        const r = spawnSync(process.execPath, [PROXY, '--port', '0', ...args], { encoding: 'utf8', env: CHILD_ENV, timeout: 5000 })
+        assert.equal(r.status, 1, args.join(' '))
+        assert.match(r.stderr, /--capture needs a file: --capture <jsonl file>/)
+      }
+      assert.ok(!fs.existsSync(path.join(TMP, 'x.jsonl')))
+    })
+
+    test('--capture <file>: the proxy writes the capture lines to the file and exits 0 on SIGTERM', async () => {
+      const port = await freePort()
+      const logFile = path.join(TMP, 'cli-capture.log.jsonl')
+      const captureFile = path.join(TMP, 'cli-capture.jsonl')
+      const child = spawn(process.execPath, [PROXY, '--port', String(port), '--target', upstream.url, '--log', logFile, '--capture', captureFile],
+        { env: CHILD_ENV, stdio: ['ignore', 'pipe', 'pipe'] })
+      let output = ''
+      child.stdout.on('data', d => { output += d })
+      child.stderr.on('data', d => { output += d })
+      const exited = new Promise(resolve => child.once('exit', (code, signal) => resolve({ code, signal })))
+      await waitFor(() => fs.existsSync(logFile) && fs.readFileSync(logFile, 'utf8').includes('"listening"'), 'the listening line')
+      const headers = { ...BROWSER, 'accept-encoding': 'br' }
+      const [direct, via] = await Promise.all([request(upstream.port, '/api/example/br', { headers }), request(port, '/api/example/br', { headers })])
+      assert.ok(via.body.equals(direct.body), 'the br body goes through byte for byte')
+      await request(port, '/api/example/items')
+      child.kill('SIGTERM')
+      const result = await Promise.race([exited, sleep(5000).then(() => 'timeout')])
+      assert.deepEqual(result, { code: 0, signal: null }, output)
+      assert.match(output, new RegExp(`scope browser, log ${logFile}, capture ${captureFile}`))
+      assert.deepEqual(readLines(logFile).map(l => [l.type, l.capture]), [['listening', true], ['request', undefined], ['request', undefined]])
+      assert.deepEqual(readLines(captureFile).map(noTime), [{ method: 'GET', path: '/api/example/br', ...JSON_TYPE, body: ITEMS }])
+    })
+
+    test('--capture and a very deep JSON body: the client gets the full body, the line has "body": null, the proxy runs on', async () => {
+      // The proxy with --port 0: the port comes from the listening line, so no other socket can take it first.
+      const run = async (name, extra, paths) => {
+        const logFile = path.join(TMP, `${name}.log.jsonl`)
+        const captureFile = path.join(TMP, `${name}.jsonl`)
+        const child = spawn(process.execPath, [PROXY, '--port', '0', '--target', upstream.url, '--log', logFile, '--capture', captureFile, ...extra],
+          { env: CHILD_ENV, stdio: ['ignore', 'pipe', 'pipe'] })
+        let output = ''
+        child.stdout.on('data', d => { output += d })
+        child.stderr.on('data', d => { output += d })
+        const exited = new Promise(resolve => child.once('exit', (code, signal) => resolve({ code, signal })))
+        await waitFor(() => fs.existsSync(logFile) && fs.readFileSync(logFile, 'utf8').includes('"listening"'), 'the listening line')
+        const { port } = readLines(logFile)[0]
+        for (const p of paths) {
+          const [direct, via] = await Promise.all([request(upstream.port, p, { headers: BROWSER }), request(port, p, { headers: BROWSER })])
+          assert.equal(via.status, 200, `${name}: the status of ${p}`)
+          assert.ok(via.body.equals(direct.body), `${name}: the body of ${p} goes through byte for byte`)
+        }
+        assert.deepEqual(JSON.parse((await request(port, '/api/example/items', { headers: BROWSER })).body), ITEMS, `${name}: the proxy runs on`)
+        child.kill('SIGTERM')
+        assert.deepEqual(await Promise.race([exited, sleep(5000).then(() => 'timeout')]), { code: 0, signal: null }, output)
+        assert.doesNotMatch(output, /RangeError|Maximum call stack/, `${name}: no uncaught error`)
+        return { log: readLines(logFile), lines: readLines(captureFile).map(noTime) }
+      }
+      const deepLine = (p, bytes, reason) => ({ method: 'GET', path: p, ...JSON_TYPE, body: null, bodyBytes: bytes, reason })
+      const itemsLine = { method: 'GET', path: '/api/example/items', ...JSON_TYPE, body: ITEMS }
+
+      // No rule (the passthrough path): the capture cannot write the body.
+      const plain = await run('deep-plain', [], ['/api/example/deep'])
+      assert.deepEqual(plain.lines, [deepLine('/api/example/deep', DEEP.length, 'cannot write the body: Maximum call stack size exceeded'), itemsLine])
+
+      // A rule on total: /deep has no total (the skip path), /deep-total changes, but the changed body is too deep to write.
+      const rules = writeRules([{ id: 'deep-total', what: 'a total', path: '^/api/example/deep(-total)?$', field: 'total', op: 'add', value: 1 }])
+      const ruled = await run('deep-rule', ['--rules', rules, '--rule', 'deep-total'], ['/api/example/deep', '/api/example/deep-total'])
+      assert.deepEqual(ruled.log.filter(e => ['change', 'skip'].includes(e.type)).map(e => [e.type, e.path, e.reason]), [
+        ['skip', '/api/example/deep', 'no value to change at total'],
+        ['skip', '/api/example/deep-total', 'cannot write the changed body: Maximum call stack size exceeded']
+      ])
+      assert.deepEqual(ruled.lines, [
+        deepLine('/api/example/deep', DEEP.length, 'cannot write the body: Maximum call stack size exceeded'),
+        deepLine('/api/example/deep-total', DEEP_TOTAL.length, 'cannot write the changed body: Maximum call stack size exceeded'),
+        itemsLine
+      ])
     })
 
     test('an unknown rule stops with exit 1 and the list of rules', () => {
@@ -734,6 +926,11 @@ function registerTests () {
       assert.match(dry.stdout, /3\. example-order-status \(the status of the order\): restart the app; proxy --rule example-order-status; the same suite run, raw files rules\/example-order-status\.\*/)
       assert.match(dry.stdout, /4\. only when a test failed where its rule fired: restart the app; proxy with no rule; .*--repeat-each=3/)
       assert.match(dry.stdout, /dry run: no app, no proxy, no suite run/)
+      assert.doesNotMatch(dry.stdout, /--capture/)
+      const dryCapture = spawnSync(process.execPath, [RUNNER, '--suite', `T1=${suite}`, '--rules', EXAMPLE, '--only', 'example-order-status', '--capture', '--dry'], { encoding: 'utf8', env: CHILD_ENV })
+      assert.equal(dryCapture.status, 0, dryCapture.stderr)
+      assert.match(dryCapture.stdout, /2\. passthrough: proxy with no rule, --capture \S+\/bench\/results\/tamper-T1\/capture-T1\.jsonl; BASE_URL=/)
+      assert.match(dryCapture.stdout, /3\. example-order-status \(the status of the order\): restart the app; proxy --rule example-order-status; the same suite run/)
       const bad = spawnSync(process.execPath, [RUNNER, '--suite', `T1=${suite}`, '--rules', EXAMPLE, '--port', '3000', '--dry'], { encoding: 'utf8', env: CHILD_ENV })
       assert.equal(bad.status, 1)
       assert.match(bad.stderr, /--port must be 1024 to 65535 and not 3000/)
@@ -773,6 +970,35 @@ function registerTests () {
         `${key('api only')}: no browser HTTP request went through the proxy. The test goes around BASE_URL.`,
         `${key('node fetch only')}: no browser HTTP request went through the proxy. The test goes around BASE_URL.`
       ])
+    })
+
+    test('real Playwright: --capture: the passthrough run writes capture-<label>.jsonl; a rule run does not', { skip: NO_PW }, async () => {
+      const suite = makeSuite('pw-capture', [
+        TOTAL_IS_EXACT,
+        "test('api only', async ({ request }) => { expect((await request.get('/api/example/items')).ok()).toBe(true) })"
+      ])
+      const rulesFile = writeRules([{ id: 'total-plus-1', what: 'the total', path: '^/api/example/items$', field: 'total', op: 'add', value: 1 }])
+      const cfg = { label: 'T', suite, rulesFile, port: await freePort(), recheck: 0, target: upstream.url, out: 'tamper-T', raw: path.join(TMP, 'raw-capture'), capture: true }
+      const pass = await suiteRun(cfg, 'passthrough', null)
+      assert.deepEqual(Object.values(pass.tests).map(t => t.passed), [true, true])
+      const captureFile = path.join(cfg.raw, 'capture-T.jsonl')
+      const lines = readLines(captureFile)
+      console.log(`capture of the passthrough run: ${lines.map(l => `${l.method} ${l.path} ${l.status}`).join(', ')}`)
+      const page = lines.filter(l => l.path !== '/favicon.ico').map(noTime)
+      assert.deepEqual(page, [
+        { method: 'GET', path: '/', status: 200, contentType: 'text/html', body: null, bodyBytes: Buffer.byteLength(PAGE), reason: 'the body is not JSON' },
+        { method: 'GET', path: '/api/example/items', ...JSON_TYPE, body: ITEMS }
+      ], 'the request fixture of "api only" gives no line')
+      const windows = readWindows(pass.report)
+      const inWindow = l => windows.find(w => Date.parse(l.time) >= w.start && Date.parse(l.time) < w.end)?.key
+      assert.equal(inWindow(lines.find(l => l.path === '/api/example/items')), key('total is exact'), 'the windows of the report give the test of a line')
+      const before = fs.readFileSync(captureFile)
+      const res = await suiteRun(cfg, 'rules/total-plus-1', 'total-plus-1')
+      assert.equal(res.tests[key('total is exact')].changes.length, 1, 'the rule fired')
+      assert.ok(fs.readFileSync(captureFile).equals(before), 'the rule run does not write to the capture file')
+      assert.deepEqual(fs.readdirSync(cfg.raw).filter(f => f.startsWith('capture')), ['capture-T.jsonl'])
+      assert.deepEqual(fs.readdirSync(path.join(cfg.raw, 'rules')).filter(f => f.includes('capture')), [])
+      assert.doesNotMatch(fs.readFileSync(path.join(cfg.raw, 'rules', 'total-plus-1.jsonl'), 'utf8'), /"capture"/)
     })
 
     test('real Playwright: audit() gives caught, survived, not exercised (with and without matches), invalid; recheck', { skip: NO_PW }, async () => {

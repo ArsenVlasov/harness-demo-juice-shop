@@ -4,7 +4,8 @@
 //
 //   node bench/tamper-proxy.mjs --port 3100 --target http://localhost:3000                              no change
 //   node bench/tamper-proxy.mjs --port 3100 --target http://localhost:3000 --rules <file> --rule <id>    rule <id>
-//   options: --scope browser|all (default browser), --log <jsonl file> (default: standard output), --help
+//   options: --scope browser|all (default browser), --log <jsonl file> (default: standard output),
+//            --capture <jsonl file> (the bodies of the responses to browser requests, see "Capture"), --help
 //   --rules is necessary only with --rule. Without --rule, the proxy checks the rules file if you give it.
 //
 // Without --rule, each request and each response goes through without a change: the body byte for byte and the
@@ -21,11 +22,18 @@
 //   path    a regular expression on the request path with the query, for example ^/api/example/items(\?|$)
 //   field   the path in the JSON body: dot notation, [*] for each array item, [n] for item n.
 //           Examples: total, data[*].price, [*].name, data.items[0].quantity
-//   op      add (number + value), mul (number * value), set (value replaces the field), suffix (string + value)
-//   value   a number for add and mul, a string for suffix, any JSON value for set
+//   op      add (number + value), mul (number * value), set (value replaces the field), suffix (string + value),
+//           addNumberString (a string that holds a decimal number, for example "8.99" or "5": the number + value,
+//           with the same number of decimals as the old string. "8.99" + 1 gives "9.99", "5" + 1 gives "6",
+//           "0.50" + 1 gives "1.50". The result rounds to these decimals, so "5" + 0.4 gives "5", and that is no change)
+//   value   a number for add, mul and addNumberString, a string for suffix, any JSON value for set
 // Only the active rule (--rule) applies. A missing field, or a field with the wrong type for op, does not change.
-// add and mul round the result to 15 significant digits, so 0.1 + 0.2 gives 0.3.
+// For addNumberString, the wrong type is each value that is not a string of the form -?digits(.digits)?, for example
+// a JSON number or "abc". A response with no changed value gives a skip line (see "Log").
+// add, mul and addNumberString round the result to 15 significant digits, so 0.1 + 0.2 gives 0.3.
 // A body that does not parse as JSON goes through unchanged. The proxy decodes gzip, deflate, br and zstd bodies.
+// A changed body that JSON.stringify() cannot write (a very deep JSON body) also goes through unchanged, with a skip
+// line.
 // A changed body goes out without Content-Encoding and with a new Content-Length. For a request that matches the rule,
 // the proxy removes If-None-Match and If-Modified-Since, so that the app sends a full body and not 304.
 //
@@ -42,13 +50,31 @@
 // Scope all: the responses to all requests that match the rule change.
 //
 // Log: one JSON line for each event, each with "time" (ISO) and "type":
-//   listening  the proxy is ready: port, target, rule, scope
+//   listening  the proxy is ready: port, target, rule, scope, and capture: true (only with --capture)
 //   request    each request: method, path, browser (true or false), upgrade (only for a websocket)
 //   change     each changed response: rule, method, path, status, changes: [{field, old, new}]
 //   skip       a response that matched the rule but did not change: rule, method, path, status, reason
 //   abort      the client closed the connection before the end of the response, or an open websocket closed with
 //              a socket error: method, path (error for a websocket). This is not an error of the proxy.
 //   error      the app did not answer or broke the response (the client gets 502 or a cut body): method, path, error
+//
+// Capture (--capture <jsonl file>): one JSON line for each response to a browser request, with each scope and each rule.
+// A browser request is the same as for the scope browser: it has Sec-Fetch-Site, Sec-Fetch-Mode and Sec-Fetch-Dest.
+// The proxy writes the line when the app sent the full response. The line has these keys:
+//   time         ISO, at the end of the response
+//   method, path the request method, and the request path with the query
+//   status       the status from the app
+//   contentType  the Content-Type header of the response, or null
+//   body         the JSON body as parsed JSON. The proxy decodes gzip, deflate, br and zstd, as for a rule.
+//   bodyBytes    only when the body does not decode, does not parse as JSON, or is too deep for JSON.stringify()
+//                (then "body" is null): the size in bytes of the body that the client got. A 304 response or a 204
+//                response has 0 bytes.
+//   reason       only with bodyBytes: why "body" is null, for example "the body is not JSON"
+//   changed      only for a response that the rule changed: true. Then "body" is the body after the change.
+// For all other responses, "body" is the body that the client got. A websocket upgrade, a 502 of the proxy, and a
+// response that the app or the client cut give no line. The response to the client is the same with and without
+// --capture: the proxy sends each chunk on and keeps a copy until the end. Without --capture, the proxy keeps no copy.
+// The proxy writes the line after the end of the response to the client, so the capture cannot delay or cut it.
 // SIGTERM or SIGINT: the proxy closes all connections and exits with code 0.
 import fs from 'node:fs'
 import http from 'node:http'
@@ -63,13 +89,19 @@ const RULE_KEYS = new Set(['id', 'what', 'method', 'path', 'field', 'op', 'value
 const FIELD = /^(\[\*\]|\[\d+\]|[^.[\]]+)(\.[^.[\]]+|\[\*\]|\[\d+\])*$/
 const EACH = Symbol('each array item')
 const round = n => Number(n.toPrecision(15))
+const DECIMAL = /^-?\d+(\.\d{1,100})?$/ // a decimal number in a string. toFixed() accepts 0 to 100 decimals.
+const addToDecimal = (old, v) => {
+  const next = round(Number(old) + v).toFixed(old.split('.')[1]?.length ?? 0)
+  return DECIMAL.test(next) ? next : undefined // no "1e+21", no "Infinity"
+}
 const OPS = {
   add: (old, v) => typeof old === 'number' ? round(old + v) : undefined,
   mul: (old, v) => typeof old === 'number' ? round(old * v) : undefined,
   set: (old, v) => v,
-  suffix: (old, v) => typeof old === 'string' ? old + v : undefined
+  suffix: (old, v) => typeof old === 'string' ? old + v : undefined,
+  addNumberString: (old, v) => typeof old === 'string' && DECIMAL.test(old) ? addToDecimal(old, v) : undefined
 }
-const VALUE_TYPE = { add: 'number', mul: 'number', suffix: 'string' }
+const VALUE_TYPE = { add: 'number', mul: 'number', suffix: 'string', addNumberString: 'number' }
 const inflate = b => { try { return zlib.inflateSync(b) } catch { return zlib.inflateRawSync(b) } }
 const DECODE = { gzip: zlib.gunzipSync, 'x-gzip': zlib.gunzipSync, deflate: inflate, br: zlib.brotliDecompressSync, zstd: zlib.zstdDecompressSync }
 
@@ -130,20 +162,31 @@ export function applyRule (json, rule) {
   return changes
 }
 
-// Decodes, parses and changes one response body. Returns { body, changes }, or { reason } when nothing changes.
-export function tamperBody (raw, encoding, rule) {
+// Decodes and parses one response body. Returns { json }, or { reason } when it does not decode or parse.
+export function decodeJson (raw, encoding) {
   let body = raw
   const codings = (encoding ?? '').split(',').map(s => s.trim().toLowerCase()).filter(s => s && s !== 'identity')
   for (const coding of codings.reverse()) {
     if (!Object.hasOwn(DECODE, coding) || !DECODE[coding]) return { reason: `unknown content-encoding ${coding}` }
     try { body = DECODE[coding](body) } catch (e) { return { reason: `cannot decode ${coding}: ${e.message}` } }
   }
-  let json
-  try { json = JSON.parse(body.toString('utf8')) } catch { return { reason: 'the body is not JSON' } }
-  const changes = applyRule(json, rule)
-  if (changes.length === 0) return { reason: `no value to change at ${rule.field}` }
-  return { body: Buffer.from(JSON.stringify(json)), changes }
+  try { return { json: JSON.parse(body.toString('utf8')) } } catch { return { reason: 'the body is not JSON' } }
 }
+
+// Decodes, parses and changes one response body. Returns { body, json, changes }, or { reason } when nothing changes
+// ({ reason, json } when the body is JSON, but the rule changed no value).
+export function tamperBody (raw, encoding, rule) {
+  const parsed = decodeJson(raw, encoding)
+  if (!Object.hasOwn(parsed, 'json')) return parsed
+  const changes = applyRule(parsed.json, rule)
+  if (changes.length === 0) return { reason: `no value to change at ${rule.field}`, json: parsed.json }
+  let body // JSON.stringify() can throw on a very deep body that JSON.parse() accepts
+  try { body = Buffer.from(JSON.stringify(parsed.json)) } catch (e) { return { reason: `cannot write the changed body: ${e.message}` } }
+  return { body, json: parsed.json, changes }
+}
+
+// The body part of a capture line, from the raw body that the client got and its decodeJson() or tamperBody() result.
+const captured = (raw, parsed) => Object.hasOwn(parsed, 'json') ? { body: parsed.json } : { body: null, bodyBytes: raw.length, reason: parsed.reason }
 
 const FETCH_METADATA = ['sec-fetch-site', 'sec-fetch-mode', 'sec-fetch-dest']
 export const isBrowser = (headers, upgrade = false) => upgrade ? 'origin' in headers : FETCH_METADATA.every(h => h in headers)
@@ -159,9 +202,9 @@ function endToEnd (raw, drop = []) {
   return out
 }
 
-// Starts the proxy. emit gets each log event. Resolves with the server after "listening".
-// server.shutdown() closes all connections, the websocket pipes too.
-export function startProxy ({ port, target, rule = null, scope = 'browser', emit }) {
+// Starts the proxy. emit gets each log event. capture (optional) gets each capture line. Resolves with the server
+// after "listening". server.shutdown() closes all connections, the websocket pipes too.
+export function startProxy ({ port, target, rule = null, scope = 'browser', emit, capture = null }) {
   const up = new URL(target)
   if (up.protocol !== 'http:') throw new Error(`the target must be an http:// URL, not ${target}`)
   if (!['browser', 'all'].includes(scope)) throw new Error(`the scope must be browser or all, not ${scope}`)
@@ -175,6 +218,7 @@ export function startProxy ({ port, target, rule = null, scope = 'browser', emit
     const at = { method: req.method, path: req.url }
     emit({ time: now(), type: 'request', ...at, browser })
     const active = rule && (scope === 'all' || browser) && (!rule.method || rule.method === req.method) && rule.re.test(req.url)
+    const keep = Boolean(capture) && browser // capture only the responses to browser requests, with each scope
     const headers = endToEnd(req.rawHeaders, active ? ['if-none-match', 'if-modified-since'] : [])
     let settled = false // true after the first error or abort: one log line for each request
     const fail = err => {
@@ -188,9 +232,20 @@ export function startProxy ({ port, target, rule = null, scope = 'browser', emit
     const upReq = http.request({ ...upstream, method: req.method, path: req.url, headers }, upRes => {
       upRes.on('error', fail)
       upRes.on('close', () => { if (!upRes.complete) fail(new Error('the app closed the response before its end')) })
+      // One capture line, always after res.end(). bytes: the size of the body that the client got. When capture()
+      // throws (JSON.stringify() of a very deep body), the line gets "body": null, bodyBytes and the reason.
+      const record = (part, bytes) => {
+        const line = { time: now(), ...at, status: upRes.statusCode, contentType: upRes.headers['content-type'] ?? null, ...part }
+        try { capture(line) } catch (e) { capture({ ...line, body: null, bodyBytes: bytes, reason: `cannot write the body: ${e.message}` }) }
+      }
       if (!active) {
         res.writeHead(upRes.statusCode, upRes.statusMessage, endToEnd(upRes.rawHeaders))
         upRes.pipe(res)
+        if (keep) { // a copy of each chunk; pipe() sends the same chunks on. Added after pipe(): its res.end() runs first.
+          const copy = []
+          upRes.on('data', c => copy.push(c))
+          upRes.on('end', () => { const raw = Buffer.concat(copy); record(captured(raw, decodeJson(raw, upRes.headers['content-encoding'])), raw.length) })
+        }
         return
       }
       const chunks = []
@@ -203,12 +258,14 @@ export function startProxy ({ port, target, rule = null, scope = 'browser', emit
           emit({ ...base, type: 'skip', reason: out.reason })
           res.writeHead(upRes.statusCode, upRes.statusMessage, endToEnd(upRes.rawHeaders))
           res.end(raw)
+          if (keep) record(captured(raw, out), raw.length)
           return
         }
         emit({ ...base, type: 'change', changes: out.changes })
         const outHeaders = endToEnd(upRes.rawHeaders, ['content-encoding', 'content-length'])
         res.writeHead(upRes.statusCode, upRes.statusMessage, [...outHeaders, 'Content-Length', String(out.body.length)])
         res.end(out.body)
+        if (keep) record({ body: out.json, changed: true }, out.body.length)
       })
     })
     upReq.on('error', fail)
@@ -258,7 +315,7 @@ export function startProxy ({ port, target, rule = null, scope = 'browser', emit
     server.once('error', reject)
     server.listen(port, () => {
       server.off('error', reject)
-      emit({ time: now(), type: 'listening', port: server.address().port, target, rule: rule?.id ?? null, scope })
+      emit({ time: now(), type: 'listening', port: server.address().port, target, rule: rule?.id ?? null, scope, ...(capture ? { capture: true } : {}) })
       resolve(server)
     })
   })
@@ -272,15 +329,19 @@ async function main () {
   const ruleId = opt('--rule')
   const scope = opt('--scope', 'browser')
   const logFile = opt('--log')
+  const captureFile = opt('--capture')
   if (!Number.isInteger(port) || port < 0 || port > 65535) throw new Error(`--port must be a port number, not ${opt('--port')}`)
+  if (process.argv.includes('--capture') && (!captureFile || captureFile.startsWith('--'))) throw new Error('--capture needs a file: --capture <jsonl file>')
   if (ruleId && !rulesFile) throw new Error('--rule needs --rules <file>')
   const rules = rulesFile ? loadRules(rulesFile) : []
   const rule = ruleId ? rules.find(r => r.id === ruleId) : null
   if (ruleId && !rule) throw new Error(`no rule "${ruleId}" in ${rulesFile}. Rules: ${rules.map(r => r.id).join(', ')}`)
   const fd = logFile ? fs.openSync(logFile, 'a') : null
   const emit = fd === null ? e => process.stdout.write(`${JSON.stringify(e)}\n`) : e => fs.writeSync(fd, `${JSON.stringify(e)}\n`)
-  const server = await startProxy({ port, target, rule, scope, emit })
-  log(`tamper-proxy on :${server.address().port} to ${target}, rule ${rule?.id ?? 'none'}, scope ${scope}${logFile ? `, log ${logFile}` : ''}`)
+  const captureFd = captureFile ? fs.openSync(captureFile, 'a') : null
+  const capture = captureFd === null ? null : e => fs.writeSync(captureFd, `${JSON.stringify(e)}\n`)
+  const server = await startProxy({ port, target, rule, scope, emit, capture })
+  log(`tamper-proxy on :${server.address().port} to ${target}, rule ${rule?.id ?? 'none'}, scope ${scope}${logFile ? `, log ${logFile}` : ''}${captureFile ? `, capture ${captureFile}` : ''}`)
   const stop = async signal => {
     await server.shutdown()
     log(`tamper-proxy stopped (${signal})`)

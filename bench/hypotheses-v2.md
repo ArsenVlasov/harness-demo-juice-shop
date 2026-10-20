@@ -7,30 +7,33 @@ We freeze it before the first generation of stage 2: the first run of the condit
 After the freeze, nobody changes this file. Later notes go into `LOG.md`.
 
 `bench/hypotheses.md` (stage 1) stays as it is. It covers the condition `precise`, also its runs 2 and 3.
-The rule "How we read n = 3" in this file is new. The numbers of the precise runs 2 and 3 can be known before this file freezes.
+The rule "How we read n = 3" in this file is new. The main session measured the precise runs 2 and 3 on 20.10, from 15:31 to 16:32.
+Arsen did not approve the section "How we read n = 3" before these measurements.
 Thus the n = 3 labels of the stage 1 hypotheses are post hoc, and the README says so.
-There is one exception. Arsen can approve the section "How we read n = 3" before the first measurement of precise run 2.
-Then a `LOG.md` entry records the time, and these labels are not post hoc.
+`LOG.md` (the entry of 20.10, 16:50) reads the stage 1 hypotheses with n = 3 descriptively, not by this rule.
 
 ## What we freeze before the first new generation
+
+In this file, "decision N" is item N of section 10 of the stage 2 plan (plan v2).
 
 | Item | Value |
 |---|---|
 | Precise test cases | TC-01 to TC-08, tag `test-cases-v1` in the lab, no change |
-| Vague test cases | `test-cases-vague/`, tag `test-cases-v2-vague`. A separate locked session applied `bench/vague-rule.md` (its section 8). The folder hash is in `LOG.md` |
+| Vague test cases | `test-cases-vague/`, in the lab since commit `e07d5d1`. Folder hash `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898` (`LOG.md`, 20.10, 17:00). A separate locked session (`vague-writer-1`) applied the rule `bench/vague-rule.md` of commit `ba6f689` by its section 8 (decision 10). The tag `test-cases-v2-vague` is still to come: Arsen reads `bench/results/vague-review.md` first (checkpoint 2, part 2) |
 | Harness | tag `harness-v1` of the stage 1 `suite-b`, no change. No new capability |
 | Bug patches | the 14 patches in `sealed/sealed.tar`, no change: 11 realistic bugs and 3 operator mutants. Before each measurement block, the sha256 of the file must be the value in `LOG.md` |
 | UI patches for E5b | not frozen here. The rules for the UI patch session are in the section E5b. The sha256 of `sealed-ui/` goes into `LOG.md` before any suite runs against a UI patch |
 | Writer models | `claude-opus-5-5` for the conditions `precise` and `vague`. `claude-haiku-5-5` for the condition `haiku`. The harness reviewer `spec-reviewer` stays on Sonnet in all conditions |
 | Judge | the rubric `bench/judge.md` without change, the model `claude-opus-5-5` as in stage 1. See the section "The judge" |
-| Other sessions | the vague writer, the tamper binder, the auditor (E4) and the fixers (E4, E5b): `claude-opus-5-5`. This is a proposal (open question 10) |
+| Other sessions | The vague writer: `claude-opus-5-5`, done (decision 10). The tamper binder: `claude-opus-5-5` (decision 11). The auditor (E4) and the fixers (E4, E5b): `claude-opus-5-5`. This is a proposal (open question 7) |
 | Claude Code | 2.1.299 from `~/.local/claude-code-2.1.299`. `bench/claude-locked.sh` checks the sha256 of the binary: `099dcc53dabbbefabed8926dab25b0318775c175a7c87bb6ba6c54fde9f8ece2` |
-| Prompts | Generation: `bench/prompt-generation.txt` without change, the same for all conditions, at most one follow-up message with the standard text. E5b: `bench/prompt-repair.txt`. Vague writer: section 8 of `bench/vague-rule.md`. Audit and E4 fix: see E4 |
-| Budget caps | Generation: `--max-budget-usd 40` for each run, in all conditions. Judge: 10 USD for each suite. Proposal: vague writer 5, tamper binder 5, audit 20, E4 fix 20, E5b fix 10 USD for each suite |
+| Prompts | Generation: `bench/prompt-generation.txt` without change, the same for all conditions, at most one follow-up message with the standard text. E5b: `bench/prompt-repair.txt`. Vague writer: section 8 of `bench/vague-rule.md`, as `bench/prompt-vague-writer.txt` (sha256 in `LOG.md`). Audit and E4 fix: see E4 |
+| Budget caps | Generation: `--max-budget-usd 40` for each run, in all conditions. Judge: 10 USD for each suite. Vague writer: 5 USD (decision 10), the session cost 1.04531 USD. Tamper binder: 5 USD (decision 11). Proposal: audit 20, E4 fix 20, E5b fix 10 USD for each suite |
+| Lock | The generation runs, the vague writer, the tamper binder, the auditor and the fixers run through `bench/claude-locked.sh`. During the session, it hides these paths. Stage 1: `sealed/`, `bench/results/`, `LOG.md` and the measurement logs. The script also hides `sealed-ui/`. Decision 2 adds the lab `.git`, the vault folder `demo/` and the notes folder of the sealed hashes. It also adds the transcripts of the patch session, the other run folders and the templates. Decision 5 adds the transcripts and temp folders of the other runs, the lab `test-cases*`, the lab `README.md`, `bench/*.md` and `bench/conditions.json`. The transcripts of the lab session and `Bash(node *)` stay open (decision 2). The tool-call audit after each session covers them. `LAB/juice-shop/` also stays open, as in run 1. The auditor must not see it (plan v2, E4 step 2), so its lock must also hide `LAB/juice-shop/` (E4 inputs, item 3, open question 12). The UI patch session does not use this lock set. Its rules are in the section E5b |
 | Run layout | `harness-demo-runs/<dir>/run-<n>/suite-a` and `suite-b`. `<dir>` is the neutral folder name of the condition in `bench/conditions.json` (plan v2, decision 3) |
-| Folder names | `set-1` for `precise`, `set-2` for `vague`, `set-3` for `haiku`. Before the freeze, the `dir` values of `bench/conditions.json` must be these names |
+| Folder names | `set-1` for `precise`, `set-2` for `vague`, `set-3` for `haiku` (decision 3). The `dir` values of `bench/conditions.json` are these names |
 | Condition names | only in the result names (`gen-<condition>-<A or B>-<n>`) and in `LOG.md`. The lock hides both during a run |
-| Runs | n = 3 for each suite in each condition: runs 1, 2 and 3. Run 1 of `precise` is the stage 1 suites (tag `gen-1`), moved into `set-1/run-1/` without change |
+| Runs | n = 3 for each suite in each condition: runs 1, 2 and 3. Run 1 of `precise` is the stage 1 suites (tag `gen-1`), moved into `set-1/run-1/` without change. The main session generated and measured runs 2 and 3 of `precise` (decision 4, `LOG.md`, 20.10, 16:50) |
 | Clean template | each run starts from a clean template, see the list below |
 | Tamper list | the rules file of the section "The tamper list for the proxy". Its sha256 and the sha256 of each capture file are in `LOG.md` |
 | E5a review order | see E5a |
@@ -39,7 +42,7 @@ The clean template of a run:
 
 - The template of `suite-a` holds the stage 1 history up to the tag `baseline` (an empty Playwright project). Then one commit adds the test case set.
 - The template of `suite-b` holds the stage 1 history up to the tag `harness-v1` (the same project with the harness). Then one commit adds the test case set.
-- The templates are in `harness-demo-runs/templates/`. `bench/make-template.sh` makes the templates of the vague set. Their history does not name the set.
+- The templates are in `harness-demo-runs/templates/`. `bench/make-template.sh` makes the templates of the vague set, after the tag `test-cases-v2-vague`. Their history does not name the set.
 - The template names must not hold a condition name or a set name. The run folder has no git remote, and the lock hides the templates during a run.
 - `bench/run-generation.sh` clones the template into the run folder. The run folder holds no history of other runs or of the other suite.
 - The set is in `test-cases/` in each condition. Thus the prompt stays the same for all conditions.
@@ -146,11 +149,16 @@ Each item below is frozen with this file.
    For `vague`, this is the vague set. For `haiku`, this is the precise set.
    Reason: a real client has only its own test cases. With the precise set, the audit would see exact values that the client does not have.
 2. **Tools.** The main session runs `bench/run-audit-tamper.mjs` (the frozen tamper list) and `bench/run-audit-mutate.mjs` on the client suite at its tag `gen-<n>`.
-   It gives their `.md` reports to the auditor. These reports name rules, tests and literals, not bug patches.
-3. **Auditor.** A separate session in a new folder inside `harness-demo-runs/`, with a neutral name. It runs through `bench/claude-locked.sh`. Its folder holds only:
+   Both tools get the label `client` (`--suite client=<path>`) and an `--out` name that names no condition, run or suite.
+   The header of each `.md` report names the suite path, the commit, the tags and the paths in `bench/`.
+   Thus a script of the main session removes these lines. In the tamper report: the lines that start with `Source:` and `Suite`, and the line `Rules:` that names the rules file. In the mutate report: the line that starts with `Source:`.
+   The main session records the sha256 of each cleaned report in `LOG.md`. It gives the cleaned `.md` reports to the auditor. These reports name rules, tests and literals, not bug patches.
+3. **Auditor.** A separate session in a new folder inside `harness-demo-runs/`, with a neutral name. It runs through `bench/claude-locked.sh`. Its lock must also hide `LAB/juice-shop/` (plan v2, E4 step 2, open question 12). Its folder holds only:
    - a copy of the client suite at `gen-<n>`, without the harness files (the list of `bench/prepare-review.mjs`)
    - `test-cases/` of item 1
-   - the two tool reports of item 2
+   - the two cleaned tool reports of item 2
+   The copy of the suite is the root of the folder, and its `test-cases/` is the set of item 1.
+   The main session puts the two reports into the folder as `reports/tamper-report.md` (`run-audit-tamper.mjs`) and `reports/mutate-report.md` (`run-audit-mutate.mjs`).
    The auditor can open the app on port 3000. It does not get the name of the suite or the reason for the choice.
 4. **Audit report.** The auditor writes `audit-report.md` in the form of the client document. Each flag is one line: `FLAG TC-NN step N: <reason>`.
    One line names one step. A range or a list of steps in a FLAG line is not allowed.
@@ -161,10 +169,26 @@ Each item below is frozen with this file.
    When the client suite has a file with the same path, the client file stays. `package.json` gets the npm scripts and dev dependencies of the harness that it does not have.
    The main session records the commit and the list of client files that stayed in `LOG.md`, before the fix starts.
 7. **Fixer.** A session with the harness, through `bench/claude-locked.sh`, with the fix folder as `--dir`. At most one follow-up message, with the standard text of the generation.
-   The prompt (proposal, open question 14): `За звітом аудиту audit-report.md виправ слабкі тести. Тест-кейси в test-cases/.`
+   The prompts of the fixer and of the auditor (item 3) are proposals (open question 12). Both are in Ukrainian. Each session gets its prompt with no change.
+   - The fixer: `За звітом аудиту audit-report.md виправ слабкі тести. Тест-кейси в test-cases/.`
+   - The auditor:
+
+     ```text
+     Перевір автотести Playwright у цій папці: чи перевіряють вони те, що вимагають тест-кейси з папки test-cases/.
+     Застосунок запущено на http://localhost:3000.
+     У папці reports/ є звіти двох інструментів:
+     - reports/tamper-report.md: підміна значень у JSON-відповідях сервера.
+     - reports/mutate-report.md: зміна очікуваних значень у перевірках expect.
+     Не змінюй код тестів.
+     Напиши звіт audit-report.md: список слабких тестів, що саме кожен тест не перевіряє, і пріоритет кожної проблеми.
+     Для кожного кроку тест-кейсу, який тести не перевіряють або перевіряють слабко, додай у звіт окремий рядок:
+     FLAG TC-NN step N: <причина>
+     Тут TC-NN це ID тест-кейсу, а N це номер кроку. Один рядок FLAG називає тільки один крок.
+     Діапазон або список кроків в одному рядку FLAG не допускається.
+     ```
 8. **After the fix.** The main session tags the fix commit and measures the fix folder: `run-mutants.mjs`, `run-flaky.mjs` and the judge.
 9. **Audit of the tool calls.** It follows the audit and the fix, as in plan v2 item 1.5.
-   No tool call goes to `sealed/`, `bench/results/`, `LOG.md`, `demo/` or other folders of `harness-demo-runs/`.
+   No tool call goes to `sealed/`, `bench/results/`, `LOG.md`, `demo/` or other folders of `harness-demo-runs/`. No tool call of the auditor goes to `juice-shop/`.
 
 ### E5a: time of a person to accept a suite
 
@@ -191,7 +215,7 @@ Each item below is frozen with this file.
 | H5b.1 | Suite B has no more broken tests than suite A after the UI patches. | tests that pass on the clean build and fail after a UI patch, sum over all UI patches | broken(B) ≤ broken(A). We mark an equal result as "equal" |
 | H5b.2 | The fix of suite B after the UI change makes no check weaker. It also makes no more checks weaker than the fix of suite A. | the checks that `weakening()` of the harness finds in the diff of the fix | weakening(B) = 0 and weakening(B) ≤ weakening(A) |
 
-- Proposal: E5b uses suites A and B of `precise` run 1 (open question 9).
+- Proposal: E5b uses suites A and B of `precise` run 1 (open question 6).
 - The fix runs in a copy of the suite, outside the run folder. The run folders do not change.
 - The fixer gets the standard message of `bench/prompt-repair.txt`.
 - `bench/weakening.mjs` is the port of `weakening()` from the harness. We run it on the diffs of both fixes.
@@ -265,7 +289,7 @@ The rule:
 2. A value that the browser calculates gets no rule of its own. The rules on its inputs cover it.
    TC-07 says that the basket page and the order summary calculate the totals in the browser.
 3. The proxy applies one rule in one suite run, with the scope `browser` (the default of `bench/tamper-proxy.mjs`).
-   Only the responses to browser requests change. The API calls of the test preconditions get the true values (open question 8).
+   Only the responses to browser requests change. The API calls of the test preconditions get the true values (open question 5).
 4. First, the suite runs through the proxy with no rule. Each test must pass (plan v2, section 9).
    If a test fails, `bench/run-audit-tamper.mjs` stops before the rules. Then the main session runs the same command again with a new `--out`, at most 3 times in total.
    If all 3 runs fail, the tamper part of the audit has no result for this suite. We record this in `LOG.md`. Nobody removes a test from the run.
@@ -285,7 +309,7 @@ The operator:
 | Value type | Operator | Example |
 |---|---|---|
 | number | `add` 1 | `8.99` becomes `9.99`. `2` becomes `3` |
-| number in a JSON string | add 1 and keep the number of decimals | `"8.99"` becomes `"9.99"`. The proxy has no such operator today. If it has none at the freeze, these rules have no run, and the report lists them |
+| number in a JSON string | `addNumberString` 1: add 1 to the decimal number in the string, and keep the number of decimals | `"8.99"` becomes `"9.99"`. `"2"` becomes `"3"` |
 | string | `set` to a fixed text: `mut@example.test` for an email, `MUT` for all other strings | `tc01-x@example.test` becomes `mut@example.test` |
 
 The reasons for "add 1":
@@ -379,7 +403,7 @@ Values with no rule:
 | the basket counter `0`, the promotion `0.00¤` | TC-02 step 1, TC-06 step 5, TC-07 step 9 | No server value exists to change: the basket is empty, or no coupon applies. |
 | the order ID in the route | TC-07 step 7 | The page loads the order with this ID. A change can break that request, and then a red test shows a broken page, not a check. T11 covers the order ID. |
 | product names | all test cases | They are test data, not results. Tests use them to find rows, so a red test would not show a check of a value. |
-| the saved address and the saved card | TC-05 steps 1, 3. TC-07 step 6 | The server sends them, and `README.md` gives their values. But they are not of the kinds of rule 1. Those kinds come from plan v2, E4 (open question 8). |
+| the saved address and the saved card | TC-05 steps 1, 3. TC-07 step 6 | The server sends them, and `README.md` gives their values. But they are not of the kinds of rule 1. Those kinds come from plan v2, E4 (open question 5). |
 | an order status | none | No expected result of TC-01 to TC-08 names an order status. |
 | page titles and button names | all test cases | They are texts of the page, not data that the server sends. |
 
@@ -388,14 +412,17 @@ Values with no rule:
 The rules above name values in plain words. A binding gives each rule a request path and a JSON field.
 The main session knows the bug patches, so it does not make the binding. A blind session makes it by this procedure:
 
-1. **Capture.** The main session runs suites A and B of `set-1/run-1` through the proxy with no rule.
-   The capture holds, for each response to a browser request: the time, the test, the method, the path, the status and the JSON body.
-   A new log option of the proxy can record the bodies. Or the main session takes the bodies from the Playwright traces (`--trace on`, with the output folder outside `harness-demo-runs/`).
-   The run folders do not change. The main session makes no choice in this step. It records the sha256 of each capture file in `LOG.md`.
-2. **Binder.** A separate session, through `bench/claude-locked.sh`, in a new folder inside `harness-demo-runs/` with a neutral name. Its folder holds only:
+1. **Capture.** The main session runs suites A and B of `set-1/run-1` through the proxy with no rule (decision 11).
+   Each suite run has `--workers=1` and the json reporter. The proxy option `--capture <jsonl file>` records the bodies. Each suite gets its own capture file, outside `harness-demo-runs/`.
+   A capture line has the time, but not the test. Thus a script of the main session adds the test and its TC to each line.
+   It uses the method of `bench/run-audit-tamper.mjs`. The window of a test starts at its start time in the Playwright report of the same run.
+   The window ends at the start time of the next test, and the last window has no end. A line goes to the test whose window holds its time.
+   After the script, each line is for one response to a browser request. It holds the time, the test, the TC, the method, the path, the status and the JSON body.
+   The run folders do not change. The main session makes no choice in this step. It records the sha256 of each capture file, before and after the script, in `LOG.md`.
+2. **Binder.** A separate session, through `bench/claude-locked.sh`, in a new folder inside `harness-demo-runs/` with a neutral name. The model is `claude-opus-5-5`, with `--max-budget-usd 5` (decision 11). Its folder holds only:
    - `test-cases/` from the tag `test-cases-v1`
    - the operator table, the table of candidate values and the table "The rules" of this file
-   - the capture files
+   - the capture files with the tests, from step 1
    - `bench/tamper-rules.example.json`, for the format
 3. **Binding.** The binder works on each rule T01 to T16. It gives each pair of a path and a field where the capture holds the value of the rule.
    It binds the response that the page of the rule's steps shows the value from. When more than one response can be the source, it binds each of them.
@@ -472,10 +499,19 @@ The reasons:
   - Arsen knows the test cases and the harness. His review in E5a is not blind. Round 2 of E5a is open, and the order of the reviews can change the minutes.
   - One app, 8 test cases, 14 bug patches, 3 to 5 UI patches.
   - n = 3 for each condition. n = 1 for E4, E5a and E5b.
-  - The n = 3 labels of the stage 1 hypotheses are post hoc, unless `LOG.md` shows the early approval (see the top of this file).
+  - The n = 3 labels of the stage 1 hypotheses are post hoc. Arsen did not approve the section "How we read n = 3" before the measurements of the precise runs 2 and 3.
   - For the suites of Opus, the judge and the writer are the same model. The reviewer of the audit and the judge do the same task with the same model.
   - In B-haiku, the reviewer `spec-reviewer` runs on Sonnet, a stronger model than the writer.
-  - A mechanical rule made the vague test cases. They are not real Jira tickets, and they keep the test data. The checks of the rule cannot find each wrong change.
+  - A mechanical rule made the vague test cases (`bench/vague-rule.md`). They are not real Jira tickets. Their test data keeps only the inputs (decision 6).
+    Some exact values, or a way to get them, stay in the vague set (section 9 of the rule):
+    - The step column stays word for word. TC-04 step 2 gives the purchase limit. TC-08 steps 3 and 7 give the order total on the button `Pay 8.99¤`.
+    - `README.md` stays word for word. The part `<NN>` of a coupon code gives the discount, and its examples give a coupon with a 10% discount.
+    - The text before the preconditions and the preconditions stay word for word (decision 8). In TC-08, they keep the calculation of the bonus points and the balance of a new account. In TC-05, they tell which part of the order gets the discount.
+    - In TC-08, the first balance stays as an input (decision 7). The first balance plus the top-up give the order total.
+      From it, an agent can find the price of `Eggfruit Juice (500ml)`, and then some expected values of TC-02, TC-03, TC-05 and TC-06. Arsen accepted this leak as a limit (decision 9).
+    - The generation agent sees the running app through Playwright MCP and can read each price there.
+    - The meaning of a message (rule M) is the free part of the rule. Two people can choose different words.
+    - The checks of the rule cannot find each wrong change. Rule D finds nouns and action sentences with short word lists, so a rare form can get the wrong class. Arsen reads each changed cell at checkpoint 2.
   - The client suite of E4 is the weakest of up to 12 candidates, by a rule that uses the bug patches. Its "before" number is low on purpose, and the same patches give the score of the audit. The gain before and after does not carry over to a typical suite.
   - The tamper list covers only the values that the test cases name.
   - The lint rules of B forbid some patterns that `weakening()` finds, for example `waitForTimeout`. Thus a part of the result of B in H5b.2 can come from its lint.
@@ -483,30 +519,24 @@ The reasons:
 
 ## Open questions for Arsen
 
-1. **Freeze point.** Proposal: freeze this file before the first run of `vague` or `haiku`. The precise runs 2 and 3 come before, under `bench/hypotheses.md`.
-   Approve the section "How we read n = 3" before the first measurement of precise run 2? Else the n = 3 labels of stage 1 are post hoc.
-2. **Expected blocks in the vague set.** The rule removes the blocks `Expected order summary` and `Expected totals` from TC-05, TC-06 and TC-07. They stand under `## Test data`. Without the removal, these three test cases keep all exact totals. Keep the removal?
-3. **TC-08 test data.** The vague set keeps the rows `Order total` and `Bonus points of the order`, and the line before step 6 with the balance. Remove them too, or keep the rule simple?
-4. **Vague rule.** Do you agree with each item?
-   - A label such as `Total Price` becomes lowercase words, without quotes. Page titles and button names keep their quotes.
-   - A count (`one row`) becomes `the correct number of rows`. The count stays a requirement, but the vague text does not give it.
-   - A message keeps a short meaning within the limits of rule M. The other option is a fixed form without a meaning, for example "an error message shows".
-5. **Thresholds.** 0.5 for R1 and P1 in H4.1 and H4.2. The margin of 20 % in H5a.1.
-6. **Measures of the audit.** R1 and P1 test the hypotheses, and R2, P2 and the class counts stand in the same table (recommendation). Or other options?
-7. **The client suite.** Do you agree with each item?
+1. **Freeze point.** Proposal: freeze this file before the first run of `vague` or `haiku`.
+2. **Thresholds.** 0.5 for R1 and P1 in H4.1 and H4.2. The margin of 20 % in H5a.1.
+3. **Measures of the audit.** R1 and P1 test the hypotheses, and R2, P2 and the class counts stand in the same table (recommendation). Or other options?
+4. **The client suite.** Do you agree with each item?
    - "Equally strong" means that each eligible candidate misses 0 bugs.
    - A candidate is eligible only when all its tests pass on the clean build.
    - B suites are candidates too.
    - The auditor gets a copy without the harness files, and the test case set of the client suite's condition.
-8. **The tamper list.** Do you agree with each item?
+5. **The tamper list.** Do you agree with each item?
    - A message text gets a rule only when the server sends it in JSON.
    - The saved address, the saved card and the payment method name stay out, unless the binding finds the payment method in JSON. Or add string rules for the address and the card?
-   - Strings get `set` to a fixed text, not `suffix`. A number in a string gets "add 1 and keep the decimals", and the proxy needs that operator.
+   - Strings get `set` to a fixed text, not `suffix`. A number in a string gets `addNumberString` 1: add 1, and keep the decimals.
    - The scope is `browser`, so the test preconditions get true values. With the scope `all`, a test that takes its expected value from the API stays green and counts as weak.
-   - A blind session makes the binding. The other option is a script that binds each field with the same value as a candidate. It is mechanical, but small values such as `1` match many fields, and some flags would then be false.
-9. **E5b suites.** A and B of `precise` run 1?
-10. **Models and caps.** `claude-opus-5-5` for the vague writer, the binder, the auditor and the fixers? The caps in the freeze table?
-11. **Judge.** Opus for all conditions, as in stage 1? An extra judge run against the vague test cases, for information only? The stage 1 judge cost about 1.3 USD (plan v2, section 6).
-12. **Stopped runs.** Do you agree with the list of outside causes?
-13. **E5a.** Does `bench/review-checklist.md` freeze with this file? Do you agree that round 2 goes "after" first, and that H5a.2 is exploratory?
-14. **E4 fix.** Do you agree with the harness port for a client suite A (inputs, item 6)? The prompt of the fixer, and the full prompt of the auditor, freeze with this file. Do you approve the proposed fixer prompt?
+6. **E5b suites.** A and B of `precise` run 1?
+7. **Models and caps.** `claude-opus-5-5` for the auditor and the fixers? The proposed caps in the freeze table?
+8. **Judge.** Opus for all conditions, as in stage 1? An extra judge run against the vague test cases, for information only? The stage 1 judge cost about 1.3 USD (plan v2, section 6).
+9. **Stopped runs.** Do you agree with the list of outside causes?
+10. **E5a.** Does `bench/review-checklist.md` freeze with this file? Do you agree that round 2 goes "after" first, and that H5a.2 is exploratory?
+11. **E4 fix.** Do you agree with the harness port for a client suite A (inputs, item 6)?
+12. **E4 auditor.** Do you approve the prompt of the auditor and the prompt of the fixer (inputs, item 7)? Both freeze with this file.
+    Do you agree with the cleaned tool reports (inputs, item 2)? The auditor lock must also hide `LAB/juice-shop/`, but `bench/claude-locked.sh` has no option for this yet. Do you agree that the script gets this option?

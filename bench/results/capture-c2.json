@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-10-20T14:36:01.884Z",
+  "out": "capture-c2",
+  "suite": {
+    "label": "c2",
+    "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-1/suite-b",
+    "commit": "12286c65dfb0c0b2a1c47ef0e09e1dd777b337bb",
+    "tags": [
+      "gen-1"
+    ]
+  },
+  "rulesFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/tamper-rules.example.json",
+  "rulesSha256": "eaed14f3c06e37ca8ff7048a38e66c3409649c5a3eb5fdeecaa1bdfe91645b5e",
+  "proxy": {
+    "port": 3100,
+    "target": "http://localhost:3000",
+    "scope": "browser"
+  },
+  "command": "BASE_URL=http://localhost:3100 npx playwright test --retries=0 --workers=1 --reporter=json --output=/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/capture-c2/<run>-output",
+  "recheckRuns": 0,
+  "passthrough": {
+    "tests": 8,
+    "browserRequests": 695,
+    "browserRequestsByTest": {
+      "specs/regression/auth/login.spec.ts :: Login with a valid and an invalid password": 53,
+      "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": 77,
+      "specs/regression/basket/basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket": 75,
+      "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": 146,
+      "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history": 109,
+      "specs/regression/coupon/invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon": 73,
+      "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step": 73,
+      "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet": 89
+    }
+  },
+  "recheck": null,
+  "rules": [
+    {
+      "id": "example-order-status",
+      "what": "the status of the order",
+      "method": "GET",
+      "path": "^/api/example/orders/\\d+$",
+      "field": "data.status",
+      "op": "set",
+      "value": "cancelled",
+      "verdict": "not exercised",
+      "problems": [],
+      "fired": [],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 0,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    }
+  ],
+  "summary": {
+    "rules": 1,
+    "caught": 0,
+    "survived": 0,
+    "notExercised": 1,
+    "invalid": 0
+  }
+}

@@ -7,7 +7,11 @@
 //   node bench/run-audit-tamper.mjs --suite A1=<path> --rules <file> --only id1,id2     only these rules
 //   node bench/run-audit-tamper.mjs --suite A1=<path> --rules <file> --dry              print the plan, start nothing
 //   options: --port 3100 (the proxy port, not 3000), --out <name> (default tamper-<label>),
-//            --recheck <n> (default 3, 0 = off), --help
+//            --recheck <n> (default 3, 0 = off), --capture, --help
+//   --capture: only in the passthrough run, the proxy also gets --capture bench/results/<out>/capture-<label>.jsonl.
+//            This file has one line for each response to a browser request, with the JSON body (see "Capture" in
+//            bench/tamper-proxy.mjs). The lines have the time, but not the test: the windows of passthrough.json give
+//            the test. The rule runs and the recheck run have no capture. The other steps do not change.
 //
 // Steps:
 //   1. juice-shop/ must be clean. bench/results/<out>/ and <out>.json must not exist (give a new --out, or remove
@@ -22,7 +26,7 @@
 //      counts as a catch only when it passed each recheck run. A failure of an unstable test is not a catch.
 //   5. bench/results/<out>.json and <out>.md. The raw files go to bench/results/<out>/: passthrough.*, recheck.*
 //      and rules/<rule id>.* (the Playwright report .json, the proxy log .jsonl, the outputs .playwright.txt and
-//      .proxy.txt, the Playwright output folder -output/).
+//      .proxy.txt, the Playwright output folder -output/), and capture-<label>.jsonl with --capture.
 // The proxy and the app stop at the end, also after an error. Ctrl-C (SIGINT) or SIGTERM: the audit stops after the
 // current suite run and writes no results. The exit code is 1 when a rule run is invalid.
 //
@@ -73,19 +77,21 @@ function readArgs () {
   if (!Number.isInteger(recheck) || recheck < 0 || recheck > 20) throw new Error('--recheck must be 0 to 20')
   const out = opt('--out', `tamper-${label}`)
   if (!/^[\w.-]+$/.test(out)) throw new Error('--out must be letters, digits, _, . or -')
-  return { label, suite, rulesFile, rules: only ? rules.filter(r => only.includes(r.id)) : rules, port, recheck, target: APP_URL, out, raw: path.join(RESULTS, out) }
+  return { label, suite, rulesFile, rules: only ? rules.filter(r => only.includes(r.id)) : rules, port, recheck, target: APP_URL, out, raw: path.join(RESULTS, out), capture: process.argv.includes('--capture') }
 }
 
 const playwrightArgs = (cfg, name, extra = []) => ['playwright', 'test', '--retries=0', '--workers=1', '--reporter=json', `--output=${path.join(cfg.raw, `${name}-output`)}`, ...extra]
 const ruleRunName = rule => path.join('rules', rule.id)
+const captureFile = (cfg, name) => cfg.capture && name === 'passthrough' ? path.join(cfg.raw, `capture-${cfg.label}.jsonl`) : null
 
 // Starts tamper-proxy.mjs as a child process and waits for its "listening" line in the log file.
 async function startProxyProcess (cfg, name, ruleId) {
   const logFile = path.join(cfg.raw, `${name}.jsonl`)
   const outFile = path.join(cfg.raw, `${name}.proxy.txt`)
-  fs.rmSync(logFile, { force: true })
+  const capture = captureFile(cfg, name)
+  for (const f of [logFile, capture]) if (f) fs.rmSync(f, { force: true })
   const fd = fs.openSync(outFile, 'w')
-  const args = [PROXY, '--port', String(cfg.port), '--target', cfg.target, '--rules', cfg.rulesFile, '--log', logFile, ...(ruleId ? ['--rule', ruleId] : [])]
+  const args = [PROXY, '--port', String(cfg.port), '--target', cfg.target, '--rules', cfg.rulesFile, '--log', logFile, ...(ruleId ? ['--rule', ruleId] : []), ...(capture ? ['--capture', capture] : [])]
   const child = spawn('node', args, { env, stdio: ['ignore', fd, fd] })
   fs.closeSync(fd)
   const exit = new Promise(resolve => child.once('exit', (code, signal) => resolve({ code, signal })))
@@ -309,7 +315,7 @@ function printPlan (cfg, id, sha) {
   const n = cfg.rules.length
   console.log([
     '  1. check that juice-shop/ is clean and that the results do not exist; restart the app without a build',
-    `  2. passthrough: proxy with no rule; ${pwCmd('passthrough')}`,
+    `  2. passthrough: proxy with no rule${cfg.capture ? `, --capture ${captureFile(cfg, 'passthrough')}` : ''}; ${pwCmd('passthrough')}`,
     ...cfg.rules.map((r, i) => `  ${i + 3}. ${r.id} (${r.what}): restart the app; proxy --rule ${r.id}; the same suite run, raw files ${ruleRunName(r)}.*`),
     cfg.recheck > 0
       ? `  ${n + 3}. only when a test failed where its rule fired: restart the app; proxy with no rule; ${pwCmd('recheck', [`--repeat-each=${cfg.recheck}`])}`

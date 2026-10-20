@@ -6,6 +6,66 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 17:40: checkpoint 3: the documents and the proxy updated, the capture of step 1 done
+
+Start from: the binder session (decision 11), after the workflow `wf_8a5196e5-ed6` gives the binder package. Then the check of its rules file and the audit of its tool calls.
+
+- At 17:12, Arsen gave "yes" to the binder session: `claude-opus-5-5`, `--max-budget-usd 5`. This is a human intervention. Section 10 of the stage 2 plan, item 11, has it.
+- The workflow `wf_6a422e0d-60e`, 16:55 to 17:20: 6 agents, 0 errors (2 authors, 2 reviewers, 2 fix agents).
+  - `bench/hypotheses-v2.md` follows the decisions 2 to 11. The open questions that a decision answered are gone. 12 open questions stay.
+    The file now has a prompt for the auditor of E4 and the procedure of step 1 of the binding.
+    It also has a step that removes the name of the suite from the tool reports for the auditor.
+    `ste-lint.py`: 0 hard violations, 7950 words.
+  - `bench/tamper-proxy.mjs`: new option `--capture <file>` (the JSON body of each response to a browser request) and new op `addNumberString`.
+    `bench/run-audit-tamper.mjs` gives `--capture` to the proxy in the passthrough run only.
+    A reviewer found a crash of the proxy on a very deep JSON body. The fix agent fixed it, also on the change path.
+    `TAMPER_REQUIRE_BROWSER=1 node --test bench/test/tamper-proxy.test.mjs`: `tests 48`, `pass 48`, `fail 0`, with a real Chromium.
+  - New sha256 of `bench/tamper-rules.example.json`: `eaed14f3c06e37ca8ff7048a38e66c3409649c5a3eb5fdeecaa1bdfe91645b5e`.
+
+### Step 1 of the binding: the capture, with proof
+
+1. The command for each suite of `set-1/run-1`, with the labels `c1` (suite A) and `c2` (suite B):
+   `node bench/run-audit-tamper.mjs --suite c1=../harness-demo-runs/set-1/run-1/suite-a --rules bench/tamper-rules.example.json --only example-order-status --recheck 0 --capture --out capture-c1`
+   The runner needs one rule. The example rule matches no path of the app, so it changes nothing. The output is in `bench/.run/capture.log`.
+   - `c1`, 17:33:22 to 17:34:14, exit 0. `passthrough: 8/8 tests passed, exit 0, browser requests 448, changed responses 0`.
+   - `c2`, 17:34:18 to 17:36:01, exit 0. `passthrough: 8/8 tests passed, exit 0, browser requests 695, changed responses 0`.
+   - This is also the check of the risk "Прокси ломает приложение" (plan v2, section 9): each test passes through the proxy with no rule.
+   - After the runs: `git status --short` was empty in `juice-shop/` and in both suite folders. The app was down.
+2. New script `bench/tag-capture.mjs`: it adds the test case and the number of the test to each capture line, by the time windows of `passthrough.json`.
+   It does not keep the name or the file of a test, because they show the layout of a suite.
+
+| Label | Capture before the script | Tagged capture (`bench/results/capture-tagged/`) | Lines |
+|---|---|---|---|
+| `c1` | `d63e7c98f4cd0161ba756b1e56a61ce52a406994ddd182cd9920b34f41300be7` | `5d1669e0a7b78b2ec791a8899fc146f0da392095a38a124e088b9d1e43ff21a4` | 447, 160 with a JSON body |
+| `c2` | `6bd7ffd547ea901cb84b01812f093ddc9d74f5ff80b0b335d8cbbdb8ae11f5b7` | `737947529c3c998a8d55eb6dcd0e7743af2df49e977887c89f0a69ccad6da0f4` | 658, 171 with a JSON body |
+
+3. A search of the tagged captures for "sealed", "mutant", "patch", "suite-a", "suite-b" and "harness" finds only "patch". All hits are data of the shop: the product "OWASP Juice Shop-CTF Velcro Patch" and the text "patched/upgraded".
+
+## 2026-10-20, 17:15: the push is blocked, a test of the mutation audit, the preparation of checkpoint 3
+
+- At 16:54, Arsen asked for a commit and a push. The commits are in the lab: `bef1f28`, `ba6f689`, `6f817a9` and `e07d5d1`.
+  The push did not run. The permission check of the Claude Code session refused `git push origin main` ("Out-of-Place Publication").
+  `gh repo view` gives `"visibility":"PUBLIC"` for `github.com/ArsenVlasov/harness-demo-juice-shop`. `origin/main` is at `3d30a93`. Arsen does the push himself.
+- I searched the transcripts of runs 2 and 3 for `github.com`. The hits are in file contents that the agents read (the `z85` package and the Playwright config template). No tool call names GitHub.
+  Each `browser_navigate` call of runs 2 and 3 goes to `http://localhost:3000`.
+- At 17:00, Arsen said: "proceed work due to our plan". This is a human intervention.
+
+### Test of `bench/run-audit-mutate.mjs` on a small set (plan v2, day plan of 22.10)
+
+1. `node bench/run-audit-mutate.mjs --suite A1=../harness-demo-runs/set-1/run-1/suite-a --ref gen-1 --list`: 85 sites in 25 files, no app.
+2. `... --max 4 --out mutate-try`, 17:07:52 to 17:09:40, exit 0. The baseline: 8 tests, 0 left out. `A1: 3 killed, 1 survived, 0 error, 0 skipped of 4`.
+   - The killed mutants are 3 URL checks in page objects. Each mutant failed 8 tests.
+   - The survived mutant is `tests/pages/header.ts:35`, `toHaveCount(0)` to `toHaveCount(1)`, in the helper `closeAccountMenu()`. The menu closes with an animation, and during it the menu still exists.
+     Thus a check that waits for a count can pass on a passing UI state. This is a limit of the tool: a survived mutant in a helper is not always a weak check of a test case value.
+3. After the test: `git status --short` was empty in the suite folder and in `juice-shop/`, and the app was down. I removed the test output `bench/results/mutate-try*`.
+
+### Checkpoint 3: the preparation
+
+A background workflow (run `wf_6a422e0d-60e`) has 2 jobs, each with a reviewer:
+
+1. It updates `bench/hypotheses-v2.md` for the decisions 6 to 10. It also writes the missing prompt of the auditor of E4.
+2. It adds a capture of the JSON bodies and the operator `addNumberString` to `bench/tamper-proxy.mjs`. The binding procedure of the tamper list needs both.
+
 ## 2026-10-20, 17:00: the vague set is written and checked, Arsen reads it next
 
 Start from: Arsen reads `bench/results/vague-review.md` (checkpoint 2, part 2). After his "yes": the tag `test-cases-v2-vague`, then `bench/make-template.sh A vague` and `B vague`.
