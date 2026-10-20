@@ -6,6 +6,44 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 19:30: freezes of stage 2: the vague set, the tamper list, `hypotheses-v2.md`
+
+Start from: checkpoint 4 of E2 and E3 (the generation of the conditions `vague` and `haiku`, 3 runs each). It needs "yes" from Arsen, because it costs money.
+Before E4: the option of `bench/claude-locked.sh` that hides `LAB/juice-shop/` from the auditor (answer 12).
+
+### Decisions of Arsen at 19:17 (human interventions)
+
+Section 10 of the stage 2 plan, items 12 to 14, has them.
+
+1. Item 12: the review of 19:08 to 19:13 was a quick look, not the E5a review. The 4 rows of `bench/review-log.csv` stay as they are, and the timer is not reset.
+   - The rows: `suite-1` from 16:08:38Z to 16:12:24Z (3.8 minutes), `suite-2` from 16:12:51Z to 16:13:50Z (1.0 minute), 0 issues, 0 fixes.
+   - The full review by the checklist comes later. It is the result of round 1. `bench/hypotheses-v2.md` names the quick look in the section E5a and in the limits.
+   - `suite-1` has 4 new files `.DS_Store` from the macOS Finder. They are not changes of Arsen.
+2. Item 13, checkpoint 2, part 2: "yes" to the vague set after the read of `bench/results/vague-review.md`.
+3. Item 14, checkpoint 3: "yes" to `bench/hypotheses-v2.md`. I read this as "yes" to the recommended answer of each of the 12 open questions and to the tamper list.
+   The answers are in the file, in the section "Open questions and the answers of Arsen".
+
+### The freezes, with proof
+
+| Step | Item | Value | Time |
+|---|---|---|---|
+| 1 | Tag `test-cases-v2-vague` (annotated, object `9a48e1ec74d492992215e0e9179864a0afccfe3b`) | on commit `a711e435e8782fa176a005ed034f1660362871f0`. `git archive` of `test-cases-vague` at the tag: folder hash `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898` | 19:17 |
+| 2 | `templates/suite-a-vague.git` | `main` `cc6af4a9698d60182df56f66cc058f8317c77ed0`, parent `dbd7f98` (tag `baseline`), refs `main` and `baseline` | 19:18:10 |
+| 2 | `templates/suite-b-vague.git` | `main` `1180bf2e56ca2323d9dd3752f43678d31fa75299`, parent `29c5d5f` (tag `harness-v1`), refs `main`, `baseline` and `harness-v1` | 19:18:12 |
+| 3 | `bench/tamper-rules.json` (the tamper list) | `ebca83b3b167f65720a0c411df7206c0e411c17a9548a0e42f4c572b1c5d8027` | 19:19 |
+| 3 | `bench/hypotheses-v2.md` (frozen, with the answers and the lines of item 12) | `b37745fa88d8c90d949ad3b32eea88abf8feeff24fa6cfad0ceaf753fb21c332`, tag `hypotheses-v2` | 19:19 |
+
+- Each template: `main~1` and the tags are the same objects as in the precise template. `test-cases/` at `main` has the folder hash `cf554b7f...`.
+  No ref, commit message or path in the 2 templates holds the word "vague" (`grep -ci vague`: 0).
+- The items that freeze with `bench/hypotheses-v2.md`, with their sha256 at 19:19:
+  - `bench/review-checklist.md`: `0b0d872ada9dce24967a95f356f309654cbdb993025903633de43c408faf0894` (answer 10)
+  - `bench/vague-rule.md`: `44c1a2b2ef840d5046c938a66a25b335584ffe0b4d3d75efc937e6e9dd2873ad`
+  - `bench/judge.md`: `f3c58491c43ceee7cbf7f765ea407f272f86f8dff81fec8261f0ecf7272e4a06`
+  - `bench/prompt-generation.txt`: `1bda417b1472066ef6638a25de05cf740152ba1c7f898b4361bbe7d390fbad7b`
+  - `bench/prompt-repair.txt`: `feab2ff3539951d71324f1c5ea42268d015fd3df573c03c8c6f7e758abdac4c4`
+  - `bench/conditions.json`: `7d1e68a0b40daf50196589e92602bf300949129ed233cb79bc208eb22c24996f`
+- `sealed/sealed.tar`: `2a2dcc7d623dd235bb00e7ed8c52eb3abd2613710500a0b6b63800090ff1ff05`. This is the value of the freeze of stage 1. The patches did not change.
+
 ## 2026-10-20, 19:10: E5a, round 1: the blind review copies
 
 Start from: Arsen reviews `harness-demo-runs/review/suite-1` first, then `suite-2`, with `bench/review-timer.mjs` and `bench/review-checklist.md`. Checkpoints 2 (part 2) and 3 still wait for Arsen.

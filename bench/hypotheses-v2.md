@@ -1,6 +1,7 @@
 # Pre-registration, stage 2: hypotheses and publication rules
 
-**Draft, not frozen.** Arsen approves this file at checkpoint 3 of the stage 2 plan. Until then, the file can change.
+**Frozen on 20.10.2026 at 19:30.** Arsen approved this file at checkpoint 3 of the stage 2 plan (decision 14). The section "Open questions and the answers of Arsen" holds his answers.
+The sha256 of this file and of the tamper list are in `LOG.md`.
 
 This file is the pre-registration of stage 2 (plan v2, section 4).
 We freeze it before the first generation of stage 2: the first run of the condition `vague` or `haiku`.
@@ -19,23 +20,23 @@ In this file, "decision N" is item N of section 10 of the stage 2 plan (plan v2)
 | Item | Value |
 |---|---|
 | Precise test cases | TC-01 to TC-08, tag `test-cases-v1` in the lab, no change |
-| Vague test cases | `test-cases-vague/`, in the lab since commit `e07d5d1`. Folder hash `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898` (`LOG.md`, 20.10, 17:00). A separate locked session (`vague-writer-1`) applied the rule `bench/vague-rule.md` of commit `ba6f689` by its section 8 (decision 10). The tag `test-cases-v2-vague` is still to come: Arsen reads `bench/results/vague-review.md` first (checkpoint 2, part 2) |
+| Vague test cases | `test-cases-vague/`, tag `test-cases-v2-vague` (decision 13). Folder hash `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898`. A separate locked session (`vague-writer-1`) applied the rule `bench/vague-rule.md` of commit `ba6f689` by its section 8 (decision 10). `bench/make-template.sh` made the templates `suite-a-vague.git` and `suite-b-vague.git` |
 | Harness | tag `harness-v1` of the stage 1 `suite-b`, no change. No new capability |
 | Bug patches | the 14 patches in `sealed/sealed.tar`, no change: 11 realistic bugs and 3 operator mutants. Before each measurement block, the sha256 of the file must be the value in `LOG.md` |
 | UI patches for E5b | not frozen here. The rules for the UI patch session are in the section E5b. The sha256 of `sealed-ui/` goes into `LOG.md` before any suite runs against a UI patch |
 | Writer models | `claude-opus-5-5` for the conditions `precise` and `vague`. `claude-haiku-5-5` for the condition `haiku`. The harness reviewer `spec-reviewer` stays on Sonnet in all conditions |
 | Judge | the rubric `bench/judge.md` without change, the model `claude-opus-5-5` as in stage 1. See the section "The judge" |
-| Other sessions | The vague writer: `claude-opus-5-5`, done (decision 10). The tamper binder: `claude-opus-5-5` (decision 11). The auditor (E4) and the fixers (E4, E5b): `claude-opus-5-5`. This is a proposal (open question 7) |
+| Other sessions | The vague writer: `claude-opus-5-5`, done (decision 10). The tamper binder: `claude-opus-5-5` (decision 11). The auditor (E4) and the fixers (E4, E5b): `claude-opus-5-5` (answer 7) |
 | Claude Code | 2.1.299 from `~/.local/claude-code-2.1.299`. `bench/claude-locked.sh` checks the sha256 of the binary: `099dcc53dabbbefabed8926dab25b0318775c175a7c87bb6ba6c54fde9f8ece2` |
 | Prompts | Generation: `bench/prompt-generation.txt` without change, the same for all conditions, at most one follow-up message with the standard text. E5b: `bench/prompt-repair.txt`. Vague writer: section 8 of `bench/vague-rule.md`, as `bench/prompt-vague-writer.txt` (sha256 in `LOG.md`). Audit and E4 fix: see E4 |
-| Budget caps | Generation: `--max-budget-usd 40` for each run, in all conditions. Judge: 10 USD for each suite. Vague writer: 5 USD (decision 10), the session cost 1.04531 USD. Tamper binder: 5 USD (decision 11). Proposal: audit 20, E4 fix 20, E5b fix 10 USD for each suite |
+| Budget caps | Generation: `--max-budget-usd 40` for each run, in all conditions. Judge: 10 USD for each suite. Vague writer: 5 USD (decision 10), the session cost 1.04531 USD. Tamper binder: 5 USD (decision 11), the session cost 0.7249854 USD. Audit 20, E4 fix 20, E5b fix 10 USD for each suite (answer 7) |
 | Lock | The generation runs, the vague writer, the tamper binder, the auditor and the fixers run through `bench/claude-locked.sh`. During the session, it hides these paths. Stage 1: `sealed/`, `bench/results/`, `LOG.md` and the measurement logs. The script also hides `sealed-ui/`. Decision 2 adds the lab `.git`, the vault folder `demo/` and the notes folder of the sealed hashes. It also adds the transcripts of the patch session, the other run folders and the templates. Decision 5 adds the transcripts and temp folders of the other runs, the lab `test-cases*`, the lab `README.md`, `bench/*.md` and `bench/conditions.json`. The transcripts of the lab session and `Bash(node *)` stay open (decision 2). The tool-call audit after each session covers them. `LAB/juice-shop/` also stays open, as in run 1. The auditor must not see it (plan v2, E4 step 2), so its lock must also hide `LAB/juice-shop/` (E4 inputs, item 3, open question 12). The UI patch session does not use this lock set. Its rules are in the section E5b |
 | Run layout | `harness-demo-runs/<dir>/run-<n>/suite-a` and `suite-b`. `<dir>` is the neutral folder name of the condition in `bench/conditions.json` (plan v2, decision 3) |
 | Folder names | `set-1` for `precise`, `set-2` for `vague`, `set-3` for `haiku` (decision 3). The `dir` values of `bench/conditions.json` are these names |
 | Condition names | only in the result names (`gen-<condition>-<A or B>-<n>`) and in `LOG.md`. The lock hides both during a run |
 | Runs | n = 3 for each suite in each condition: runs 1, 2 and 3. Run 1 of `precise` is the stage 1 suites (tag `gen-1`), moved into `set-1/run-1/` without change. The main session generated and measured runs 2 and 3 of `precise` (decision 4, `LOG.md`, 20.10, 16:50) |
 | Clean template | each run starts from a clean template, see the list below |
-| Tamper list | the rules file of the section "The tamper list for the proxy". Its sha256 and the sha256 of each capture file are in `LOG.md` |
+| Tamper list | `bench/tamper-rules.json`: 22 bound rules for T01 to T16, from the blind session `binder-1` (decision 11). The check K0 to K5 passed in the lab. sha256 `ebca83b3b167f65720a0c411df7206c0e411c17a9548a0e42f4c572b1c5d8027`. The sha256 of each capture file is in `LOG.md` |
 | E5a review order | see E5a |
 
 The clean template of a run:
@@ -199,6 +200,8 @@ Each item below is frozen with this file.
 
 - Arsen reviews copies without the harness files. `bench/prepare-review.mjs` makes the copies.
 - Round 1: A-1 and B-1. `prepare-review.mjs` gives them the names `suite-1` and `suite-2` in a random order. Arsen reviews `suite-1` first.
+  On 20.10, before the freeze, Arsen took a quick look at both copies (decision 12): 3.8 and 1.0 minutes, 0 issues, 0 fixes.
+  These 4 rows of `bench/review-log.csv` stay in the file, but they are not a result. The result of round 1 is the full review by the checklist, after the quick look.
 - Round 2, after the E4 fix: the client suite before and after the fix, as `suite-3` and `suite-4`.
   The main session tells Arsen the order: the copy "after" first, then the copy "before".
   When the second review starts, Arsen knows most of its code from the first review. This makes the second review faster, so it works against H5a.2.
@@ -500,7 +503,7 @@ The reasons:
   For E2 and E3, the offer claims an effect only on "strong support".
 - If all suites are strong (a ceiling), we write it: on precise test cases, a strong model writes strong tests. Then we offer the audit of the test cases (plan v2, section 9).
 - The README lists the limits:
-  - Arsen knows the test cases and the harness. His review in E5a is not blind. Round 2 of E5a is open, and the order of the reviews can change the minutes.
+  - Arsen knows the test cases and the harness. His review in E5a is not blind. He saw both copies of round 1 one time before the full review (decision 12). Round 2 of E5a is open, and the order of the reviews can change the minutes.
   - One app, 8 test cases, 14 bug patches, 3 to 5 UI patches.
   - n = 3 for each condition. n = 1 for E4, E5a and E5b.
   - The n = 3 labels of the stage 1 hypotheses are post hoc. Arsen did not approve the section "How we read n = 3" before the measurements of the precise runs 2 and 3.
@@ -521,26 +524,40 @@ The reasons:
   - The lint rules of B forbid some patterns that `weakening()` finds, for example `waitForTimeout`. Thus a part of the result of B in H5b.2 can come from its lint.
   - This is a demonstration, not a study.
 
-## Open questions for Arsen
+## Open questions and the answers of Arsen
+
+Arsen answered each question on 20.10 at 19:17 (decision 14 of plan v2). The text of each question stays as it was at checkpoint 3.
 
 1. **Freeze point.** Proposal: freeze this file before the first run of `vague` or `haiku`.
+   Answer: yes. The file freezes before the first run of `vague` or `haiku`.
 2. **Thresholds.** 0.5 for R1 and P1 in H4.1 and H4.2. The margin of 20 % in H5a.1.
+   Answer: yes, as written.
 3. **Measures of the audit.** R1 and P1 test the hypotheses, and R2, P2 and the class counts stand in the same table (recommendation). Or other options?
+   Answer: the recommendation. R1 and P1 test H4.1 and H4.2. R2, P2 and the counts of the classes stand in the same table.
 4. **The client suite.** Do you agree with each item?
    - "Equally strong" means that each eligible candidate misses 0 bugs.
    - A candidate is eligible only when all its tests pass on the clean build.
    - B suites are candidates too.
    - The auditor gets a copy without the harness files, and the test case set of the client suite's condition.
+   Answer: yes to each item.
 5. **The tamper list.** Do you agree with each item?
    - A message text gets a rule only when the server sends it in JSON.
    - The saved address, the saved card and the payment method name stay out, unless the binding finds the payment method in JSON. Or add string rules for the address and the card?
    - Strings get `set` to a fixed text, not `suffix`. A number in a string gets `addNumberString` 1: add 1, and keep the decimals.
    - The scope is `browser`, so the test preconditions get true values. With the scope `all`, a test that takes its expected value from the API stays green and counts as weak.
+   Answer: yes to each item. The address and the card get no rule.
 6. **E5b suites.** A and B of `precise` run 1?
+   Answer: yes. A and B of `precise` run 1.
 7. **Models and caps.** `claude-opus-5-5` for the auditor and the fixers? The proposed caps in the freeze table?
+   Answer: yes. `claude-opus-5-5` for the auditor and the fixers. Caps: audit 20, E4 fix 20, E5b fix 10 USD for each suite.
 8. **Judge.** Opus for all conditions, as in stage 1? An extra judge run against the vague test cases, for information only? The stage 1 judge cost about 1.3 USD (plan v2, section 6).
+   Answer: Opus for all conditions. No extra judge run against the vague test cases.
 9. **Stopped runs.** Do you agree with the list of outside causes?
+   Answer: yes, the list as written.
 10. **E5a.** Does `bench/review-checklist.md` freeze with this file? Do you agree that round 2 goes "after" first, and that H5a.2 is exploratory?
+   Answer: yes to each item.
 11. **E4 fix.** Do you agree with the harness port for a client suite A (inputs, item 6)?
+   Answer: yes, the harness port as written.
 12. **E4 auditor.** Do you approve the prompt of the auditor and the prompt of the fixer (inputs, item 7)? Both freeze with this file.
     Do you agree with the cleaned tool reports (inputs, item 2)? The auditor lock must also hide `LAB/juice-shop/`, but `bench/claude-locked.sh` has no option for this yet. Do you agree that the script gets this option?
+   Answer: yes to both prompts and to the cleaned tool reports. `bench/claude-locked.sh` gets an option that hides `LAB/juice-shop/` from the auditor.
