@@ -6,6 +6,44 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-20, 17:00: the vague set is written and checked, Arsen reads it next
+
+Start from: Arsen reads `bench/results/vague-review.md` (checkpoint 2, part 2). After his "yes": the tag `test-cases-v2-vague`, then `bench/make-template.sh A vague` and `B vague`.
+
+### The session, with proof
+
+- `bench/claude-locked.sh ... --tag vague-writer-1` from 16:51:25 to 16:53:57, `claude exit=0, wall 150s`. Output: `bench/results/vague-writer-1.*` and `bench/.run/vague-writer.log`.
+- Result line: `"subtype":"success","is_error":false,"session_id":"0313c40d-b117-43f1-a737-a59768e8d73e","num_turns":25,"total_cost_usd":1.04531,"permission_denials":1`.
+- The denied call: `cd .../harness-demo-runs/tc-rewrite/test-cases && for f in TC-*.md; do ...; cat "$f"; done`. The allowed tools do not hold it. The agent then read each file with `Read`.
+- After the session: the modes came back, and `after: ... synced | CLAUDE.md: present`. No lock folder and no folder of hidden items stayed.
+- The last message of the session holds the output of the 3 commands of sections 6 and 7:
+  - `node check-vague.mjs test-cases test-cases-vague`: `PASSED: all checks`.
+  - The folder hash: `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898`.
+- The meanings of the messages (rule M), from the last message of the session:
+
+| Message | Meaning |
+|---|---|
+| `Invalid email or password.` | the login fails |
+| `Placed … into basket.` | the product is in the basket |
+| `You can order only up to 5 items of this product.` | the product is at its limit |
+| `Your discount of 10% will be applied during checkout.` | the coupon lowers the price at checkout |
+| `Invalid coupon.` | the shop rejects the code |
+| `Your discount of` (the first part of a message) | a message about a discount |
+| `Thank you for your purchase!` | the shop accepts the order |
+| `You have not placed any orders yet.` | the order history is empty |
+
+### The steps "After" of section 8 of the rule
+
+1. Tool-call audit: `node bench/audit-tool-calls.mjs --session 0313c40d-b117-43f1-a737-a59768e8d73e --out audit-vague-writer-1`, exit 0.
+   24 tool calls, 0 forbidden, 0 outside, 0 `../`. Each path is in `harness-demo-runs/tc-rewrite/`.
+   The calls: 10 `Read` (the rule and the 9 files), 9 `Write` (the 9 vague files), 5 `Bash` (4 ran, 1 was denied).
+2. `cp -R` of `test-cases-vague/` into the lab. `node <work folder>/check-vague.mjs test-cases test-cases-vague` in the lab: `PASSED: all checks`, exit 0.
+   The shell commands of section 7 on the lab copy: `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898`, the same hash as in the session.
+3. `ste-lint.py` on each of the 9 vague files: 0 hard violations in each file.
+4. `node bench/vague-review.mjs test-cases test-cases-vague` (new script): `76 changed parts, 0 other changes`.
+   Output: `bench/results/vague-review.md`, one row for each changed cell or line, with the precise text next to it. `ste-lint.py`: 0 hard violations.
+- The set is in git now, as Arsen asked at 16:54 ("commit it and push"). It gets no tag before the "yes" of Arsen.
+
 ## 2026-10-20, 16:55: checkpoint 2, part 1: the vague writer session starts
 
 Start from: the result of the vague writer session in `bench/results/vague-writer-1.*`. The next entry records it and the steps "After" of section 8 of `bench/vague-rule.md`.
