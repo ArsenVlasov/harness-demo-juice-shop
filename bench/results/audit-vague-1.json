@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-10-21T09:49:02.261Z",
+  "results": [
+    {
+      "suite": "A",
+      "file": "gen-vague-A-1.json",
+      "id": "3d9d67a5-c5b6-4e7e-a806-025650f2308e",
+      "workDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a",
+      "transcripts": 1,
+      "calls": 74,
+      "forbidden": [],
+      "outside": [
+        {
+          "where": "3d9d67a5-c5b6-4e7e-a806-025650f2308e.jsonl:42",
+          "tool": "Bash",
+          "input": "{\"command\":\"cat > /tmp/probe.mjs <<'EOF'\\nconst B='http://localhost:3000';\\nconst email=`probe-${Date.now()}@example.test`, password='Passw0rd!x';\\nconst j=async(r)=>{const t=await r.text();try{return JSON.parse(t)}catch{return t}};\\nlet r=await fetch(B+'/api/Users',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email,password,passwordRepeat:password,securityQuestion:{id:1},securityAnswer:'x'})});\\nconsole.log('reg',r.status, JSON.stringify(await j(r)).slice(0,300));\\nr=await fetch(B+'/rest/user/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email,password})});\\nconst login=await j(r); console.log('login', JSON.stringify(login).slice(0,400));\\nconst H={'content-type':'application/json',authorization:'Bearer '+login.authentication.token};\\nr=await fetch(B+'/api/Deliverys',{headers:H}); console.log(JSON.stringify(await j(r)));\\nr=await fetch(B+'/rest/wallet/balance',{headers:H}); console.log(JSON.stringify(await j(r)));\\nr=await fetch(B+'/rest/basket/'+login.authentication.bid,{headers:H}); console.log(JSON.stringify(await j(r)).slice(0,400));\\nEOF\\nnode /tmp/probe.mjs\",\"description\":\"Probe API: register, login, deliveries, wallet\"}",
+          "paths": [
+            "/tmp/probe.mjs"
+          ]
+        },
+        {
+          "where": "3d9d67a5-c5b6-4e7e-a806-025650f2308e.jsonl:51",
+          "tool": "Write",
+          "input": "{\"file_path\":\"/tmp/jsprobe/probe.mjs\",\"content\":\"const B = 'http://localhost:3000';\\nconst email = `probe-${Date.now()}@example.test`, password = 'Passw0rd!x';\\nconst j = async (r) => { const t = await r.text(); try { return JSON.parse(t); } catch { return t; } };\\nconst p = (...a) => console.log(...a.map((x) => (typeof x === 'string' ? x : JSON.stringify(x).slice(0, 600))));\\nlet r = await fetch(B + '/api/Users', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email, password, passwordRepeat: password, securityQuestion: { id: 1 }, securityAnswer: 'x' }) });\\np('reg', String(r.status), await j(r));\\nr = await fetch(B + '/rest/user/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email, password }) });\\nconst login = await j(r); p('login', login);\\nconst H = { 'content-type': 'application/json', authorization: 'Bearer ' + login.authentication.token };\\nr = await fetch(B + '/api/Deliverys', { headers: H }); p('deliv', await j(r));\\nr = await fetch(B + '/rest/wallet/balance', { headers: H }); p('wallet', await j(r));\\nr = await fetch(B + '/rest/basket/' + login.authentication.bid, { headers: H }); p('basket', await j(r));\\nr = await fetch(B + '/api/Quantitys', { headers: H }); p('qty', await j(r));\\n\"}",
+          "paths": [
+            "/tmp/jsprobe/probe.mjs"
+          ]
+        },
+        {
+          "where": "3d9d67a5-c5b6-4e7e-a806-025650f2308e.jsonl:53",
+          "tool": "Bash",
+          "input": "{\"command\":\"node /tmp/jsprobe/probe.mjs\",\"description\":\"Run API probe script\"}",
+          "paths": [
+            "/tmp/jsprobe/probe.mjs"
+          ]
+        }
+      ],
+      "dotdot": [
+        {
+          "where": "3d9d67a5-c5b6-4e7e-a806-025650f2308e.jsonl:205",
+          "tool": "Write",
+          "input": "{\"file_path\":\"/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/pages/checkout-pages.ts\",\"content\":\"import { Locator, Page } from '@playwright/test';\\nimport { ADDRESS, CARD_LAST_DIGITS } from '../support/test-data';\\n\\nexport class SelectAddressPage {\\n  readonly title: Locator;\\n  readonly savedAddressRow: Locator;\\n  readonly continueButton: Locator;\\n\\n  constructor(private readonly page: Page) {\\n    this.title = page.getByRole('heading', { name: 'Select an address' });\\n    this.savedAddressRow = page.locator('app-address').getByRole('row').filter({ hasText: ADDRESS.fullName });\\n    this.continueButton = page.getByRole('button', { name: 'Proceed to payment selection' });\\n  }\\n\\n  async selectSavedAddressAndContinue(): Promise<void> {\\n    await this.savedAddressRow.getByRole('radio').click();\\n    await this.continueButton.click();\\n    await this.page.waitForURL(/#\\\\/delivery-method/);\\n  }\\n}\\n\\nexport class DeliveryMethodPage {\\n  readonly title: Locator;\\n  readonly continueButton: Locator;\\n\\n  constructor(private readonly page: Page) {\\n    this.title = page.getByRole('heading', { name: 'Choose a delivery speed' });\\n    this.continueButton = page.getByRole('button', { name: 'Proceed to delivery method selection' });\\n  }\\n\\n  option(name: string): Locator {\\n    return this.page.locator('app-delivery-method').getByRole('row').filter({ hasText: name });\\n  }\\n\\n  optionPrice(name: string): Locator {\\n    return this.option(name).getByRole('cell').nth(2);\\n  }\\n\\n  async selectAndContinue(name: string): Promise<void> {\\n    await this.option(name).getByRole('radio').click();\\n    await this.continueButton.click();\\n    await this.page.waitForURL(/#\\\\/payment\\\\/shop/);\\n  }\\n}\\n\\nexport class PaymentPage {\\n  readonly title: Locator;\\n  readonly savedCardRow: Locator;\\n  readonly walletBalance: Locator;\\n  readonly walletPayButton: Locator;\\n  readonly couponPanelButton: Locator;\\n  readonly couponInput: Locator;\\n  readonly redeemButton: Locator;\\n  readonly couponConfirmation: Locator;\\n  readonly couponError: Locator;\\n  readonly continueButton: Locator;\\n\\n  constructor(private readonly page: Page) {\\n    const root = page.locator('app-payment');\\n    this.title = page.getByRole('heading', { name: 'My Payment Options' });\\n    this.savedCardRow = root.getByRole('row').filter({ hasText: `************${CARD_LAST_DIGITS}` });\\n    this.walletBalance = root.locator('div, p, span').filter({ hasText: /^\\\\s*Wallet Balance/ }).last();\\n    this.walletPayButton = root.getByRole('button', { name: /^Pay / });\\n    this.couponPanelButton = root.getByRole('button', { name: /Add a coupon/ });\\n    this.couponInput = root.getByRole('textbox', { name: 'Coupon' });\\n    this.redeemButton = root.getByRole('button', { name: 'Redeem' });\\n    this.couponConfirmation = root.locator('.confirmation').filter({ hasText: /discount/i });\\n    this.couponError = root.locator('.error').filter({ hasText: /coupon/i });\\n    this.continueButton = root.getByRole('button', { name: 'Proceed to review' });\\n  }\\n\\n  async openCouponPanel(): Promise<void> {\\n    await this.couponPanelButton.click();\\n    await this.couponInput.waitFor();\\n  }\\n\\n  async redeemCoupon(code: string): Promise<void> {\\n    await this.couponInput.fill(code);\\n    const response = this.page.waitForResponse((r) => r.url().includes('/rest/basket/') && r.url().includes('/coupon/'));\\n    await this.redeemButton.click();\\n    await response;\\n  }\\n\\n  async selectSavedCardAndContinue(): Promise<void> {\\n    await this.savedCardRow.getByRole('radio').click();\\n    await this.continueButton.click();\\n    await this.page.waitForURL(/#\\\\/order-summary/);\\n  }\\n\\n  async payWithWallet(): Promise<void> {\\n    await this.walletPayButton.click();\\n    await this.page.waitForURL(/#\\\\/order-summary/);\\n  }\\n}\\n\\n/** Shared reader for the summary tables with the rows Items, Delivery, Promotion and Total Price. */\\nexport type Totals = { items: Locator; delivery: Locator; promotion: Locator; total: Locator };\\n\\nexport class OrderSummaryPage {\\n  readonly basketRows: Locator;\\n  readonly deliveryAddress: Locator;\\n  readonly paymentMethod: Locator;\\n  readonly totals: Totals;\\n  readonly placeOrderButton: Locator;\\n\\n  constructor(private readonly page: Page) {\\n    const root = page.locator('app-order-summary');\\n    this.basketRows = root.locator('mat-row');\\n    this.deliveryAddress = root.locator('mat-card').filter({ hasText: 'Delivery Address' }).last();\\n    this.paymentMethod = root.locator('mat-card').filter({ hasText: 'Payment Method' }).last();\\n    const value = (label: string) =>\\n      root.locator('tr').filter({ has: page.locator('td.label', { hasText: new RegExp(`^\\\\\\\\s*${label}\\\\\\\\s*$`) }) }).locator('td.price');\\n    this.totals = {\\n      items: value('Items'),\\n      delivery: value('Delivery'),\\n      promotion: value('Promotion'),\\n      total: value('Total Price'),\\n    };\\n    this.placeOrderButton = page.getByRole('button', { name: 'Complete your purchase' });\\n  }\\n\\n  async waitForLoad(): Promise<void> {\\n    await this.page.waitForURL(/#\\\\/order-summary/);\\n    await this.placeOrderButton.waitFor();\\n  }\\n\\n  row(productName: string): Locator {\\n    return this.basketRows.filter({ hasText: productName });\\n  }\\n\\n  async placeOrder(): Promise<string> {\\n    await this.placeOrderButton.click();\\n    await this.page.waitForURL(/#\\\\/order-completion\\\\/.+/);\\n    return decodeURIComponent(this.page.url().split('/order-completion/')[1]);\\n  }\\n}\\n\\nexport class OrderCompletionPage {\\n  readonly title: Locator;\\n  readonly productRows: Locator;\\n  readonly totalsRow: Locator;\\n\\n  constructor(private readonly page: Page) {\\n    const root = page.locator('app-order-completion');\\n    this.title = root.getByRole('heading', { name: 'Thank you for your purchase!' });\\n    this.productRows = root.locator('tr').filter({ has: page.locator('td') }).filter({ hasNotText: 'Promotion' });\\n    // The row that holds the nested tables with the labels and the values of the totals.\\n    this.totalsRow = root.getByRole('row').filter({ hasText: /Promotion.*¤/s }).first();\\n  }\\n\\n  productRow(productName: string): Locator {\\n    return this.page.locator('app-order-completion').getByRole('row').filter({ hasText: productName });\\n  }\\n\\n  /** Reads the values of Items, Delivery, Promotion and Total Price in that order. */\\n  async totals(): Promise<{ items: number; delivery: number; promotion: number; total: number }> {\\n    const text = await this.totalsRow.innerText();\\n    const values = [...text.matchAll(/(\\\\d+(?:\\\\.\\\\d+)?)¤/g)].map((m) => Number(m[1]));\\n    if (values.length !== 4) throw new Error(`Expected 4 totals, got: \\\"${text}\\\"`);\\n    const [items, delivery, promotion, total] = values;\\n    return { items, delivery, promotion, total };\\n  }\\n}\\n\"}"
+        },
+        {
+          "where": "3d9d67a5-c5b6-4e7e-a806-025650f2308e.jsonl:214",
+          "tool": "Write",
+          "input": "{\"file_path\":\"/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/fixtures.ts\",\"content\":\"import { test as base, expect } from '@playwright/test';\\nimport { NavBar } from '../pages/nav-bar';\\nimport { LoginPage } from '../pages/login-page';\\nimport { ProductListPage } from '../pages/product-list-page';\\nimport { BasketPage } from '../pages/basket-page';\\nimport {\\n  DeliveryMethodPage,\\n  OrderCompletionPage,\\n  OrderSummaryPage,\\n  PaymentPage,\\n  SelectAddressPage,\\n} from '../pages/checkout-pages';\\nimport { OrderHistoryPage, WalletPage } from '../pages/account-pages';\\nimport { ShopApi } from './shop-api';\\nimport { uniqueEmail } from './test-data';\\n\\nexport type Customer = { email: string; password: string; api: ShopApi };\\n\\ntype Pages = {\\n  navBar: NavBar;\\n  loginPage: LoginPage;\\n  productList: ProductListPage;\\n  basket: BasketPage;\\n  selectAddress: SelectAddressPage;\\n  deliveryMethod: DeliveryMethodPage;\\n  payment: PaymentPage;\\n  orderSummary: OrderSummaryPage;\\n  orderCompletion: OrderCompletionPage;\\n  orderHistory: OrderHistoryPage;\\n  wallet: WalletPage;\\n};\\n\\ntype Fixtures = Pages & {\\n  /** A new registered customer account with a unique email. Nobody is logged in yet in the browser. */\\n  customer: Customer;\\n  /** The same new customer, logged in through the login page. */\\n  loggedInCustomer: Customer;\\n};\\n\\nexport const test = base.extend<Fixtures>({\\n  page: async ({ page, context, baseURL }, use) => {\\n    // The cookie hides the cookie banner.\\n    await context.addCookies([{ name: 'cookieconsent_status', value: 'dismiss', url: baseURL! }]);\\n    await use(page);\\n  },\\n\\n  customer: async ({ request }, use, testInfo) => {\\n    const prefix = testInfo.title.match(/^TC-\\\\d+/)?.[0].toLowerCase() ?? 'customer';\\n    const email = uniqueEmail(prefix);\\n    const password = `Passw0rd!${prefix}`;\\n    const api = new ShopApi(request);\\n    await api.register(email, password);\\n    await api.login(email, password);\\n    await use({ email, password, api });\\n  },\\n\\n  loggedInCustomer: async ({ customer, loginPage }, use) => {\\n    await loginPage.login(customer.email, customer.password);\\n    await use(customer);\\n  },\\n\\n  navBar: async ({ page }, use) => use(new NavBar(page)),\\n  loginPage: async ({ page }, use) => use(new LoginPage(page)),\\n  productList: async ({ page }, use) => use(new ProductListPage(page)),\\n  basket: async ({ page }, use) => use(new BasketPage(page)),\\n  selectAddress: async ({ page }, use) => use(new SelectAddressPage(page)),\\n  deliveryMethod: async ({ page }, use) => use(new DeliveryMethodPage(page)),\\n  payment: async ({ page }, use) => use(new PaymentPage(page)),\\n  orderSummary: async ({ page }, use) => use(new OrderSummaryPage(page)),\\n  orderCompletion: async ({ page }, use) => use(new OrderCompletionPage(page)),\\n  orderHistory: async ({ page }, use) => use(new OrderHistoryPage(page)),\\n  wallet: async ({ page }, use) => use(new WalletPage(page)),\\n});\\n\\nexport { expect };\\n\"}"
+        }
+      ],
+      "cross": []
+    },
+    {
+      "suite": "B",
+      "file": "gen-vague-B-1.json",
+      "id": "b6159812-45ff-489d-876b-a62fe11c1074",
+      "workDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-b",
+      "transcripts": 6,
+      "calls": 311,
+      "forbidden": [],
+      "outside": [
+        {
+          "where": "b6159812-45ff-489d-876b-a62fe11c1074.jsonl:78",
+          "tool": "Write",
+          "input": "{\"file_path\":\"/tmp/jsprobe/probe1.mjs\",\"content\":\"const B = 'http://localhost:3000';\\nconst j = async (p, o) => { const r = await fetch(B + p, o); const t = await r.text(); try { return { s: r.status, b: JSON.parse(t) }; } catch { return { s: r.status, b: t }; } };\\nconsole.log((await j('/rest/admin/application-version')).b);\\nconst prods = (await j('/rest/products/search?q=')).b.data;\\nfor (const p of prods) console.log(p.id, p.name, p.price, p.deluxePrice);\\nconst del = await j('/api/Deliverys');\\nconsole.log(JSON.stringify(del, null, 1));\\n\"}",
+          "paths": [
+            "/tmp/jsprobe/probe1.mjs"
+          ]
+        },
+        {
+          "where": "b6159812-45ff-489d-876b-a62fe11c1074.jsonl:847",
+          "tool": "Bash",
+          "input": "{\"command\":\"npm run check > /tmp/check.log 2>&1 && echo \\\"CHECK EXIT 0\\\" || echo \\\"CHECK FAILED\\\"; grep -E \\\"problems|No new|ℹ (pass|fail)\\\" /tmp/check.log; npx playwright test tests/specs/regression --reporter=list 2>&1 | grep -vE \\\"^\\\\s+at \\\" | tail -12; git status --short\",\"description\":\"Final check, full green run and status\",\"timeout\":600000}",
+          "paths": [
+            "/tmp/check.log"
+          ]
+        }
+      ],
+      "dotdot": [],
+      "cross": []
+    }
+  ]
+}

@@ -12,8 +12,12 @@
 //   outside:   another absolute path outside the work dir and outside the tool roots (Node, the Playwright browsers,
 //              system folders). A person checks these.
 //   dotdot:    a "../" in the input. A person checks these (an XPath "../.." is fine).
+//   cross:     a message from another Claude session (a "cross-session-message" in the transcript), or a SendMessage
+//              call to another session (its "to" starts with "uds:"). The lock does not stop these messages
+//              (LOG.md, entry 21.10, 12:00). SendMessage to an own subagent is not a cross-session call.
+// A path in the JSON of an input ends at a backslash, because "\n" in a JSON string is not part of a path.
 // Output: bench/results/<out>.json and .md (default out: audit-<c>-<n>, or audit for precise run 1).
-// Exit code 1 when a call is forbidden.
+// Exit code 1 when a call is forbidden or a cross-session message exists.
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -28,8 +32,8 @@ const TOOL_ROOTS = [
   path.join(os.homedir(), '.local', 'node-v24.21.0'), path.join(os.homedir(), 'Library', 'Caches', 'ms-playwright'),
   '~/.local/node-v24.21.0', '~/Library/Caches/ms-playwright', '/usr/', '/bin/', '/sbin/', '/opt/homebrew/', '/dev/null'
 ]
-const ABS_PATH = /(?:~|\/(?:Users|private|var|tmp|etc|opt|Volumes|Library))\/[^\s'"`),\]}]*/g
-const RUNS_PATH = /\/Users\/[^\s'"`),\]}]*\/harness-demo-runs(?:\/[^\s'"`),\]}]*)?/g
+const ABS_PATH = /(?:~|\/(?:Users|private|var|tmp|etc|opt|Volumes|Library))\/[^\s'"`),\]}\\]*/g
+const RUNS_PATH = /\/Users\/[^\s'"`),\]}\\]*\/harness-demo-runs(?:\/[^\s'"`),\]}\\]*)?/g
 
 function sessionsOfRun (cond, run) {
   const out = []
@@ -56,16 +60,23 @@ function transcriptFiles (id) {
 function auditSession (s) {
   const files = transcriptFiles(s.id)
   const calls = []
+  const cross = []
   let workDir = null
   for (const file of files) {
     fs.readFileSync(file, 'utf8').split('\n').forEach((line, i) => {
       if (!line) return
       const e = JSON.parse(line)
       workDir ??= e.cwd ?? null
+      const where = `${path.basename(file)}:${i + 1}`
+      if (e.type === 'queue-operation' && typeof e.content === 'string' && e.content.includes('<cross-session-message')) {
+        const from = e.content.match(/from-name="([^"]*)"/)?.[1] ?? '?'
+        cross.push({ where, kind: 'in', text: `from "${from}": ${e.content.replace(/<[^>]+>/g, '').trim()}` })
+      }
       const content = e.message?.content
       if (!Array.isArray(content)) return
       for (const c of content.filter(c => c.type === 'tool_use')) {
-        calls.push({ where: `${path.basename(file)}:${i + 1}`, tool: c.name, input: JSON.stringify(c.input) })
+        calls.push({ where, tool: c.name, input: JSON.stringify(c.input) })
+        if (c.name === 'SendMessage' && String(c.input?.to ?? '').startsWith('uds:')) cross.push({ where, kind: 'out', text: `to ${c.input.to}: ${c.input.message ?? ''}` })
       }
     })
   }
@@ -90,7 +101,10 @@ function auditSession (s) {
     if (outside.length && !hits.length) flagged.outside.push({ ...c, paths: [...new Set(outside)] })
     if (input.includes('../')) flagged.dotdot.push(c)
   }
-  return { ...s, workDir, transcripts: files.length, calls: calls.length, ...flagged }
+  // One message can stand in more than one line of the transcript (the queue and the prompt): keep each text once.
+  const seen = new Set()
+  const crossOnce = cross.filter(x => !seen.has(x.kind + x.text) && seen.add(x.kind + x.text))
+  return { ...s, workDir, transcripts: files.length, calls: calls.length, ...flagged, cross: crossOnce }
 }
 
 function main () {
@@ -113,13 +127,14 @@ function main () {
     '',
     `Source: \`bench/audit-tool-calls.mjs\`, ${new Date().toISOString()}. Plan v2, item 1.5.`,
     '',
-    '| Suite | Result file | Session | Transcripts | Tool calls | Forbidden | Outside | `../` |',
-    '|---|---|---|---|---|---|---|---|',
-    ...results.map(r => `| ${r.suite} | \`${r.file}\` | \`${r.id}\` | ${r.transcripts} | ${r.calls} | ${r.forbidden.length} | ${r.outside.length} | ${r.dotdot.length} |`),
+    '| Suite | Result file | Session | Transcripts | Tool calls | Forbidden | Cross-session | Outside | `../` |',
+    '|---|---|---|---|---|---|---|---|---|',
+    ...results.map(r => `| ${r.suite} | \`${r.file}\` | \`${r.id}\` | ${r.transcripts} | ${r.calls} | ${r.forbidden.length} | ${r.cross.length} | ${r.outside.length} | ${r.dotdot.length} |`),
     '',
     ...results.flatMap(r => [
       ...r.forbidden.map(c => `- Forbidden, ${r.suite}, \`${c.where}\`, ${c.tool}: ${c.hits.join(', ')}. Input: \`${short(c.input).replace(/`/g, "'")}\``),
       ...r.outside.map(c => `- Outside, ${r.suite}, \`${c.where}\`, ${c.tool}: ${c.paths.join(', ')}`),
+      ...r.cross.map(x => `- Cross-session (${x.kind}), ${r.suite}, \`${x.where}\`: ${short(x.text.replace(/\s+/g, ' ')).replace(/`/g, "'")}`),
       ...r.dotdot.map(c => `- \`../\`, ${r.suite}, \`${c.where}\`, ${c.tool}: \`${short(c.input).replace(/`/g, "'")}\``)
     ]),
     ''
@@ -127,7 +142,7 @@ function main () {
   fs.writeFileSync(path.join(RESULTS, `${out}.json`), JSON.stringify({ generatedAt: new Date().toISOString(), results }, null, 2) + '\n')
   fs.writeFileSync(path.join(RESULTS, `${out}.md`), md)
   console.log(md)
-  if (results.some(r => r.forbidden.length)) process.exit(1)
+  if (results.some(r => r.forbidden.length || r.cross.length)) process.exit(1)
 }
 
 try {

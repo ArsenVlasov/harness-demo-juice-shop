@@ -6,6 +6,39 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 13:10: the tool-call audit fixed and run again for each session (item 1.5)
+
+- At 12:58, the re-runs of the entry of 12:55 started in the background: `caffeinate -i bench/rerun-vague-slept.sh >bench/.run/rerun-vague-slept.log 2>&1` (commit `6efb01f`).
+- Two changes in `bench/audit-tool-calls.mjs`:
+  - A path ends at a backslash. In a JSON string, `\n` is not a part of a path. This removes the false alarm of `audit-haiku-1` (entry of 12:00).
+  - A new column "Cross-session": each `<cross-session-message>` in a transcript (in), and each `SendMessage` call with `to` that starts with `uds:` (out).
+    A `SendMessage` call to an own subagent does not count. The exit code is 1 when a call is forbidden or a cross-session message exists.
+  - Test of the path regex on the false alarm: the match is only the work dir of haiku B-1.
+- I ran the audit again for each session. These are 10 runs by condition: `precise` 1 to 3, `vague` 1 to 4 and `haiku` 1 to 3.
+  Also the stopped vague B-3, the vague writer and the binder.
+  The result: 0 forbidden calls in each session.
+
+| Report | A: tool calls, forbidden, cross-session | B: tool calls, forbidden, cross-session |
+|---|---|---|
+| `audit` (precise 1) | 96, 0, 0 | 246, 0, 0 |
+| `audit-precise-2` | 68, 0, 0 | 247, 0, 0 |
+| `audit-precise-3` | 63, 0, 0 | 232, 0, 0 |
+| `audit-vague-1` | 74, 0, 0 | 311, 0, 0 |
+| `audit-vague-2` | 73, 0, 0 | 321, 0, 0 |
+| `audit-vague-3` (A-3) and `audit-vague-4` (B-4) | 68, 0, 0 | 280, 0, 0 |
+| `audit-haiku-1` | 152, 0, 0 | 245, 0, 2 (the message of 09:36 and the reply, entry of 12:00) |
+| `audit-haiku-2` | 133, 0, 0 | 266, 0, 0 |
+| `audit-haiku-3` | 129, 0, 0 | 420, 0, 0 |
+| `audit-vague-B-3-stopped` | | 268, 0, 0 |
+| `audit-vague-writer-1`, `audit-binder-1` | 24, 0, 0 and 12, 0, 0 | |
+
+- The "outside" paths of all reports, checked by hand:
+  - Files of the agents in `/tmp`: backups of specs, probe scripts, check logs. Examples: `/tmp/spec-backup`, `/tmp/jsprobe/probe.mjs`, `/tmp/check.log`.
+  - The socket of the message of haiku B-1.
+  - `/Users/` in haiku A-3: the endpoint `/api/Users/` of the app.
+  No outside path is in the lab, the vault or another run folder.
+- The `../` entries are imports between files of the suite and XPath locators.
+
 ## 2026-10-21, 12:55: the resume sequence ended, the Mac slept 512 minutes, a rule for the re-runs
 
 Start from: the re-runs of this entry. Then all results of E2 and E3 in the next entry.

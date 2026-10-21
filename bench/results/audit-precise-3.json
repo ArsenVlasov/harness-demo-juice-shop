@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T12:49:51.692Z",
+  "generatedAt": "2026-10-21T09:49:02.114Z",
   "results": [
     {
       "suite": "A",
@@ -16,7 +16,8 @@
           "tool": "Write",
           "input": "{\"file_path\":\"/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-3/suite-a/tests/support/fixtures.ts\",\"content\":\"import { test as base, Page } from '@playwright/test';\\nimport { BasketPage } from '../pages/basket-page';\\nimport {\\n  AddressSelectPage,\\n  DeliveryMethodPage,\\n  OrderCompletionPage,\\n  OrderHistoryPage,\\n  OrderSummaryPage,\\n  PaymentPage,\\n  WalletPage,\\n} from '../pages/checkout-pages';\\nimport { LoginPage } from '../pages/login-page';\\nimport { NavBar } from '../pages/nav-bar';\\nimport { ProductListPage } from '../pages/product-list-page';\\nimport { Customer, ShopApi } from './shop-api';\\n\\nexport interface ShopPages {\\n  navBar: NavBar;\\n  loginPage: LoginPage;\\n  productList: ProductListPage;\\n  basket: BasketPage;\\n  addressSelect: AddressSelectPage;\\n  deliveryMethod: DeliveryMethodPage;\\n  payment: PaymentPage;\\n  orderSummary: OrderSummaryPage;\\n  orderCompletion: OrderCompletionPage;\\n  orderHistory: OrderHistoryPage;\\n  wallet: WalletPage;\\n}\\n\\ninterface ShopFixtures {\\n  api: ShopApi;\\n  shop: ShopPages;\\n}\\n\\nexport const test = base.extend<ShopFixtures>({\\n  page: async ({ page, context, baseURL }, use) => {\\n    // Hide the cookie banner (see test-cases/README.md).\\n    await context.addCookies([{ name: 'cookieconsent_status', value: 'dismiss', url: baseURL! }]);\\n    await use(page);\\n  },\\n\\n  api: async ({ request }, use) => {\\n    await use(new ShopApi(request));\\n  },\\n\\n  shop: async ({ page }, use) => {\\n    await use({\\n      navBar: new NavBar(page),\\n      loginPage: new LoginPage(page),\\n      productList: new ProductListPage(page),\\n      basket: new BasketPage(page),\\n      addressSelect: new AddressSelectPage(page),\\n      deliveryMethod: new DeliveryMethodPage(page),\\n      payment: new PaymentPage(page),\\n      orderSummary: new OrderSummaryPage(page),\\n      orderCompletion: new OrderCompletionPage(page),\\n      orderHistory: new OrderHistoryPage(page),\\n      wallet: new WalletPage(page),\\n    });\\n  },\\n});\\n\\nexport { expect } from '@playwright/test';\\n\\n/** Logs the customer in the browser with the session of the API login, as the login form does. */\\nexport async function loginInBrowser(page: Page, customer: Customer, baseURL: string): Promise<void> {\\n  await page.context().addCookies([{ name: 'token', value: customer.token, url: baseURL }]);\\n  await page.addInitScript(({ token, basketId }) => {\\n    window.localStorage.setItem('token', token);\\n    window.sessionStorage.setItem('bid', String(basketId));\\n  }, { token: customer.token, basketId: customer.basketId });\\n}\\n\"}"
         }
-      ]
+      ],
+      "cross": []
     },
     {
       "suite": "B",
@@ -36,7 +37,8 @@
           ]
         }
       ],
-      "dotdot": []
+      "dotdot": [],
+      "cross": []
     }
   ]
 }

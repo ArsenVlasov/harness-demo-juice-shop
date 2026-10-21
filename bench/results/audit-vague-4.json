@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-10-21T09:49:02.770Z",
+  "results": [
+    {
+      "suite": "B",
+      "file": "gen-vague-B-4.json",
+      "id": "9ad416e5-5e23-4aa8-8b2e-9c22dfd2d884",
+      "workDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-4/suite-b",
+      "transcripts": 9,
+      "calls": 280,
+      "forbidden": [],
+      "outside": [
+        {
+          "where": "9ad416e5-5e23-4aa8-8b2e-9c22dfd2d884.jsonl:442",
+          "tool": "Bash",
+          "input": "{\"command\":\"mkdir -p /tmp/spec-backup && cp -R tests/specs /tmp/spec-backup/ && node -e '\\nconst fs=require(\\\"fs\\\");const R=\\\"tests/specs/regression/\\\";\\nconst m=[[\\\"auth/login.spec.ts\\\",\\\"shouldSeeAccountEmail(customer.email)\\\",\\\"shouldSeeAccountEmail(`${customer.email}zz`)\\\"],\\n[\\\"basket/add-to-basket.spec.ts\\\",\\\"shouldSeeBasketCounter(expectedLine.quantity)\\\",\\\"shouldSeeBasketCounter(expectedLine.quantity + 1)\\\"],\\n[\\\"basket/basket-quantity.spec.ts\\\",\\\"again\\\\x27, async () => {\\\\n    await basketPage.clickDecreaseQuantity(productA);\\\\n    await basketPage.shouldSeeLine(basket(1)[0]);\\\",\\\"again\\\\x27, async () => {\\\\n    await basketPage.clickDecreaseQuantity(productA);\\\\n    await basketPage.shouldSeeLine(basket(0)[0]);\\\"],\\n[\\\"basket/purchase-limit.spec.ts\\\",\\\"await basketPage.navbar.shouldSeeBasketCounter(PURCHASE_LIMIT);\\\",\\\"await basketPage.navbar.shouldSeeBasketCounter(PURCHASE_LIMIT + 1);\\\"],\\n[\\\"coupon/valid-coupon.spec.ts\\\",\\\"orderTotals(basket, delivery, COUPON.discountPercent)\\\",\\\"orderTotals(basket, delivery, 0)\\\"],\\n[\\\"coupon/invalid-coupon.spec.ts\\\",\\\"orderTotals(basket, delivery))\\\",\\\"orderTotals(basket, delivery, COUPON.discountPercent))\\\"],\\n[\\\"checkout/card-order.spec.ts\\\",\\\"shouldSeeOrder(orderId, totals.total)\\\",\\\"shouldSeeOrder(orderId, totals.items)\\\"],\\n[\\\"wallet/wallet-payment.spec.ts\\\",\\\"balanceEqualToTotal - orderTotal + bonusPoints\\\",\\\"balanceEqualToTotal - orderTotal\\\"]];\\nfor(const [f,a,b] of m){const p=R+f;const s=fs.readFileSync(p,\\\"utf8\\\");if(!s.includes(a))throw new Error(\\\"no match \\\"+f);fs.writeFileSync(p,s.replace(a,b));}\\nconsole.log(\\\"mutated\\\",m.length);' && git status --short\",\"description\":\"Back up specs and apply one mutation per spec\"}",
+          "paths": [
+            "/tmp/spec-backup",
+            "/tmp/spec-backup/"
+          ]
+        },
+        {
+          "where": "9ad416e5-5e23-4aa8-8b2e-9c22dfd2d884.jsonl:448",
+          "tool": "Bash",
+          "input": "{\"command\":\"node -e '\\nconst fs=require(\\\"fs\\\");const R=\\\"tests/specs/regression/\\\";\\nfs.cpSync(\\\"tests/specs\\\",\\\"/tmp/spec-backup/specs\\\",{recursive:true});\\nconst m=[[\\\"auth/login.spec.ts\\\",\\\"shouldSeeAccountEmail(customer.email)\\\",\\\"shouldSeeAccountEmail(`${customer.email}zz`)\\\"],\\n[\\\"basket/add-to-basket.spec.ts\\\",\\\"shouldSeeBasketCounter(expectedLine.quantity)\\\",\\\"shouldSeeBasketCounter(expectedLine.quantity + 1)\\\"],\\n[\\\"basket/basket-quantity.spec.ts\\\",\\\"again\\\\x27, async () => {\\\\n    await basketPage.clickDecreaseQuantity(productA);\\\\n    await basketPage.shouldSeeLine(basket(1)[0]);\\\",\\\"again\\\\x27, async () => {\\\\n    await basketPage.clickDecreaseQuantity(productA);\\\\n    await basketPage.shouldSeeLine(basket(0)[0]);\\\"],\\n[\\\"basket/purchase-limit.spec.ts\\\",\\\"await basketPage.navbar.shouldSeeBasketCounter(PURCHASE_LIMIT);\\\",\\\"await basketPage.navbar.shouldSeeBasketCounter(PURCHASE_LIMIT + 1);\\\"],\\n[\\\"coupon/valid-coupon.spec.ts\\\",\\\"orderTotals(basket, delivery, COUPON.discountPercent)\\\",\\\"orderTotals(basket, delivery, 0)\\\"],\\n[\\\"coupon/invalid-coupon.spec.ts\\\",\\\"orderTotals(basket, delivery))\\\",\\\"orderTotals(basket, delivery, COUPON.discountPercent))\\\"],\\n[\\\"checkout/card-order.spec.ts\\\",\\\"shouldSeeOrder(orderId, totals.total)\\\",\\\"shouldSeeOrder(orderId, totals.items)\\\"],\\n[\\\"wallet/wallet-payment.spec.ts\\\",\\\"balanceEqualToTotal - orderTotal + bonusPoints\\\",\\\"balanceEqualToTotal - orderTotal\\\"]];\\nfor(const [f,a,b] of m){const p=R+f;const s=fs.readFileSync(p,\\\"utf8\\\");if(!s.includes(a))throw new Error(\\\"no match \\\"+f);fs.writeFileSync(p,s.replace(a,b));}\\nconsole.log(\\\"mutated\\\",m.length);'\",\"description\":\"Back up specs and apply one mutation per spec\"}",
+          "paths": [
+            "/tmp/spec-backup/specs"
+          ]
+        },
+        {
+          "where": "9ad416e5-5e23-4aa8-8b2e-9c22dfd2d884.jsonl:472",
+          "tool": "Bash",
+          "input": "{\"command\":\"node -e 'const fs=require(\\\"fs\\\");fs.cpSync(\\\"/tmp/spec-backup/specs\\\",\\\"tests/specs\\\",{recursive:true});' && grep -rnE \\\"zz\\\\`|quantity \\\\+ 1\\\\)|PURCHASE_LIMIT \\\\+ 1|delivery, 0\\\\)|totals\\\\.items\\\\)|basket\\\\(0\\\\)\\\" tests/specs; git status --short && npx playwright test 2>&1 | tail -12\",\"description\":\"Restore specs, verify no mutation remains, rerun all\",\"timeout\":600000}",
+          "paths": [
+            "/tmp/spec-backup/specs"
+          ]
+        },
+        {
+          "where": "9ad416e5-5e23-4aa8-8b2e-9c22dfd2d884.jsonl:592",
+          "tool": "Bash",
+          "input": "{\"command\":\"F=page-objects/order-summary-page.ts && node -e 'const fs=require(\\\"fs\\\");const f=process.argv[1];const s=fs.readFileSync(f,\\\"utf8\\\");fs.writeFileSync(\\\"/tmp/osp.bak\\\",s);const a=\\\"String(line.quantity), `Quantity\\\";if(!s.includes(a))throw 1;fs.writeFileSync(f,s.replace(a,\\\"String(line.quantity + 1), `Quantity\\\"));' $F && npx playwright test tests/specs/regression/coupon/valid-coupon.spec.ts --reporter=line 2>&1 | grep -E \\\"›.*› [0-9]\\\\.|Error:|Expected|Received|passed|failed\\\"; node -e 'require(\\\"fs\\\").copyFileSync(\\\"/tmp/osp.bak\\\",process.argv[1])' $F && git diff --stat; grep -c \\\"line.quantity + 1\\\" $F\",\"description\":\"Mutate the new product-line check, run, restore\",\"timeout\":300000}",
+          "paths": [
+            "/tmp/osp.bak"
+          ]
+        },
+        {
+          "where": "9ad416e5-5e23-4aa8-8b2e-9c22dfd2d884.jsonl:615",
+          "tool": "Bash",
+          "input": "{\"command\":\"npm run check > /tmp/check.log 2>&1; echo \\\"check exit $?\\\"; npx playwright test 2>&1 | tail -3; git status --short\",\"description\":\"Final check and full test run\",\"timeout\":600000}",
+          "paths": [
+            "/tmp/check.log"
+          ]
+        }
+      ],
+      "dotdot": [],
+      "cross": []
+    }
+  ]
+}
