@@ -6,6 +6,31 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 12:00: a message from another Claude session reached haiku B-1, B-1 stays valid
+
+Start from: the end of `bench/resume-e2-e3.sh` (the measurements of `haiku`). Then the next entry with all results of E2 and E3.
+
+### What happened, with proof
+
+- At 06:36:24Z (09:36 local), another Claude session of Arsen sent a message to the local sessions. Its name: "failed tests", session `local_de4f8de5-b672-4661-8fbd-499a00b2a68b`, socket `uds:/tmp/cc-socks/24641.sock`.
+  The text asked if the session works in the checkout `gerchik-autotest-project`, and it named a branch of that project.
+- The generation agent of haiku B-1 (session `a0b1104a-e859-49e3-9791-0760e39cc827`) got the message as a queued prompt. The transcript of B-1 has it at line 326.
+- At 06:36:29Z, the agent replied one time with `SendMessage`: "No, I work in .../set-3/run-1/suite-b, not in gerchik-autotest-project. I do not touch that checkout or its branch, so create your branch there freely."
+  Then it went on with its task.
+- A script read each transcript of each generation run, with the subagents (`set-1`, `set-2`, `set-3`, `field-map`, `tc-rewrite`):
+  - Incoming cross-session messages: 1, the message above.
+  - The other `SendMessage` calls (precise B-2: 1, haiku B-3: 5) go to the own `spec-reviewer` subagents of the session. This is the work of the harness.
+- `grep -rliE "gerchik|GD-[0-9]"` on the `.ts`, `.md` and `.json` files of `set-1`, `set-2` and `set-3`, without `node_modules` and `.agent-log`: no file.
+- The audit `audit-haiku-1` gave exit 1 with 1 forbidden call. It is a false alarm: the path is the work dir of B-1 with the escaped text `\n\nSpecs` after it. The regex takes `\n` into the path.
+  I fix the regex after the chain, because the chain still runs the script. Then I run all audits again.
+
+### Decision of Arsen at 11:58 (a human intervention)
+
+- Haiku B-1 stays valid. Section 10 of the stage 2 plan, item 16, has this decision. The pre-registration has no rule for a message from outside.
+- The README names the limit: the lock does not stop messages between Claude sessions on one Mac.
+- During locked sessions, Arsen runs no other session that sends messages to the local sessions.
+- The tool-call audit gets a check for incoming cross-session messages.
+
 ## 2026-10-20, 23:20: the Mac shut down during vague B-3, manual restore, B-3 does not count
 
 Start from: the background sequence of this entry: vague B-4, the measurements of `vague`, then the chain of `haiku`. The next entry records the results.
