@@ -6,6 +6,28 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 16:30: the E4 run after the fix stopped at 16:27 and started again. The runs of decision 19 are late
+
+Start from: the end of `bench/run-e4-after.sh` (`bench/.run/e4-after.log`), then the table "before and after" of E4. After that, the end of `bench/run-x3-x4.sh` (`bench/.run/x3-x4.log`).
+
+### The stop and the restart
+
+- At 16:27, the Claude Code process of the main session ended. The background job `bench/run-e4-after.sh` ended with it. This is an outside cause.
+- The last line of the log: `[16:27:23] S025 tests/tc-03-basket-quantity-and-remove.spec.ts:58 '1' -> '1_mut': killed (1 test, 15s)`.
+- The 4 steps of vague A-1 before it are complete, each with `EXIT 0`: `mutants-e4-after-x1`, `flaky-e4-after-x1`, `judge-e4-after-x1` and `tamper-e4-after-x1`.
+- After the stop: `git status --porcelain` in `desk-q` gave nothing, and HEAD was at the tag `fixed`. `run-audit-mutate.mjs` changes only a copy of the commit in a temp folder. No app listened on port 3000.
+- The main session kept the partial output of the expectation mutants as `mutate-e4-after-x1-stopped` (`.json`, `.md` and the folder). It is not a result.
+- The change in `bench/run-e4-after.sh`: the script skips a step when its `bench/results/<out>.md` exists. The commands of the steps did not change.
+- At 16:28:38, the script started again, without a tie to the session (`nohup caffeinate -i`). It skipped the 4 complete steps and started `mutate-e4-after-x1` from the first mutant: `client: 45 sites in 21 files, 8 tests. Copy of fixed (2fbd06d)`.
+
+### The runs of decision 19 are late
+
+- Decision 19 (entry 15:00) put `tamper-x3`, `mutate-x3`, `tamper-x4` and `mutate-x4` after `mutate-x2` and before the auditor session of vague A-1. The main session did not start them. The auditors, the fixers and the first part of the measurements after the fix ran before them. This is an error of the main session.
+- The effect on E4: none. These runs read only vague A-2 and B-2 at the tag `gen-2`. No session of E4 sees their results.
+- The effect on decision 19: none. The main session wrote the expectation of decision 19 before the runs, and the runs did not start yet.
+- `bench/run-x3-x4.sh` starts the 4 runs after the end of `bench/run-e4-after.sh`, because both use the app on port 3000. Before each step, the script checks that the Mac is on AC power. A watcher in the script stops a step on battery power below 30 %. Both folders are at the tag `gen-2` with no changes.
+- Between 16:28:38 and 16:30, `pmset -g batt` gave `Now drawing from 'AC Power'`, 91 %, charging.
+
 ## 2026-10-21, 15:00: decision 19, an exploratory tamper and mutant run on vague A-2 and B-2
 
 Start from: the end of `mutate-x2`. Then the 4 runs of this entry. Then the auditor session of vague A-1.
