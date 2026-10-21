@@ -1,0 +1,740 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--workers=1",
+      "--reporter=json",
+      "--output=/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x2/rules/T13-a-output"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x2/rules/T13-a-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x2/rules/T13-a-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3100",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "file": "tc-01-login.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "login with a wrong and then a correct password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1322,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the login page",
+                          "duration": 417
+                        },
+                        {
+                          "title": "2. Log in with the wrong password",
+                          "duration": 255
+                        },
+                        {
+                          "title": "3. The account menu shows Login and not the email",
+                          "duration": 54
+                        },
+                        {
+                          "title": "4. Log in with the correct password",
+                          "duration": 350
+                        },
+                        {
+                          "title": "5. The account menu shows the email and Logout",
+                          "duration": 48
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:43.382Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b34bf74f2c2ef7a26f68-321ff7eef33fd5fcee22",
+              "file": "tc-01-login.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-02-add-to-basket.spec.ts",
+      "file": "tc-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "file": "tc-02-add-to-basket.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "add one product and check the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1279,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. The product list shows the product and an empty basket",
+                          "duration": 137
+                        },
+                        {
+                          "title": "2. Add the product to the basket",
+                          "duration": 180
+                        },
+                        {
+                          "title": "3. The basket shows one row with the product",
+                          "duration": 111
+                        },
+                        {
+                          "title": "4. The basket total is the price of the product",
+                          "duration": 4
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:44.966Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "22d97df45c3a3424b0cc-7557f1a1674a28aa17b6",
+              "file": "tc-02-add-to-basket.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-03-basket-quantity-and-remove.spec.ts",
+      "file": "tc-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "file": "tc-03-basket-quantity-and-remove.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "change the quantity and remove product A",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1719,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. The basket shows both products and the total 13.98¤",
+                          "duration": 118
+                        },
+                        {
+                          "title": "2. Plus button on product A: quantity 2, total 18.97¤",
+                          "duration": 140
+                        },
+                        {
+                          "title": "3. Minus button on product A: quantity 1, total 13.98¤",
+                          "duration": 150
+                        },
+                        {
+                          "title": "4. Minus button on product A again: quantity stays 1",
+                          "duration": 54
+                        },
+                        {
+                          "title": "5. Trash button on product A: only product B stays",
+                          "duration": 128
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:46.261Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4d01b774c6877a42b8c3-c96c990e91da27844d78",
+              "file": "tc-03-basket-quantity-and-remove.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-04-purchase-limit.spec.ts",
+      "file": "tc-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "file": "tc-04-purchase-limit.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the basket stops at 5 items of one product",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1902,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the product to the basket from the product list",
+                          "duration": 277
+                        },
+                        {
+                          "title": "2. Plus button until the quantity is 5: total 9.95¤, no error",
+                          "duration": 633
+                        },
+                        {
+                          "title": "3. Plus button once more: the error shows",
+                          "duration": 66
+                        },
+                        {
+                          "title": "4. The product keeps quantity 5 and the total 9.95¤",
+                          "duration": 11
+                        },
+                        {
+                          "title": "5. Add to Basket from the product list: the error shows, counter stays 5",
+                          "duration": 142
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:47.995Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4047ea462fa680f9ce53-fab060c1508e2506b904",
+              "file": "tc-04-purchase-limit.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the 10% coupon of the current month reduces the items only",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1978,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout shows the saved address",
+                          "duration": 167
+                        },
+                        {
+                          "title": "2. Select the saved address and continue: delivery speeds with prices",
+                          "duration": 105
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue: payment options and the coupon panel",
+                          "duration": 138
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 140
+                        },
+                        {
+                          "title": "5. Select the saved card and continue: order summary with the discount",
+                          "duration": 140
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:49.915Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-41c2d668fbacfda09bb7",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "neither an invalid code nor an expired coupon gives a discount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2139,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 264
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue: payment page opens",
+                          "duration": 131
+                        },
+                        {
+                          "title": "3. Redeem the invalid code: the error shows, no discount",
+                          "duration": 145
+                        },
+                        {
+                          "title": "4. Redeem the expired coupon of the previous month: the error shows, no discount",
+                          "duration": 120
+                        },
+                        {
+                          "title": "5. Select the saved card and continue: order summary without discount",
+                          "duration": 179
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:51.908Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2e2fd1be63dc96462f88-50dc26d7a59ac59da65b",
+              "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-07-card-order-end-to-end.spec.ts",
+      "file": "tc-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "file": "tc-07-card-order-end-to-end.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "order two products with a card and find the order in the history",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2913,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add product A two times and product B one time: counter 3",
+                          "duration": 383
+                        },
+                        {
+                          "title": "2. The basket shows both products and the total 20.97¤",
+                          "duration": 103
+                        },
+                        {
+                          "title": "3. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 155
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue: payment page opens",
+                          "duration": 123
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 143
+                        },
+                        {
+                          "title": "6. Select the saved card and continue: order summary with 19.86¤",
+                          "duration": 138
+                        },
+                        {
+                          "title": "7. Place the order: the confirmation page opens",
+                          "duration": 338
+                        },
+                        {
+                          "title": "8. The confirmation shows both products and the totals",
+                          "duration": 9
+                        },
+                        {
+                          "title": "9. The basket counter is 0 and the basket is empty",
+                          "duration": 52
+                        },
+                        {
+                          "title": "10. Order history shows the order with the total 19.86¤",
+                          "duration": 599
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:54.062Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5b5235fa264a4d697318-4f0b21ccb054a3cfc8fa",
+              "file": "tc-07-card-order-end-to-end.spec.ts",
+              "line": 10,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the wallet cannot pay a short balance and pays the exact total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6424,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('body')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 6\u001b[39m\n\n\u001b[32m- 5.00\u001b[39m\n\u001b[31m+ This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[39m\n\u001b[31m+    OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Open side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[39m\n\u001b[31m+  X\u001b[43m \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('body') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    14 × locator resolved to <body class=\"bluegrey-lightgreen-theme\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[22m\n\u001b[2m   OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mOpen side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[22m\n\u001b[2m X \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('body')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 6\u001b[39m\n\n\u001b[32m- 5.00\u001b[39m\n\u001b[31m+ This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[39m\n\u001b[31m+    OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Open side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[39m\n\u001b[31m+  X\u001b[43m \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('body') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    14 × locator resolved to <body class=\"bluegrey-lightgreen-theme\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[22m\n\u001b[2m   OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mOpen side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[22m\n\u001b[2m X \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:46:42\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:41:5",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                          "column": 42,
+                          "line": 46
+                        },
+                        "snippet": "  44 |       await paymentPage.expectOpen();\n  45 |       await expect(page.getByText('Wallet Balance')).toBeVisible();\n> 46 |       await expect(page.locator('body')).toContainText('5.00');\n     |                                          ^\n  47 |       await expect(paymentPage.walletPayButton('8.99¤')).toBeVisible();\n  48 |     });\n  49 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                            "column": 42,
+                            "line": 46
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('body')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 6\u001b[39m\n\n\u001b[32m- 5.00\u001b[39m\n\u001b[31m+ This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[39m\n\u001b[31m+    OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Open side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[39m\n\u001b[31m+  X\u001b[43m \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('body') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    14 × locator resolved to <body class=\"bluegrey-lightgreen-theme\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[22m\n\u001b[2m   OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mOpen side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[22m\n\u001b[2m X \"\u001b[22m\n\n\n  44 |       await paymentPage.expectOpen();\n  45 |       await expect(page.getByText('Wallet Balance')).toBeVisible();\n> 46 |       await expect(page.locator('body')).toContainText('5.00');\n     |                                          ^\n  47 |       await expect(paymentPage.walletPayButton('8.99¤')).toBeVisible();\n  48 |     });\n  49 |\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:46:42\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:41:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 248
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue: wallet balance 5.00 and the pay button 8.99¤",
+                          "duration": 5141,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('body')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 6\u001b[39m\n\n\u001b[32m- 5.00\u001b[39m\n\u001b[31m+ This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[39m\n\u001b[31m+    OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Open side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[39m\n\u001b[31m+  X\u001b[43m \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('body') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    14 × locator resolved to <body class=\"bluegrey-lightgreen-theme\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[22m\n\u001b[2m   OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mOpen side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[22m\n\u001b[2m X \"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('body')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 6\u001b[39m\n\n\u001b[32m- 5.00\u001b[39m\n\u001b[31m+ This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[39m\n\u001b[31m+    OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Open side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[39m\n\u001b[31m+  X\u001b[43m \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('body') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    14 × locator resolved to <body class=\"bluegrey-lightgreen-theme\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!\u001b[22m\n\u001b[2m   OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mOpen side menuChoose language Placed Eggfruit Juice (500ml) into basket.\u001b[22m\n\u001b[2m X \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:46:42\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:41:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                              "column": 42,
+                              "line": 46
+                            },
+                            "snippet": "  44 |       await paymentPage.expectOpen();\n  45 |       await expect(page.getByText('Wallet Balance')).toBeVisible();\n> 46 |       await expect(page.locator('body')).toContainText('5.00');\n     |                                          ^\n  47 |       await expect(paymentPage.walletPayButton('8.99¤')).toBeVisible();\n  48 |     });\n  49 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:40:56.989Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x2/rules/T13-a-output/tc-08-wallet-payment-TC-08-654f9-ce-and-pays-the-exact-total-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                        "column": 42,
+                        "line": 46
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-55b31aae93a8ee2d2aa6",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T11:40:42.859Z",
+    "duration": 20641.437,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

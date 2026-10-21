@@ -1,0 +1,56 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:6:7 › TC-01: Login with a valid and an invalid password › login with a wrong and then a correct password
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:6:7 › TC-02: Add a product to the basket › add one product and check the basket
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:6:7 › TC-03: Change the quantity and remove a product in the basket › change the quantity and remove product A
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:6:7 › TC-04: Purchase limit for one product › the basket stops at 5 items of one product
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:9:7 › TC-05: Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:9:7 › TC-06: Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:10:7 › TC-07: Order with a card, from basket to order history › order two products with a card and find the order in the history
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  1) [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › the wallet cannot pay a short balance and pays the exact total › 2. Select Standard Delivery and continue: wallet balance 5.00 and the pay button 8.99¤ 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('body')
+    Timeout: 5000ms
+    - Expected substring  - 1
+    + Received string     + 6
+
+    - 5.00
+    + This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!
+    +    OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue
+    +
+    +
+    + Open side menuChoose language Placed Eggfruit Juice (500ml) into basket.
+    +  X 
+
+    Call log:
+      - Expect "toContainText" locator('body') with timeout 5000ms
+      - waiting for locator('body')
+        14 × locator resolved to <body class="bluegrey-lightgreen-theme">…</body>
+           - unexpected value "This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!
+       OWASP Juice ShopAccount account_circle  tc-1792582857084-71e3111e@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket1 language  EN My Payment Options************1111Test Customer12/2090 Add new card  Add a credit or debit card NameCard Number0/16Expiry Month123456789101112Expiry Year20802081208220832084208520862087208820892090209120922093209420952096209720982099send Submit Pay using walletWallet Balance 6.00 Pay 8.99¤  Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem  Other payment options Donations (Thank you for supporting OWASP Juice Shop!)  Credit CardMerchandise (Official stores for OWASP Juice Shop apparel, mugs and stickers!)  Spreadshirt (US) Spreadshirt (DE) StickerYou Leanpub OpenSea navigate_before  Back You can review this order before it is finalized. navigate_next Continue
+    
+    
+    Open side menuChoose language Placed Eggfruit Juice (500ml) into basket.
+     X "
+
+
+      44 |       await paymentPage.expectOpen();
+      45 |       await expect(page.getByText('Wallet Balance')).toBeVisible();
+    > 46 |       await expect(page.locator('body')).toContainText('5.00');
+         |                                          ^
+      47 |       await expect(paymentPage.walletPayButton('8.99¤')).toBeVisible();
+      48 |     });
+      49 |
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:46:42
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a/tests/tc-08-wallet-payment.spec.ts:41:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x2/rules/T13-a-output/tc-08-wallet-payment-TC-08-654f9-ce-and-pays-the-exact-total-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › the wallet cannot pay a short balance and pays the exact total 
+  7 passed (20.6s)

@@ -1,0 +1,224 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-05-valid-coupon\\.spec\\.ts$:9"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the 10% coupon of the current month reduces the items only",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7109,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\nExpected pattern: \u001b[32m/0\\.99¤_mut/\u001b[39m\nReceived string:  \u001b[31m\"Delivery0.99¤\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\u001b[22m\n\u001b[2m    14 × locator resolved to <tr class=\"mat-row\" _ngcontent-ng-c4138824240=\"\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"Delivery0.99¤\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\nExpected pattern: \u001b[32m/0\\.99¤_mut/\u001b[39m\nReceived string:  \u001b[31m\"Delivery0.99¤\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\u001b[22m\n\u001b[2m    14 × locator resolved to <tr class=\"mat-row\" _ngcontent-ng-c4138824240=\"\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"Delivery0.99¤\"\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts:117:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts:122:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/tc-05-valid-coupon.spec.ts:58:7\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/tc-05-valid-coupon.spec.ts:54:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts",
+                          "column": 36,
+                          "line": 117
+                        },
+                        "snippet": "   at pages/checkout.ts:117\n\n  115 |\n  116 |   async expectLine(label: string, value: string): Promise<void> {\n> 117 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  118 |   }\n  119 |\n  120 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts",
+                            "column": 36,
+                            "line": 117
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\nExpected pattern: \u001b[32m/0\\.99¤_mut/\u001b[39m\nReceived string:  \u001b[31m\"Delivery0.99¤\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\u001b[22m\n\u001b[2m    14 × locator resolved to <tr class=\"mat-row\" _ngcontent-ng-c4138824240=\"\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"Delivery0.99¤\"\u001b[22m\n\n\n   at pages/checkout.ts:117\n\n  115 |\n  116 |   async expectLine(label: string, value: string): Promise<void> {\n> 117 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  118 |   }\n  119 |\n  120 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts:117:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts:122:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/tc-05-valid-coupon.spec.ts:58:7\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/tc-05-valid-coupon.spec.ts:54:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout shows the saved address",
+                          "duration": 177
+                        },
+                        {
+                          "title": "2. Select the saved address and continue: delivery speeds with prices",
+                          "duration": 129
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue: payment options and the coupon panel",
+                          "duration": 145
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 143
+                        },
+                        {
+                          "title": "5. Select the saved card and continue: order summary with the discount",
+                          "duration": 5127,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\nExpected pattern: \u001b[32m/0\\.99¤_mut/\u001b[39m\nReceived string:  \u001b[31m\"Delivery0.99¤\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\u001b[22m\n\u001b[2m    14 × locator resolved to <tr class=\"mat-row\" _ngcontent-ng-c4138824240=\"\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"Delivery0.99¤\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\nExpected pattern: \u001b[32m/0\\.99¤_mut/\u001b[39m\nReceived string:  \u001b[31m\"Delivery0.99¤\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })\u001b[22m\n\u001b[2m    14 × locator resolved to <tr class=\"mat-row\" _ngcontent-ng-c4138824240=\"\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"Delivery0.99¤\"\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts:117:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts:122:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/tc-05-valid-coupon.spec.ts:58:7\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/tc-05-valid-coupon.spec.ts:54:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts",
+                              "column": 36,
+                              "line": 117
+                            },
+                            "snippet": "   at pages/checkout.ts:117\n\n  115 |\n  116 |   async expectLine(label: string, value: string): Promise<void> {\n> 117 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  118 |   }\n  119 |\n  120 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T11:56:49.851Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/test-results/tc-05-valid-coupon-TC-05-V-193c5-onth-reduces-the-items-only-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-sldN6T/tests/pages/checkout.ts",
+                        "column": 36,
+                        "line": 117
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-41c2d668fbacfda09bb7",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T11:56:49.174Z",
+    "duration": 8102.258999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

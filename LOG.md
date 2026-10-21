@@ -6,6 +6,76 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 15:00: decision 19, an exploratory tamper and mutant run on vague A-2 and B-2
+
+Start from: the end of `mutate-x2`. Then the 4 runs of this entry. Then the auditor session of vague A-1.
+
+- At 15:00, Arsen gave "yes". This is a human intervention. Section 10 of the stage 2 plan, item 19, has it.
+- The goal: test the words of the judge with the behavior of the tests.
+  The judge gives 21 `partial` steps of 49 for vague A-2. In 17 of these steps, the test calculates the expected total with a helper (`itemsTotal()`, `orderTotals()`, `bonusPoints()`), not with a number.
+- The runs, with the frozen `bench/tamper-rules.json`, 0 USD:
+  - vague A-2 (`harness-demo-runs/set-2/run-2/suite-a`, tag `gen-2`): `tamper-x3` and `mutate-x3`
+  - vague B-2 (`harness-demo-runs/set-2/run-2/suite-b`, tag `gen-2`): `tamper-x4` and `mutate-x4`
+  - The same power guard and battery watcher as for `x1` and `x2`.
+- This is exploratory. The choice of A-2 came after the judge results, so it tests no hypothesis of stage 2.
+  Its results do not go into the auditor folder or into the reports of E4.
+- The expectation, written before the runs:
+  - The group of rules for prices, totals, the discount and the bonus: T01-a, T02-a, T04-a, T04-b, T05-a, T06-a, T08-a, T08-b, T09-a, T12-a and T13-a.
+  - More rules of this group survive in A-2 than in B-2.
+  - The reason: a test of A-2 reads the changed price on the page. It calculates the total with the same formula, so it passes.
+    A test of B-2 compares with a number, so it fails.
+  - Support for the judge: at least one rule of the group survives in A-2, and no rule of the group survives in B-2.
+    When no rule of the group survives in A-2, the README says that these changes did not show the weak helpers.
+  - For the mutants, there is no expectation. The helpers have fewer literals, so A-2 has fewer mutants.
+
+## 2026-10-21, 14:55: decision 18, the main claim of the offer and the new priorities
+
+Start from: the end of `mutate-x2`. Then the auditor session of vague A-1.
+
+- At 14:55, Arsen accepted two items. This is a human intervention. Section 10 of the stage 2 plan, item 18, has it.
+  1. The main claim of the offer: with the harness, the checks stay complete also on vague test cases. The judge gives `partial` steps A 2 / 21 / 18 and B 0 / 0 / 0 of 49.
+     The offer does not claim that the harness catches more bugs, because each condition has the ceiling for missed bugs.
+     The second argument: the audit without the source code (the tamper proxy and the expectation mutants) finds checks that survive.
+  2. The manual check of the judge (item 1.1) and the full E5a review by the checklist, with the timer, are now required, together with E4.
+- No file of the experiment changed. The frozen files and the measurements stay as they are.
+
+## 2026-10-21, 15:15: the tools of haiku A-3, its auditor folder, a live test of the app lock
+
+Start from: the 2 auditor sessions in `bench/results/auditor-x1.*` and `auditor-x2.*`. Then the flags, the score and the fix folders.
+
+### The tools of haiku A-3, with proof (`bench/.run/e4-tools-x2.log`)
+
+- `tamper-x2` 14:31:10 to 14:45:28, exit 0. `mutate-x2` 14:45:28 to 15:01:45, exit 0: `client: 62 killed, 2 survived, 0 error, 18 skipped of 82`.
+- The 18 skipped mutants are in TC-07. Their reason in the report: "the test fails at the baseline". This is the TC-07 test that failed a recheck run in `mutants-haiku-3`.
+- The summary of the tamper verdicts: vague A-1 20 caught and 2 survived, haiku A-3 19 caught and 3 survived.
+- After the runs: `git status --short` was empty in `juice-shop/` and in both client suites, and the app was down.
+- At about 14:50, Arsen stopped the battery watcher. This is a human intervention. The Mac was on AC power, and the tools went on.
+
+### The inputs of the auditor of haiku A-3
+
+- `clean-reports` to `bench/results/e4-reports-x2/`: `tamper-report.md` sha256 `6801a5d6ce38b700b401f088a6245ce811c7e05b37d2264550e65d2aad61fd98`, `mutate-report.md` sha256 `b915883beca5a096f05ba0f2828ca265c5b94bd04c176ca280d61045ce3c7a05`.
+  The same lines as for vague A-1 were removed. A `grep` for set, run, suite, condition and lab names: 0 hits.
+- `audit-folder --suite ../harness-demo-runs/set-3/run-3/suite-a@gen-3 --dest ../harness-demo-runs/desk-r`: `test-cases/` sha256 `096f5035...`, the precise set (frozen item 1, condition `haiku`).
+  The folder hash without `node_modules`: `583f8e544dafb5d7557ed8ce4e7fcb8f921120eaf6627d3dfc8d0c03b44dad6d`.
+- My check `npx playwright test --list` wrote `test-results/results.json` into `desk-p` and `desk-r`. I removed both folders. Then the folder hashes were again `d49b277c...` and `583f8e54...`.
+
+### A live test of `--hide-app-source` and `--hide-app-build`
+
+- In a copy `harness-demo-runs/desk-t` of `desk-p`, with the app on port 3000 and a fake claude (`CL_FAKE_CLAUDE`).
+  The fake claude tried to read 6 files of `juice-shop/`, sent 4 requests to the app and ran the 8 tests of the copy.
+  Tags `locktest-src` and `locktest-build`, with the outputs in `bench/results/locktest-*.*` and `bench/.run/locktest-*.log`.
+- With `--hide-app-source`: `routes/order.ts`, `lib/insecurity.ts`, `server.ts`, `frontend/src/main.ts` and `.git/HEAD` were not readable.
+  `build/routes/order.js` was readable. The 4 app probes after the lock gave 200, the 4 requests gave 200, and the tests gave `8 passed (15.7s)`.
+- With `--hide-app-source --hide-app-build`: also `build/routes/order.js` was not readable. The probes and the requests gave 200, and the tests gave `8 passed (12.7s)`.
+- After each run, `find juice-shop -maxdepth 2 -perm 000` found no path, and `git -C juice-shop status --short` gave no output. I removed `desk-t`.
+- Thus the auditor sessions use `--hide-app-source --hide-app-build`. The app runs, and the auditor cannot read the source or the compiled server code.
+
+### The command of each auditor session (frozen items 3 and 7, decision 17)
+
+`bench/claude-locked.sh --dir ../harness-demo-runs/desk-<p|r> --prompt-file bench/prompt-auditor.txt --model claude-opus-5-5 --tag auditor-x<1|2> --budget 20 --hide-app-source --hide-app-build --deny SendMessage --deny ListAgents`
+- The tools are the tools of the generation runs (the default list, with the Playwright MCP server). `SendMessage` and `ListAgents` are denied, because of the message of the entry of 12:00.
+- The app starts before each session with `SKIP_BUILD=1 bench/start-app.sh start`, and it stops after the session. vague A-1 runs first, then haiku A-3.
+
 ## 2026-10-21, 14:40: the E4 build, the cleaned reports and the auditor folder of vague A-1
 
 Start from: after the tools of haiku A-3, a live test of `--hide-app-source`. Then the auditor session of vague A-1.

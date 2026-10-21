@@ -1,0 +1,3728 @@
+{
+  "generatedAt": "2026-10-21T11:45:28.282Z",
+  "out": "tamper-x2",
+  "suite": {
+    "label": "client",
+    "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-3/suite-a",
+    "commit": "3b1063330ddc7bac04cf9ad7e015553ffd67df96",
+    "tags": [
+      "gen-3"
+    ]
+  },
+  "rulesFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/tamper-rules.json",
+  "rulesSha256": "ebca83b3b167f65720a0c411df7206c0e411c17a9548a0e42f4c572b1c5d8027",
+  "proxy": {
+    "port": 3100,
+    "target": "http://localhost:3000",
+    "scope": "browser"
+  },
+  "command": "BASE_URL=http://localhost:3100 npx playwright test --retries=0 --workers=1 --reporter=json --output=/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x2/<run>-output",
+  "recheckRuns": 3,
+  "passthrough": {
+    "tests": 8,
+    "browserRequests": 557,
+    "browserRequestsByTest": {
+      "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password": 38,
+      "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket": 56,
+      "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A": 62,
+      "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product": 76,
+      "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": 74,
+      "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": 75,
+      "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history": 88,
+      "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": 88
+    }
+  },
+  "recheck": {
+    "runs": 3,
+    "stable": [
+      "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+      "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+      "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+      "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+      "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+      "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+      "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+    ],
+    "problems": []
+  },
+  "rules": [
+    {
+      "id": "T01-a",
+      "what": "the price of a product in the product list",
+      "method": "GET",
+      "path": "^/rest/products/search\\?q=",
+      "field": "data[*].price",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:12.916Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:21.434Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:25.113Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            },
+            {
+              "time": "2026-10-21T11:32:26.782Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:28.314Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:31.223Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:34.179Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:38.653Z",
+              "method": "GET",
+              "path": "/rest/products/search?q=",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.89,
+                  "new": 1.89
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 46
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T02-a",
+      "what": "the price of a product in the basket",
+      "method": "GET",
+      "path": "^/rest/basket/\\d+$",
+      "field": "data.Products[*].price",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:32:55.025Z",
+              "method": "GET",
+              "path": "/rest/basket/7",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:32:55.193Z",
+              "method": "GET",
+              "path": "/rest/basket/7",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 4,
+          "sample": [
+            {
+              "time": "2026-10-21T11:33:02.927Z",
+              "method": "GET",
+              "path": "/rest/basket/8",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 4.99,
+                  "new": 5.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:03.021Z",
+              "method": "GET",
+              "path": "/rest/basket/8",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 4.99,
+                  "new": 5.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:03.090Z",
+              "method": "GET",
+              "path": "/rest/basket/8",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 4.99,
+                  "new": 5.99
+                },
+                {
+                  "field": "data.Products[1].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 2
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 10,
+          "sample": [
+            {
+              "time": "2026-10-21T11:33:10.632Z",
+              "method": "GET",
+              "path": "/rest/basket/9",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:10.758Z",
+              "method": "GET",
+              "path": "/rest/basket/9",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:10.877Z",
+              "method": "GET",
+              "path": "/rest/basket/9",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 1.99,
+                  "new": 2.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 5,
+          "sample": [
+            {
+              "time": "2026-10-21T11:33:18.435Z",
+              "method": "GET",
+              "path": "/rest/basket/10",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:18.521Z",
+              "method": "GET",
+              "path": "/rest/basket/10",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:18.622Z",
+              "method": "GET",
+              "path": "/rest/basket/10",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 5,
+          "sample": [
+            {
+              "time": "2026-10-21T11:33:26.424Z",
+              "method": "GET",
+              "path": "/rest/basket/11",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:26.520Z",
+              "method": "GET",
+              "path": "/rest/basket/11",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:26.620Z",
+              "method": "GET",
+              "path": "/rest/basket/11",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 6,
+          "sample": [
+            {
+              "time": "2026-10-21T11:33:34.503Z",
+              "method": "GET",
+              "path": "/rest/basket/12",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:34.576Z",
+              "method": "GET",
+              "path": "/rest/basket/12",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:34.645Z",
+              "method": "GET",
+              "path": "/rest/basket/12",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:33:41.927Z",
+              "method": "GET",
+              "path": "/rest/basket/13",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:33:42.056Z",
+              "method": "GET",
+              "path": "/rest/basket/13",
+              "changes": [
+                {
+                  "field": "data.Products[0].price",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 14,
+      "skipReasons": [
+        "no value to change at data.Products[*].price"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T03-a",
+      "what": "the quantity of a basket item, also the source of the basket counter",
+      "method": "GET",
+      "path": "^/rest/basket/\\d+$",
+      "field": "data.Products[*].BasketItem.quantity",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:33:56.554Z",
+              "method": "GET",
+              "path": "/rest/basket/7",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 3,
+          "sample": [
+            {
+              "time": "2026-10-21T11:34:03.671Z",
+              "method": "GET",
+              "path": "/rest/basket/8",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:03.762Z",
+              "method": "GET",
+              "path": "/rest/basket/8",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:03.822Z",
+              "method": "GET",
+              "path": "/rest/basket/8",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                },
+                {
+                  "field": "data.Products[1].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 2
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:34:10.782Z",
+              "method": "GET",
+              "path": "/rest/basket/9",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 5,
+          "sample": [
+            {
+              "time": "2026-10-21T11:34:17.724Z",
+              "method": "GET",
+              "path": "/rest/basket/10",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:17.824Z",
+              "method": "GET",
+              "path": "/rest/basket/10",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:17.954Z",
+              "method": "GET",
+              "path": "/rest/basket/10",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 2,
+                  "new": 3
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 5,
+          "sample": [
+            {
+              "time": "2026-10-21T11:34:25.556Z",
+              "method": "GET",
+              "path": "/rest/basket/11",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:25.647Z",
+              "method": "GET",
+              "path": "/rest/basket/11",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:25.724Z",
+              "method": "GET",
+              "path": "/rest/basket/11",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 5,
+          "sample": [
+            {
+              "time": "2026-10-21T11:34:33.304Z",
+              "method": "GET",
+              "path": "/rest/basket/12",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:33.395Z",
+              "method": "GET",
+              "path": "/rest/basket/12",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:34:33.462Z",
+              "method": "GET",
+              "path": "/rest/basket/12",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 2,
+                  "new": 3
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:34:40.469Z",
+              "method": "GET",
+              "path": "/rest/basket/13",
+              "changes": [
+                {
+                  "field": "data.Products[0].BasketItem.quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 15,
+      "skipReasons": [
+        "no value to change at data.Products[*].BasketItem.quantity"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T04-a",
+      "what": "the price of each delivery speed in the list",
+      "method": "GET",
+      "path": "^/api/Deliverys$",
+      "field": "data[*].price",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:00.184Z",
+              "method": "GET",
+              "path": "/api/Deliverys",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 0.99,
+                  "new": 1.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.5,
+                  "new": 1.5
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 3
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:07.760Z",
+              "method": "GET",
+              "path": "/api/Deliverys",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 0.99,
+                  "new": 1.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.5,
+                  "new": 1.5
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 3
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:09.893Z",
+              "method": "GET",
+              "path": "/api/Deliverys",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 0.99,
+                  "new": 1.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.5,
+                  "new": 1.5
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 3
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:12.767Z",
+              "method": "GET",
+              "path": "/api/Deliverys",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 0.99,
+                  "new": 1.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.5,
+                  "new": 1.5
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 3
+            },
+            {
+              "time": "2026-10-21T11:35:14.540Z",
+              "method": "GET",
+              "path": "/api/Deliverys",
+              "changes": [
+                {
+                  "field": "data[0].price",
+                  "old": 0.99,
+                  "new": 1.99
+                },
+                {
+                  "field": "data[1].price",
+                  "old": 0.5,
+                  "new": 1.5
+                },
+                {
+                  "field": "data[2].price",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 3
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T04-b",
+      "what": "the price of the selected delivery speed",
+      "method": "GET",
+      "path": "^/api/Deliverys/\\d+$",
+      "field": "data.price",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 3,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:32.045Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:35:32.203Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:35:32.329Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:39.976Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:35:40.334Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 3,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:47.885Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:35:48.014Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:35:48.113Z",
+              "method": "GET",
+              "path": "/api/Deliverys/1",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:35:55.547Z",
+              "method": "GET",
+              "path": "/api/Deliverys/3",
+              "changes": [
+                {
+                  "field": "data.price",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T05-a",
+      "what": "the discount percentage of the coupon",
+      "method": "PUT",
+      "path": "^/rest/basket/\\d+/coupon/[^/?]+$",
+      "field": "discount",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:36:15.206Z",
+              "method": "PUT",
+              "path": "/rest/basket/10/coupon/pEw8phz3Tq",
+              "changes": [
+                {
+                  "field": "discount",
+                  "old": 10,
+                  "new": 11
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:36:25.123Z",
+              "method": "PUT",
+              "path": "/rest/basket/12/coupon/pEw8phz3Tq",
+              "changes": [
+                {
+                  "field": "discount",
+                  "old": 10,
+                  "new": 11
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 2,
+      "skipReasons": [
+        "the body is not JSON"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T06-a",
+      "what": "the total price of the saved order on the confirmation page",
+      "method": "GET",
+      "path": "^/rest/track-order/[^/?]+$",
+      "field": "data[*].totalPrice",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:36:54.199Z",
+              "method": "GET",
+              "path": "/rest/track-order/9493-fb70b75edafea4e6",
+              "changes": [
+                {
+                  "field": "data[0].totalPrice",
+                  "old": 19.859999999999996,
+                  "new": 20.86
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:37:03.605Z",
+              "method": "GET",
+              "path": "/rest/track-order/8eed-df038e1c1e1c683e",
+              "changes": [
+                {
+                  "field": "data[0].totalPrice",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T07-a",
+      "what": "the quantity of a product in the saved order on the confirmation page",
+      "method": "GET",
+      "path": "^/rest/track-order/[^/?]+$",
+      "field": "data[*].products[*].quantity",
+      "op": "add",
+      "value": 1,
+      "verdict": "survived",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:37:25.209Z",
+              "method": "GET",
+              "path": "/rest/track-order/6957-ab6919b1bc5cc0f6",
+              "changes": [
+                {
+                  "field": "data[0].products[0].quantity",
+                  "old": 2,
+                  "new": 3
+                },
+                {
+                  "field": "data[0].products[1].quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 2
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:37:29.449Z",
+              "method": "GET",
+              "path": "/rest/track-order/c59d-2ad5ecd65f276dda",
+              "changes": [
+                {
+                  "field": "data[0].products[0].quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 0,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T08-a",
+      "what": "the line Delivery of the saved order on the confirmation page",
+      "method": "GET",
+      "path": "^/rest/track-order/[^/?]+$",
+      "field": "data[*].deliveryPrice",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:37:50.533Z",
+              "method": "GET",
+              "path": "/rest/track-order/4fae-8dd730e745807bb4",
+              "changes": [
+                {
+                  "field": "data[0].deliveryPrice",
+                  "old": 0.99,
+                  "new": 1.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:37:59.849Z",
+              "method": "GET",
+              "path": "/rest/track-order/9394-e9c876435c567ebb",
+              "changes": [
+                {
+                  "field": "data[0].deliveryPrice",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T08-b",
+      "what": "the line Promotion of the saved order on the confirmation page",
+      "method": "GET",
+      "path": "^/rest/track-order/[^/?]+$",
+      "field": "data[*].promotionalAmount",
+      "op": "addNumberString",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:38:20.148Z",
+              "method": "GET",
+              "path": "/rest/track-order/ffa2-7121de93b0ce76d7",
+              "changes": [
+                {
+                  "field": "data[0].promotionalAmount",
+                  "old": "2.10",
+                  "new": "3.10"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:38:29.426Z",
+              "method": "GET",
+              "path": "/rest/track-order/3cf0-5222fb34e46dac1c",
+              "changes": [
+                {
+                  "field": "data[0].promotionalAmount",
+                  "old": "0",
+                  "new": "1"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T09-a",
+      "what": "the total price of an order in the order history",
+      "method": "GET",
+      "path": "^/rest/order-history$",
+      "field": "data[*].totalPrice",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:38:48.841Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].totalPrice",
+                  "old": 19.859999999999996,
+                  "new": 20.86
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:38:59.471Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].totalPrice",
+                  "old": 8.99,
+                  "new": 9.99
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 1,
+      "skipReasons": [
+        "no value to change at data[*].totalPrice"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T10-a",
+      "what": "the quantity of a product in the order history",
+      "method": "GET",
+      "path": "^/rest/order-history$",
+      "field": "data[*].products[*].quantity",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:39:23.798Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].products[0].quantity",
+                  "old": 2,
+                  "new": 3
+                },
+                {
+                  "field": "data[0].products[1].quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 2
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:39:34.363Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].products[0].quantity",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 1,
+      "skipReasons": [
+        "no value to change at data[*].products[*].quantity"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T11-a",
+      "what": "the order ID in the order history",
+      "method": "GET",
+      "path": "^/rest/order-history$",
+      "field": "data[*].orderId",
+      "op": "set",
+      "value": "MUT",
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:39:52.385Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].orderId",
+                  "old": "b088-6efd0e270417cabd",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:40:03.117Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].orderId",
+                  "old": "1c5d-d769ae03d558fa2c",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 1,
+      "skipReasons": [
+        "no value to change at data[*].orderId"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T12-a",
+      "what": "the bonus points of an order in the order history",
+      "method": "GET",
+      "path": "^/rest/order-history$",
+      "field": "data[*].bonus",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:40:27.508Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].bonus",
+                  "old": 2,
+                  "new": 3
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:40:32.355Z",
+              "method": "GET",
+              "path": "/rest/order-history",
+              "changes": [
+                {
+                  "field": "data[0].bonus",
+                  "old": 1,
+                  "new": 2
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 1,
+      "skipReasons": [
+        "no value to change at data[*].bonus"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T13-a",
+      "what": "the wallet balance",
+      "method": "GET",
+      "path": "^/rest/wallet/balance$",
+      "field": "data",
+      "op": "add",
+      "value": 1,
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:40:51.582Z",
+              "method": "GET",
+              "path": "/rest/wallet/balance",
+              "changes": [
+                {
+                  "field": "data",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:40:53.599Z",
+              "method": "GET",
+              "path": "/rest/wallet/balance",
+              "changes": [
+                {
+                  "field": "data",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:40:55.691Z",
+              "method": "GET",
+              "path": "/rest/wallet/balance",
+              "changes": [
+                {
+                  "field": "data",
+                  "old": 0,
+                  "new": 1
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:40:58.376Z",
+              "method": "GET",
+              "path": "/rest/wallet/balance",
+              "changes": [
+                {
+                  "field": "data",
+                  "old": 5,
+                  "new": 6
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T14-a",
+      "what": "the email of the customer in the session",
+      "method": "GET",
+      "path": "^/rest/user/whoami$",
+      "field": "user.email",
+      "op": "set",
+      "value": "mut@example.test",
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:10.977Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582869785-f5007d28@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:17.679Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582876944-ebce6e85@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:18.929Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582878252-e68df209@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:20.717Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582880049-2d684d9c@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:22.646Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582881954-3ac2c668@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:24.726Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582884040-f4e0fa3c@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:26.840Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582886182-b4e34ac3@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:29.777Z",
+              "method": "GET",
+              "path": "/rest/user/whoami",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582889081-e062cb44@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 9,
+      "skipReasons": [
+        "no value to change at user.email"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T14-b",
+      "what": "the email of the customer in the session, email-only query",
+      "method": "GET",
+      "path": "^/rest/user/whoami\\?fields=email$",
+      "field": "user.email",
+      "op": "set",
+      "value": "mut@example.test",
+      "verdict": "survived",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:41.355Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582900154-b5b80656@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:42.238Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582901534-59daa4e0@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:42.639Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582901534-59daa4e0@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:43.452Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582902789-0c3089a6@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:43.899Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582902789-0c3089a6@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 2,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:45.235Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582904553-76fb8b09@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:45.553Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582904553-76fb8b09@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 3,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:47.152Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582906469-3d947016@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:47.794Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582906469-3d947016@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:48.399Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582906469-3d947016@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 3,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:49.204Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582908537-beb88c21@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:49.847Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582908537-beb88c21@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:50.583Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582908537-beb88c21@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 4,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:51.382Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582910720-75f0e87b@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:51.920Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582910720-75f0e87b@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:52.500Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582910720-75f0e87b@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 4,
+          "sample": [
+            {
+              "time": "2026-10-21T11:41:54.364Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582913680-582bc295@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:54.787Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582913680-582bc295@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            },
+            {
+              "time": "2026-10-21T11:41:56.488Z",
+              "method": "GET",
+              "path": "/rest/user/whoami?fields=email",
+              "changes": [
+                {
+                  "field": "user.email",
+                  "old": "tc-1792582913680-582bc295@example.test",
+                  "new": "mut@example.test"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 9,
+      "skipReasons": [
+        "no value to change at user.email"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 0,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T15-b",
+      "what": "the error text You can order only up to 5 items of this product.",
+      "method": "PUT",
+      "path": "^/api/BasketItems/\\d+$",
+      "field": "error",
+      "op": "set",
+      "value": "MUT",
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:10.732Z",
+              "method": "PUT",
+              "path": "/api/BasketItems/12",
+              "changes": [
+                {
+                  "field": "error",
+                  "old": "You can order only up to 5 items of this product.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 10,
+      "skipReasons": [
+        "no value to change at error"
+      ],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T15-d",
+      "what": "the error text Invalid coupon.",
+      "method": "GET",
+      "path": "^/assets/i18n/en\\.json$",
+      "field": "INVALID_COUPON",
+      "op": "set",
+      "value": "MUT",
+      "verdict": "survived",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:35.687Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:36.950Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:38.239Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:40.020Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:41.936Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:44.038Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:46.172Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:49.161Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "INVALID_COUPON",
+                  "old": "Invalid coupon.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 0,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T15-e",
+      "what": "the message text Thank you for your purchase!",
+      "method": "GET",
+      "path": "^/assets/i18n/en\\.json$",
+      "field": "THANKS_FOR_PURCHASE",
+      "op": "set",
+      "value": "MUT",
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:42:58.961Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:00.312Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:01.681Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:03.553Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:05.463Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:07.587Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:09.714Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:17.764Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "THANKS_FOR_PURCHASE",
+                  "old": "Thank you for your purchase!",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T15-f",
+      "what": "the message text You have not placed any orders yet.",
+      "method": "GET",
+      "path": "^/assets/i18n/en\\.json$",
+      "field": "NO_ORDERS_PLACED",
+      "op": "set",
+      "value": "MUT",
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:32.733Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:34.059Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:35.450Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:37.624Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:39.789Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:41.854Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:44.067Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:43:47.163Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "NO_ORDERS_PLACED",
+                  "old": "You have not placed any orders yet.",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    },
+    {
+      "id": "T16-a",
+      "what": "the name of the payment method Digital Wallet",
+      "method": "GET",
+      "path": "^/assets/i18n/en\\.json$",
+      "field": "DIGITAL_WALLET",
+      "op": "set",
+      "value": "MUT",
+      "verdict": "caught",
+      "problems": [],
+      "fired": [
+        {
+          "test": "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:00.569Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:01.894Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:03.414Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:05.726Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:07.770Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:10.011Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+          "tc": null,
+          "passed": true,
+          "statuses": [
+            "passed"
+          ],
+          "stableInRecheck": null,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:12.456Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        },
+        {
+          "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+          "tc": null,
+          "passed": false,
+          "statuses": [
+            "failed"
+          ],
+          "stableInRecheck": true,
+          "changedResponses": 1,
+          "sample": [
+            {
+              "time": "2026-10-21T11:44:15.580Z",
+              "method": "GET",
+              "path": "/assets/i18n/en.json",
+              "changes": [
+                {
+                  "field": "DIGITAL_WALLET",
+                  "old": "Digital Wallet",
+                  "new": "MUT"
+                }
+              ],
+              "changedFields": 1
+            }
+          ]
+        }
+      ],
+      "noise": [],
+      "skips": 0,
+      "skipReasons": [],
+      "changesOutsideTests": 0,
+      "exit": 1,
+      "proxyExit": {
+        "code": 0,
+        "signal": null,
+        "early": false
+      }
+    }
+  ],
+  "summary": {
+    "rules": 22,
+    "caught": 19,
+    "survived": 3,
+    "notExercised": 0,
+    "invalid": 0
+  }
+}
