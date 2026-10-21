@@ -3,6 +3,7 @@
 //
 //   node bench/audit-tool-calls.mjs --cond precise --run 2         sessions of gen-<c>-<A|B>-<n>[-followup].json
 //   node bench/audit-tool-calls.mjs --session <id> [--session <id>] --out audit-try
+//   node bench/audit-tool-calls.mjs --session <id> --out <name> --allow-root <path> [--allow-root <path>]
 //
 // For each session, the script reads the main transcript ~/.claude/projects/*/<id>.jsonl and each subagent transcript
 // in <id>/subagents/. The work dir is the cwd of the session (from the transcript). For each tool call it checks the
@@ -16,6 +17,10 @@
 //              call to another session (its "to" starts with "uds:"). The lock does not stop these messages
 //              (LOG.md, entry 21.10, 12:00). SendMessage to an own subagent is not a cross-session call.
 // A path in the JSON of an input ends at a backslash, because "\n" in a JSON string is not part of a path.
+// --allow-root (for a session with --add-dir, for example the UI patch session of E5b in LAB/sealed-ui): before the
+// checks, the script puts "<work dir>" for the work dir and "<allowed root>" for each allowed root in the input.
+// Thus the lab words in these paths are not hits. Paths under an allowed root are not "outside". Without the
+// option, the input does not change.
 // Output: bench/results/<out>.json and .md (default out: audit-<c>-<n>, or audit for precise run 1).
 // Exit code 1 when a call is forbidden or a cross-session message exists.
 import fs from 'node:fs'
@@ -24,6 +29,7 @@ import path from 'node:path'
 import { RESULTS, condRun, opt, optAll, outName, resultName } from './lib.mjs'
 
 const PROJECTS = path.join(os.homedir(), '.claude', 'projects')
+const ALLOW_ROOTS = optAll('--allow-root').map(p => path.resolve(p))
 const FORBIDDEN = [
   'harness-demo-juice-shop', 'aqa-harness-integration', 'side-session-notes', '.claude/projects', '.claude-harness-demo-hidden',
   '/tmp/claude-', 'harness-demo-runs/templates', 'sealed', 'chmod', 'LOG.md', 'bench/results'
@@ -87,7 +93,11 @@ function auditSession (s) {
   const ownSession = path.join(PROJECTS, workDir.replace(/[^A-Za-z0-9]/g, '-'), s.id) + '/'
   const flagged = { forbidden: [], outside: [], dotdot: [] }
   for (const c of calls) {
-    const input = c.input.split(ownSession).join('<own session>/')
+    let input = c.input.split(ownSession).join('<own session>/')
+    if (ALLOW_ROOTS.length) {
+      input = input.split(workDir).join('<work dir>')
+      for (const r of ALLOW_ROOTS) input = input.split(r).join('<allowed root>')
+    }
     const hits = FORBIDDEN.filter(f => input.includes(f))
     // A path to another run folder, for example .../harness-demo-runs/set-1/run-1/suite-b while the work dir is .../run-2/suite-b.
     // An end mark of a sentence after the path ("suite-b.") is not part of the path.

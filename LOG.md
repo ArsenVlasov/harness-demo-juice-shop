@@ -6,11 +6,57 @@ For each measurement, record the command and its real result.
 
 ---
 
-## 2026-10-21, 19:15: decision 21, E5b starts. The UI patch session
+## 2026-10-21, 19:12: the UI patch session wrote 4 patches. Checkpoint 5 waits for Arsen
+
+Start from: Arsen reads `sealed-ui/ui-patches.md` and the 4 patches (checkpoint 5). Then the seal, then `run-ui-change.mjs --mode each` on A and B of `precise` run 1.
+
+### The session (`bench/.run/ui-patch-session.log`, `bench/results/ui-patch-session.*`)
+
+- `bench/run-ui-patch-session.sh` ran from 19:04:05 to 19:10:16: `claude exit=0, wall 371s`.
+- The result: `"subtype":"success"`, session `ed197c6e-616b-4ae8-aa47-676d417ce7ec`, 71 turns, `total_cost_usd` 2.203852, 10 permission denials.
+- After the session: `juice-shop changes after the session: 0 paths`. `git -C juice-shop describe --tags --exact-match HEAD` gives `v20.3.0`.
+  `stat` shows the old modes on the 14 locked paths (755, and 644 for `LOG.md`).
+- The 10 denied calls: shell forms outside the allowed list. Examples: a `for` loop, `sed -i`, `npm --prefix ... exec`, a `cd` with an absolute path, and the STE linter in the lab `.claude/skills/`. After each denial, the session used an allowed tool.
+
+### The patches, before checkpoint 5
+
+| File | Kind | Change | sha256 |
+|---|---|---|---|
+| `01-rename-add-to-basket-button.patch` | 1, rename a button | `Add to Basket` becomes `Add to Cart` | `91a5fdf7971c07ffaf7f559cae4410040cb0799cc4947b7ea044e595194a09da` |
+| `02-login-form-layout.patch` | 2, the structure of a form | the login form: the label `Email address`, a new place for `Remember me` and `Forgot your password?` | `aa2bca281479613719ad51c019f6e0b910eceb76b2f95c49b61174208bbbfc7d` |
+| `03-move-coupon-to-basket.patch` | 3, move a step of the checkout | the panel `Add a coupon` moves from `My Payment Options` to the basket page | `5e5ecf046cc44ae1d5dfd8c3ddb18570c1f374ad62437d537056e82827a487e1` |
+| `04-rename-place-order-button.patch` | 1, rename a button | `Place your order and pay` becomes `Confirm and pay` | `b1081fab66666f1326a4bd29fa1d74c52b3fd3820622f0a3b9e732b7cef0d744` |
+| `ui-patches.md` | the report of the session | | `b96964f1a8486a8960468fab47ca011f73c84fb5c81c7785a3709d5c7949711f` |
+
+- The main session recorded these values before Arsen read the patches. The seal follows checkpoint 5.
+- The checks of the main session:
+  - `git apply --check` gives exit 0 for each patch alone on v20.3.0.
+  - All 4 patches apply together in file-name order: `8 files changed, 173 insertions(+), 151 deletions(-)`. All 8 files are under `frontend/src/`. After `git checkout -- .`, `juice-shop/` has 0 changes.
+- The session reports a frontend build with all patches: `Application bundle generation complete`, output in `$TMPDIR/ui-patch-build`. It did not write into `juice-shop/frontend/dist`.
+- The limits that the session gives: nobody did the steps in a browser with the patches, and the frontend unit tests did not run.
+
+### The tool-call audit
+
+- `bench/audit-tool-calls.mjs` has a new option `--allow-root`. The patch session has its work dir in the lab and uses `--add-dir`, so each of its paths holds the word `harness-demo-juice-shop`. The option replaces the work dir and the allowed roots in the input before the checks.
+  Without the option, the audit gives the same result as before: the audit of `fixer-x1` again gave the same JSON, apart from the time.
+- `node bench/audit-tool-calls.mjs --session ed197c6e-616b-4ae8-aa47-676d417ce7ec --out audit-ui-patch-session --allow-root juice-shop --allow-root test-cases`: 69 tool calls, 6 forbidden, 0 cross-session, 2 outside. Exit 1.
+- The main session checked the 6 forbidden calls:
+  - 4 hits come from the word `sealed` in the relative path `../sealed-ui/`, which is the work dir of the session.
+  - 1 hit comes from the Write of `ui-patches.md`, because its text names `../sealed-ui/`.
+  - 1 hit is the denied call of the STE linter in the lab `.claude/skills/`. The lab `CLAUDE.md` tells each session to lint its `.md` files.
+- The 2 outside paths are the build folder of the session in `$TMPDIR`.
+- A scan of all 69 inputs for `bench`, `LOG.md`, `README.md`, `harness-demo-runs`, `results`, `test-cases-vague`, `.claude/projects`, `gerchik`, `aqa-harness`, `sealed/` and `.git/` gives 1 hit: `cat ../test-cases/README.md`. That file is in the allowed folder `test-cases/`.
+
+### Times
+
+- The main session changed the times of 3 entries to the commit times. Decision 20 is 18:51, the copies of round 2 are 18:56, and decision 21 is 19:03.
+  The earlier headers said 19:00, 19:00 and 19:15. Section 10 of the plan got the same changes.
+
+## 2026-10-21, 19:03: decision 21, E5b starts. The UI patch session
 
 Start from: the end of `bench/run-ui-patch-session.sh` (`bench/results/ui-patch-session.meta`). Then the tool-call audit, the check of `juice-shop/`, and checkpoint 5 (Arsen reads the patches). Then the seal.
 
-- At about 19:10, Arsen said: "yes, start E5b now". This is checkpoint 5 of the stage 2 plan. Section 10 of the plan, item 21, has it.
+- Between 18:56 and 19:03, Arsen said: "yes, start E5b now". This is checkpoint 5 of the stage 2 plan. Section 10 of the plan, item 21, has it.
 - The order by the frozen rules: first the UI patch session, then Arsen reads the patches, then the seal (sha256 in this log).
   After that come the runs on A and B of `precise` run 1, and then the fixes.
   At checkpoint 5, Arsen can reject a patch only for one of two reasons. The patch is not one of the 3 kinds. Or a person cannot do a step of TC-01 to TC-08 by hand.
@@ -35,11 +81,11 @@ Start from: the end of `bench/run-ui-patch-session.sh` (`bench/results/ui-patch-
   - The session loads the lab `CLAUDE.md`, because its folder is in the lab. The patch session of stage 1 also did this.
   - The lock also covers the review copies in `harness-demo-runs/review/` during the session.
 
-## 2026-10-21, 19:00: the copies of E5a round 2
+## 2026-10-21, 18:56: the copies of E5a round 2
 
 Start from: Arsen reviews `review/suite-3` first, then `review/suite-4`, by `bench/review-checklist.md` with `bench/review-timer.mjs`. The check of the judge (item 1.1) can come before or after it.
 
-- At about 18:50, Arsen said: "yes, prepare the E5a round 2 copies".
+- Between 18:51 and 18:55, Arsen said: "yes, prepare the E5a round 2 copies".
 - The client suite of round 2 is vague A-1, the frozen client of E4. Before the fix, it is `set-2/run-1/suite-a` at the tag `gen-1`. After the fix, it is `desk-q` at the tag `fixed`. haiku A-3 is not in round 2.
 - `desk-q` at `fixed` holds `audit-report.md`, the input of the fix. It is not a part of the suite, and no frozen rule names it. The new option `--drop <path>` of `bench/prepare-review.mjs` leaves out exact paths. The mapping names them in `droppedByOption`.
   `node --test bench/test/review.test.mjs`: `tests 17`, `pass 17`, `fail 0`.
@@ -51,11 +97,11 @@ Start from: Arsen reviews `review/suite-3` first, then `review/suite-4`, by `ben
   - The copies do not hold `audit-report.md` or `.agent-log/`.
   - The copy of `desk-q` keeps `tsconfig.json` and the devDependencies of the harness in `package.json` (`eslint`, `typescript` and other packages). The frozen rule keeps these project files, as for B-1 in round 1. Thus round 2 is not blind, as the frozen rule already says.
 
-## 2026-10-21, 19:00: decision 20. The claim of decision 18 waits. The manual check of the judge (item 1.1) starts
+## 2026-10-21, 18:51: decision 20. The claim of decision 18 waits. The manual check of the judge (item 1.1) starts
 
 Start from: Arsen fills `bench/judge-check-1.1.csv` with the packet `bench/results/judge-check-1.1.md`. Then the main session compares his verdicts with the judge and records the result here.
 
-- At about 18:40, Arsen said: "yes, start item 1.1 and hold the claim". This is a human intervention. Section 10 of the stage 2 plan, item 20, has it.
+- Between 18:37 and 18:51, Arsen said: "yes, start item 1.1 and hold the claim". This is a human intervention. Section 10 of the stage 2 plan, item 20, has it.
   - The main claim of the offer from decision 18 waits. It does not go into the offer or the README until the check of the judge ends.
   - The frozen result of H2.3 does not change. The check of decision 19 came after the results, so the README gives it as a limit.
   - The judge does not run again with a new rubric, unless Arsen asks. A run like that is a measurement after the results, and its label says so.
