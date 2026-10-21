@@ -6,7 +6,20 @@ For each measurement, record the command and its real result.
 
 ---
 
-## 2026-10-21, 13:50: results of E2 and E3, and the client suite of E4
+## 2026-10-21, 13:45: E4 on the client suite vague A-1, and an exploratory E4 on haiku A-3
+
+Start from: the tool runs of this entry and the workflow that builds the rest of E4. Then the auditor sessions.
+
+- At 13:42, Arsen chose: E4 runs as frozen on vague A-1. Also, an exploratory E4 runs on haiku A-3. This is a human intervention. Section 10 of the stage 2 plan, item 17, has it.
+  - Haiku A-3 is the only suite with missed bugs (4 of 11, by a TC-07 test that failed a recheck run).
+  - The choice of haiku A-3 came after the results of E2 and E3. Thus it is exploratory: it tests no hypothesis, and the README says so.
+  - The caps: audit 20 USD and fix 20 USD for each suite, at most 80 USD. This is the "yes" for the auditor and fixer sessions of both suites.
+- The inputs of the frozen E4 (section "Inputs of the audit and of the fix") apply to both suites:
+  - vague A-1: `harness-demo-runs/set-2/run-1/suite-a` at `gen-1`, with the vague test cases.
+  - haiku A-3: `harness-demo-runs/set-3/run-3/suite-a` at `gen-3`, with the precise test cases.
+- The out names of the tools name no condition, run or suite: `tamper-x1` and `mutate-x1` for vague A-1, `tamper-x2` and `mutate-x2` for haiku A-3. The label is `client` in all 4 runs.
+
+## 2026-10-21, 13:40: results of E2 and E3, and the client suite of E4
 
 Start from: Arsen decides on E4 (the items at the end of this entry). Then the free tool runs on the client suite, and the auditor session (cap 20 USD) after his "yes".
 
