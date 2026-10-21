@@ -6,6 +6,37 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 23:03: the result of E5b
+
+Start from: Arsen reads `bench/results/e5b-summary.md`. His open tasks: item 1.1 (`bench/judge-check-1.1.csv`), E5a round 1 and round 2. Then the wrap-up.
+
+### The runs (`bench/.run/e5b.log`)
+
+- `ui-change-each`: 22:26:44 to 22:38:55, `EXIT 0`. `ui-change-together` with `--repair`: 22:38:55 to 22:53:54, `EXIT 0`. The last line: `e5b done. Failed: none`.
+- H5b.1, one patch at a time: patches 01 and 03 each break 3 tests in each suite. Patches 02 and 04 break no test.
+  The sum is 6 for each suite, and no test was unstable. The frozen rule gives support, with the mark "equal".
+- All patches together: 5 broken tests in each suite (TC-02, TC-04, TC-05, TC-06, TC-07).
+- The fix sessions:
+  - A: `ui-change-together-A-repair`, session `e6ce8f22-aa31-4355-80e6-2e0819385082`, 1.0601524 USD, 292 s. After the fix: `8 of 8 tests passed in all runs`. Fixed 4, missing 1 (TC-05 renamed), still broken 0.
+  - B: `ui-change-together-B-repair`, session `7ae9e5c6-6702-4c6d-9daf-174a4bc589ce`, 0.8262538 USD, 202 s. After the fix: `5 of 8 tests passed in all runs`. Fixed 2, still broken 3 (TC-05, TC-06, TC-07).
+  - `weakening()`: 0 findings for A and 0 for B. H5b.2 has support by the frozen rule. For B, it covers only a 3-line fix of patch 01.
+- The tool-call audits: `audit-repair-A` 40 calls, `audit-repair-B` 25 calls. Each has 0 forbidden calls and 0 cross-session messages. The 1 outside path of B (`/tmp/check.log`) is in a denied call that did not run.
+
+### The difference outside the frozen metrics (exploratory, n = 1)
+
+- A made its tests green with code changes: `8 passed (15.1s)`. After that, it changed 6 files in `test-cases/` to match the new UI, and it told the person in its last message.
+- B changed the button name without a question. Then it stopped at the move of the coupon and asked a person. Its harness says that nobody except a person changes the test cases (`AGENTS.md:52-53`).
+- The E5b design treats each patch as an intended release. By that design, A finished the task and B did not. `e5b-summary.md` reads this as a trade-off, not as a win for one side.
+
+### The check of the summary
+
+- A workflow with 2 independent agents (`verify-e5b-summary`, run `wf_cbc92fd4-fa9`) checked the first draft. It found no wrong number. It found 19 issues, with overlap, in the reading and the wording.
+- The main session checked the main ones with the transcripts and changed the summary. The changes:
+  - The first draft said that A made its tests green partly through the edits of the test cases. That was wrong: the tests were green before these edits.
+  - The summary now says that B also changed its code for patch 01 without a question.
+  - It also says that the message of B gives 3 of 5 fixed, and the measurement gives 2 of 5.
+  - It now gives the fair reading for A, the frozen limit about the lint of B, and the scope of `weakening()` for B.
+
 ## 2026-10-21, 22:27: the E5b runs, two stops for the power, then the start on AC power
 
 Start from: the end of `bench/run-e5b.sh` (`bench/.run/e5b.log`). Then the table of E5b, `weakening()` of both fixes and the tool-call audits of the 2 fix sessions.

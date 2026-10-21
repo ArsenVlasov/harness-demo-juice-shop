@@ -1,0 +1,379 @@
+diff --git a/test-cases/README.md b/test-cases/README.md
+index 6c75916..1ba2c32 100644
+--- a/test-cases/README.md
++++ b/test-cases/README.md
+@@ -69,7 +69,7 @@ Examples for October 2026:
+ | TC-02 | Add a product to the basket |
+ | TC-03 | Change the quantity and remove a product in the basket |
+ | TC-04 | Purchase limit for one product |
+-| TC-05 | Valid coupon on the payment step |
++| TC-05 | Valid coupon in the basket |
+ | TC-06 | Invalid coupon and expired coupon |
+ | TC-07 | Order with a card, from basket to order history |
+ | TC-08 | Payment with the wallet |
+diff --git a/test-cases/TC-02-add-to-basket.md b/test-cases/TC-02-add-to-basket.md
+index 2c2fe92..8ba395b 100644
+--- a/test-cases/TC-02-add-to-basket.md
++++ b/test-cases/TC-02-add-to-basket.md
+@@ -22,7 +22,7 @@
+ 
+ | # | Step | Expected result |
+ |---|---|---|
+-| 1 | Open the product list `/#/search`. | The list shows the product with its name, its price `8.99¤` and the button `Add to Basket`. The basket counter in the top bar shows `0`. |
+-| 2 | Click `Add to Basket` on the product. | A message shows `Placed Eggfruit Juice (500ml) into basket.` The basket counter shows `1`. |
++| 1 | Open the product list `/#/search`. | The list shows the product with its name, its price `8.99¤` and the button `Add to Cart`. The basket counter in the top bar shows `0`. |
++| 2 | Click `Add to Cart` on the product. | A message shows `Placed Eggfruit Juice (500ml) into basket.` The basket counter shows `1`. |
+ | 3 | Open the basket with the button `Your Basket` in the top bar. | The basket page `/#/basket` shows one row: `Eggfruit Juice (500ml)`, quantity `1`, price `8.99¤`. |
+ | 4 | Read the total of the basket. | The basket shows `Total Price: 8.99¤`. |
+diff --git a/test-cases/TC-04-purchase-limit.md b/test-cases/TC-04-purchase-limit.md
+index 03b7d0d..39cad08 100644
+--- a/test-cases/TC-04-purchase-limit.md
++++ b/test-cases/TC-04-purchase-limit.md
+@@ -25,8 +25,8 @@ Some products have a limit: one basket can hold only a set number of items of th
+ 
+ | # | Step | Expected result |
+ |---|---|---|
+-| 1 | Open the product list `/#/search`. Click `Add to Basket` on the product. | A message shows `Placed Apple Juice (1000ml) into basket.` The basket counter shows `1`. |
++| 1 | Open the product list `/#/search`. Click `Add to Cart` on the product. | A message shows `Placed Apple Juice (1000ml) into basket.` The basket counter shows `1`. |
+ | 2 | Open the basket `/#/basket`. Click the plus button in the row of the product until the quantity is `5`. | The product has quantity `5`. The basket shows `Total Price: 9.95¤`. No error message shows. |
+ | 3 | Click the plus button in the row of the product one more time. | An error message shows `You can order only up to 5 items of this product.` |
+ | 4 | Read the basket. | The product keeps quantity `5`. The basket shows `Total Price: 9.95¤`. The basket counter shows `5`. |
+-| 5 | Open the product list `/#/search`. Click `Add to Basket` on the product. | An error message shows `You can order only up to 5 items of this product.` The basket counter shows `5`. |
++| 5 | Open the product list `/#/search`. Click `Add to Cart` on the product. | An error message shows `You can order only up to 5 items of this product.` The basket counter shows `5`. |
+diff --git a/test-cases/TC-05-valid-coupon.md b/test-cases/TC-05-valid-coupon.md
+index d024d8f..85c3fd7 100644
+--- a/test-cases/TC-05-valid-coupon.md
++++ b/test-cases/TC-05-valid-coupon.md
+@@ -1,9 +1,9 @@
+-# TC-05: Valid coupon on the payment step
++# TC-05: Valid coupon in the basket
+ 
+ | Field | Value |
+ |---|---|
+ | ID | TC-05 |
+-| Title | Valid coupon on the payment step |
++| Title | Valid coupon in the basket |
+ | Area | Coupon |
+ 
+ The discount of a coupon applies to the price of the products only. The delivery price does not get the discount.
+@@ -36,8 +36,9 @@ Expected order summary:
+ 
+ | # | Step | Expected result |
+ |---|---|---|
+-| 1 | Open the basket `/#/basket`. Click `Checkout`. | The page `Select an address` shows the saved address. |
+-| 2 | Select the saved address. Click `Continue`. | The page `Choose a delivery speed` shows `One Day Delivery` with price `0.99¤`, `Fast Delivery` with `0.50¤` and `Standard Delivery` with `0.00¤`. |
+-| 3 | Select `One Day Delivery`. Click `Continue`. | The page `My Payment Options` shows the saved card and the panel `Add a coupon`. |
+-| 4 | Open the panel `Add a coupon`. Type the coupon code in the field `Coupon`. Click `Redeem`. | The page shows `Your discount of 10% will be applied during checkout.` |
+-| 5 | Select the saved card. Click `Continue`. | The page `Order Summary` shows `Items` `17.98¤`, `Delivery` `0.99¤`, `Promotion` `1.80¤` and `Total Price` `17.17¤`. |
++| 1 | Open the basket `/#/basket`. | The basket shows the product with quantity `2` and the panel `Add a coupon`. |
++| 2 | Open the panel `Add a coupon`. Type the coupon code in the field `Coupon`. Click `Redeem`. | The page shows `Your discount of 10% will be applied during checkout.` |
++| 3 | Click `Checkout`. | The page `Select an address` shows the saved address. |
++| 4 | Select the saved address. Click `Continue`. | The page `Choose a delivery speed` shows `One Day Delivery` with price `0.99¤`, `Fast Delivery` with `0.50¤` and `Standard Delivery` with `0.00¤`. |
++| 5 | Select `One Day Delivery`. Click `Continue`. | The page `My Payment Options` shows the saved card. |
++| 6 | Select the saved card. Click `Continue`. | The page `Order Summary` shows `Items` `17.98¤`, `Delivery` `0.99¤`, `Promotion` `1.80¤` and `Total Price` `17.17¤`. |
+diff --git a/test-cases/TC-06-invalid-and-expired-coupon.md b/test-cases/TC-06-invalid-and-expired-coupon.md
+index 11370a0..46c68bc 100644
+--- a/test-cases/TC-06-invalid-and-expired-coupon.md
++++ b/test-cases/TC-06-invalid-and-expired-coupon.md
+@@ -37,8 +37,9 @@ Expected order summary, without a discount:
+ 
+ | # | Step | Expected result |
+ |---|---|---|
+-| 1 | Open the basket `/#/basket`. Click `Checkout`. Select the saved address. Click `Continue`. | The page `Choose a delivery speed` opens. |
+-| 2 | Select `One Day Delivery`. Click `Continue`. | The page `My Payment Options` opens. |
+-| 3 | Open the panel `Add a coupon`. Type the invalid code in the field `Coupon`. Click `Redeem`. | The page shows the error `Invalid coupon.` The page does not show `Your discount of`. |
+-| 4 | Type the expired coupon in the field `Coupon`. Click `Redeem`. | The page shows the error `Invalid coupon.` The page does not show `Your discount of`. |
+-| 5 | Select the saved card. Click `Continue`. | The page `Order Summary` shows `Items` `17.98¤`, `Delivery` `0.99¤`, `Promotion` `0.00¤` and `Total Price` `18.97¤`. |
++| 1 | Open the basket `/#/basket`. | The basket shows the panel `Add a coupon`. |
++| 2 | Open the panel `Add a coupon`. Type the invalid code in the field `Coupon`. Click `Redeem`. | The page shows the error `Invalid coupon.` The page does not show `Your discount of`. |
++| 3 | Type the expired coupon in the field `Coupon`. Click `Redeem`. | The page shows the error `Invalid coupon.` The page does not show `Your discount of`. |
++| 4 | Click `Checkout`. Select the saved address. Click `Continue`. | The page `Choose a delivery speed` opens. |
++| 5 | Select `One Day Delivery`. Click `Continue`. | The page `My Payment Options` opens. |
++| 6 | Select the saved card. Click `Continue`. | The page `Order Summary` shows `Items` `17.98¤`, `Delivery` `0.99¤`, `Promotion` `0.00¤` and `Total Price` `18.97¤`. |
+diff --git a/test-cases/TC-07-card-order-end-to-end.md b/test-cases/TC-07-card-order-end-to-end.md
+index 728b773..a11aaf7 100644
+--- a/test-cases/TC-07-card-order-end-to-end.md
++++ b/test-cases/TC-07-card-order-end-to-end.md
+@@ -39,13 +39,13 @@ Expected totals:
+ 
+ | # | Step | Expected result |
+ |---|---|---|
+-| 1 | Open the product list `/#/search`. Click `Add to Basket` on product A two times. Click `Add to Basket` on product B one time. | The basket counter shows `3`. |
++| 1 | Open the product list `/#/search`. Click `Add to Cart` on product A two times. Click `Add to Cart` on product B one time. | The basket counter shows `3`. |
+ | 2 | Open the basket `/#/basket`. | The basket shows product A with quantity `2` and product B with quantity `1`. The basket shows `Total Price: 20.97¤`. |
+-| 3 | Click `Checkout`. Select the saved address. Click `Continue`. | The page `Choose a delivery speed` opens. |
+-| 4 | Select `One Day Delivery`. Click `Continue`. | The page `My Payment Options` opens. |
+-| 5 | Open the panel `Add a coupon`. Type the coupon code. Click `Redeem`. | The page shows `Your discount of 10% will be applied during checkout.` |
++| 3 | In the basket, open the panel `Add a coupon`. Type the coupon code. Click `Redeem`. | The page shows `Your discount of 10% will be applied during checkout.` |
++| 4 | Click `Checkout`. Select the saved address. Click `Continue`. | The page `Choose a delivery speed` opens. |
++| 5 | Select `One Day Delivery`. Click `Continue`. | The page `My Payment Options` opens. |
+ | 6 | Select the saved card. Click `Continue`. | The page `Order Summary` shows the saved address, the card, `Items` `20.97¤`, `Delivery` `0.99¤`, `Promotion` `2.10¤` and `Total Price` `19.86¤`. |
+-| 7 | Click `Place your order and pay`. | The confirmation page `/#/order-completion/<order ID>` shows `Thank you for your purchase!` |
++| 7 | Click `Confirm and pay`. | The confirmation page `/#/order-completion/<order ID>` shows `Thank you for your purchase!` |
+ | 8 | Read the order summary on the confirmation page. | It shows product A with quantity `2`, product B with quantity `1`, `Items` `20.97¤`, `Delivery` `0.99¤`, `Promotion` `2.10¤` and `Total Price` `19.86¤`. |
+ | 9 | Read the basket counter. Open the basket `/#/basket`. | The basket counter shows `0`. The basket has no products. The button `Checkout` is disabled. |
+ | 10 | Open the account menu. Click `Orders & Payment`, then `Order History`. | The page `Order History` shows one order with the order ID from step 7 and `Total Price` `19.86¤`. The order shows product A with quantity `2` and product B with quantity `1`. |
+diff --git a/tests/TC-05-valid-coupon.spec.ts b/tests/TC-05-valid-coupon.spec.ts
+index 39907df..796612a 100644
+--- a/tests/TC-05-valid-coupon.spec.ts
++++ b/tests/TC-05-valid-coupon.spec.ts
+@@ -4,7 +4,7 @@ import { deliveries, products, savedAddress, savedCard } from './support/test-da
+ 
+ const product = products.eggfruitJuice;
+ 
+-test.describe('TC-05: Valid coupon on the payment step', () => {
++test.describe('TC-05: Valid coupon in the basket', () => {
+   let coupon: string;
+ 
+   test.beforeEach(async ({ api, signIn }) => {
+@@ -18,14 +18,25 @@ test.describe('TC-05: Valid coupon on the payment step', () => {
+   test('TC-05', async ({ shop }) => {
+     const { basket, address, delivery, payment, summary } = shop;
+ 
+-    await test.step('1. Basket → Checkout', async () => {
++    await test.step('1. Open the basket', async () => {
+       await basket.open();
++      await expect(basket.quantity(product.name)).toHaveText('2');
++      await expect(basket.couponPanelHeader).toBeVisible();
++    });
++
++    await test.step('2. Redeem the 10% coupon of the current month', async () => {
++      await basket.openCouponPanel();
++      await basket.redeemCoupon(coupon);
++      await expect(basket.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
++    });
++
++    await test.step('3. Checkout', async () => {
+       await basket.checkout();
+       await expect(address.title).toBeVisible();
+       await expect(address.address(savedAddress.name)).toContainText(savedAddress.address);
+     });
+ 
+-    await test.step('2. Select the saved address → Continue', async () => {
++    await test.step('4. Select the saved address → Continue', async () => {
+       await address.selectAddress(savedAddress.name);
+       await address.continue();
+       await expect(delivery.title).toBeVisible();
+@@ -34,20 +45,13 @@ test.describe('TC-05: Valid coupon on the payment step', () => {
+       await expect(delivery.price(deliveries.standard.name)).toHaveText(deliveries.standard.price);
+     });
+ 
+-    await test.step('3. Select One Day Delivery → Continue', async () => {
++    await test.step('5. Select One Day Delivery → Continue', async () => {
+       await shop.chooseDelivery(deliveries.oneDay.name);
+       await expect(payment.title).toBeVisible();
+       await expect(payment.card(savedCard.number.slice(-4))).toContainText(savedCard.name);
+-      await expect(payment.couponPanelHeader).toBeVisible();
+-    });
+-
+-    await test.step('4. Redeem the 10% coupon of the current month', async () => {
+-      await payment.openCouponPanel();
+-      await payment.redeemCoupon(coupon);
+-      await expect(payment.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
+     });
+ 
+-    await test.step('5. Select the saved card → Continue', async () => {
++    await test.step('6. Select the saved card → Continue', async () => {
+       await payment.selectCard(savedCard.number.slice(-4));
+       await payment.continue();
+       await summary.expectTotals({
+diff --git a/tests/TC-06-invalid-and-expired-coupon.spec.ts b/tests/TC-06-invalid-and-expired-coupon.spec.ts
+index c98fb02..263eb94 100644
+--- a/tests/TC-06-invalid-and-expired-coupon.spec.ts
++++ b/tests/TC-06-invalid-and-expired-coupon.spec.ts
+@@ -17,32 +17,39 @@ test.describe('TC-06: Invalid coupon and expired coupon', () => {
+   });
+ 
+   test('TC-06', async ({ shop }) => {
+-    const { delivery, payment, summary } = shop;
++    const { basket, delivery, payment, summary } = shop;
+ 
+-    await test.step('1. Basket → Checkout → saved address → Continue', async () => {
+-      await shop.checkoutToDelivery(savedAddress.name);
+-      await expect(delivery.title).toBeVisible();
++    await test.step('1. Open the basket', async () => {
++      await basket.open();
++      await expect(basket.couponPanelHeader).toBeVisible();
+     });
+ 
+-    await test.step('2. Select One Day Delivery → Continue', async () => {
+-      await shop.chooseDelivery(deliveries.oneDay.name);
+-      await expect(payment.title).toBeVisible();
++    await test.step('2. Redeem an invalid code', async () => {
++      await basket.openCouponPanel();
++      await basket.redeemCoupon(invalidCode);
++      await expect(basket.couponPanel).toContainText('Invalid coupon.');
++      await expect(basket.couponPanel).not.toContainText('Your discount of');
++    });
++
++    await test.step('3. Redeem the coupon of the previous month', async () => {
++      await basket.redeemCoupon(expiredCoupon);
++      await expect(basket.couponPanel).toContainText('Invalid coupon.');
++      await expect(basket.couponPanel).not.toContainText('Your discount of');
+     });
+ 
+-    await test.step('3. Redeem an invalid code', async () => {
+-      await payment.openCouponPanel();
+-      await payment.redeemCoupon(invalidCode);
+-      await expect(payment.couponPanel).toContainText('Invalid coupon.');
+-      await expect(payment.couponPanel).not.toContainText('Your discount of');
++    await test.step('4. Checkout → saved address → Continue', async () => {
++      await basket.checkout();
++      await shop.address.selectAddress(savedAddress.name);
++      await shop.address.continue();
++      await expect(delivery.title).toBeVisible();
+     });
+ 
+-    await test.step('4. Redeem the coupon of the previous month', async () => {
+-      await payment.redeemCoupon(expiredCoupon);
+-      await expect(payment.couponPanel).toContainText('Invalid coupon.');
+-      await expect(payment.couponPanel).not.toContainText('Your discount of');
++    await test.step('5. Select One Day Delivery → Continue', async () => {
++      await shop.chooseDelivery(deliveries.oneDay.name);
++      await expect(payment.title).toBeVisible();
+     });
+ 
+-    await test.step('5. Select the saved card → Continue', async () => {
++    await test.step('6. Select the saved card → Continue', async () => {
+       await payment.selectCard(savedCard.number.slice(-4));
+       await payment.continue();
+       await summary.expectTotals({
+diff --git a/tests/TC-07-card-order-end-to-end.spec.ts b/tests/TC-07-card-order-end-to-end.spec.ts
+index 9f2542b..249f19a 100644
+--- a/tests/TC-07-card-order-end-to-end.spec.ts
++++ b/tests/TC-07-card-order-end-to-end.spec.ts
+@@ -43,24 +43,24 @@ test.describe('TC-07: Order with a card, from basket to order history', () => {
+       await expect(basket.totalPrice).toHaveText('Total Price: 20.97¤');
+     });
+ 
+-    await test.step('3. Checkout → saved address → Continue', async () => {
++    await test.step('3. Redeem the 10% coupon', async () => {
++      await basket.openCouponPanel();
++      await basket.redeemCoupon(coupon);
++      await expect(basket.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
++    });
++
++    await test.step('4. Checkout → saved address → Continue', async () => {
+       await basket.checkout();
+       await shop.address.selectAddress(savedAddress.name);
+       await shop.address.continue();
+       await expect(delivery.title).toBeVisible();
+     });
+ 
+-    await test.step('4. Select One Day Delivery → Continue', async () => {
++    await test.step('5. Select One Day Delivery → Continue', async () => {
+       await shop.chooseDelivery(deliveries.oneDay.name);
+       await expect(payment.title).toBeVisible();
+     });
+ 
+-    await test.step('5. Redeem the 10% coupon', async () => {
+-      await payment.openCouponPanel();
+-      await payment.redeemCoupon(coupon);
+-      await expect(payment.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
+-    });
+-
+     await test.step('6. Select the saved card → Continue', async () => {
+       await payment.selectCard(savedCard.number.slice(-4));
+       await payment.continue();
+diff --git a/tests/pages/basket-page.ts b/tests/pages/basket-page.ts
+index a1eb64e..f1ffe6f 100644
+--- a/tests/pages/basket-page.ts
++++ b/tests/pages/basket-page.ts
+@@ -5,12 +5,20 @@ export class BasketPage {
+   readonly rows: Locator;
+   readonly totalPrice: Locator;
+   readonly checkoutButton: Locator;
++  readonly couponPanelHeader: Locator;
++  readonly couponPanel: Locator;
++  readonly couponField: Locator;
++  readonly redeemButton: Locator;
+ 
+   constructor(private readonly page: Page) {
+     this.basket = page.locator('app-purchase-basket');
+     this.rows = this.basket.locator('mat-row');
+     this.totalPrice = page.locator('#price');
+     this.checkoutButton = page.locator('#checkoutButton');
++    this.couponPanelHeader = page.getByRole('button', { name: /^Add a coupon/ });
++    this.couponPanel = page.getByRole('region', { name: /Add a coupon/ });
++    this.couponField = this.couponPanel.getByRole('textbox', { name: 'Coupon' });
++    this.redeemButton = this.couponPanel.getByRole('button', { name: /Redeem/ });
+   }
+ 
+   async open() {
+@@ -42,6 +50,19 @@ export class BasketPage {
+     await this.row(productName).locator('button:has(.fa-trash-alt)').click();
+   }
+ 
++  async openCouponPanel() {
++    await this.couponPanelHeader.click();
++    await expect(this.couponField).toBeVisible();
++  }
++
++  /** Types the code and clicks `Redeem`; waits for the server answer. */
++  async redeemCoupon(code: string) {
++    await this.couponField.fill(code);
++    const answer = this.page.waitForResponse((r) => /\/rest\/basket\/\d+\/coupon\//.test(r.url()));
++    await this.redeemButton.click();
++    await answer;
++  }
++
+   async checkout() {
+     await this.checkoutButton.click();
+     await expect(this.page).toHaveURL(/#\/address\/select$/);
+diff --git a/tests/pages/payment-page.ts b/tests/pages/payment-page.ts
+index ede54cf..75178f7 100644
+--- a/tests/pages/payment-page.ts
++++ b/tests/pages/payment-page.ts
+@@ -4,19 +4,11 @@ export class PaymentPage {
+   readonly title: Locator;
+   readonly continueButton: Locator;
+   readonly walletSection: Locator;
+-  readonly couponPanelHeader: Locator;
+-  readonly couponPanel: Locator;
+-  readonly couponField: Locator;
+-  readonly redeemButton: Locator;
+ 
+   constructor(private readonly page: Page) {
+     this.title = page.getByRole('heading', { name: 'My Payment Options' });
+     this.continueButton = page.getByRole('button', { name: 'Proceed to review' });
+     this.walletSection = page.locator('app-payment .row').filter({ hasText: 'Pay using wallet' });
+-    this.couponPanelHeader = page.getByRole('button', { name: /^Add a coupon/ });
+-    this.couponPanel = page.getByRole('region', { name: /Add a coupon/ });
+-    this.couponField = this.couponPanel.getByRole('textbox', { name: 'Coupon' });
+-    this.redeemButton = this.couponPanel.getByRole('button', { name: /Redeem/ });
+   }
+ 
+   card(lastDigits: string): Locator {
+@@ -31,19 +23,6 @@ export class PaymentPage {
+     return this.walletSection.getByRole('button', { name: `Pay ${amount}` });
+   }
+ 
+-  async openCouponPanel() {
+-    await this.couponPanelHeader.click();
+-    await expect(this.couponField).toBeVisible();
+-  }
+-
+-  /** Types the code and clicks `Redeem`; waits for the server answer. */
+-  async redeemCoupon(code: string) {
+-    await this.couponField.fill(code);
+-    const answer = this.page.waitForResponse((r) => /\/rest\/basket\/\d+\/coupon\//.test(r.url()));
+-    await this.redeemButton.click();
+-    await answer;
+-  }
+-
+   async selectCard(lastDigits: string) {
+     await this.card(lastDigits).getByRole('radio').click();
+   }
+diff --git a/tests/pages/product-list-page.ts b/tests/pages/product-list-page.ts
+index 8318773..631c033 100644
+--- a/tests/pages/product-list-page.ts
++++ b/tests/pages/product-list-page.ts
+@@ -23,7 +23,7 @@ export class ProductListPage {
+   }
+ 
+   addToBasketButton(name: string): Locator {
+-    return this.product(name).getByRole('button', { name: 'Add to Basket' });
++    return this.product(name).getByRole('button', { name: 'Add to Cart' });
+   }
+ 
+   async addToBasket(name: string) {

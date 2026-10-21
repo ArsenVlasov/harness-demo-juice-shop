@@ -1,0 +1,176 @@
+{
+  "status": "complete",
+  "error": null,
+  "generatedAt": "2026-10-21T19:53:54.931Z",
+  "out": "ui-change-together",
+  "mode": "together",
+  "repeats": 3,
+  "wallSeconds": 899,
+  "patchesDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/sealed-ui",
+  "patches": [
+    "01-rename-add-to-basket-button.patch",
+    "02-login-form-layout.patch",
+    "03-move-coupon-to-basket.patch",
+    "04-rename-place-order-button.patch"
+  ],
+  "suites": [
+    {
+      "label": "A",
+      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-1/suite-a",
+      "ref": "gen-1",
+      "sha": "f7d78f03682f0b98ca5be006e33b5cb5391225d7"
+    },
+    {
+      "label": "B",
+      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-1/run-1/suite-b",
+      "ref": "gen-1",
+      "sha": "12286c65dfb0c0b2a1c47ef0e09e1dd777b337bb"
+    }
+  ],
+  "changes": [
+    {
+      "id": "all",
+      "patches": [
+        "01-rename-add-to-basket-button.patch",
+        "02-login-form-layout.patch",
+        "03-move-coupon-to-basket.patch",
+        "04-rename-place-order-button.patch"
+      ],
+      "suites": {
+        "A": {
+          "tests": 8,
+          "green": 8,
+          "redOnClean": [],
+          "broken": [
+            "TC-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > TC-02",
+            "TC-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > TC-04",
+            "TC-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > TC-05",
+            "TC-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > TC-06",
+            "TC-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > TC-07"
+          ],
+          "unstable": [],
+          "reportErrors": []
+        },
+        "B": {
+          "tests": 8,
+          "green": 8,
+          "redOnClean": [],
+          "broken": [
+            "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history",
+            "specs/regression/coupon/invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon",
+            "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step"
+          ],
+          "unstable": [],
+          "reportErrors": []
+        }
+      }
+    }
+  ],
+  "repair": {
+    "model": "claude-opus-5-5",
+    "budget": "10",
+    "promptFile": "bench/prompt-repair.txt",
+    "isolation": "Before the first repair, git apply -R put back the source of juice-shop/. The build (frontend/dist, build/) kept the change, so the app showed the change, but juice-shop/ had no diff.",
+    "suites": {
+      "A": {
+        "status": "done",
+        "copy": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/maintenance/ui-change-together/A",
+        "nodeModules": "npm ci --offline",
+        "tag": "ui-change-together-A-repair",
+        "exit": 0,
+        "wallSeconds": 292,
+        "costUsd": 1.0601524,
+        "sessionId": "e6ce8f22-aa31-4355-80e6-2e0819385082",
+        "turns": 41,
+        "subtype": "success",
+        "brokenBefore": 5,
+        "tests": 8,
+        "passed": 8,
+        "repaired": [
+          "TC-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > TC-02",
+          "TC-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > TC-04",
+          "TC-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > TC-06",
+          "TC-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > TC-07"
+        ],
+        "stillBroken": [],
+        "unstable": [],
+        "newRed": [],
+        "missing": [
+          "TC-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > TC-05"
+        ],
+        "newTests": [
+          "TC-05-valid-coupon.spec.ts :: TC-05: Valid coupon in the basket > TC-05"
+        ],
+        "assertions": {
+          "added": 24,
+          "removed": 20
+        },
+        "valueChecks": {
+          "added": 7,
+          "removed": 6
+        },
+        "weakening": [],
+        "changedFiles": [
+          "test-cases/README.md",
+          "test-cases/TC-02-add-to-basket.md",
+          "test-cases/TC-04-purchase-limit.md",
+          "test-cases/TC-05-valid-coupon.md",
+          "test-cases/TC-06-invalid-and-expired-coupon.md",
+          "test-cases/TC-07-card-order-end-to-end.md",
+          "tests/TC-05-valid-coupon.spec.ts",
+          "tests/TC-06-invalid-and-expired-coupon.spec.ts",
+          "tests/TC-07-card-order-end-to-end.spec.ts",
+          "tests/pages/basket-page.ts",
+          "tests/pages/payment-page.ts",
+          "tests/pages/product-list-page.ts"
+        ],
+        "diffFile": "bench/results/ui-change-together/repair-A.diff",
+        "codeDiffFile": "bench/results/ui-change-together/repair-A.code.diff"
+      },
+      "B": {
+        "status": "done",
+        "copy": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/maintenance/ui-change-together/B",
+        "nodeModules": "npm ci --offline",
+        "tag": "ui-change-together-B-repair",
+        "exit": 0,
+        "wallSeconds": 202,
+        "costUsd": 0.8262537999999999,
+        "sessionId": "7ae9e5c6-6702-4c6d-9daf-174a4bc589ce",
+        "turns": 26,
+        "subtype": "success",
+        "brokenBefore": 5,
+        "tests": 8,
+        "passed": 5,
+        "repaired": [
+          "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+          "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product"
+        ],
+        "stillBroken": [
+          "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history",
+          "specs/regression/coupon/invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon",
+          "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step"
+        ],
+        "unstable": [],
+        "newRed": [],
+        "missing": [],
+        "newTests": [],
+        "assertions": {
+          "added": 1,
+          "removed": 1
+        },
+        "valueChecks": {
+          "added": 0,
+          "removed": 0
+        },
+        "weakening": [],
+        "changedFiles": [
+          "page-objects/search-page.ts"
+        ],
+        "diffFile": "bench/results/ui-change-together/repair-B.diff",
+        "codeDiffFile": "bench/results/ui-change-together/repair-B.code.diff"
+      }
+    }
+  }
+}

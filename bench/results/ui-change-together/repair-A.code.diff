@@ -1,0 +1,264 @@
+diff --git a/tests/TC-05-valid-coupon.spec.ts b/tests/TC-05-valid-coupon.spec.ts
+index 39907df..796612a 100644
+--- a/tests/TC-05-valid-coupon.spec.ts
++++ b/tests/TC-05-valid-coupon.spec.ts
+@@ -4,7 +4,7 @@ import { deliveries, products, savedAddress, savedCard } from './support/test-da
+ 
+ const product = products.eggfruitJuice;
+ 
+-test.describe('TC-05: Valid coupon on the payment step', () => {
++test.describe('TC-05: Valid coupon in the basket', () => {
+   let coupon: string;
+ 
+   test.beforeEach(async ({ api, signIn }) => {
+@@ -18,14 +18,25 @@ test.describe('TC-05: Valid coupon on the payment step', () => {
+   test('TC-05', async ({ shop }) => {
+     const { basket, address, delivery, payment, summary } = shop;
+ 
+-    await test.step('1. Basket → Checkout', async () => {
++    await test.step('1. Open the basket', async () => {
+       await basket.open();
++      await expect(basket.quantity(product.name)).toHaveText('2');
++      await expect(basket.couponPanelHeader).toBeVisible();
++    });
++
++    await test.step('2. Redeem the 10% coupon of the current month', async () => {
++      await basket.openCouponPanel();
++      await basket.redeemCoupon(coupon);
++      await expect(basket.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
++    });
++
++    await test.step('3. Checkout', async () => {
+       await basket.checkout();
+       await expect(address.title).toBeVisible();
+       await expect(address.address(savedAddress.name)).toContainText(savedAddress.address);
+     });
+ 
+-    await test.step('2. Select the saved address → Continue', async () => {
++    await test.step('4. Select the saved address → Continue', async () => {
+       await address.selectAddress(savedAddress.name);
+       await address.continue();
+       await expect(delivery.title).toBeVisible();
+@@ -34,20 +45,13 @@ test.describe('TC-05: Valid coupon on the payment step', () => {
+       await expect(delivery.price(deliveries.standard.name)).toHaveText(deliveries.standard.price);
+     });
+ 
+-    await test.step('3. Select One Day Delivery → Continue', async () => {
++    await test.step('5. Select One Day Delivery → Continue', async () => {
+       await shop.chooseDelivery(deliveries.oneDay.name);
+       await expect(payment.title).toBeVisible();
+       await expect(payment.card(savedCard.number.slice(-4))).toContainText(savedCard.name);
+-      await expect(payment.couponPanelHeader).toBeVisible();
+-    });
+-
+-    await test.step('4. Redeem the 10% coupon of the current month', async () => {
+-      await payment.openCouponPanel();
+-      await payment.redeemCoupon(coupon);
+-      await expect(payment.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
+     });
+ 
+-    await test.step('5. Select the saved card → Continue', async () => {
++    await test.step('6. Select the saved card → Continue', async () => {
+       await payment.selectCard(savedCard.number.slice(-4));
+       await payment.continue();
+       await summary.expectTotals({
+diff --git a/tests/TC-06-invalid-and-expired-coupon.spec.ts b/tests/TC-06-invalid-and-expired-coupon.spec.ts
+index c98fb02..263eb94 100644
+--- a/tests/TC-06-invalid-and-expired-coupon.spec.ts
++++ b/tests/TC-06-invalid-and-expired-coupon.spec.ts
+@@ -17,32 +17,39 @@ test.describe('TC-06: Invalid coupon and expired coupon', () => {
+   });
+ 
+   test('TC-06', async ({ shop }) => {
+-    const { delivery, payment, summary } = shop;
++    const { basket, delivery, payment, summary } = shop;
+ 
+-    await test.step('1. Basket → Checkout → saved address → Continue', async () => {
+-      await shop.checkoutToDelivery(savedAddress.name);
+-      await expect(delivery.title).toBeVisible();
++    await test.step('1. Open the basket', async () => {
++      await basket.open();
++      await expect(basket.couponPanelHeader).toBeVisible();
+     });
+ 
+-    await test.step('2. Select One Day Delivery → Continue', async () => {
+-      await shop.chooseDelivery(deliveries.oneDay.name);
+-      await expect(payment.title).toBeVisible();
++    await test.step('2. Redeem an invalid code', async () => {
++      await basket.openCouponPanel();
++      await basket.redeemCoupon(invalidCode);
++      await expect(basket.couponPanel).toContainText('Invalid coupon.');
++      await expect(basket.couponPanel).not.toContainText('Your discount of');
++    });
++
++    await test.step('3. Redeem the coupon of the previous month', async () => {
++      await basket.redeemCoupon(expiredCoupon);
++      await expect(basket.couponPanel).toContainText('Invalid coupon.');
++      await expect(basket.couponPanel).not.toContainText('Your discount of');
+     });
+ 
+-    await test.step('3. Redeem an invalid code', async () => {
+-      await payment.openCouponPanel();
+-      await payment.redeemCoupon(invalidCode);
+-      await expect(payment.couponPanel).toContainText('Invalid coupon.');
+-      await expect(payment.couponPanel).not.toContainText('Your discount of');
++    await test.step('4. Checkout → saved address → Continue', async () => {
++      await basket.checkout();
++      await shop.address.selectAddress(savedAddress.name);
++      await shop.address.continue();
++      await expect(delivery.title).toBeVisible();
+     });
+ 
+-    await test.step('4. Redeem the coupon of the previous month', async () => {
+-      await payment.redeemCoupon(expiredCoupon);
+-      await expect(payment.couponPanel).toContainText('Invalid coupon.');
+-      await expect(payment.couponPanel).not.toContainText('Your discount of');
++    await test.step('5. Select One Day Delivery → Continue', async () => {
++      await shop.chooseDelivery(deliveries.oneDay.name);
++      await expect(payment.title).toBeVisible();
+     });
+ 
+-    await test.step('5. Select the saved card → Continue', async () => {
++    await test.step('6. Select the saved card → Continue', async () => {
+       await payment.selectCard(savedCard.number.slice(-4));
+       await payment.continue();
+       await summary.expectTotals({
+diff --git a/tests/TC-07-card-order-end-to-end.spec.ts b/tests/TC-07-card-order-end-to-end.spec.ts
+index 9f2542b..249f19a 100644
+--- a/tests/TC-07-card-order-end-to-end.spec.ts
++++ b/tests/TC-07-card-order-end-to-end.spec.ts
+@@ -43,24 +43,24 @@ test.describe('TC-07: Order with a card, from basket to order history', () => {
+       await expect(basket.totalPrice).toHaveText('Total Price: 20.97¤');
+     });
+ 
+-    await test.step('3. Checkout → saved address → Continue', async () => {
++    await test.step('3. Redeem the 10% coupon', async () => {
++      await basket.openCouponPanel();
++      await basket.redeemCoupon(coupon);
++      await expect(basket.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
++    });
++
++    await test.step('4. Checkout → saved address → Continue', async () => {
+       await basket.checkout();
+       await shop.address.selectAddress(savedAddress.name);
+       await shop.address.continue();
+       await expect(delivery.title).toBeVisible();
+     });
+ 
+-    await test.step('4. Select One Day Delivery → Continue', async () => {
++    await test.step('5. Select One Day Delivery → Continue', async () => {
+       await shop.chooseDelivery(deliveries.oneDay.name);
+       await expect(payment.title).toBeVisible();
+     });
+ 
+-    await test.step('5. Redeem the 10% coupon', async () => {
+-      await payment.openCouponPanel();
+-      await payment.redeemCoupon(coupon);
+-      await expect(payment.couponPanel).toContainText('Your discount of 10% will be applied during checkout.');
+-    });
+-
+     await test.step('6. Select the saved card → Continue', async () => {
+       await payment.selectCard(savedCard.number.slice(-4));
+       await payment.continue();
+diff --git a/tests/pages/basket-page.ts b/tests/pages/basket-page.ts
+index a1eb64e..f1ffe6f 100644
+--- a/tests/pages/basket-page.ts
++++ b/tests/pages/basket-page.ts
+@@ -5,12 +5,20 @@ export class BasketPage {
+   readonly rows: Locator;
+   readonly totalPrice: Locator;
+   readonly checkoutButton: Locator;
++  readonly couponPanelHeader: Locator;
++  readonly couponPanel: Locator;
++  readonly couponField: Locator;
++  readonly redeemButton: Locator;
+ 
+   constructor(private readonly page: Page) {
+     this.basket = page.locator('app-purchase-basket');
+     this.rows = this.basket.locator('mat-row');
+     this.totalPrice = page.locator('#price');
+     this.checkoutButton = page.locator('#checkoutButton');
++    this.couponPanelHeader = page.getByRole('button', { name: /^Add a coupon/ });
++    this.couponPanel = page.getByRole('region', { name: /Add a coupon/ });
++    this.couponField = this.couponPanel.getByRole('textbox', { name: 'Coupon' });
++    this.redeemButton = this.couponPanel.getByRole('button', { name: /Redeem/ });
+   }
+ 
+   async open() {
+@@ -42,6 +50,19 @@ export class BasketPage {
+     await this.row(productName).locator('button:has(.fa-trash-alt)').click();
+   }
+ 
++  async openCouponPanel() {
++    await this.couponPanelHeader.click();
++    await expect(this.couponField).toBeVisible();
++  }
++
++  /** Types the code and clicks `Redeem`; waits for the server answer. */
++  async redeemCoupon(code: string) {
++    await this.couponField.fill(code);
++    const answer = this.page.waitForResponse((r) => /\/rest\/basket\/\d+\/coupon\//.test(r.url()));
++    await this.redeemButton.click();
++    await answer;
++  }
++
+   async checkout() {
+     await this.checkoutButton.click();
+     await expect(this.page).toHaveURL(/#\/address\/select$/);
+diff --git a/tests/pages/payment-page.ts b/tests/pages/payment-page.ts
+index ede54cf..75178f7 100644
+--- a/tests/pages/payment-page.ts
++++ b/tests/pages/payment-page.ts
+@@ -4,19 +4,11 @@ export class PaymentPage {
+   readonly title: Locator;
+   readonly continueButton: Locator;
+   readonly walletSection: Locator;
+-  readonly couponPanelHeader: Locator;
+-  readonly couponPanel: Locator;
+-  readonly couponField: Locator;
+-  readonly redeemButton: Locator;
+ 
+   constructor(private readonly page: Page) {
+     this.title = page.getByRole('heading', { name: 'My Payment Options' });
+     this.continueButton = page.getByRole('button', { name: 'Proceed to review' });
+     this.walletSection = page.locator('app-payment .row').filter({ hasText: 'Pay using wallet' });
+-    this.couponPanelHeader = page.getByRole('button', { name: /^Add a coupon/ });
+-    this.couponPanel = page.getByRole('region', { name: /Add a coupon/ });
+-    this.couponField = this.couponPanel.getByRole('textbox', { name: 'Coupon' });
+-    this.redeemButton = this.couponPanel.getByRole('button', { name: /Redeem/ });
+   }
+ 
+   card(lastDigits: string): Locator {
+@@ -31,19 +23,6 @@ export class PaymentPage {
+     return this.walletSection.getByRole('button', { name: `Pay ${amount}` });
+   }
+ 
+-  async openCouponPanel() {
+-    await this.couponPanelHeader.click();
+-    await expect(this.couponField).toBeVisible();
+-  }
+-
+-  /** Types the code and clicks `Redeem`; waits for the server answer. */
+-  async redeemCoupon(code: string) {
+-    await this.couponField.fill(code);
+-    const answer = this.page.waitForResponse((r) => /\/rest\/basket\/\d+\/coupon\//.test(r.url()));
+-    await this.redeemButton.click();
+-    await answer;
+-  }
+-
+   async selectCard(lastDigits: string) {
+     await this.card(lastDigits).getByRole('radio').click();
+   }
+diff --git a/tests/pages/product-list-page.ts b/tests/pages/product-list-page.ts
+index 8318773..631c033 100644
+--- a/tests/pages/product-list-page.ts
++++ b/tests/pages/product-list-page.ts
+@@ -23,7 +23,7 @@ export class ProductListPage {
+   }
+ 
+   addToBasketButton(name: string): Locator {
+-    return this.product(name).getByRole('button', { name: 'Add to Basket' });
++    return this.product(name).getByRole('button', { name: 'Add to Cart' });
+   }
+ 
+   async addToBasket(name: string) {

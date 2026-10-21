@@ -1,0 +1,30 @@
+diff --git a/page-objects/search-page.ts b/page-objects/search-page.ts
+index 5a67d7d..86cd8dc 100644
+--- a/page-objects/search-page.ts
++++ b/page-objects/search-page.ts
+@@ -20,7 +20,7 @@ export class SearchPage extends BasePage {
+   }
+ 
+   private addToBasketButton(product: Product): Locator {
+-    return this.productCard(product).getByRole('button', { name: 'Add to Basket' });
++    return this.productCard(product).getByRole('button', { name: 'Add to Cart' });
+   }
+ 
+   async open(): Promise<void> {
+@@ -28,7 +28,7 @@ export class SearchPage extends BasePage {
+     await this.shouldSeePage();
+   }
+ 
+-  /** Clicks `Add to Basket` and waits until the server has answered the basket change. */
++  /** Clicks `Add to Cart` and waits until the server has answered the basket change. */
+   async clickAddToBasket(product: Product): Promise<void> {
+     const basketChange = this.page.waitForResponse(
+       (response) => response.url().includes(API_ROUTES.basketItems) && response.request().method() !== 'GET',
+@@ -46,6 +46,6 @@ export class SearchPage extends BasePage {
+     const card = this.productCard(product);
+     await expectVisible(card, `Product card of ${product.name}`);
+     await expectText(card.locator('.price'), product.price, `Price of ${product.name}`);
+-    await expectVisible(this.addToBasketButton(product), `Button \`Add to Basket\` of ${product.name}`);
++    await expectVisible(this.addToBasketButton(product), `Button \`Add to Cart\` of ${product.name}`);
+   }
+ }
