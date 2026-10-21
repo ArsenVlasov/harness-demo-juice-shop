@@ -18,6 +18,13 @@ Start from: the tool runs of this entry and the workflow that builds the rest of
   - vague A-1: `harness-demo-runs/set-2/run-1/suite-a` at `gen-1`, with the vague test cases.
   - haiku A-3: `harness-demo-runs/set-3/run-3/suite-a` at `gen-3`, with the precise test cases.
 - The out names of the tools name no condition, run or suite: `tamper-x1` and `mutate-x1` for vague A-1, `tamper-x2` and `mutate-x2` for haiku A-3. The label is `client` in all 4 runs.
+- At 13:46, Arsen said "start the tool runs". The Mac was on battery, at 76 %. This is a human intervention.
+  The 4 runs started at 13:46:26 in the background, with the output in `bench/.run/e4-tools.log`:
+  - `node bench/run-audit-tamper.mjs --suite client=<suite> --rules bench/tamper-rules.json --out tamper-x<k>`
+  - then `node bench/run-audit-mutate.mjs --suite client=<suite> --ref gen-<n> --out mutate-x<k>`
+  - first for vague A-1, then for haiku A-3
+  - Before each run, a guard stops the sequence when the Mac is on battery below 30 %. These tools change no file in `juice-shop/` or in a run folder, so a stop is safe.
+- At 13:43, the workflow `wf_9056a65c-c69` started. It builds the option `--hide-app-source` of `bench/claude-locked.sh` and the script `bench/e4-prepare.mjs`.
 
 ## 2026-10-21, 13:40: results of E2 and E3, and the client suite of E4
 
