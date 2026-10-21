@@ -6,6 +6,22 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 23:58: decision 23. No E5a review. The estimate of Arsen is not a measurement
+
+Start from: the summary of stage 2 (`bench/results/summary-stage-2.md`, the workflow `stage2-summary`). Then the README, the ROI scenario and the draft of the block "Демо". Section 10 of the plan, item 23, has the decision.
+
+- At 23:54:26, Arsen started the review of `suite-1`: `node bench/review-timer.mjs start suite-1 --log bench/review-log-full.csv`.
+- Then Arsen said that he does not do the review himself. He asked to stop the timer and to set any time. His estimate: the review of one suite takes about 30 to 60 minutes.
+- The main session stopped the timer at 23:57:40: `suite-1 stop. Review 3.2 min, 0 issues, state stopped`. It did not write an invented time into the timer log.
+- The status:
+  - H5a.1 and H5a.2 are "not tested".
+  - The row of 3.2 minutes in `bench/review-log-full.csv` is a stopped start, not a result of a review.
+  - The estimate of 30 to 60 minutes is an estimate of Arsen, not a measurement. It is the same for A and B, so it shows no difference between A and B.
+- The use of the estimate:
+  - The README and the ROI give it with the label "estimate, not measured".
+  - The offer sentence does not use it, because the frozen rule lets the sentence use only measured numbers of E4 and E5a.
+  - The ROI is a scenario with explicit inputs. The inputs are the rate of 25 USD per hour, the estimate of 30 to 60 minutes and the measured cost of the agent.
+
 ## 2026-10-21, 23:48: decision 22. Item 1.1 ends. E5a has round 1 only
 
 Start from: the review of Arsen of `review/suite-1` and `review/suite-2` with `--log bench/review-log-full.csv`. In parallel, the drafts of the wrap-up. Section 10 of the plan, item 22, has the decision.
