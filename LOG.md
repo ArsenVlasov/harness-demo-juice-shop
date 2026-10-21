@@ -6,6 +6,18 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-22, 00:53: decision 26. The E5b coupon example stays in the block "Демо"
+
+Start from: checkpoint 6 (publication and the client document) waits for "yes" from Arsen. The lab commit `f12c68c` is not pushed. Section 10 of the plan, item 26, has the decision.
+
+- Arsen said: "Keep the E5b coupon example in the Demo block as "приклад, n = 1" with the trade-off. Record it as decision 26 in plan section 10 and in LOG.md." This is a human intervention.
+- The example stays in `demo/demo-block-v2-draft.md` in the vault, with the mark "приклад, n = 1" and the trade-off.
+  - A made the tests green and changed 6 test-case files to the new UI.
+  - B did not change the test cases. It asked if the move is a bug, and it left 3 tests red for a decision of a person.
+- This is a deviation from the frozen publication rule (`bench/hypotheses-v2.md`, "What we publish"). That rule lets the offer sentence use only measured numbers of E4 and E5a. It does not name E5b.
+- Arsen made this decision after the results. The README limits name it as a deviation.
+- The example tests no hypothesis. It is an exploratory observation, not an effect of the harness.
+
 ## 2026-10-22, 00:26: decision 25. Two forms of the judge result of H2.3. The push of `main`
 
 Start from: the summary of stage 2 (`bench/results/summary-stage2.md`), the README, the 2 drafts in the vault `demo/`, then the check by 2 independent agents. Section 10 of the plan, item 25, has the decision.

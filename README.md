@@ -161,3 +161,4 @@ The E4 and E5 scripts (`tamper-proxy.mjs`, `run-audit-tamper.mjs`, `run-audit-mu
 - The review time in the ROI scenario is an estimate of Arsen. He changed it from 30 to 60 minutes to 1 to 2 hours.
 - Arsen knows the test cases and the harness. He took a quick look at both copies of E5a round 1 (decision 12). E5a did not run.
 - `sealed-ui/` came after the E4 audit, not before it as in the plan (`LOG.md`, entry 22.10, 00:26). E4 does not use the UI patches.
+- The draft of the block "Демо" holds the E5b coupon example, with the mark "приклад, n = 1" (decision 26). The frozen rule lets the offer sentence use only measured numbers of E4 and E5a. Arsen made this deviation after the results.
