@@ -5,6 +5,7 @@
 #   bench/claude-locked.sh --dir <work dir> --prompt-file <file> --model <id> --tag <result name>
 #                          [--resume <session id>] [--budget <usd>] [--check] [--note <line>]...
 #                          [--allow <tool>]... [--deny <tool>]... [--no-mcp]
+#                          [--hide-app-source [--hide-app-build]]
 #
 #   --dir          the working folder of the agent. It must be inside RUNS, except with --check.
 #   --prompt-file  the prompt. The script reads it before the lock. /dev/stdin also works.
@@ -21,11 +22,21 @@
 #                  generation list ALLOWED_TOOLS (for other sessions, for example the vague writer of bench/vague-rule.md).
 #   --deny         a tool for --disallowedTools. Repeat it for more tools.
 #   --no-mcp       no MCP server: no --mcp-config (--strict-mcp-config stays, so the session gets no MCP server at all).
+#   --hide-app-source  also lock the source and the history of the app in LAB/juice-shop (the list APP_SOURCE_HIDE).
+#                  This option is for the E4 auditor (bench/hypotheses-v2.md, answer 12). The auditor uses the app on
+#                  port 3000, so the paths that the running app opens stay open (the list APP_KEEP). Before the lock
+#                  and after the lock, the script sends 4 GET requests to the app. If a request does not give HTTP 200,
+#                  the script stops. After the lock, the trap then restores all modes, and claude does not start.
+#   --hide-app-build   also lock LAB/juice-shop/build, the compiled server (the list APP_BUILD_HIDE). It needs
+#                  --hide-app-source. The app loads build/ at its start. A static read of the code found no load from
+#                  build/ after the start, but nobody tested this with the running app. Use this option only after a
+#                  live test.
 #
 # Exit code: the exit code of claude. 2: a usage error. 1: a check before the run failed, or the restore failed.
 # 129, 130 or 143: the script got HUP, INT or TERM. It stops claude and its child processes before the restore.
 #
 # During the run, each path in LOCK_ITEMS that exists has mode 000, and the user items are in HIDE_DIR.
+# With --hide-app-source, LOCK_ITEMS also gets APP_SOURCE_HIDE. With --hide-app-build, it also gets APP_BUILD_HIDE.
 # The outputs go to the lock folder bench/.run/generation.lock, which also has mode 000 during the run, because its
 # file names and the .meta name the condition. On exit, a trap stops claude, restores the modes and the user items,
 # then moves the outputs into bench/results/. If the trap cannot run (kill -9): chmod 755 the lock folder, then see
@@ -34,20 +45,24 @@
 #
 # Env, for tests only: CL_LAB, CL_RUNS, CL_VAULT_DEMO, CL_NOTES_DIR, CL_PROJECTS_DIR (the Claude transcripts),
 # CL_CLAUDE_TMP (the Claude temp root), CL_USER_CLAUDE_DIR and CL_CLAUDE_BIN change the roots.
+# CL_APP_URL changes the base URL of the app requests (default http://localhost:3000).
 # CL_FAKE_CLAUDE=<script> runs that script with the claude arguments instead of claude. The .meta file then says
 # FAKE CLAUDE.
 # Bash 3.2 (macOS /bin/bash) and later.
 set -euo pipefail
 
-usage() { sed -n '4,5p' "$0" >&2; exit 2; }
+usage() { sed -n '5,8p' "$0" >&2; exit 2; }
 die() { echo "error: $*" >&2; exit 1; }
 log() { echo "[$(date +%H:%M:%S)] $*"; }
 
 WORK_ARG=""; PROMPT_FILE=""; MODEL=""; TAG=""; SESSION_ID=""; BUDGET_USD=""; CHECK=0; NOTES=(); ALLOW=(); DENY=(); NO_MCP=0
+HIDE_APP_SOURCE=0; HIDE_APP_BUILD=0
 while [ $# -gt 0 ]; do
   case "$1" in
     --check) CHECK=1; shift; continue ;;
     --no-mcp) NO_MCP=1; shift; continue ;;
+    --hide-app-source) HIDE_APP_SOURCE=1; shift; continue ;;
+    --hide-app-build) HIDE_APP_BUILD=1; shift; continue ;;
     --dir|--prompt-file|--model|--tag|--resume|--budget|--note|--allow|--deny) [ $# -ge 2 ] || usage ;;
     *) echo "error: unknown argument: $1" >&2; usage ;;
   esac
@@ -65,6 +80,7 @@ while [ $# -gt 0 ]; do
   shift 2
 done
 [ -n "$WORK_ARG" ] && [ -n "$PROMPT_FILE" ] && [ -n "$MODEL" ] && [ -n "$TAG" ] || usage
+[ "$HIDE_APP_BUILD" = 0 ] || [ "$HIDE_APP_SOURCE" = 1 ] || { echo "error: --hide-app-build needs --hide-app-source" >&2; usage; }
 [[ "$TAG" =~ ^[A-Za-z0-9._-]+$ ]] || die "the tag can have only letters, digits, '.', '_' and '-'"
 [[ "$MODEL" =~ ^[A-Za-z0-9._-]+$ ]] || die "bad model id: $MODEL"
 [ -z "$SESSION_ID" ] || [[ "$SESSION_ID" =~ ^[A-Za-z0-9-]+$ ]] || die "bad session id: $SESSION_ID"
@@ -87,6 +103,9 @@ CLAUDE_BIN="${CL_CLAUDE_BIN:-$HOME/.local/claude-code-2.1.299/node_modules/.bin/
 CLAUDE_SHA256="099dcc53dabbbefabed8926dab25b0318775c175a7c87bb6ba6c54fde9f8ece2"   # of the file that CLAUDE_BIN links to
 FAKE_CLAUDE="${CL_FAKE_CLAUDE:-}"
 MCP_CONFIG="$LAB/bench/mcp-playwright.json"
+APP="$LAB/juice-shop"                        # the app runs from here during the session (bench/start-app.sh)
+APP_URL="${CL_APP_URL:-http://localhost:3000}"
+[[ "$APP_URL" =~ ^https?://[^/[:space:]]+$ ]] || die "bad CL_APP_URL: $APP_URL"
 ALLOWED_TOOLS=(
   "Bash(npx playwright test)" "Bash(npx playwright test *)" "Bash(npm run *)" "Bash(npx tsc *)" "Bash(npx eslint *)"
   "Bash(node *)" "Bash(ls)" "Bash(ls *)" "Bash(cat *)" "Bash(head *)" "Bash(tail *)" "Bash(grep *)" "Bash(wc *)"
@@ -115,6 +134,18 @@ rel() {
 }
 say() { echo "$*" | tee -a "$META"; }
 user_state() { echo "$(ls "$USER_CLAUDE/skills" 2>/dev/null | tr '\n' ' ')| CLAUDE.md: $([ -e "$USER_CLAUDE/CLAUDE.md" ] && echo present || echo missing)"; }
+# One GET request to the app. Output: "<HTTP code> <bytes>B <seconds>s". The code is 000 when the app does not answer.
+app_probe() { curl -s -o /dev/null --noproxy '*' --max-time 10 -w '%{http_code} %{size_download}B %{time_total}s' "$APP_URL$1" || true; }
+# The 4 requests of --hide-app-source: the page, the version, the product search and one static file of the front end.
+# The static file is the first local script of the built index.html. The script reads index.html before the lock.
+app_probes() {
+  local index="$APP/frontend/dist/frontend/index.html" asset
+  [ -r "$index" ] || die "cannot read $index: no front end build in the app"
+  asset="$(grep -o '<script src="[^"]*"' "$index" | sed 's/^<script src="//; s/"$//' | grep -v '://' | head -1)" || true
+  [[ "$asset" =~ ^[A-Za-z0-9_-][A-Za-z0-9._/-]*$ ]] && [[ "$asset" != *..* ]] && [ -f "$APP/frontend/dist/frontend/$asset" ] ||
+    die "no local script file in $index"
+  APP_PROBES=("/" "/rest/admin/application-version" "/rest/products/search?q=" "/$asset")
+}
 # The folder name that Claude Code gives to the transcripts and temp files of a working folder:
 # each character that is not a letter or a digit becomes '-'.
 project_key() { printf '%s' "$1" | sed 's/[^A-Za-z0-9]/-/g'; }
@@ -205,6 +236,17 @@ for ext in json jsonl meta stderr; do [ ! -e "$RESULTS/$TAG.$ext" ] || die "$RES
 [ -x "$NODE" ] || die "no Node at $NODE"
 [ -f "$MCP_CONFIG" ] || die "no $MCP_CONFIG"
 command -v caffeinate >/dev/null || die "no caffeinate"
+APP_PROBES=(); APP_BEFORE=()
+if [ "$HIDE_APP_SOURCE" = 1 ]; then
+  [ -d "$APP" ] || die "no app folder $APP"
+  command -v curl >/dev/null || die "no curl"
+  app_probes
+  for u in "${APP_PROBES[@]}"; do
+    r="$(app_probe "$u")"
+    [ "${r%% *}" = 200 ] || die "the app gave '$r' on GET $APP_URL$u before the lock. Start the app first: bench/start-app.sh start"
+    APP_BEFORE+=("GET $APP_URL$u: $r")
+  done
+fi
 mkdir -p "$RESULTS" "$LAB/bench/.run"
 
 runs_siblings
@@ -230,15 +272,102 @@ LOCK_ITEMS=(
   "$LAB"/bench/*.md                                         # h. the translation rule to the vague set (it quotes the precise values), the hypotheses, the rubric
   "$LAB/bench/conditions.json"                              # h. it maps the neutral folder names set-<k> to the conditions
 )
+# --hide-app-source (bench/hypotheses-v2.md, E4 inputs, item 3, and answer 12): the source and the history of the app.
+# The app runs from LAB/juice-shop during the session: bench/start-app.sh starts `node build/app` with LAB/juice-shop as
+# its working folder. A static read of server.ts, routes/ and lib/ found no read of these paths after the start, with
+# two exceptions. The code snippet routes of the coding challenges and the cheat score read source files. They catch a
+# read error and write a warning to the log. The shop flows of TC-01 to TC-08 do not use them.
+APP_SOURCE_HIDE=(
+  "$APP/.git"                           # the history of the app clone
+  "$APP"/*.ts                           # server.ts, app.ts and cypress.config.ts: the source of the server
+  "$APP/routes"                         # the source of the API routes
+  "$APP/lib"                            # the source of the server modules
+  "$APP/models"                         # the source of the database models
+  "$APP"/data/*.ts                      # the source of the database seed, for example datacreator.ts
+  "$APP/data/static/codefixes"          # the code snippets of the coding challenges
+  "$APP/data/static/web3-snippets"      # the code snippets of the web3 coding challenges
+  "$APP/data/static/contractABIs.ts"    # source. build/data/static has the compiled file
+  "$APP/frontend/src"                   # the source of the front end. The server serves the build in frontend/dist
+  "$APP/frontend/.angular"              # the build cache of the front end
+  "$APP"/frontend/*.json                # the build settings of the front end: angular.json, package.json, tsconfig*.json
+  "$APP"/frontend/*.mjs                 # the lint settings of the front end
+  "$APP"/frontend/*.mts                 # the test settings and a bundle script of the front end
+  "$APP/views/themes"                   # themes.ts, source. build/views/themes has the compiled file
+  "$APP/test"                           # the tests of the app, with their expected values
+  "$APP/build/test"                     # the compiled tests of the app. The server does not load them
+  "$APP/rsn"                            # the refactoring safety net: source and a cache of code snippets
+  "$APP/scripts"                        # the package script
+  "$APP"/*.md                           # README.md, AGENTS.md, SOLUTIONS.md and the other documents of the app
+  "$APP/.ai"                            # agent skills for the code of the app
+  "$APP/.claude"                        # agent instructions for the code of the app
+  "$APP/.codeium"                       # agent instructions for the code of the app
+  "$APP/.continue"                      # agent instructions for the code of the app
+  "$APP/.cursor"                        # agent instructions for the code of the app
+  "$APP/.junie"                         # agent instructions for the code of the app
+  "$APP/.github"                        # the CI workflows: the build and test commands
+  "$APP/.dependabot"                    # repository settings
+  "$APP/.codeclimate.yml"               # repository settings
+  "$APP/.devcontainer.json"             # repository settings
+  "$APP/.dockerignore"                  # repository settings
+  "$APP/.gitattributes"                 # repository settings
+  "$APP/.gitignore"                     # repository settings
+  "$APP/.mailmap"                       # repository settings
+  "$APP/.npmrc"                         # npm settings. Nobody runs npm in the app during the session
+  "$APP/tsconfig.json"                  # the build settings of the server
+  "$APP/eslint.config.mjs"              # the lint settings of the server
+  "$APP/threat-model.json"              # the threat model of the app
+  "$APP/Dockerfile"                     # a deploy file
+  "$APP/docker-compose.test.yml"        # a deploy file
+  "$APP/app.json"                       # a deploy file
+  "$APP/crowdin.yaml"                   # the settings of the translation service
+  "$APP/monitoring"                     # a deploy folder
+  "$APP/terraform"                      # a deploy folder
+  "$APP/vagrant"                        # a deploy folder
+  "$APP/screenshots"                    # the images of the README
+)
+# --hide-app-build: the compiled server, in its own option. `node build/app` loads build/ at its start. A static read
+# of build/ found that the loads after the start (pdfkit, pug, ethers, svg-captcha) come from node_modules, and
+# Node reads no source map without --enable-source-maps. Nobody tested this with the running app. Thus the main
+# session turns on this option only after a live test of the app with this lock.
+APP_BUILD_HIDE=(
+  "$APP/build"                          # the compiled server: the server logic in JavaScript, with source maps
+)
+# With --hide-app-source, these paths stay open, because the running app opens them. KEEP_OPEN gets them, thus no lock
+# item can hold one of them. A lock item can be below one of them, for example views/themes below views.
+APP_KEEP=(
+  "$APP/frontend/dist"                  # the built front end: the server serves it, and it reads assets/ at a request
+  "$APP/node_modules"                   # the server modules. pdfkit (the order PDF), pug and ethers load at a request
+  "$APP/data"                           # the folder of the database. SQLite writes its journal file next to the database
+  "$APP/data/juiceshop.sqlite"          # the database
+  "$APP/data/static"                    # the seed data (*.yml, i18n/, legal.md). The app reads it at its start
+  "$APP/ftp"                            # served at /ftp. The server writes the PDF of each order into this folder
+  "$APP/i18n"                           # the server translations. The server reads them at a request
+  "$APP/logs"                           # the access logs. The server writes them
+  "$APP/uploads"                        # the complaint uploads. The server writes them
+  "$APP/encryptionkeys"                 # the JWT key. Served at /encryptionkeys
+  "$APP/.well-known"                    # served at /.well-known
+  "$APP/infrastructure"                 # served at /infrastructure
+  "$APP/views"                          # the page templates (*.pug, *.hbs). The server reads them at a request
+  "$APP/ctf.key"                        # the server reads it when it makes a challenge flag
+  "$APP/config"                         # the settings. The app reads them at its start
+  "$APP/swagger.yml"                    # the API document. The app reads it at its start
+  "$APP/package.json"                   # the app reads it at its start, for the dependency check
+)
+[ "$HIDE_APP_BUILD" = 1 ] || APP_KEEP+=("$APP/build")   # the compiled server stays open without --hide-app-build
+[ "$HIDE_APP_SOURCE" = 0 ] || LOCK_ITEMS+=("${APP_SOURCE_HIDE[@]}")
+[ "$HIDE_APP_BUILD" = 0 ] || LOCK_ITEMS+=("${APP_BUILD_HIDE[@]}")
 # Not locked:
 # - the transcripts and the temp folder of the lab session ($PROJECTS_DIR/$LAB_KEY, $CLAUDE_TMP/$LAB_KEY), decision 2.
 #   The lab session writes there during the run, and a lock would stop it. The audit of the tool calls after each run
 #   covers these folders.
 # - the transcript and temp folders of this work dir ($PROJECTS_DIR/$KEY, $CLAUDE_TMP/$KEY): claude writes there.
 # - Bash(node *) stays in ALLOWED_TOOLS (decision 2). The agent runs its own scripts with node, and the locks also stop node.
-# - LAB/bench/mcp-playwright.json (claude reads it) and LAB/juice-shop (the app source was open in run 1 too).
+# - LAB/bench/mcp-playwright.json (claude reads it).
+# - LAB/juice-shop without --hide-app-source (the app source was open in run 1 too). With --hide-app-source: APP_KEEP,
+#   frontend/node_modules (other packages, not the app source), LICENSE, and the paths that are not in APP_SOURCE_HIDE.
 KEEP_OPEN=("$WORK_DIR" "$PROJECTS_DIR/$KEY" "$CLAUDE_TMP/$KEY" "$PROJECTS_DIR/$LAB_KEY" "$CLAUDE_TMP/$LAB_KEY" "$MCP_CONFIG"
   "$LOCK_DIR" "$HIDE_DIR" "$USER_CLAUDE/skills" "$USER_CLAUDE/settings.json")
+[ "$HIDE_APP_SOURCE" = 0 ] || KEEP_OPEN+=("${APP_KEEP[@]}")
 if [ -n "${CLAUDE_CODE_SESSION_ID:-}" ]; then   # the Claude session that runs this script, when there is one
   KEEP_OPEN+=("$USER_CLAUDE/file-history/$CLAUDE_CODE_SESSION_ID" "$CLAUDE_TMP/cache-break-state-$CLAUDE_CODE_SESSION_ID.json")
 fi
@@ -327,6 +456,12 @@ say "run: $TAG, work dir $WORK_DIR, start $(date '+%Y-%m-%d %H:%M:%S %Z')$([ "$C
 for ((i = 0; i < ${#NOTES[@]}; i++)); do say "note: ${NOTES[$i]}"; done
 say "transcript folder of the work dir (stays open): $KEY"
 say "before: $(user_state)"
+if [ "$HIDE_APP_SOURCE" = 1 ]; then
+  say "app lock: --hide-app-source$([ "$HIDE_APP_BUILD" = 0 ] || echo ' --hide-app-build'), app $APP_URL"
+  for ((i = 0; i < ${#APP_BEFORE[@]}; i++)); do say "app probe before the lock: ${APP_BEFORE[$i]}"; done
+else
+  say "app lock: none, $(rel "$APP") stays open"
+fi
 for ((i = 0; i < ${#LOCK_PATHS[@]}; i++)); do
   chmod 000 "${LOCK_PATHS[$i]}"
   say "locked: chmod 000 $(rel "${LOCK_PATHS[$i]}") (was ${LOCK_MODES[$i]})"
@@ -336,6 +471,11 @@ for ((i = 0; i < ${#LOCK_PATHS[@]}; i++)); do
   if [ -d "$p" ]; then probe=(ls "$p"); else probe=(cat "$p"); fi
   ! "${probe[@]}" >/dev/null 2>&1 || die "${probe[*]} works after chmod 000"
   say "probe: $("${probe[@]}" 2>&1 >/dev/null | head -1)"
+done
+for ((i = 0; i < ${#APP_PROBES[@]}; i++)); do
+  r="$(app_probe "${APP_PROBES[$i]}")"
+  say "app probe after the lock: GET $APP_URL${APP_PROBES[$i]}: $r"
+  [ "${r%% *}" = 200 ] || die "no HTTP 200 on GET $APP_URL${APP_PROBES[$i]} after the lock: the lock stops the app. The trap restores the modes"
 done
 mkdir "$HIDE_DIR"
 for item in "${USER_ITEMS[@]}"; do if [ -e "$item" ]; then mv "$item" "$HIDE_DIR/"; fi; done

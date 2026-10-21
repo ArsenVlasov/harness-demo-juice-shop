@@ -6,6 +6,38 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 14:40: the E4 build, the cleaned reports and the auditor folder of vague A-1
+
+Start from: after the tools of haiku A-3, a live test of `--hide-app-source`. Then the auditor session of vague A-1.
+
+### The workflow `wf_9056a65c-c69` (13:43 to 14:33): 5 agents, 0 errors
+
+- `bench/claude-locked.sh`, new options:
+  - `--hide-app-source` locks 65 paths of `juice-shop/`: the history, the source, the tests and the repository files.
+    It keeps open each path that the running server opens: `frontend/dist`, `node_modules`, `data`, `ftp`, `config` and others.
+    It probes the app before and after the lock (`GET /`, `/rest/admin/application-version`, `/rest/products/search?q=` and one script of the front end). With a probe that is not 200, the run stops, and the trap restores all modes.
+  - `--hide-app-build` also locks `build/`. It needs a live test first.
+  - The reviewer found no problem. The sandbox tests passed with `/bin/bash` 3.2 and bash 5.
+- New `bench/e4-prepare.mjs` with the commands `clean-reports`, `audit-folder`, `fix-folder`, `flags` and `score`, and `bench/test/e4-prepare.test.mjs`. The reviewer found 4 minor problems, and the fix agent fixed all 4.
+- My change after the workflow: `fix-folder` makes a new git history ("Client suite", "Add harness", "Add the audit report"), not a clone.
+  The reason: in a clone, `git log` shows "Generation run A-1, as the agent left it" and the tag `gen-1`. These name the run and the suite.
+  `node --test bench/test/e4-prepare.test.mjs`: `tests 21`, `pass 21`, `fail 0`.
+
+### Inputs of the auditor of vague A-1 (frozen items 2 and 3)
+
+- `node bench/e4-prepare.mjs clean-reports --tamper bench/results/tamper-x1.md --mutate bench/results/mutate-x1.md --dest bench/results/e4-reports-x1`:
+  - The tamper report lost lines 3, 4 and 5 ("Source:", "Suite client: ...", "Rules: ..."), and the mutate report lost line 3 ("Source:").
+  - `tamper-report.md` sha256 `2aad509901ed93cb4cd2a0bcd5864bbaad6821a4bc6f3ac07d522ec6970c1aef`. `mutate-report.md` sha256 `2d44193e7ddc9b6dd54edb5beb98dd9029ee84ef172ea7c0ff9807e3ee318849`.
+  - A `grep` for set, run, suite, condition and lab names in both files: 0 hits.
+- `node bench/e4-prepare.mjs audit-folder --suite ../harness-demo-runs/set-2/run-1/suite-a@gen-1 --dest ../harness-demo-runs/desk-p --reports bench/results/e4-reports-x1`, at 14:37:
+  - `test-cases/` sha256 `cf554b7f18b27da8be60c93e22e49dcd6e45155d1b73b160bfe321ac5cd45898`, the vague set (frozen item 1).
+  - No `.git`. The folder holds `package.json`, `package-lock.json`, `playwright.config.ts`, `tests/`, `test-cases/`, `reports/` and `node_modules/`.
+  - The folder hash without `node_modules`: `d49b277cf132cde82ec3ca8b2cb40ce0c5f9ce06441a2d998633a3e1429e7ab0`.
+  - `npx playwright test --list` in the folder: `Total: 8 tests in 8 files`.
+- The prompts, taken by a command from `git show hypotheses-v2:bench/hypotheses-v2.md` (frozen item 7):
+  - `bench/prompt-auditor.txt`, sha256 `db06402bfe0848da6aa99285061f459876f27324316d61909f47abf489fd5282`
+  - `bench/prompt-fixer.txt`, sha256 `4f59d09f095ec58c9c165cfc7f1315d3eb3e52f92da77e752c848fe2d30722b9`
+
 ## 2026-10-21, 14:30: the battery watcher stopped the E4 tool runs at 23 %
 
 Start from: on AC power, run `tamper-x2` and `mutate-x2` again (haiku A-3). The tools of vague A-1 are complete.
