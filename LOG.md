@@ -18,6 +18,8 @@ Start from: on AC power, run `tamper-x2` and `mutate-x2` again (haiku A-3). The 
   It stopped the tool processes and the app, and then `stopped, juice-shop changes: 0`. The sequence ended with exit 144.
 - My first watcher had a fault: its pattern matched its own command line. I stopped it at 14:13, before it acted, and started a fixed one.
 - The partial output of `tamper-x2` is now `bench/results/tamper-x2-stopped/`. It does not count.
+- At 14:30, Arsen plugged the Mac in and said "continue". `pmset -g batt`: `AC Power`, 19 %, "AC attached; not charging".
+  At 14:31:10, `tamper-x2` and then `mutate-x2` started again, with the output in `bench/.run/e4-tools-x2.log`. The same guard and a new watcher apply.
 
 ## 2026-10-21, 13:45: E4 on the client suite vague A-1, and an exploratory E4 on haiku A-3
 
