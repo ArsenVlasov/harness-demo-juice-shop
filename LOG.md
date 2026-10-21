@@ -6,6 +6,20 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 22:27: the E5b runs, two stops for the power, then the start on AC power
+
+Start from: the end of `bench/run-e5b.sh` (`bench/.run/e5b.log`). Then the table of E5b, `weakening()` of both fixes and the tool-call audits of the 2 fix sessions.
+
+- 19:51:05, the first start: `STOP before ui-change-each: not on AC power`. `pmset -g batt` gave `Battery Power`, 100 %, discharging. No step ran. The log is `bench/.run/e5b-stopped-ac.log`.
+- 21:38, Arsen said "start the runs". `pmset -g batt` gave `Battery Power`, 32 %, 0:35 remaining. The main session did not start, and asked Arsen to connect the charger.
+- Then Arsen said: "не обращай внимание на баттерию" ("ignore the battery"). This is a human intervention.
+  - The main session added `E5B_IGNORE_AC=1` to `bench/run-e5b.sh`: no AC check, and a watcher that sends SIGTERM to `run-ui-change.mjs` at 10 % or less on battery power. Then the script stops after the current step and reverts `juice-shop/`.
+- 22:25:57, the second start, with `E5B_IGNORE_AC=1`. The battery was at 2 %, discharging. The Mac had slept between the message and the start.
+  - At 22:26:10, during the clean rebuild and before any patch, the main session sent SIGTERM to `run-ui-change.mjs`. At the same time, `pmset -g batt` gave `AC Power`, 2 %, `AC attached`.
+  - The output: `rebuild done in 28 s`, `SIGTERM: the script stops after the current step`, `EXIT 143`. `juice-shop/` had 0 changes and no marker, and no app ran.
+  - The main session kept the empty output folder as `bench/results/ui-change-each-stopped/`. The log is `bench/.run/e5b-stopped-battery.log`.
+- 22:26:44, the third start, on AC power with the AC check: `RUN: node bench/run-ui-change.mjs ... --mode each --out ui-change-each`.
+
 ## 2026-10-21, 19:52: checkpoint 5 passed, the seal of `sealed-ui/`, the E5b runs start
 
 Start from: the end of `bench/run-e5b.sh` (`bench/.run/e5b.log`). Then the table of E5b (H5b.1, H5b.2), `weakening()` of both fixes and the tool-call audits of the 2 fix sessions.
