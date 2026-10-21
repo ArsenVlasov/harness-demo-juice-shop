@@ -39,6 +39,23 @@ Start from: the end of `mutate-x2`. Then the auditor session of vague A-1.
   2. The manual check of the judge (item 1.1) and the full E5a review by the checklist, with the timer, are now required, together with E4.
 - No file of the experiment changed. The frozen files and the measurements stay as they are.
 
+## 2026-10-21, 15:30: the fix folders of both client suites, the fixer sessions start
+
+Start from: the result of `bench/run-fixers.sh` in `bench/.run/fixers.log`. Then the measurements after the fix (frozen item 8).
+
+- `node bench/e4-prepare.mjs fix-folder --suite <suite>@<ref> --dest ../harness-demo-runs/desk-<q|s> --audit-report bench/results/e4-audit-report-x<k>.md --harness-template ../harness-demo-runs/templates/suite-b-precise.git`:
+  - `desk-q` (vague A-1 at `gen-1`), 15:18:55: HEAD `ad9d04b494532e0c3af7391f1dafd04e3aad3c38`, tree `8e7fe0815b1513faf2726aad82882de915a041a8`.
+  - `desk-s` (haiku A-3 at `gen-3`), 15:19:16: HEAD `c62dff4416d785010d904e399e1e7c3c9389b100`, tree `978a24f60fe0a45f7806efeb2f5648a34b25bbbe`.
+- In each folder: 3 commits ("Client suite", "Add harness", "Add the audit report"), branch `main`, no tag, no remote, no reflog, `core.hooksPath` `.githooks`.
+  No commit message names a run, a suite, a condition or a set (`grep -ciE`: 0).
+- The harness port (frozen item 6): 41 paths of `git diff --name-only baseline harness-v1` of the B template. The client files `.gitignore`, `package.json` and `package-lock.json` stay.
+  `package.json` got the npm scripts and the dev dependencies of the harness. `npm install --offline` added 109 packages to `package-lock.json` and changed no version of a client package.
+- The client `.gitignore` does not ignore `.agent-log/`. Thus the commit after the fix also holds the log of the hooks. `bench/weakening.mjs` reads only the code files of a diff.
+- The command, one fixer after the other: `caffeinate -i bench/run-fixers.sh >bench/.run/fixers.log 2>&1` (new script).
+  For each folder: `bench/claude-locked.sh --dir <folder> --prompt-file bench/prompt-fixer.txt --model claude-opus-5-5 --tag fixer-x<k> --budget 20 --deny ListAgents`.
+  Then a clean run on a new app and, when it fails, the one standard follow-up. Then the commit and the tag `fixed`.
+  The tools are the tools of the generation runs. `SendMessage` stays: the harness sends its reviewer tasks with it.
+
 ## 2026-10-21, 15:25: the score of the 2 audits (section "Measures of the audit")
 
 Start from: the fix folders and the fixer sessions of both client suites (frozen items 5 to 8).
