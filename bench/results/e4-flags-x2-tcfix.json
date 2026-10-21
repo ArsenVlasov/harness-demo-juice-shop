@@ -1,0 +1,521 @@
+{
+  "generatedAt": "2026-10-21T12:16:50.111Z",
+  "inputs": {
+    "tamperJson": [
+      {
+        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x2-tcfix.json",
+        "sha256": "b182894bf9635a3262b385c57eb5c08d4213c07f30ced4cff81f2e5797fd40a3"
+      }
+    ],
+    "auditReport": {
+      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/e4-audit-report-x2.md",
+      "sha256": "8d59b8fcc2d9dcb366bcb38120f67aa9b0f4451002c2d1777ec395cb3149ebb3"
+    },
+    "rulesTable": {
+      "source": "hypotheses-v2:bench/hypotheses-v2.md",
+      "sha256": "b37745fa88d8c90d949ad3b32eea88abf8feeff24fa6cfad0ceaf753fb21c332"
+    },
+    "testCaseSet": {
+      "condition": "haiku",
+      "source": "test-cases-v1:test-cases",
+      "steps": {
+        "TC-01": 5,
+        "TC-02": 4,
+        "TC-03": 5,
+        "TC-04": 5,
+        "TC-05": 5,
+        "TC-06": 5,
+        "TC-07": 10,
+        "TC-08": 10
+      }
+    }
+  },
+  "counts": {
+    "flags": 23,
+    "tamperFlags": 19,
+    "reportFlags": 8,
+    "invalidLines": 1
+  },
+  "flags": [
+    {
+      "tc": "TC-01",
+      "step": 1,
+      "sources": [
+        "report"
+      ],
+      "reasons": [
+        "audit report line 86: видимий текст кнопки `Log in` та мітки полів `Email`/`Password` не перевіряються, лише aria-label."
+      ]
+    },
+    {
+      "tc": "TC-01",
+      "step": 2,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-01",
+      "step": 5,
+      "sources": [
+        "T14-b"
+      ],
+      "reasons": [
+        "tamper rule T14-b fired in the test \"tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-02",
+      "step": 2,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-02",
+      "step": 3,
+      "sources": [
+        "report"
+      ],
+      "reasons": [
+        "audit report line 87: не перевіряється, що в кошику рівно один рядок."
+      ]
+    },
+    {
+      "tc": "TC-03",
+      "step": 4,
+      "sources": [
+        "report"
+      ],
+      "reasons": [
+        "audit report line 83: кількість 1 і сума 13.98¤ перевіряються на старому DOM до відповіді сервера (E3: пройшло після кліку «плюс»)."
+      ]
+    },
+    {
+      "tc": "TC-04",
+      "step": 1,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-04",
+      "step": 3,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-04",
+      "step": 5,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-05",
+      "step": 4,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-06",
+      "step": 3,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-06",
+      "step": 4,
+      "sources": [
+        "T15-d",
+        "T15-e",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount\", and the test passed",
+        "tamper rule T15-e fired in the test \"tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-06",
+      "step": 5,
+      "sources": [
+        "T04-a"
+      ],
+      "reasons": [
+        "tamper rule T04-a fired in the test \"tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-07",
+      "step": 5,
+      "sources": [
+        "T15-d",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-07",
+      "step": 6,
+      "sources": [
+        "T04-a",
+        "report"
+      ],
+      "reasons": [
+        "tamper rule T04-a fired in the test \"tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history\", and the test passed",
+        "audit report line 81: збережені адреса і картка не перевіряються, лише текст `Test Customer`, який є і в адресі, і в картці."
+      ]
+    },
+    {
+      "tc": "TC-07",
+      "step": 7,
+      "sources": [
+        "T15-d",
+        "T15-f"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history\", and the test passed",
+        "tamper rule T15-f fired in the test \"tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-07",
+      "step": 8,
+      "sources": [
+        "T07-a",
+        "report"
+      ],
+      "reasons": [
+        "tamper rule T07-a fired in the test \"tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history\", and the test passed",
+        "audit report line 79: кількості продуктів A (2) і B (1) на сторінці підтвердження не перевіряються; tamper T07-a (quantity 2→3) вижив."
+      ]
+    },
+    {
+      "tc": "TC-07",
+      "step": 9,
+      "sources": [
+        "report"
+      ],
+      "reasons": [
+        "audit report line 80: `expectNoRow` і `Checkout` disabled проходять до завантаження кошика (E2: пройшли з непорожнім кошиком); реально перевірено лише лічильник 0."
+      ]
+    },
+    {
+      "tc": "TC-08",
+      "step": 2,
+      "sources": [
+        "T04-a",
+        "report"
+      ],
+      "reasons": [
+        "tamper rule T04-a fired in the test \"tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total\", and the test passed",
+        "audit report line 85: `Wallet Balance 5.00` шукається як підрядок у всьому `body`, без прив'язки до мітки `Wallet Balance`."
+      ]
+    },
+    {
+      "tc": "TC-08",
+      "step": 4,
+      "sources": [
+        "T15-d"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-08",
+      "step": 6,
+      "sources": [
+        "T04-a",
+        "report"
+      ],
+      "reasons": [
+        "tamper rule T04-a fired in the test \"tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total\", and the test passed",
+        "audit report line 84: `Wallet Balance 8.99` не перевіряється; `body` містить `8.99` через кнопку `Pay 8.99¤` (E4: пройшло з балансом 5.00)."
+      ]
+    },
+    {
+      "tc": "TC-08",
+      "step": 7,
+      "sources": [
+        "T04-a"
+      ],
+      "reasons": [
+        "tamper rule T04-a fired in the test \"tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total\", and the test passed"
+      ]
+    },
+    {
+      "tc": "TC-08",
+      "step": 8,
+      "sources": [
+        "T15-d"
+      ],
+      "reasons": [
+        "tamper rule T15-d fired in the test \"tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total\", and the test passed"
+      ]
+    }
+  ],
+  "invalidLines": [
+    {
+      "line": 82,
+      "text": "FLAG TC-04 step 5: повідомлення про ліміт лишається видимим з кроку 3, перевірка проходить без кліку `Add to Basket` (E1).",
+      "reason": "the reason names a step too. One line names one step."
+    }
+  ],
+  "testsWithNoTc": [],
+  "firedWithNoStep": [
+    {
+      "rule": "T01-a",
+      "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc": "TC-03"
+    },
+    {
+      "rule": "T01-a",
+      "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+      "tc": "TC-04"
+    },
+    {
+      "rule": "T01-a",
+      "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+      "tc": "TC-05"
+    },
+    {
+      "rule": "T01-a",
+      "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+      "tc": "TC-06"
+    },
+    {
+      "rule": "T01-a",
+      "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+      "tc": "TC-07"
+    },
+    {
+      "rule": "T01-a",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T06-a",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T07-a",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T08-a",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T08-b",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T10-a",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T12-a",
+      "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+      "tc": "TC-07"
+    },
+    {
+      "rule": "T13-a",
+      "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+      "tc": "TC-05"
+    },
+    {
+      "rule": "T13-a",
+      "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+      "tc": "TC-06"
+    },
+    {
+      "rule": "T13-a",
+      "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+      "tc": "TC-07"
+    },
+    {
+      "rule": "T14-a",
+      "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+      "tc": "TC-02"
+    },
+    {
+      "rule": "T14-a",
+      "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc": "TC-03"
+    },
+    {
+      "rule": "T14-a",
+      "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+      "tc": "TC-04"
+    },
+    {
+      "rule": "T14-a",
+      "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+      "tc": "TC-05"
+    },
+    {
+      "rule": "T14-a",
+      "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+      "tc": "TC-06"
+    },
+    {
+      "rule": "T14-a",
+      "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+      "tc": "TC-07"
+    },
+    {
+      "rule": "T14-a",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T14-b",
+      "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+      "tc": "TC-02"
+    },
+    {
+      "rule": "T14-b",
+      "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc": "TC-03"
+    },
+    {
+      "rule": "T14-b",
+      "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+      "tc": "TC-04"
+    },
+    {
+      "rule": "T14-b",
+      "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+      "tc": "TC-05"
+    },
+    {
+      "rule": "T14-b",
+      "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+      "tc": "TC-06"
+    },
+    {
+      "rule": "T14-b",
+      "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+      "tc": "TC-07"
+    },
+    {
+      "rule": "T14-b",
+      "test": "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total",
+      "tc": "TC-08"
+    },
+    {
+      "rule": "T15-d",
+      "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc": "TC-03"
+    },
+    {
+      "rule": "T15-e",
+      "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc": "TC-03"
+    },
+    {
+      "rule": "T15-f",
+      "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc": "TC-03"
+    },
+    {
+      "rule": "T16-a",
+      "test": "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+      "tc": "TC-01"
+    },
+    {
+      "rule": "T16-a",
+      "test": "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+      "tc": "TC-02"
+    },
+    {
+      "rule": "T16-a",
+      "test": "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+      "tc": "TC-03"
+    },
+    {
+      "rule": "T16-a",
+      "test": "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+      "tc": "TC-04"
+    },
+    {
+      "rule": "T16-a",
+      "test": "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+      "tc": "TC-05"
+    },
+    {
+      "rule": "T16-a",
+      "test": "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+      "tc": "TC-06"
+    },
+    {
+      "rule": "T16-a",
+      "test": "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+      "tc": "TC-07"
+    }
+  ],
+  "invalidRules": []
+}

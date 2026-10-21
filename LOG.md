@@ -39,6 +39,48 @@ Start from: the end of `mutate-x2`. Then the auditor session of vague A-1.
   2. The manual check of the judge (item 1.1) and the full E5a review by the checklist, with the timer, are now required, together with E4.
 - No file of the experiment changed. The frozen files and the measurements stay as they are.
 
+## 2026-10-21, 15:20: the 2 auditor sessions, and the flag lists before the read of the target steps
+
+Start from: the score of each audit (`bench/e4-prepare.mjs score`). The hashes of this entry are recorded before the score reads the target steps of `sealed/mutants.md`.
+
+### The auditor sessions, with proof (`bench/.run/auditors.log`, `bench/run-auditors.sh`)
+
+| Session | Folder | Time | Cost, USD | Turns | Denied calls | Session id |
+|---|---|---|---|---|---|---|
+| `auditor-x1` (vague A-1) | `desk-p` | 15:05:28 to 15:09:14, wall 211 s | 1.1764114 | 16 | 3 | `3aa4e017-1bad-437b-af20-92479777c1b2` |
+| `auditor-x2` (haiku A-3) | `desk-r` | 15:09:14 to 15:15:32, wall 358 s | 1.5409804 | 22 | 7 | `426601b0-2e26-4ef5-b75c-cffe6be2c6e6` |
+
+- Each `.meta` has the 4 app probes after the lock with 200. After each session, the modes came back. No folder of hidden items, no lock folder, and no path with mode 000 in `juice-shop/` stayed.
+- The denied calls: `curl` to the app (to read the front-end bundle), a `for` loop with `cat`, and a copy of the tests to `/tmp` for experiments.
+  The allowed tools do not hold them.
+- No change of test code: the hash of each folder without `audit-report.md`, `.playwright-mcp/`, `node_modules/` and `test-results/` is the hash at its creation.
+  `desk-p`: `d49b277c...`. `desk-r`: `583f8e54...`.
+- Tool-call audits: `audit-auditor-x1` 15 calls, `audit-auditor-x2` 21 calls. Both: 0 forbidden, 0 cross-session. No call has a path in `juice-shop/`. The outside paths are in `/tmp`.
+
+### The hashes before the score (section "Measures of the audit", order of the work)
+
+| File | sha256 |
+|---|---|
+| `bench/results/e4-audit-report-x1.md` (copy of `desk-p/audit-report.md`) | `8ce64475167242e9fe388250095875074b548caa9c26fd43347400a5ffd2ed41` |
+| `bench/results/e4-audit-report-x2.md` (copy of `desk-r/audit-report.md`) | `8d59b8fcc2d9dcb366bcb38120f67aa9b0f4451002c2d1777ec395cb3149ebb3` |
+| `bench/results/tamper-x1.md` | `299577da6140eb67bd219007165bc06def19cd9dae5fd2d4413b969d02bc37c9` |
+| `bench/results/tamper-x1.json` | `2ca2c82b2a143880741885dee4db66f114e98fa256caaa2129a74336f92528a5` |
+| `bench/results/tamper-x2.md` | `1f6fa5d4b2728591ade284860bf3b18ac309609ca82033ffa47f8e259732e854` |
+| `bench/results/tamper-x2.json` | `170713e5e1e9edb0e968fd94e24037051951517ffeacd635438bd19a72c49ec0` |
+| `bench/results/e4-flags-x1.json` | `cba6e5da2f818075eba2f778eb0252618472fe0ab534e851432b699bd5a71627` |
+| `bench/results/e4-flags-x2.json` | `73e6026dd19ac8ad9b00cc7e4140da1599d8a88ebcfccbc4c190f0d77dfb5e5f` |
+| `bench/results/e4-flags-x2-tcfix.json` (the key variant, see below) | `11b6b47e522ff06f7a4076092de66280aaf34ccd5e405d36b1e63b2e922a4640` |
+
+- The flag lists, from `node bench/e4-prepare.mjs flags --cond <vague|haiku> --tamper-json bench/results/tamper-x<k>.json --audit-report bench/results/e4-audit-report-x<k>.md --out bench/results/e4-flags-x<k>.json`:
+  - vague A-1: 22 flags (18 from the tamper tool, 5 from the audit report, 1 step from both). 1 invalid FLAG line: it names 2 steps, and the auditor wrote there that it sets no flag.
+  - haiku A-3: 8 flags, all from the audit report. 1 invalid FLAG line. Each of the 8 tests has `tc` null in `tamper-x2.json`, so the strict rule gives 0 tamper flags.
+- The cause of `tc` null: `readReport()` of `bench/lib.mjs` takes the test case from an annotation or from the file name and the test title (`/TC-\d\d/`, case-sensitive). Haiku A-3 has the ID only in its `describe` title, and its file names are in lowercase (`tc-02-...`).
+  Vague A-1 has the ID in each test title, so it is not affected.
+- My decision before the read of the target steps: the strict variant is the result.
+  It follows frozen rule 6: "the TC of a test is its field `tc` in the report".
+  For the exploratory haiku A-3, the report also gives a second variant, the key variant. `bench/results/tamper-x2-tcfix.json` (sha256 `b182894bf9635a3262b385c57eb5c08d4213c07f30ced4cff81f2e5797fd40a3`) is a copy with `tc` from `/TC-\d\d/i` on the test key.
+  The key holds the `describe` title. It fills 100 fields. With it, the flags are 23 (19 tamper, 8 report). Both variants stand in the report with their names.
+
 ## 2026-10-21, 15:15: the tools of haiku A-3, its auditor folder, a live test of the app lock
 
 Start from: the 2 auditor sessions in `bench/results/auditor-x1.*` and `auditor-x2.*`. Then the flags, the score and the fix folders.
