@@ -17,6 +17,9 @@ Start from: checkpoint 6 (publication and the client document) waits for "yes" f
 - This is a deviation from the frozen publication rule (`bench/hypotheses-v2.md`, "What we publish"). That rule lets the offer sentence use only measured numbers of E4 and E5a. It does not name E5b.
 - Arsen made this decision after the results. The README limits name it as a deviation.
 - The example tests no hypothesis. It is an exploratory observation, not an effect of the harness.
+- Then Arsen said: "Push the 2 new lab commits (f12c68c, fc0a3f3) to origin main." This is a human intervention.
+  - `git push origin main`: `ea113f2..fc0a3f3  main -> main`. After it, `git status -sb` gave `## main...origin/main`.
+  - This entry is in a later commit. That commit is not pushed.
 
 ## 2026-10-22, 00:26: decision 25. Two forms of the judge result of H2.3. The push of `main`
 
