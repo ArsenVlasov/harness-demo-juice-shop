@@ -75,6 +75,9 @@ Start from: the 2 auditor sessions in `bench/results/auditor-x1.*` and `auditor-
 `bench/claude-locked.sh --dir ../harness-demo-runs/desk-<p|r> --prompt-file bench/prompt-auditor.txt --model claude-opus-5-5 --tag auditor-x<1|2> --budget 20 --hide-app-source --hide-app-build --deny SendMessage --deny ListAgents`
 - The tools are the tools of the generation runs (the default list, with the Playwright MCP server). `SendMessage` and `ListAgents` are denied, because of the message of the entry of 12:00.
 - The app starts before each session with `SKIP_BUILD=1 bench/start-app.sh start`, and it stops after the session. vague A-1 runs first, then haiku A-3.
+- My first start of the 2 sessions at 15:04:57 failed at the check of the work dir: "error: no work dir ../harness-demo-runs/desk-p 1".
+  The cause: an inline zsh command, where `set -- $x` does not split the words. The script stopped before any lock and before any call of claude.
+  The log is `bench/.run/auditors-failed-1.log`. The new script `bench/run-auditors.sh` runs the same commands with bash.
 
 ## 2026-10-21, 14:40: the E4 build, the cleaned reports and the auditor folder of vague A-1
 
