@@ -6,6 +6,20 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 23:48: decision 22. Item 1.1 ends. E5a has round 1 only
+
+Start from: the review of Arsen of `review/suite-1` and `review/suite-2` with `--log bench/review-log-full.csv`. In parallel, the drafts of the wrap-up. Section 10 of the plan, item 22, has the decision.
+
+- Arsen asked if he can skip E5a, and if the main session can use average data in its place. The main session said no to the average data.
+  The reason: the frozen rules let the offer use only measured numbers of E4 and E5a. Also, `CLAUDE.md` says that a number without the command output is not a result.
+- Item 1.1: Arsen said "I've done it its ok". The main session found no verdicts in `bench/judge-check-1.1.csv`: the file had the time of its generation. It asked one question.
+  - The answer to the question of principle (Part 1): "The judge is right as is". Thus the helpers of A stay `partial`, and `PriceHelper` of B stays `covered`. Arsen gave no reason for the difference.
+  - Arsen gave no verdict for each row. The row `principle` of the answer sheet now holds his answer. The numbers of the judge do not change.
+  - The frozen result of H2.3 stays. The claim of decision 18 no longer waits (decision 20 held it until the end of the check).
+  - The measured result of decision 19 stays a limit in the README. On vague A-2 and B-2, the tamper rules and the expectation mutants gave no difference. Also, B calculates totals with helpers from constants, as A does.
+- E5a: Arsen chose "Round 1 only". He reviews `suite-1` and `suite-2` by the checklist, with the timer and `--log bench/review-log-full.csv`.
+  Round 2 (`suite-3`, `suite-4`) does not run, so H5a.2 is "not tested". The copies of round 2 stay as they are.
+
 ## 2026-10-21, 23:43: the log file of the full E5a reviews
 
 Start from: the reviews of Arsen with `--log bench/review-log-full.csv`. Then `node bench/review-timer.mjs summary --log bench/review-log-full.csv`.
