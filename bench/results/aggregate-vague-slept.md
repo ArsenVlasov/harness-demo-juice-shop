@@ -1,0 +1,44 @@
+# Aggregate: condition vague, runs 1, 2, 3
+
+Source: `bench/aggregate-runs.mjs`, 2026-10-21T04:59:11.273Z. Inputs: `summary-vague-1.csv`, `summary-vague-2.csv`, `summary-vague-3.csv`.
+
+A value "X of N" counts as X. An empty value and n/a do not count, so n can be less than the number of runs.
+
+| Metric | Suite | Mean | Min | Max | n | Values (runs 1, 2, 3) |
+|---|---|---|---|---|---|---|
+| Realistic bugs missed | A | 2 | 0 | 4 | 2 | 0 of 11 / 4 of 11 / n/a |
+| Realistic bugs missed | B | 5 | 0 | 10 | 2 | 0 of 11 / 10 of 11 / n/a |
+| Mutation score | A | 11 | 8 | 14 | 2 | 14 of 14 (1) / 8 of 14 (0.571) / n/a |
+| Mutation score | B | 7.5 | 1 | 14 | 2 | 14 of 14 (1) / 1 of 14 (0.071) / n/a |
+| Flaky tests (20 runs) | A | 0 | 0 | 0 | 1 | 0 / n/a / n/a |
+| Flaky tests (20 runs) | B | 0 | 0 | 0 | 1 | 0 / n/a / n/a |
+| Broken tests (20 runs) | A | 0 | 0 | 0 | 1 | 0 / n/a / n/a |
+| Broken tests (20 runs) | B | 0 | 0 | 0 | 1 | 0 / n/a / n/a |
+| Judge: steps covered | A | 39 | 31 | 47 | 2 | 47 / n/a / 31 |
+| Judge: steps covered | B | 49 | 49 | 49 | 2 | 49 / n/a / 49 |
+| Judge: steps partial | A | 10 | 2 | 18 | 2 | 2 / n/a / 18 |
+| Judge: steps partial | B | 0 | 0 | 0 | 2 | 0 / n/a / 0 |
+| Judge: steps missing | A | 0 | 0 | 0 | 2 | 0 of 49 / n/a / 0 of 49 |
+| Judge: steps missing | B | 0 | 0 | 0 | 2 | 0 of 49 / n/a / 0 of 49 |
+| Generation cost, USD | A | 2.57 | 2.46 | 2.66 | 3 | 2.58 / 2.66 / 2.46 |
+| Generation cost, USD | B | 7.88 | 6.76 | 8.45 | 3 | 8.45 / 8.42 / 6.76 |
+| Cost for each test case, USD | A | 0.32 | 0.31 | 0.33 | 3 | 0.32 / 0.33 / 0.31 |
+| Cost for each test case, USD | B | 0.98 | 0.84 | 1.06 | 3 | 1.06 / 1.05 / 0.84 |
+| Work time, min | A | 10.9 | 10.3 | 11.4 | 3 | 11 / 10.3 / 11.4 |
+| Work time, min | B | 24.6 | 17.5 | 28.2 | 3 | 28.1 / 28.2 / 17.5 |
+| Work time for each test case, min | A | 1.37 | 1.3 | 1.4 | 3 | 1.4 / 1.3 / 1.4 |
+| Work time for each test case, min | B | 3.07 | 2.2 | 3.5 | 3 | 3.5 / 3.5 / 2.2 |
+| Tool calls of the main agent | A | 71.67 | 68 | 74 | 3 | 74 / 73 / 68 |
+| Tool calls of the main agent | B | 168 | 125 | 193 | 3 | 186 / 193 / 125 |
+| Subagents | A | 0 | 0 | 0 | 3 | 0 / 0 / 0 |
+| Subagents | B | 5.67 | 4 | 8 | 3 | 5 / 4 / 8 |
+| Follow-up messages | A | 0 | 0 | 0 | 3 | 0 / 0 / 0 |
+| Follow-up messages | B | 0 | 0 | 0 | 3 | 0 / 0 / 0 |
+| Tests | A | 8 | 8 | 8 | 3 | 8 / 8 / 8 |
+| Tests | B | 8 | 8 | 8 | 3 | 8 / 8 / 8 |
+| Files written | A | 21 | 20 | 22 | 3 | 21 / 22 / 20 |
+| Files written | B | 47.33 | 46 | 49 | 3 | 47 / 49 / 46 |
+| Lines written | A | 1263 | 1238 | 1277 | 3 | 1274 / 1277 / 1238 |
+| Lines written | B | 2094.33 | 1961 | 2169 | 3 | 2169 / 2153 / 1961 |
+
+Text metrics, not in the table: `Bugs missed (IDs)`, `Judge model`.

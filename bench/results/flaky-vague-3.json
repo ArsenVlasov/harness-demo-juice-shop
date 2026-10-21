@@ -1,0 +1,145 @@
+{
+  "generatedAt": "2026-10-21T10:23:30.147Z",
+  "repeats": 20,
+  "chunk": 5,
+  "suites": {
+    "A": {
+      "tests": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": {
+          "tc": "TC-01",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": {
+          "tc": "TC-02",
+          "passed": 12,
+          "failed": 8,
+          "other": {
+            "failed": 8
+          },
+          "verdict": "flaky"
+        },
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": {
+          "tc": "TC-03",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product": {
+          "tc": "TC-04",
+          "passed": 13,
+          "failed": 7,
+          "other": {
+            "failed": 7
+          },
+          "verdict": "flaky"
+        },
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step": {
+          "tc": "TC-05",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": {
+          "tc": "TC-06",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": {
+          "tc": "TC-07",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet": {
+          "tc": "TC-08",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        }
+      },
+      "summary": {
+        "tests": 8,
+        "runs": 160,
+        "stable": 6,
+        "flaky": 2,
+        "broken": 0
+      }
+    },
+    "B": {
+      "tests": {
+        "specs/regression/auth/login.spec.ts :: Login with a wrong password fails and with the correct password opens the shop": {
+          "tc": "TC-01",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to an empty basket from the product list": {
+          "tc": "TC-02",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity of a product and remove it from the basket": {
+          "tc": "TC-03",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "specs/regression/basket/purchase-limit.spec.ts :: A basket holds no more items of a product than its purchase limit": {
+          "tc": "TC-04",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "specs/regression/checkout/card-order.spec.ts :: Order with a card and a coupon, from the basket to the order history": {
+          "tc": "TC-07",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "specs/regression/coupon/invalid-coupon.spec.ts :: An invalid code and a coupon of the previous month give no discount": {
+          "tc": "TC-06",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "specs/regression/coupon/valid-coupon.spec.ts :: A coupon of the current month lowers the price of the products": {
+          "tc": "TC-05",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        },
+        "specs/regression/wallet/wallet-payment.spec.ts :: Pay an order with the wallet only when the balance covers the total": {
+          "tc": "TC-08",
+          "passed": 20,
+          "failed": 0,
+          "other": {},
+          "verdict": "stable"
+        }
+      },
+      "summary": {
+        "tests": 8,
+        "runs": 160,
+        "stable": 8,
+        "flaky": 0,
+        "broken": 0
+      }
+    }
+  }
+}

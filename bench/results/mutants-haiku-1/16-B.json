@@ -1,0 +1,950 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/regression/auth/login.spec.ts",
+      "file": "specs/regression/auth/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [
+            "auth"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-01",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/auth/login.spec.ts",
+                    "line": 6,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4330,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: create a customer account",
+                      "duration": 214
+                    },
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 731
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 2160
+                    },
+                    {
+                      "title": "3. Open the account menu",
+                      "duration": 44
+                    },
+                    {
+                      "title": "4. Log in with the correct password",
+                      "duration": 990
+                    },
+                    {
+                      "title": "5. Open the account menu",
+                      "duration": 50
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.241Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-01",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/auth/login.spec.ts",
+                        "line": 6,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25206e6cf2d763aa16b3-f51faef1b2e4afbe78c7",
+          "file": "specs/regression/auth/login.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/add-to-basket.spec.ts",
+      "file": "specs/regression/basket/add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Add a product to the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-02",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                    "line": 5,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5738,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: log in the new customer with an empty basket",
+                      "duration": 1103
+                    },
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 1930
+                    },
+                    {
+                      "title": "2. Click Add to Basket on the product",
+                      "duration": 2122
+                    },
+                    {
+                      "title": "3. Open the basket",
+                      "duration": 134
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 5
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.240Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-02",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts",
+                        "line": 5,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9a4a5d3078af0a8f0db9-1a8856b501e441bad5e2",
+          "file": "specs/regression/basket/add-to-basket.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/basket-quantity.spec.ts",
+      "file": "specs/regression/basket/basket-quantity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": false,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts",
+                    "line": 5,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 19947,
+                  "error": {
+                    "message": "Error: \"Raspberry Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Raspberry Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \"Raspberry Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Raspberry Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at BasketPage.shouldSeeRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/basket-page.ts:23:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:29:5\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:27:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                      "column": 38,
+                      "line": 9
+                    },
+                    "snippet": "   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                        "column": 38,
+                        "line": 9
+                      },
+                      "message": "Error: \"Raspberry Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Raspberry Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n\n\n   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at BasketPage.shouldSeeRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/basket-page.ts:23:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:29:5\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:27:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: put product A and product B into the basket",
+                      "duration": 158
+                    },
+                    {
+                      "title": "Precondition: log in the customer",
+                      "duration": 1769
+                    },
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 2434
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 15150,
+                      "error": {
+                        "message": "Error: \"Raspberry Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Raspberry Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n",
+                        "stack": "Error: \"Raspberry Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Raspberry Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Raspberry Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at BasketPage.shouldSeeRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/basket-page.ts:23:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:29:5\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:27:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                          "column": 38,
+                          "line": 9
+                        },
+                        "snippet": "   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.238Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts",
+                        "line": 5,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/test-results/specs-regression-basket-ba-f00ad-ove-a-product-in-the-basket-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                    "column": 38,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "cc420ed1cc9d25527ff4-e306b02b75e98c43a4c2",
+          "file": "specs/regression/basket/basket-quantity.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/basket/purchase-limit.spec.ts",
+      "file": "specs/regression/basket/purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Purchase limit for one product",
+          "ok": false,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-04",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                    "line": 5,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 20802,
+                  "error": {
+                    "message": "Error: \"Apple Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Apple Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \"Apple Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Apple Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at BasketPage.shouldSeeRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/basket-page.ts:23:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:24:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:20:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                      "column": 38,
+                      "line": 9
+                    },
+                    "snippet": "   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                        "column": 38,
+                        "line": 9
+                      },
+                      "message": "Error: \"Apple Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Apple Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n\n\n   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at BasketPage.shouldSeeRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/basket-page.ts:23:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:24:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:20:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: log in the new customer with an empty basket",
+                      "duration": 1107
+                    },
+                    {
+                      "title": "1. Add the product to the basket from the product list",
+                      "duration": 4044
+                    },
+                    {
+                      "title": "2. Click the plus button until the quantity is at the limit",
+                      "duration": 15192,
+                      "error": {
+                        "message": "Error: \"Apple Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Apple Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n",
+                        "stack": "Error: \"Apple Juice (1000ml)\" has quantity 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - \"Apple Juice (1000ml)\" has quantity 2 getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ has: getByRole('img', { name: 'Apple Juice (1000ml)', exact: true }) }).getByText('2', { exact: true })\u001b[22m\n\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at BasketPage.shouldSeeRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/basket-page.ts:23:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:24:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:20:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                          "column": 38,
+                          "line": 9
+                        },
+                        "snippet": "   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.242Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts",
+                        "line": 5,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/test-results/specs-regression-basket-pu-95de3-chase-limit-for-one-product-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                    "column": 38,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "59a0bc4d1b9b9dba38fa-9c1a927fad57d5564dd5",
+          "file": "specs/regression/basket/purchase-limit.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/checkout/card-order.spec.ts",
+      "file": "specs/regression/checkout/card-order.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                    "line": 14,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "failed",
+                  "duration": 20053,
+                  "error": {
+                    "message": "Error: Basket counter in the top bar shows 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Basket counter in the top bar shows 2 getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\u001b[22m\n",
+                    "stack": "Error: Basket counter in the top bar shows 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Basket counter in the top bar shows 2 getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\u001b[22m\n\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at NavBarComponent.shouldSeeBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/components/navbar.component.ts:17:24)\n    at SearchPage.shouldSeeBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/base-page.ts:26:23)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts:28:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts:23:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                      "column": 38,
+                      "line": 9
+                    },
+                    "snippet": "   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                        "column": 38,
+                        "line": 9
+                      },
+                      "message": "Error: Basket counter in the top bar shows 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Basket counter in the top bar shows 2 getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\u001b[22m\n\n\n   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at NavBarComponent.shouldSeeBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/components/navbar.component.ts:17:24)\n    at SearchPage.shouldSeeBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/base-page.ts:26:23)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts:28:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: log in the customer with an empty basket",
+                      "duration": 1335
+                    },
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 17976,
+                      "error": {
+                        "message": "Error: Basket counter in the top bar shows 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Basket counter in the top bar shows 2 getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\u001b[22m\n",
+                        "stack": "Error: Basket counter in the top bar shows 2\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Basket counter in the top bar shows 2 getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).getByText('2', { exact: true })\u001b[22m\n\n    at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts:9:38)\n    at NavBarComponent.shouldSeeBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/components/navbar.component.ts:17:24)\n    at SearchPage.shouldSeeBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/page-objects/base-page.ts:26:23)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts:28:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts:23:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                          "column": 38,
+                          "line": 9
+                        },
+                        "snippet": "   at ../utils/assertions/ui-assertions.ts:9\n\n   7 |\n   8 | export async function expectVisible(locator: Locator, description: string): Promise<void> {\n>  9 |   await expect(locator, description).toBeVisible({ timeout: UI_TIMEOUT });\n     |                                      ^\n  10 | }\n  11 |\n  12 | export async function expectHidden(locator: Locator, description: string): Promise<void> {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.250Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/checkout/card-order.spec.ts",
+                        "line": 14,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/test-results/specs-regression-checkout--8df86-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/utils/assertions/ui-assertions.ts",
+                    "column": 38,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6fbebc3a348484f47e52-d527a5d0b5cd549ff11d",
+          "file": "specs/regression/checkout/card-order.spec.ts",
+          "line": 14,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+      "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-06",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                    "line": 15,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 6166,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: put the product with quantity 2 into the basket",
+                      "duration": 2233
+                    },
+                    {
+                      "title": "Precondition: log in the customer",
+                      "duration": 827
+                    },
+                    {
+                      "title": "1. Open the basket, click Checkout, select the saved address and click Continue",
+                      "duration": 1738
+                    },
+                    {
+                      "title": "2. Select One Day Delivery and click Continue",
+                      "duration": 179
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 176
+                    },
+                    {
+                      "title": "4. Redeem the expired coupon",
+                      "duration": 104
+                    },
+                    {
+                      "title": "5. Select the saved card and click Continue",
+                      "duration": 155
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.252Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+                        "line": 15,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c893c862839a34d15697-ba86d86967a01a06f250",
+          "file": "specs/regression/coupon/invalid-and-expired-coupon.spec.ts",
+          "line": 15,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/coupon/valid-coupon.spec.ts",
+      "file": "specs/regression/coupon/valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Valid coupon on the payment step",
+          "ok": true,
+          "tags": [
+            "coupon"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-05",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                    "line": 13,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 5797,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: put the product with quantity 2 into the basket",
+                      "duration": 2166
+                    },
+                    {
+                      "title": "Precondition: log in the customer",
+                      "duration": 820
+                    },
+                    {
+                      "title": "1. Open the basket and click Checkout",
+                      "duration": 1169
+                    },
+                    {
+                      "title": "2. Select the saved address and click Continue",
+                      "duration": 157
+                    },
+                    {
+                      "title": "3. Select One Day Delivery and click Continue",
+                      "duration": 161
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the current month",
+                      "duration": 238
+                    },
+                    {
+                      "title": "5. Select the saved card and click Continue",
+                      "duration": 233
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.256Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/coupon/valid-coupon.spec.ts",
+                        "line": 13,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c514813ea4b0c6c80f4e-dc8ffd1a7408ebacebb4",
+          "file": "specs/regression/coupon/valid-coupon.spec.ts",
+          "line": 13,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/wallet/wallet-payment.spec.ts",
+      "file": "specs/regression/wallet/wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                    "line": 14,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 9274,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Precondition: put the product with quantity 1 into the basket",
+                      "duration": 2163
+                    },
+                    {
+                      "title": "Precondition: add 5.00 to the wallet with the saved card",
+                      "duration": 1144
+                    },
+                    {
+                      "title": "Precondition: log in the customer",
+                      "duration": 374
+                    },
+                    {
+                      "title": "1. Open the basket, click Checkout, select the saved address and click Continue",
+                      "duration": 1219
+                    },
+                    {
+                      "title": "2. Select Standard Delivery and click Continue",
+                      "duration": 208
+                    },
+                    {
+                      "title": "3. Read the button Pay and check that it is disabled",
+                      "duration": 5
+                    },
+                    {
+                      "title": "4. Open the order history",
+                      "duration": 600
+                    },
+                    {
+                      "title": "5. Open the digital wallet",
+                      "duration": 693
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 22
+                    },
+                    {
+                      "title": "6. Open the basket, click Checkout, select the saved address, select Standard Delivery and click Continue",
+                      "duration": 319
+                    },
+                    {
+                      "title": "7. Click the button Pay",
+                      "duration": 99
+                    },
+                    {
+                      "title": "8. Click Place your order and pay",
+                      "duration": 351
+                    },
+                    {
+                      "title": "9. Open the digital wallet",
+                      "duration": 572
+                    },
+                    {
+                      "title": "10. Open the order history",
+                      "duration": 686
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:41:24.233Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-b/tests/specs/regression/wallet/wallet-payment.spec.ts",
+                        "line": 14,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb4296d08ac7aa3630c8-0b9638c58cc5f1e41ab4",
+          "file": "specs/regression/wallet/wallet-payment.spec.ts",
+          "line": 14,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T08:41:23.419Z",
+    "duration": 22094.462,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

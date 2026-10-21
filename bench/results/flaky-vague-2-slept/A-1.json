@@ -1,0 +1,2947 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "--repeat-each=5"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results",
+        "repeatEach": 5,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results",
+        "repeatEach": 5,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "file": "tc-01-login.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-01 login fails with a wrong password and works with the correct one",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4420,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the login page",
+                          "duration": 1194
+                        },
+                        {
+                          "title": "2. Log in with the wrong password",
+                          "duration": 1170
+                        },
+                        {
+                          "title": "3. Open the account menu: nobody is logged in",
+                          "duration": 57
+                        },
+                        {
+                          "title": "4. Close the menu and log in with the correct password",
+                          "duration": 930
+                        },
+                        {
+                          "title": "5. Open the account menu: the customer is logged in",
+                          "duration": 59
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b34bf74f2c2ef7a26f68-0365600b2f6589d27cd0",
+              "file": "tc-01-login.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "TC-01 login fails with a wrong password and works with the correct one",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5910,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the login page",
+                          "duration": 896
+                        },
+                        {
+                          "title": "2. Log in with the wrong password",
+                          "duration": 1176
+                        },
+                        {
+                          "title": "3. Open the account menu: nobody is logged in",
+                          "duration": 152
+                        },
+                        {
+                          "title": "4. Close the menu and log in with the correct password",
+                          "duration": 1167
+                        },
+                        {
+                          "title": "5. Open the account menu: the customer is logged in",
+                          "duration": 104
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:36.832Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b34bf74f2c2ef7a26f68-3e656202f3718f03651a",
+              "file": "tc-01-login.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "TC-01 login fails with a wrong password and works with the correct one",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 9713,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the login page",
+                          "duration": 2994
+                        },
+                        {
+                          "title": "2. Log in with the wrong password",
+                          "duration": 3314
+                        },
+                        {
+                          "title": "3. Open the account menu: nobody is logged in",
+                          "duration": 144
+                        },
+                        {
+                          "title": "4. Close the menu and log in with the correct password",
+                          "duration": 1608
+                        },
+                        {
+                          "title": "5. Open the account menu: the customer is logged in",
+                          "duration": 83
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:59.648Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b34bf74f2c2ef7a26f68-b5a1b163af1a842ce61d",
+              "file": "tc-01-login.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "TC-01 login fails with a wrong password and works with the correct one",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2950,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the login page",
+                          "duration": 738
+                        },
+                        {
+                          "title": "2. Log in with the wrong password",
+                          "duration": 1124
+                        },
+                        {
+                          "title": "3. Open the account menu: nobody is logged in",
+                          "duration": 47
+                        },
+                        {
+                          "title": "4. Close the menu and log in with the correct password",
+                          "duration": 442
+                        },
+                        {
+                          "title": "5. Open the account menu: the customer is logged in",
+                          "duration": 50
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.021Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b34bf74f2c2ef7a26f68-a6e9beef1dc2ec41fa03",
+              "file": "tc-01-login.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "TC-01 login fails with a wrong password and works with the correct one",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2034,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the login page",
+                          "duration": 536
+                        },
+                        {
+                          "title": "2. Log in with the wrong password",
+                          "duration": 459
+                        },
+                        {
+                          "title": "3. Open the account menu: nobody is logged in",
+                          "duration": 64
+                        },
+                        {
+                          "title": "4. Close the menu and log in with the correct password",
+                          "duration": 379
+                        },
+                        {
+                          "title": "5. Open the account menu: the customer is logged in",
+                          "duration": 43
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:24.714Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b34bf74f2c2ef7a26f68-c610bd48282b6f9b6d79",
+              "file": "tc-01-login.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-02-add-to-basket.spec.ts",
+      "file": "tc-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "file": "tc-02-add-to-basket.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-02 product added from the product list shows in the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 14068,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the product list",
+                          "duration": 1403
+                        },
+                        {
+                          "title": "2. Add the product to the basket",
+                          "duration": 3396
+                        },
+                        {
+                          "title": "3. Open the basket",
+                          "duration": 1424
+                        },
+                        {
+                          "title": "4. Read the total of the basket",
+                          "duration": 6
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.141Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "22d97df45c3a3424b0cc-c3d730b8e31c7eb3e6e4",
+              "file": "tc-02-add-to-basket.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-02 product added from the product list shows in the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 12218,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the product list",
+                          "duration": 1766
+                        },
+                        {
+                          "title": "2. Add the product to the basket",
+                          "duration": 1909
+                        },
+                        {
+                          "title": "3. Open the basket",
+                          "duration": 2556
+                        },
+                        {
+                          "title": "4. Read the total of the basket",
+                          "duration": 18
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:42.508Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "22d97df45c3a3424b0cc-da128b4954593f0fdc1a",
+              "file": "tc-02-add-to-basket.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-02 product added from the product list shows in the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 13666,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the product list",
+                          "duration": 2056
+                        },
+                        {
+                          "title": "2. Add the product to the basket",
+                          "duration": 2836
+                        },
+                        {
+                          "title": "3. Open the basket",
+                          "duration": 256
+                        },
+                        {
+                          "title": "4. Read the total of the basket",
+                          "duration": 4
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:16:00.006Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "22d97df45c3a3424b0cc-ec778fd8be1036e53e3f",
+              "file": "tc-02-add-to-basket.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-02 product added from the product list shows in the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5944,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the product list",
+                          "duration": 233
+                        },
+                        {
+                          "title": "2. Add the product to the basket",
+                          "duration": 2067
+                        },
+                        {
+                          "title": "3. Open the basket",
+                          "duration": 871
+                        },
+                        {
+                          "title": "4. Read the total of the basket",
+                          "duration": 3
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.042Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "22d97df45c3a3424b0cc-076efc17fe0a75e19ef7",
+              "file": "tc-02-add-to-basket.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-02 product added from the product list shows in the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9960,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the product list",
+                          "duration": 1540
+                        },
+                        {
+                          "title": "2. Add the product to the basket",
+                          "duration": 3822
+                        },
+                        {
+                          "title": "3. Open the basket",
+                          "duration": 1673
+                        },
+                        {
+                          "title": "4. Read the total of the basket",
+                          "duration": 16
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:27.628Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "22d97df45c3a3424b0cc-e7200f7775be9790252b",
+              "file": "tc-02-add-to-basket.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-03-basket-quantity-and-remove.spec.ts",
+      "file": "tc-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "file": "tc-03-basket-quantity-and-remove.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-03 plus, minus and trash buttons update the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 26028,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket",
+                          "duration": 1410
+                        },
+                        {
+                          "title": "2. Click plus on product A",
+                          "duration": 4292
+                        },
+                        {
+                          "title": "3. Click minus on product A",
+                          "duration": 4210
+                        },
+                        {
+                          "title": "4. Click minus on product A again: the quantity stays 1",
+                          "duration": 3417
+                        },
+                        {
+                          "title": "5. Click trash on product A",
+                          "duration": 4826
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.143Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4d01b774c6877a42b8c3-8905364103c7c40efb38",
+              "file": "tc-03-basket-quantity-and-remove.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-03 plus, minus and trash buttons update the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29973,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket",
+                          "duration": 1564
+                        },
+                        {
+                          "title": "2. Click plus on product A",
+                          "duration": 4145
+                        },
+                        {
+                          "title": "3. Click minus on product A",
+                          "duration": 3839
+                        },
+                        {
+                          "title": "4. Click minus on product A again: the quantity stays 1",
+                          "duration": 10718
+                        },
+                        {
+                          "title": "5. Click trash on product A",
+                          "duration": 2668
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:43.429Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4d01b774c6877a42b8c3-13c94bd8b806d8dafd85",
+              "file": "tc-03-basket-quantity-and-remove.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-03 plus, minus and trash buttons update the basket",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 5,
+                      "status": "timedOut",
+                      "duration": 907021,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                            "column": 55,
+                            "line": 19
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    6 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m      - unexpected value \" 2\"\u001b[22m\n\n\n  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },\n    at expectBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:42:13\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:40:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket",
+                          "duration": 345
+                        },
+                        {
+                          "title": "2. Click plus on product A",
+                          "duration": 1379
+                        },
+                        {
+                          "title": "3. Click minus on product A",
+                          "duration": 900959,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    6 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m      - unexpected value \" 2\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    6 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m      - unexpected value \" 2\"\u001b[22m\n\n    at expectBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:42:13\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:40:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                              "column": 55,
+                              "line": 19
+                            },
+                            "snippet": "  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:16:10.688Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-03-basket-quantity-and--cf216-h-buttons-update-the-basket-chromium-repeat2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4d01b774c6877a42b8c3-6c7793049bd79303d815",
+              "file": "tc-03-basket-quantity-and-remove.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-03 plus, minus and trash buttons update the basket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 10729,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket",
+                          "duration": 848
+                        },
+                        {
+                          "title": "2. Click plus on product A",
+                          "duration": 2501
+                        },
+                        {
+                          "title": "3. Click minus on product A",
+                          "duration": 901
+                        },
+                        {
+                          "title": "4. Click minus on product A again: the quantity stays 1",
+                          "duration": 1030
+                        },
+                        {
+                          "title": "5. Click trash on product A",
+                          "duration": 3108
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.020Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4d01b774c6877a42b8c3-0e9ef541d5b86ddf97f7",
+              "file": "tc-03-basket-quantity-and-remove.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-03 plus, minus and trash buttons update the basket",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 13922,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 2\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 2\"\u001b[22m\n\n    at expectBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:42:13\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:40:5",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                          "column": 55,
+                          "line": 19
+                        },
+                        "snippet": "  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                            "column": 55,
+                            "line": 19
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 2\"\u001b[22m\n\n\n  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },\n    at expectBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:42:13\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:40:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket",
+                          "duration": 1901
+                        },
+                        {
+                          "title": "2. Click plus on product A",
+                          "duration": 5463
+                        },
+                        {
+                          "title": "3. Click minus on product A",
+                          "duration": 5117,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 2\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 2\"\u001b[22m\n\n    at expectBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:42:13\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:40:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                              "column": 55,
+                              "line": 19
+                            },
+                            "snippet": "  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:27.253Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-03-basket-quantity-and--cf216-h-buttons-update-the-basket-chromium-repeat4/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                        "column": 55,
+                        "line": 19
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4d01b774c6877a42b8c3-86dc9104698943eaf118",
+              "file": "tc-03-basket-quantity-and-remove.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-04-purchase-limit.spec.ts",
+      "file": "tc-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "file": "tc-04-purchase-limit.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-04 basket holds at most the limit of a limited product",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 26072,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"4\"\u001b[39m\nReceived: \u001b[31m\" 3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 3\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"4\"\u001b[39m\nReceived: \u001b[31m\" 3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 3\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                          "column": 63,
+                          "line": 28
+                        },
+                        "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                            "column": 63,
+                            "line": 28
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"4\"\u001b[39m\nReceived: \u001b[31m\" 3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 3\"\u001b[22m\n\n\n  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the product from the product list",
+                          "duration": 4688
+                        },
+                        {
+                          "title": "2. Click plus until the quantity is 5",
+                          "duration": 13463,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"4\"\u001b[39m\nReceived: \u001b[31m\" 3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 3\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"4\"\u001b[39m\nReceived: \u001b[31m\" 3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 3\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                              "column": 63,
+                              "line": 28
+                            },
+                            "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.182Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-04-purchase-limit-TC-04-e6673--limit-of-a-limited-product-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                        "column": 63,
+                        "line": 28
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4047ea462fa680f9ce53-1a2cc11e3c7aeca6c0a4",
+              "file": "tc-04-purchase-limit.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-04 basket holds at most the limit of a limited product",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 17642,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                          "column": 63,
+                          "line": 28
+                        },
+                        "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                            "column": 63,
+                            "line": 28
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n\n  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the product from the product list",
+                          "duration": 5988
+                        },
+                        {
+                          "title": "2. Click plus until the quantity is 5",
+                          "duration": 6029,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                              "column": 63,
+                              "line": 28
+                            },
+                            "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:49.098Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-04-purchase-limit-TC-04-e6673--limit-of-a-limited-product-chromium-repeat1/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                        "column": 63,
+                        "line": 28
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4047ea462fa680f9ce53-6fc3f743175d460a3afb",
+              "file": "tc-04-purchase-limit.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-04 basket holds at most the limit of a limited product",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 907697,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                            "column": 63,
+                            "line": 28
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    5 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m      - unexpected value \" 2\"\u001b[22m\n\n\n  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the product from the product list",
+                          "duration": 1689
+                        },
+                        {
+                          "title": "2. Click plus until the quantity is 5",
+                          "duration": 902176,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    5 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m      - unexpected value \" 2\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\" 2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    5 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m      - unexpected value \" 2\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                              "column": 63,
+                              "line": 28
+                            },
+                            "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:16:11.040Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-04-purchase-limit-TC-04-e6673--limit-of-a-limited-product-chromium-repeat2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4047ea462fa680f9ce53-451b5914adc33cd8d2cb",
+              "file": "tc-04-purchase-limit.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-04 basket holds at most the limit of a limited product",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 16348,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                          "column": 63,
+                          "line": 28
+                        },
+                        "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                            "column": 63,
+                            "line": 28
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n\n\n  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the product from the product list",
+                          "duration": 2518
+                        },
+                        {
+                          "title": "2. Click plus until the quantity is 5",
+                          "duration": 11507,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                              "column": 63,
+                              "line": 28
+                            },
+                            "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.038Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-04-purchase-limit-TC-04-e6673--limit-of-a-limited-product-chromium-repeat3/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                        "column": 63,
+                        "line": 28
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4047ea462fa680f9ce53-476edf3df1e874ee6678",
+              "file": "tc-04-purchase-limit.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-04 basket holds at most the limit of a limited product",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 17920,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                          "column": 63,
+                          "line": 28
+                        },
+                        "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                            "column": 63,
+                            "line": 28
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n\n  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the product from the product list",
+                          "duration": 5584
+                        },
+                        {
+                          "title": "2. Click plus until the quantity is 5",
+                          "duration": 6035,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:28:63\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                              "column": 63,
+                              "line": 28
+                            },
+                            "snippet": "  26 |       for (let quantity = 2; quantity <= PURCHASE_LIMIT; quantity++) {\n  27 |         await basketPage.plusButton(product.name).click();\n> 28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));\n     |                                                               ^\n  29 |       }\n  30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));\n  31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:28.703Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-04-purchase-limit-TC-04-e6673--limit-of-a-limited-product-chromium-repeat4/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts",
+                        "column": 63,
+                        "line": 28
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4047ea462fa680f9ce53-d8e8957623040ac81df0",
+              "file": "tc-04-purchase-limit.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-05 coupon of the current month lowers the price of the products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 20338,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket and click Checkout",
+                          "duration": 2824
+                        },
+                        {
+                          "title": "2. Select the saved address and continue",
+                          "duration": 440
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue",
+                          "duration": 1806
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 1409
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 1133
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.238Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-a1692953fcd865a4f471",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-05 coupon of the current month lowers the price of the products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 23057,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket and click Checkout",
+                          "duration": 2004
+                        },
+                        {
+                          "title": "2. Select the saved address and continue",
+                          "duration": 4889
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue",
+                          "duration": 2290
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 2361
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 1161
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:49.236Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-a0eb68cfc12e421ecd3c",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-05 coupon of the current month lowers the price of the products",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 903808,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts",
+                            "column": 29,
+                            "line": 92
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-payment').locator('#applyCouponButton')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" color=\"tertiary\" mat-raised-button=\"\" id=\"applyCouponButton\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn-float-right-spacing mdc-button--raised mat-mdc-raised-button mat-tertiary\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n   at ../pages/CheckoutPages.ts:92\n\n  90 |   async redeemCoupon(code: string): Promise<void> {\n  91 |     await this.couponInput.fill(code);\n> 92 |     await this.redeemButton.click();\n     |                             ^\n  93 |   }\n  94 |\n  95 |   async selectCardAndContinue(lastDigits: string): Promise<void> {\n    at PaymentPage.redeemCoupon (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts:92:29)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:56:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:54:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket and click Checkout",
+                          "duration": 621
+                        },
+                        {
+                          "title": "2. Select the saved address and continue",
+                          "duration": 205
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue",
+                          "duration": 444
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 900237,
+                          "error": {
+                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-payment').locator('#applyCouponButton')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" color=\"tertiary\" mat-raised-button=\"\" id=\"applyCouponButton\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn-float-right-spacing mdc-button--raised mat-mdc-raised-button mat-tertiary\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n",
+                            "stack": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-payment').locator('#applyCouponButton')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" color=\"tertiary\" mat-raised-button=\"\" id=\"applyCouponButton\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn-float-right-spacing mdc-button--raised mat-mdc-raised-button mat-tertiary\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n    at PaymentPage.redeemCoupon (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts:92:29)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:56:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:54:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts",
+                              "column": 29,
+                              "line": 92
+                            },
+                            "snippet": "   at ../pages/CheckoutPages.ts:92\n\n  90 |   async redeemCoupon(code: string): Promise<void> {\n  91 |     await this.couponInput.fill(code);\n> 92 |     await this.redeemButton.click();\n     |                             ^\n  93 |   }\n  94 |\n  95 |   async selectCardAndContinue(lastDigits: string): Promise<void> {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:16:14.697Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-05-valid-coupon-TC-05-V-c4c83-s-the-price-of-the-products-chromium-repeat2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-88c7e4656d819b6cd637",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-05 coupon of the current month lowers the price of the products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7249,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket and click Checkout",
+                          "duration": 1072
+                        },
+                        {
+                          "title": "2. Select the saved address and continue",
+                          "duration": 307
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue",
+                          "duration": 431
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 599
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 168
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.031Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-38202ade591d42aa30a7",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-05 coupon of the current month lowers the price of the products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 32,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 20239,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket and click Checkout",
+                          "duration": 1928
+                        },
+                        {
+                          "title": "2. Select the saved address and continue",
+                          "duration": 652
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue",
+                          "duration": 1294
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 2915
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 2695
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:28.879Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-ac268c2b75f0a158d7c3",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-06 invalid and expired coupons give no discount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 20025,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 2498
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue",
+                          "duration": 1175
+                        },
+                        {
+                          "title": "3. Redeem the invalid code",
+                          "duration": 1745
+                        },
+                        {
+                          "title": "4. Redeem the expired coupon",
+                          "duration": 804
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 1135
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.144Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2e2fd1be63dc96462f88-fd94bbb19df7369d202f",
+              "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "TC-06 invalid and expired coupons give no discount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 21416,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 5719
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue",
+                          "duration": 1130
+                        },
+                        {
+                          "title": "3. Redeem the invalid code",
+                          "duration": 1244
+                        },
+                        {
+                          "title": "4. Redeem the expired coupon",
+                          "duration": 309
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 414
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:52.580Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2e2fd1be63dc96462f88-693106f6171205e3aaf0",
+              "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "TC-06 invalid and expired coupons give no discount",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 4,
+                      "status": "timedOut",
+                      "duration": 903966,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts",
+                            "column": 57,
+                            "line": 46
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-delivery-method mat-row').filter({ hasText: 'One Day Delivery' }).locator('mat-radio-button')\u001b[22m\n\u001b[2m    - locator resolved to <mat-radio-button id=\"mat-radio-44\" _ngcontent-ng-c3670083191=\"\" class=\"mat-mdc-radio-button mat-accent\">…</mat-radio-button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n   at ../pages/CheckoutPages.ts:46\n\n  44 |\n  45 |   async selectAndContinue(name: string): Promise<void> {\n> 46 |     await this.method(name).locator('mat-radio-button').click();\n     |                                                         ^\n  47 |     await this.continueButton.click();\n  48 |   }\n  49 | }\n    at DeliveryMethodPage.selectAndContinue (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts:46:57)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:40:26\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:39:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 1163
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue",
+                          "duration": 900542,
+                          "error": {
+                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-delivery-method mat-row').filter({ hasText: 'One Day Delivery' }).locator('mat-radio-button')\u001b[22m\n\u001b[2m    - locator resolved to <mat-radio-button id=\"mat-radio-44\" _ngcontent-ng-c3670083191=\"\" class=\"mat-mdc-radio-button mat-accent\">…</mat-radio-button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n",
+                            "stack": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-delivery-method mat-row').filter({ hasText: 'One Day Delivery' }).locator('mat-radio-button')\u001b[22m\n\u001b[2m    - locator resolved to <mat-radio-button id=\"mat-radio-44\" _ngcontent-ng-c3670083191=\"\" class=\"mat-mdc-radio-button mat-accent\">…</mat-radio-button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n    at DeliveryMethodPage.selectAndContinue (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts:46:57)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:40:26\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:39:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/CheckoutPages.ts",
+                              "column": 57,
+                              "line": 46
+                            },
+                            "snippet": "   at ../pages/CheckoutPages.ts:46\n\n  44 |\n  45 |   async selectAndContinue(name: string): Promise<void> {\n> 46 |     await this.method(name).locator('mat-radio-button').click();\n     |                                                         ^\n  47 |     await this.continueButton.click();\n  48 |   }\n  49 | }"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:16:14.662Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-06-invalid-and-expired--2c1c8-ed-coupons-give-no-discount-chromium-repeat2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2e2fd1be63dc96462f88-1fcf13696394127c4744",
+              "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "TC-06 invalid and expired coupons give no discount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 6955,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 1256
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue",
+                          "duration": 332
+                        },
+                        {
+                          "title": "3. Redeem the invalid code",
+                          "duration": 322
+                        },
+                        {
+                          "title": "4. Redeem the expired coupon",
+                          "duration": 170
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 330
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.036Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2e2fd1be63dc96462f88-871ff14b0e420644c030",
+              "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "TC-06 invalid and expired coupons give no discount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 33,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 16811,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 4223
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue",
+                          "duration": 424
+                        },
+                        {
+                          "title": "3. Redeem the invalid code",
+                          "duration": 693
+                        },
+                        {
+                          "title": "4. Redeem the expired coupon",
+                          "duration": 249
+                        },
+                        {
+                          "title": "5. Select the saved card and continue",
+                          "duration": 487
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:35.010Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2e2fd1be63dc96462f88-14212344d3d6e1e7c8b1",
+              "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+              "line": 10,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-07-card-order-end-to-end.spec.ts",
+      "file": "tc-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "file": "tc-07-card-order-end-to-end.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-07 card order with a coupon reaches the order history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 18756,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\"1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">1</span>\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\"1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">1</span>\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:47:44\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:43:5",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                          "column": 44,
+                          "line": 47
+                        },
+                        "snippet": "  45 |       for (let i = 1; i <= qtyA; i++) {\n  46 |         await searchPage.addToBasket(a.name);\n> 47 |         await expect(navBar.basketCounter).toHaveText(String(i));\n     |                                            ^\n  48 |       }\n  49 |       await searchPage.addToBasket(b.name);\n  50 |       await expect(navBar.basketCounter).toHaveText(String(itemCount(lines)));"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                            "column": 44,
+                            "line": 47
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\"1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">1</span>\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  45 |       for (let i = 1; i <= qtyA; i++) {\n  46 |         await searchPage.addToBasket(a.name);\n> 47 |         await expect(navBar.basketCounter).toHaveText(String(i));\n     |                                            ^\n  48 |       }\n  49 |       await searchPage.addToBasket(b.name);\n  50 |       await expect(navBar.basketCounter).toHaveText(String(itemCount(lines)));\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:47:44\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:43:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the products from the product list",
+                          "duration": 10472,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\"1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">1</span>\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\"1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">1</span>\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:47:44\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:43:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                              "column": 44,
+                              "line": 47
+                            },
+                            "snippet": "  45 |       for (let i = 1; i <= qtyA; i++) {\n  46 |         await searchPage.addToBasket(a.name);\n> 47 |         await expect(navBar.basketCounter).toHaveText(String(i));\n     |                                            ^\n  48 |       }\n  49 |       await searchPage.addToBasket(b.name);\n  50 |       await expect(navBar.basketCounter).toHaveText(String(itemCount(lines)));"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.180Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-07-card-order-end-to-en-2b973-n-reaches-the-order-history-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                        "column": 44,
+                        "line": 47
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5b5235fa264a4d697318-7bf7cdcd9acfed7faaab",
+              "file": "tc-07-card-order-end-to-end.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-07 card order with a coupon reaches the order history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 921950,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                            "column": 52,
+                            "line": 75
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement').locator('.confirmation')\nExpected: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('#collapseCouponElement').locator('.confirmation') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement').locator('.confirmation')\u001b[22m\n\n\n  73 |       await paymentPage.openCouponPanel();\n  74 |       await paymentPage.redeemCoupon(coupon);\n> 75 |       await expect(paymentPage.couponConfirmation).toHaveText(\n     |                                                    ^\n  76 |         `Your discount of ${COUPON_DISCOUNT}% will be applied during checkout.`,\n  77 |       );\n  78 |     });\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:75:52\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:72:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the products from the product list",
+                          "duration": 8673
+                        },
+                        {
+                          "title": "2. Open the basket",
+                          "duration": 840
+                        },
+                        {
+                          "title": "3. Checkout and select the saved address",
+                          "duration": 393
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue",
+                          "duration": 226
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 900324,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement').locator('.confirmation')\nExpected: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('#collapseCouponElement').locator('.confirmation') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement').locator('.confirmation')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement').locator('.confirmation')\nExpected: \u001b[32m\"Your discount of 10% will be applied during checkout.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('#collapseCouponElement').locator('.confirmation') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement').locator('.confirmation')\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:75:52\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:72:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                              "column": 52,
+                              "line": 75
+                            },
+                            "snippet": "  73 |       await paymentPage.openCouponPanel();\n  74 |       await paymentPage.redeemCoupon(coupon);\n> 75 |       await expect(paymentPage.couponConfirmation).toHaveText(\n     |                                                    ^\n  76 |         `Your discount of ${COUPON_DISCOUNT}% will be applied during checkout.`,\n  77 |       );\n  78 |     });"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:55.203Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-07-card-order-end-to-en-2b973-n-reaches-the-order-history-chromium-repeat1/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5b5235fa264a4d697318-b233089c6a78f46c7fb2",
+              "file": "tc-07-card-order-end-to-end.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-07 card order with a coupon reaches the order history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 6,
+                      "status": "timedOut",
+                      "duration": 902818,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/SearchPage.ts",
+                            "column": 40,
+                            "line": 28
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-search-result mat-card').filter({ has: getByRole('button', { name: 'Add to Basket' }) }).filter({ hasText: 'Eggfruit Juice (500ml)' }).getByRole('button', { name: 'Add to Basket' })\u001b[22m\n\u001b[2m    - locator resolved to <button mat-button=\"\" color=\"primary\" mat-raised-button=\"\" aria-label=\"Add to Basket\" _ngcontent-ng-c1648923913=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn-basket mdc-button--raised mat-mdc-raised-button mat-primary\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n   at ../pages/SearchPage.ts:28\n\n  26 |\n  27 |   async addToBasket(name: string): Promise<void> {\n> 28 |     await this.addToBasketButton(name).click();\n     |                                        ^\n  29 |   }\n  30 | }\n  31 |\n    at SearchPage.addToBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/SearchPage.ts:28:40)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:46:26\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:43:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the products from the product list",
+                          "duration": 900428,
+                          "error": {
+                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-search-result mat-card').filter({ has: getByRole('button', { name: 'Add to Basket' }) }).filter({ hasText: 'Eggfruit Juice (500ml)' }).getByRole('button', { name: 'Add to Basket' })\u001b[22m\n\u001b[2m    - locator resolved to <button mat-button=\"\" color=\"primary\" mat-raised-button=\"\" aria-label=\"Add to Basket\" _ngcontent-ng-c1648923913=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn-basket mdc-button--raised mat-mdc-raised-button mat-primary\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+                            "stack": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-search-result mat-card').filter({ has: getByRole('button', { name: 'Add to Basket' }) }).filter({ hasText: 'Eggfruit Juice (500ml)' }).getByRole('button', { name: 'Add to Basket' })\u001b[22m\n\u001b[2m    - locator resolved to <button mat-button=\"\" color=\"primary\" mat-raised-button=\"\" aria-label=\"Add to Basket\" _ngcontent-ng-c1648923913=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn-basket mdc-button--raised mat-mdc-raised-button mat-primary\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at SearchPage.addToBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/SearchPage.ts:28:40)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:46:26\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:43:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/SearchPage.ts",
+                              "column": 40,
+                              "line": 28
+                            },
+                            "snippet": "   at ../pages/SearchPage.ts:28\n\n  26 |\n  27 |   async addToBasket(name: string): Promise<void> {\n> 28 |     await this.addToBasketButton(name).click();\n     |                                        ^\n  29 |   }\n  30 | }\n  31 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:16:16.091Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-07-card-order-end-to-en-2b973-n-reaches-the-order-history-chromium-repeat2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5b5235fa264a4d697318-e873368b138f6dccefe4",
+              "file": "tc-07-card-order-end-to-end.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-07 card order with a coupon reaches the order history",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 23873,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the products from the product list",
+                          "duration": 6413
+                        },
+                        {
+                          "title": "2. Open the basket",
+                          "duration": 1010
+                        },
+                        {
+                          "title": "3. Checkout and select the saved address",
+                          "duration": 650
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue",
+                          "duration": 2178
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 2434
+                        },
+                        {
+                          "title": "6. Select the saved card and continue",
+                          "duration": 2304
+                        },
+                        {
+                          "title": "7. Place the order",
+                          "duration": 2506
+                        },
+                        {
+                          "title": "8. Read the order summary on the confirmation page",
+                          "duration": 98
+                        },
+                        {
+                          "title": "9. The basket is empty",
+                          "duration": 902
+                        },
+                        {
+                          "title": "10. Open the order history",
+                          "duration": 814
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.034Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5b5235fa264a4d697318-22992af1fcccb1cee9d3",
+              "file": "tc-07-card-order-end-to-end.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-07 card order with a coupon reaches the order history",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 34,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 15523,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the products from the product list",
+                          "duration": 4351
+                        },
+                        {
+                          "title": "2. Open the basket",
+                          "duration": 323
+                        },
+                        {
+                          "title": "3. Checkout and select the saved address",
+                          "duration": 324
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue",
+                          "duration": 312
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 589
+                        },
+                        {
+                          "title": "6. Select the saved card and continue",
+                          "duration": 624
+                        },
+                        {
+                          "title": "7. Place the order",
+                          "duration": 442
+                        },
+                        {
+                          "title": "8. Read the order summary on the confirmation page",
+                          "duration": 78
+                        },
+                        {
+                          "title": "9. The basket is empty",
+                          "duration": 80
+                        },
+                        {
+                          "title": "10. Open the order history",
+                          "duration": 703
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:40.079Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5b5235fa264a4d697318-789b5c212e170a7ecccd",
+              "file": "tc-07-card-order-end-to-end.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-08 wallet pays only when it holds the order total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 7,
+                      "status": "timedOut",
+                      "duration": 30354,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                            "column": 52,
+                            "line": 95
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m  - Test timeout of 30000ms exceeded.\u001b[22m\n\n\n  93 |       await paymentPage.payWithWalletButton.click();\n  94 |       await expect(page).toHaveURL(/#\\/order-summary/);\n> 95 |       await expect(orderSummaryPage.paymentMethod).toContainText('Digital Wallet');\n     |                                                    ^\n  96 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(total));\n  97 |     });\n  98 |\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:95:52\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:92:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 2550
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue",
+                          "duration": 2809
+                        },
+                        {
+                          "title": "3. The button Pay 8.99¤ is disabled",
+                          "duration": 18
+                        },
+                        {
+                          "title": "4. The order history is empty",
+                          "duration": 696
+                        },
+                        {
+                          "title": "5. The wallet balance is unchanged",
+                          "duration": 2206
+                        },
+                        {
+                          "title": "Top up the wallet with 3.99 from the saved card",
+                          "duration": 3493
+                        },
+                        {
+                          "title": "6. Checkout to the payment step again",
+                          "duration": 3943
+                        },
+                        {
+                          "title": "7. Click Pay 8.99¤",
+                          "duration": 730,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m  - Test timeout of 30000ms exceeded.\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m  - Test timeout of 30000ms exceeded.\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:95:52\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:92:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                              "column": 52,
+                              "line": 95
+                            },
+                            "snippet": "  93 |       await paymentPage.payWithWalletButton.click();\n  94 |       await expect(page).toHaveURL(/#\\/order-summary/);\n> 95 |       await expect(orderSummaryPage.paymentMethod).toContainText('Digital Wallet');\n     |                                                    ^\n  96 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(total));\n  97 |     });\n  98 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:23.145Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-08-wallet-payment-TC-08-4fe6c-en-it-holds-the-order-total-chromium/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-a288132db21e2dec12f3",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-08 wallet pays only when it holds the order total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
+                      "status": "timedOut",
+                      "duration": 921851,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/BasketPage.ts",
+                            "column": 31,
+                            "line": 58
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-basket').locator('#checkoutButton')\u001b[22m\n\u001b[2m    - locator resolved to <button color=\"primary\" disabled=\"true\" id=\"checkoutButton\" mat-raised-button=\"\" _ngcontent-ng-c2922839194=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base checkout-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n   at ../pages/BasketPage.ts:58\n\n  56 |\n  57 |   async checkout(): Promise<void> {\n> 58 |     await this.checkoutButton.click();\n     |                               ^\n  59 |   }\n  60 | }\n  61 |\n    at BasketPage.checkout (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/BasketPage.ts:58:31)\n    at checkoutToPayment (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:41:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:84:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:83:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 679
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue",
+                          "duration": 525
+                        },
+                        {
+                          "title": "3. The button Pay 8.99¤ is disabled",
+                          "duration": 4
+                        },
+                        {
+                          "title": "4. The order history is empty",
+                          "duration": 608
+                        },
+                        {
+                          "title": "5. The wallet balance is unchanged",
+                          "duration": 1446
+                        },
+                        {
+                          "title": "Top up the wallet with 3.99 from the saved card",
+                          "duration": 637
+                        },
+                        {
+                          "title": "6. Checkout to the payment step again",
+                          "duration": 900459,
+                          "error": {
+                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-basket').locator('#checkoutButton')\u001b[22m\n\u001b[2m    - locator resolved to <button color=\"primary\" disabled=\"true\" id=\"checkoutButton\" mat-raised-button=\"\" _ngcontent-ng-c2922839194=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base checkout-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+                            "stack": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('app-basket').locator('#checkoutButton')\u001b[22m\n\u001b[2m    - locator resolved to <button color=\"primary\" disabled=\"true\" id=\"checkoutButton\" mat-raised-button=\"\" _ngcontent-ng-c2922839194=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base checkout-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at BasketPage.checkout (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/BasketPage.ts:58:31)\n    at checkoutToPayment (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:41:24)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:84:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:83:5",
+                            "location": {
+                              "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/pages/BasketPage.ts",
+                              "column": 31,
+                              "line": 58
+                            },
+                            "snippet": "   at ../pages/BasketPage.ts:58\n\n  56 |\n  57 |   async checkout(): Promise<void> {\n> 58 |     await this.checkoutButton.click();\n     |                               ^\n  59 |   }\n  60 | }\n  61 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:15:55.582Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-08-wallet-payment-TC-08-4fe6c-en-it-holds-the-order-total-chromium-repeat1/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-71bec12473ff4df9f8b4",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-08 wallet pays only when it holds the order total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 7,
+                      "status": "timedOut",
+                      "duration": 903675,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/fixtures.ts",
+                            "column": 26,
+                            "line": 60
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/#\\/search/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/login\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    5 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/login\"\u001b[22m\n\n\n   at fixtures.ts:60\n\n  58 |       await loginPage.goto();\n  59 |       await loginPage.login(customer.email, customer.password);\n> 60 |       await expect(page).toHaveURL(/#\\/search/);\n     |                          ^\n  61 |     });\n  62 |   },\n  63 |   loginPage: async ({ page }, use) => use(new LoginPage(page)),\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/fixtures.ts:60:26\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:37:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T21:16:15.413Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/test-results/tc-08-wallet-payment-TC-08-4fe6c-en-it-holds-the-order-total-chromium-repeat2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-3dc73424fc1f77d8a355",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-08 wallet pays only when it holds the order total",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 24990,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 679
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue",
+                          "duration": 534
+                        },
+                        {
+                          "title": "3. The button Pay 8.99¤ is disabled",
+                          "duration": 6
+                        },
+                        {
+                          "title": "4. The order history is empty",
+                          "duration": 610
+                        },
+                        {
+                          "title": "5. The wallet balance is unchanged",
+                          "duration": 1623
+                        },
+                        {
+                          "title": "Top up the wallet with 3.99 from the saved card",
+                          "duration": 2477
+                        },
+                        {
+                          "title": "6. Checkout to the payment step again",
+                          "duration": 4881
+                        },
+                        {
+                          "title": "7. Click Pay 8.99¤",
+                          "duration": 1561
+                        },
+                        {
+                          "title": "8. Place the order",
+                          "duration": 4041
+                        },
+                        {
+                          "title": "9. The wallet balance is the rest plus the bonus",
+                          "duration": 2013
+                        },
+                        {
+                          "title": "10. The order history shows the order",
+                          "duration": 664
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:20.072Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-af919c96f1fecab08efe",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-08 wallet pays only when it holds the order total",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 20041,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 1755
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue",
+                          "duration": 717
+                        },
+                        {
+                          "title": "3. The button Pay 8.99¤ is disabled",
+                          "duration": 17
+                        },
+                        {
+                          "title": "4. The order history is empty",
+                          "duration": 809
+                        },
+                        {
+                          "title": "5. The wallet balance is unchanged",
+                          "duration": 840
+                        },
+                        {
+                          "title": "Top up the wallet with 3.99 from the saved card",
+                          "duration": 306
+                        },
+                        {
+                          "title": "6. Checkout to the payment step again",
+                          "duration": 1083
+                        },
+                        {
+                          "title": "7. Click Pay 8.99¤",
+                          "duration": 398
+                        },
+                        {
+                          "title": "8. Place the order",
+                          "duration": 979
+                        },
+                        {
+                          "title": "9. The wallet balance is the rest plus the bonus",
+                          "duration": 730
+                        },
+                        {
+                          "title": "10. The order history shows the order",
+                          "duration": 746
+                        }
+                      ],
+                      "startTime": "2026-10-20T21:31:38.031Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-69b4183efb2bf2f2d8ba",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T21:15:20.295Z",
+    "duration": 997931.826,
+    "expected": 25,
+    "skipped": 0,
+    "unexpected": 15,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,25 @@
+# Summary: suite A and suite B, condition haiku, run 2
+
+Source: `bench/collect-metrics.mjs`, 2026-10-21T09:21:26.361Z. Inputs: `mutants-haiku-2`, `flaky-haiku-2`, `judge-haiku-2`.
+
+| Metric | A (no harness) | B (harness) | Source |
+|---|---|---|---|
+| Realistic bugs missed | 0 of 11 | 0 of 11 | `mutants-haiku-2.json` |
+| Bugs missed (IDs) | none | none | `mutants-haiku-2.json` |
+| Mutation score | 14 of 14 (1) | 14 of 14 (1) | `mutants-haiku-2.json` |
+| Flaky tests (20 runs) | 0 | 0 | `flaky-haiku-2.json` |
+| Broken tests (20 runs) | 0 | 0 | `flaky-haiku-2.json` |
+| Judge: steps covered / partial / missing | 46 / 3 / 0 of 49 | 46 / 3 / 0 of 49 | `judge-haiku-2/` |
+| Judge model | claude-opus-5-5 | claude-opus-5-5 | `judge-haiku-2/` |
+| Generation cost, USD | 0.77 | 1.81 | `gen-haiku-*-2.json` |
+| Cost for each test case, USD | 0.1 | 0.23 | `gen-haiku-*-2.json` |
+| Work time, min | 21 | 23.9 | `transcript` |
+| Work time for each test case, min | 2.6 | 3 | `transcript` |
+| Tool calls of the main agent | 133 | 216 | `transcript` |
+| Subagents | 0 | 1 | `gen-haiku-*-2.json` |
+| Follow-up messages | 0 | 0 | `gen-haiku-*-2.json` |
+| Tests | 8 | 8 | `clean-haiku-*-2.json` |
+| Files written | 18 | 49 | `git diff gen-2~1 gen-2` |
+| Lines written | 1065 | 1773 | `git diff gen-2~1 gen-2` |
+
+Not measured: `rules:lint` for suite A. The linter checks only the folder layout of the harness, so its numbers for A do not compare with B.

@@ -6,6 +6,67 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 13:50: results of E2 and E3, and the client suite of E4
+
+Start from: Arsen decides on E4 (the items at the end of this entry). Then the free tool runs on the client suite, and the auditor session (cap 20 USD) after his "yes".
+
+### The re-runs, with proof
+
+`bench/rerun-vague-slept.sh`, from 12:48:10 to 13:30:27, the last line `rerun done. Failed steps: none`. The output is in `bench/.run/rerun-vague-slept.log`.
+Each step gave exit 0: vague run 2 patches (to 13:00:51), flaky (to 13:07:25), judge (to 13:10:55) and summary. Then the pair A-3 and B-4: patches (to 13:23:29), flaky, the 2 summaries, the merge and the aggregate.
+The Mac did not sleep during the re-runs. `git -C juice-shop status --short`: no output. The app: `down`.
+
+### The results: the values of runs 1, 2 and 3 (the third vague pair is A-3 and B-4)
+
+| Metric | vague A | vague B | haiku A | haiku B |
+|---|---|---|---|---|
+| Realistic bugs missed, of 11 | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 / 4 | 0 / 0 / 0 |
+| Mutation score, of 14 | 14 / 14 / 14 | 14 / 14 / 14 | 14 / 14 / 10 | 14 / 14 / 14 |
+| Judge steps `partial`, of 49 | 2 / 21 / 18 | 0 / 0 / 0 | 9 / 3 / 7 | 5 / 3 / 1 |
+| Judge steps `missing`, of 49 | 0 / 0 / 0 | 0 / 0 / 0 | 7 / 0 / 0 | 0 / 0 / 0 |
+| Flaky tests, 20 runs | 0 / 0 / 2 | 0 / 0 / 0 | 0 / 0 / 1 | 0 / 0 / 0 |
+| Generation cost, USD | 2.58 / 2.66 / 2.46 | 8.45 / 8.42 / 6.76 | 0.82 / 0.77 / 0.58 | 1.57 / 1.81 / 4.25 |
+
+- Sources: `bench/results/aggregate-vague.md`, `aggregate-haiku.md` and the files that they name. No run got the follow-up message.
+- Haiku A-3 missed M01, M03, M09 and M13. Its TC-07 test failed on each of these 4 patches, but it also failed 1 of 3 recheck runs on the clean build.
+  The failure: `toBeVisible` on `getByText('Placed Carrot Juice (1000ml) into basket.')`. Thus the stage 1 rule does not count these catches. This is the same pattern as precise B-3.
+- Cost of E2 and E3:
+  - Generation: 41.13 USD. The stopped vague B-3 has no result event, so its cost is not known.
+  - Judges: 8.86 USD. The failed judge of vague run 2 during the sleep is not in this sum.
+
+### The hypotheses, by the frozen rule "How we read n = 3"
+
+An agent read the hypotheses again from the frozen file (`git show hypotheses-v2:...`) and the raw files, with no access to my reading (workflow `wf_c42f6ae0-902`). Its labels are the same as mine.
+
+| Hypothesis | Label |
+|---|---|
+| H2.1 A-vague misses more bugs than A-precise | ceiling (0, 0, 0 against 0, 0, 0) |
+| H2.1, judge steps partial plus missing | direction only (2, 21, 18 against 2, 0, 3), inconclusive |
+| H2.2 B-vague misses more bugs than B-precise | opposite direction (0, 0, 0 against 0, 0, 4), inconclusive |
+| H2.3 B-vague misses fewer bugs than A-vague | ceiling (0, 0, 0 against 0, 0, 0) |
+| H2.3, judge steps partial plus missing | **strong support** (B 0, 0, 0 against A 2, 21, 18: no overlap) |
+| H2.3, flaky tests | direction only (0, 0, 0 against 0, 0, 2), inconclusive |
+| H3.3 B-haiku misses fewer bugs than A-haiku | direction only (0, 0, 0 against 0, 0, 4), inconclusive |
+| H3.1 the gap of missed bugs is larger with Haiku | direction only: D(haiku) = +1.33, D(precise) = -1.33 |
+| H3.2 the gap of judge steps is larger with Haiku | direction only: D(haiku) = +5.67 (A 16, 3, 7 against B 5, 3, 1), D(precise) = +1.33 |
+
+- By the publication rule, the offer can claim only one effect. On vague test cases, by the blind judge, the suite with the harness checked the expected results more exactly.
+  It must give the numbers and the spread. It must not claim that the harness catches more bugs.
+- A limit that the agent found: D(precise) was known at the freeze of `hypotheses-v2.md`. The precise runs 2 and 3 ended at 16:32, and the freeze was at 19:19.
+  Thus the threshold of H3.1 and H3.2 is post hoc.
+- Precise B-3 and haiku A-3 are the only suites with missed bugs. In both, the cause is a TC-07 test that failed a recheck run, not a missing check.
+
+### The client suite of E4 (the frozen rule, section "The client suite for E4")
+
+- `node bench/select-client.mjs` (new script) wrote `bench/results/client-selection.{md,json}`.
+- 12 candidates, 11 eligible. Haiku A-3 is not eligible, because its recheck gave 7 of 8.
+  Each of the 11 eligible candidates misses 0 bugs, so step 3 applies: **the client suite is vague A-1** (`harness-demo-runs/set-2/run-1/suite-a`, tag `gen-1`).
+- The agent of the workflow `wf_c42f6ae0-902` applied the rule to the raw Playwright reports, with no access to the script. The client suite and all values of the 12 rows are the same.
+- Two notes of the agent for Arsen:
+  - The plan text "take the weakest suite" would point to haiku A-3 (4 missed bugs). The frozen step 3 uses only the eligible candidates (answer 4).
+  - Vague A-1 is one of the strongest vague A suites by the judge: 2 steps `partial`, against 21 (A-2) and 18 (A-3). Its tests catch each of the 11 bugs.
+    Thus R1 has no value (H4.1 "not tested"), and H4.3 can only show "no change" (the frozen E4 rules for 0 missed bugs).
+
 ## 2026-10-21, 13:10: the tool-call audit fixed and run again for each session (item 1.5)
 
 - At 12:58, the re-runs of the entry of 12:55 started in the background: `caffeinate -i bench/rerun-vague-slept.sh >bench/.run/rerun-vague-slept.log 2>&1` (commit `6efb01f`).

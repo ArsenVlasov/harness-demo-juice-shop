@@ -1,0 +1,714 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "TC-01-login.spec.ts",
+      "file": "TC-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2636,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page /#/login",
+                      "duration": 679
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 1038
+                    },
+                    {
+                      "title": "3. Open the account menu. It shows Login and not the email",
+                      "duration": 63
+                    },
+                    {
+                      "title": "4. Close the menu, then log in with the correct password",
+                      "duration": 269
+                    },
+                    {
+                      "title": "5. Open the account menu. It shows the email and Logout",
+                      "duration": 45
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:24.899Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6f0756e36c62a5e3e825-c9a74ada1cf466b01d6c",
+          "file": "TC-01-login.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-02-add-to-basket.spec.ts",
+      "file": "TC-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3705,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list. The product, its price and Add to Basket are shown. Basket counter is 0",
+                      "duration": 828
+                    },
+                    {
+                      "title": "2. Click Add to Basket. A message shows and the basket counter is 1",
+                      "duration": 274
+                    },
+                    {
+                      "title": "3. Open the basket. It has one row with the name, quantity 1 and price 8.99¤",
+                      "duration": 373
+                    },
+                    {
+                      "title": "4. The basket shows Total Price: 8.99¤",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:24.899Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9f679721f492e6d94c00-00842eaff5eeae40ceeb",
+          "file": "TC-02-add-to-basket.spec.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-03-basket-quantity-and-remove.spec.ts",
+      "file": "TC-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 5188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket. A: quantity 1, B: quantity 1, Total 13.98¤, counter 2",
+                      "duration": 390
+                    },
+                    {
+                      "title": "2. Click plus on product A. A: quantity 2, Total 18.97¤, counter 3",
+                      "duration": 432
+                    },
+                    {
+                      "title": "3. Click minus on product A. A: quantity 1, Total 13.98¤, counter 2",
+                      "duration": 169
+                    },
+                    {
+                      "title": "4. Click minus on product A again. A keeps quantity 1 and stays. Total 13.98¤",
+                      "duration": 59
+                    },
+                    {
+                      "title": "5. Click trash on product A. No row for A, B stays with quantity 1, Total 8.99¤, counter 1",
+                      "duration": 859
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:24.901Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf75024f698336085720-f2d75aa43785c511ca56",
+          "file": "TC-03-basket-quantity-and-remove.spec.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-04-purchase-limit.spec.ts",
+      "file": "TC-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3979,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and add the product. Counter is 1",
+                      "duration": 484
+                    },
+                    {
+                      "title": "2. Open the basket and click plus until quantity is 5. Total 9.95¤, no error",
+                      "duration": 1969
+                    },
+                    {
+                      "title": "3. Click plus once more. The error shows",
+                      "duration": 271
+                    },
+                    {
+                      "title": "4. The product keeps quantity 5. Total 9.95¤. Counter is 5",
+                      "duration": 16
+                    },
+                    {
+                      "title": "5. Open the product list and click Add to Basket. The error shows and counter is 5",
+                      "duration": 194
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:27.920Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4ebbb7958e67e22de36e-7907ccbf04a7190918de",
+          "file": "TC-04-purchase-limit.spec.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-05-valid-coupon.spec.ts",
+      "file": "TC-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 17701,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:56:91\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:53:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts",
+                      "column": 91,
+                      "line": 56
+                    },
+                    "snippet": "  54 |     await paymentPage.openCouponPanel();\n  55 |     await paymentPage.redeemCoupon(currentMonthCoupon());\n> 56 |     await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();\n     |                                                                                           ^\n  57 |   });\n  58 |\n  59 |   await test.step('5. Select the saved card and click Continue. The order summary shows the discount', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts",
+                        "column": 91,
+                        "line": 56
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n\n\n  54 |     await paymentPage.openCouponPanel();\n  55 |     await paymentPage.redeemCoupon(currentMonthCoupon());\n> 56 |     await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();\n     |                                                                                           ^\n  57 |   });\n  58 |\n  59 |   await test.step('5. Select the saved card and click Continue. The order summary shows the discount', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:56:91\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:53:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click Checkout. The saved address is shown",
+                      "duration": 50
+                    },
+                    {
+                      "title": "2. Select the saved address and click Continue. Delivery options and prices are shown",
+                      "duration": 103
+                    },
+                    {
+                      "title": "3. Select One Day Delivery and click Continue. The payment page shows the card and the coupon panel",
+                      "duration": 334
+                    },
+                    {
+                      "title": "4. Open the coupon panel, redeem the coupon of this month. The discount message shows",
+                      "duration": 15370,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:56:91\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:53:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts",
+                          "column": 91,
+                          "line": 56
+                        },
+                        "snippet": "  54 |     await paymentPage.openCouponPanel();\n  55 |     await paymentPage.redeemCoupon(currentMonthCoupon());\n> 56 |     await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();\n     |                                                                                           ^\n  57 |   });\n  58 |\n  59 |   await test.step('5. Select the saved card and click Continue. The order summary shows the discount', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:28.991Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts",
+                    "column": 91,
+                    "line": 56
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1bab9bf2cd910e6ba701-58a14e755bb7235bd75e",
+          "file": "TC-05-valid-coupon.spec.ts",
+          "line": 9,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-06-invalid-and-expired-coupon.spec.ts",
+      "file": "TC-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2788,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, click Checkout, select the saved address and click Continue",
+                      "duration": 166
+                    },
+                    {
+                      "title": "2. Select One Day Delivery and click Continue. The payment page opens",
+                      "duration": 313
+                    },
+                    {
+                      "title": "3. Redeem the invalid code. The shop shows Invalid coupon. and no discount",
+                      "duration": 213
+                    },
+                    {
+                      "title": "4. Redeem the expired coupon. The shop shows Invalid coupon. and no discount",
+                      "duration": 109
+                    },
+                    {
+                      "title": "5. Select the saved card and click Continue. The summary has no promotion",
+                      "duration": 195
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:30.473Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b42c65b46cbc82b081c-5d0a96423a0bfc6333d9",
+          "file": "TC-06-invalid-and-expired-coupon.spec.ts",
+          "line": 9,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-07-card-order-end-to-end.spec.ts",
+      "file": "TC-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17000,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:57:91\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:54:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                      "column": 91,
+                      "line": 57
+                    },
+                    "snippet": "  55 |     await paymentPage.openCouponPanel();\n  56 |     await paymentPage.redeemCoupon(currentMonthCoupon());\n> 57 |     await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();\n     |                                                                                           ^\n  58 |   });\n  59 |\n  60 |   await test.step('6. Select the saved card and click Continue. The order summary shows the totals', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                        "column": 91,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n\n\n  55 |     await paymentPage.openCouponPanel();\n  56 |     await paymentPage.redeemCoupon(currentMonthCoupon());\n> 57 |     await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();\n     |                                                                                           ^\n  58 |   });\n  59 |\n  60 |   await test.step('6. Select the saved card and click Continue. The order summary shows the totals', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:57:91\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:54:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time. Counter is 3",
+                      "duration": 641
+                    },
+                    {
+                      "title": "2. Open the basket. A: quantity 2, B: quantity 1, Total 20.97¤",
+                      "duration": 60
+                    },
+                    {
+                      "title": "3. Click Checkout, select the saved address and click Continue",
+                      "duration": 148
+                    },
+                    {
+                      "title": "4. Select One Day Delivery and click Continue",
+                      "duration": 140
+                    },
+                    {
+                      "title": "5. Redeem the coupon of this month. The discount message shows",
+                      "duration": 15117,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Your discount of 10% will be applied during checkout.')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Your discount of 10% will be applied during checkout.') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Your discount of 10% will be applied during checkout.')\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:57:91\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:54:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                          "column": 91,
+                          "line": 57
+                        },
+                        "snippet": "  55 |     await paymentPage.openCouponPanel();\n  56 |     await paymentPage.redeemCoupon(currentMonthCoupon());\n> 57 |     await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();\n     |                                                                                           ^\n  58 |   });\n  59 |\n  60 |   await test.step('6. Select the saved card and click Continue. The order summary shows the totals', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:31.922Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-07-card-order-end-to-en-883d0-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                    "column": 91,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1d3845c20085e644a955-fe66db0c2ddb9c1ba5e1",
+          "file": "TC-07-card-order-end-to-end.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-08-wallet-payment.spec.ts",
+      "file": "TC-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 5022,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Part 1 / 1. Open the basket, click Checkout, select the saved address and click Continue",
+                      "duration": 204
+                    },
+                    {
+                      "title": "Part 1 / 2. Select Standard Delivery and click Continue. Wallet balance 5.00 and Pay 8.99¤ are shown",
+                      "duration": 136
+                    },
+                    {
+                      "title": "Part 1 / 3. The Pay 8.99¤ button is disabled",
+                      "duration": 3
+                    },
+                    {
+                      "title": "Part 1 / 4. Order History says there are no orders yet",
+                      "duration": 586
+                    },
+                    {
+                      "title": "Part 1 / 5. Digital Wallet shows balance 5.00",
+                      "duration": 777
+                    },
+                    {
+                      "title": "Part 2 / 6. Go to the payment page with Standard Delivery. Wallet balance 8.99 and an enabled Pay 8.99¤",
+                      "duration": 403
+                    },
+                    {
+                      "title": "Part 2 / 7. Click Pay 8.99¤. The order summary shows Digital Wallet and Total Price 8.99¤",
+                      "duration": 89
+                    },
+                    {
+                      "title": "Part 2 / 8. Click Place your order and pay. The confirmation page shows the thank you text",
+                      "duration": 347
+                    },
+                    {
+                      "title": "Part 2 / 9. Digital Wallet shows balance 1.00 (8.99 - 8.99 + 1 bonus point)",
+                      "duration": 555
+                    },
+                    {
+                      "title": "Part 2 / 10. Order History shows the order with Total Price 8.99¤ and Bonus 1",
+                      "duration": 675
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:32:33.286Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5af517408f2c6273c70b-83bdb87426abf74bcb83",
+          "file": "TC-08-wallet-payment.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T08:32:24.324Z",
+    "duration": 24680.445,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "label": "suite-2",
+  "model": "claude-opus-5-5",
+  "cost": 0.6573008,
+  "durationMs": 2523990,
+  "isError": false,
+  "stepsExpected": 49,
+  "stepsJudged": 49,
+  "missingSteps": [],
+  "extraSteps": [],
+  "counts": {
+    "covered": 31,
+    "partial": 18,
+    "missing": 0
+  },
+  "verdicts": [
+    {
+      "tc": "TC-01",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:8",
+        "tests/tc-01-login.spec.ts:9",
+        "tests/tc-01-login.spec.ts:10",
+        "tests/tc-01-login.spec.ts:11",
+        "tests/tc-01-login.spec.ts:12",
+        "tests/tc-01-login.spec.ts:13"
+      ],
+      "note": "Checks the Login heading, the Email and Password labels and fields, and the Log in button text."
+    },
+    {
+      "tc": "TC-01",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:18",
+        "tests/tc-01-login.spec.ts:19",
+        "tests/tc-01-login.spec.ts:20"
+      ],
+      "note": "Checks the exact error text, the login URL and the login heading."
+    },
+    {
+      "tc": "TC-01",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:25",
+        "tests/tc-01-login.spec.ts:26"
+      ],
+      "note": "Checks the Login menu item and that the menu does not hold the email."
+    },
+    {
+      "tc": "TC-01",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:32"
+      ],
+      "note": "Checks that the URL ends with #/search."
+    },
+    {
+      "tc": "TC-01",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:37",
+        "tests/tc-01-login.spec.ts:38"
+      ],
+      "note": "Checks the menu items with the email and Logout."
+    },
+    {
+      "tc": "TC-02",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-02-add-to-basket.spec.ts:12",
+        "tests/tc-02-add-to-basket.spec.ts:13",
+        "tests/tc-02-add-to-basket.spec.ts:14",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "Checks the name, the price 8.99¤, the Add to Basket button and the counter 0."
+    },
+    {
+      "tc": "TC-02",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-02-add-to-basket.spec.ts:20",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "Checks the snackbar text and the counter 1."
+    },
+    {
+      "tc": "TC-02",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/NavBar.ts:35",
+        "tests/tc-02-add-to-basket.spec.ts:26",
+        "tests/tc-02-add-to-basket.spec.ts:27",
+        "tests/pages/BasketPage.ts:49",
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:51"
+      ],
+      "note": "Checks the basket URL, one row, and the name, quantity 1 and price 8.99¤."
+    },
+    {
+      "tc": "TC-02",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/BasketPage.ts:55"
+      ],
+      "note": "Checks Total Price: 8.99¤ from the catalog price."
+    },
+    {
+      "tc": "TC-03",
+      "step": 1,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:27",
+        "tests/pages/BasketPage.ts:49",
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:51",
+        "tests/pages/BasketPage.ts:55",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "The total 13.98¤ comes from the itemsTotal helper, which uses the app's formula, not the value in the test case."
+    },
+    {
+      "tc": "TC-03",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:55",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "The total 18.97¤ comes from the itemsTotal helper, not from the value in the test case."
+    },
+    {
+      "tc": "TC-03",
+      "step": 3,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:55",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "The total 13.98¤ comes from the itemsTotal helper, not from the value in the test case."
+    },
+    {
+      "tc": "TC-03",
+      "step": 4,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:43",
+        "tests/pages/BasketPage.ts:49",
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:55"
+      ],
+      "note": "The total 13.98¤ comes from the itemsTotal helper, not from the value in the test case."
+    },
+    {
+      "tc": "TC-03",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:49",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:50",
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:55",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "Checks that row A is gone, row B has quantity 1, the total is 8.99¤ and the counter is 1."
+    },
+    {
+      "tc": "TC-04",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:14",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "Checks the snackbar text and the counter 1."
+    },
+    {
+      "tc": "TC-04",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:22",
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:55",
+        "tests/tc-04-purchase-limit.spec.ts:26"
+      ],
+      "note": "The total 9.95¤ is calculated as price × limit, not the value in the test case."
+    },
+    {
+      "tc": "TC-04",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:31"
+      ],
+      "note": "Checks the error snackbar text for the limit of 5."
+    },
+    {
+      "tc": "TC-04",
+      "step": 4,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:55",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "The total 9.95¤ is calculated as price × limit, not the value in the test case."
+    },
+    {
+      "tc": "TC-04",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:43",
+        "tests/tc-04-purchase-limit.spec.ts:44"
+      ],
+      "note": "Checks the error snackbar text and the counter 5."
+    },
+    {
+      "tc": "TC-05",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:19",
+        "tests/pages/CheckoutPages.ts:20",
+        "tests/pages/CheckoutPages.ts:21",
+        "tests/pages/CheckoutPages.ts:22",
+        "tests/pages/CheckoutPages.ts:25"
+      ],
+      "note": "Checks the Select an address heading and the saved address values."
+    },
+    {
+      "tc": "TC-05",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:52",
+        "tests/pages/CheckoutPages.ts:53",
+        "tests/tc-05-valid-coupon.spec.ts:37"
+      ],
+      "note": "Checks the delivery page and the three delivery prices."
+    },
+    {
+      "tc": "TC-05",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:89",
+        "tests/pages/CheckoutPages.ts:90",
+        "tests/pages/CheckoutPages.ts:94",
+        "tests/pages/CheckoutPages.ts:95",
+        "tests/pages/CheckoutPages.ts:96",
+        "tests/tc-05-valid-coupon.spec.ts:45"
+      ],
+      "note": "Checks the payment page, the saved card and the Add a coupon panel."
+    },
+    {
+      "tc": "TC-05",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-05-valid-coupon.spec.ts:51"
+      ],
+      "note": "Checks the exact 10% confirmation text."
+    },
+    {
+      "tc": "TC-05",
+      "step": 5,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:152",
+        "tests/pages/CheckoutPages.ts:132"
+      ],
+      "note": "Items, Delivery, Promotion and Total come from the orderTotals helper, which copies the app's calculation, not the values in the test case."
+    },
+    {
+      "tc": "TC-06",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:52",
+        "tests/pages/CheckoutPages.ts:53"
+      ],
+      "note": "Checks the delivery method URL and heading."
+    },
+    {
+      "tc": "TC-06",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:89",
+        "tests/pages/CheckoutPages.ts:90"
+      ],
+      "note": "Checks the payment URL and the My Payment Options heading."
+    },
+    {
+      "tc": "TC-06",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:43",
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:44"
+      ],
+      "note": "Checks the Invalid coupon. error and that no confirmation shows."
+    },
+    {
+      "tc": "TC-06",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:49",
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:50"
+      ],
+      "note": "Checks the Invalid coupon. error and that no confirmation shows after the response."
+    },
+    {
+      "tc": "TC-06",
+      "step": 5,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:152",
+        "tests/pages/CheckoutPages.ts:132"
+      ],
+      "note": "The summary values come from the orderTotals helper, not the values in the test case."
+    },
+    {
+      "tc": "TC-07",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:36",
+        "tests/tc-07-card-order-end-to-end.spec.ts:39",
+        "tests/pages/NavBar.ts:20"
+      ],
+      "note": "Checks that the basket counter reaches 3."
+    },
+    {
+      "tc": "TC-07",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:44",
+        "tests/pages/BasketPage.ts:50",
+        "tests/pages/BasketPage.ts:51",
+        "tests/pages/BasketPage.ts:55"
+      ],
+      "note": "The total 20.97¤ comes from the itemsTotal helper, not the value in the test case."
+    },
+    {
+      "tc": "TC-07",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:52",
+        "tests/pages/CheckoutPages.ts:53"
+      ],
+      "note": "Checks the delivery method URL and heading."
+    },
+    {
+      "tc": "TC-07",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:89",
+        "tests/pages/CheckoutPages.ts:90"
+      ],
+      "note": "Checks the payment URL and heading."
+    },
+    {
+      "tc": "TC-07",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:65"
+      ],
+      "note": "Checks the exact 10% confirmation text."
+    },
+    {
+      "tc": "TC-07",
+      "step": 6,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:152",
+        "tests/pages/CheckoutPages.ts:156",
+        "tests/pages/CheckoutPages.ts:157",
+        "tests/pages/CheckoutPages.ts:160",
+        "tests/pages/CheckoutPages.ts:164",
+        "tests/pages/CheckoutPages.ts:165",
+        "tests/pages/CheckoutPages.ts:132"
+      ],
+      "note": "The address and card are checked, but the totals come from the orderTotals helper, not the values in the test case."
+    },
+    {
+      "tc": "TC-07",
+      "step": 7,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:198",
+        "tests/pages/CheckoutPages.ts:199"
+      ],
+      "note": "Checks the order-completion URL with an ID and the thank-you heading."
+    },
+    {
+      "tc": "TC-07",
+      "step": 8,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:205",
+        "tests/pages/CheckoutPages.ts:214",
+        "tests/pages/CheckoutPages.ts:215"
+      ],
+      "note": "The test compares the server-saved totals with values calculated the way the client calculates them, not with the values in the test case."
+    },
+    {
+      "tc": "TC-07",
+      "step": 9,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/NavBar.ts:20",
+        "tests/tc-07-card-order-end-to-end.spec.ts:92",
+        "tests/tc-07-card-order-end-to-end.spec.ts:93"
+      ],
+      "note": "Checks the counter 0, no basket rows and the disabled Checkout button."
+    },
+    {
+      "tc": "TC-07",
+      "step": 10,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:98",
+        "tests/tc-07-card-order-end-to-end.spec.ts:99",
+        "tests/tc-07-card-order-end-to-end.spec.ts:101",
+        "tests/pages/AccountPages.ts:25",
+        "tests/pages/AccountPages.ts:31",
+        "tests/pages/AccountPages.ts:32"
+      ],
+      "note": "The order Total Price comes from the orderTotals helper, not the value 19.86¤ in the test case."
+    },
+    {
+      "tc": "TC-08",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:52",
+        "tests/pages/CheckoutPages.ts:53"
+      ],
+      "note": "Checks the delivery method URL and heading."
+    },
+    {
+      "tc": "TC-08",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:89",
+        "tests/pages/CheckoutPages.ts:90",
+        "tests/pages/CheckoutPages.ts:100",
+        "tests/pages/CheckoutPages.ts:101"
+      ],
+      "note": "The Pay button amount comes from the orderTotals helper, not the value 8.99¤ in the test case."
+    },
+    {
+      "tc": "TC-08",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:50"
+      ],
+      "note": "Checks that the Pay button is disabled."
+    },
+    {
+      "tc": "TC-08",
+      "step": 4,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:55",
+        "tests/tc-08-wallet-payment.spec.ts:56"
+      ],
+      "note": "The empty message is matched with a loose regex (/no results|no orders/i), not the exact text You have not placed any orders yet."
+    },
+    {
+      "tc": "TC-08",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/AccountPages.ts:46",
+        "tests/pages/AccountPages.ts:47"
+      ],
+      "note": "Checks the wallet balance 5.00."
+    },
+    {
+      "tc": "TC-08",
+      "step": 6,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:100",
+        "tests/pages/CheckoutPages.ts:101",
+        "tests/tc-08-wallet-payment.spec.ts:72"
+      ],
+      "note": "The balance 8.99 and the Pay amount are calculated by the test, not taken from the values in the test case."
+    },
+    {
+      "tc": "TC-08",
+      "step": 7,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:152",
+        "tests/tc-08-wallet-payment.spec.ts:78",
+        "tests/pages/CheckoutPages.ts:132"
+      ],
+      "note": "Total Price comes from the orderTotals helper, not the value 8.99¤ in the test case."
+    },
+    {
+      "tc": "TC-08",
+      "step": 8,
+      "verdict": "covered",
+      "evidence": [
+        "tests/pages/CheckoutPages.ts:199"
+      ],
+      "note": "Checks the thank-you heading."
+    },
+    {
+      "tc": "TC-08",
+      "step": 9,
+      "verdict": "partial",
+      "evidence": [
+        "tests/pages/AccountPages.ts:47"
+      ],
+      "note": "The balance 1.00 is calculated with bonusPoints, which copies the app's bonus formula, not the value in the test case."
+    },
+    {
+      "tc": "TC-08",
+      "step": 10,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:94",
+        "tests/pages/AccountPages.ts:25",
+        "tests/pages/AccountPages.ts:26"
+      ],
+      "note": "The total and the bonus are calculated with the app's formulas, not taken as the values 8.99¤ and 1 from the test case."
+    }
+  ]
+}

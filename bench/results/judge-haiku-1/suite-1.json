@@ -1,0 +1,506 @@
+{
+  "label": "suite-1",
+  "model": "claude-opus-5-5",
+  "cost": 0.6250168,
+  "durationMs": 97013,
+  "isError": false,
+  "stepsExpected": 49,
+  "stepsJudged": 49,
+  "missingSteps": [],
+  "extraSteps": [],
+  "counts": {
+    "covered": 33,
+    "partial": 9,
+    "missing": 7
+  },
+  "verdicts": [
+    {
+      "tc": "TC-01",
+      "step": 1,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-01-login.spec.ts:12",
+        "tests/TC-01-login.spec.ts:13",
+        "tests/TC-01-login.spec.ts:14",
+        "tests/TC-01-login.spec.ts:15"
+      ],
+      "note": "Checks only that the four elements are visible, not the title text 'Login', the field labels or the button text."
+    },
+    {
+      "tc": "TC-01",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-01-login.spec.ts:20",
+        "tests/TC-01-login.spec.ts:21"
+      ],
+      "note": "Checks the error text and that the URL stays on /#/login."
+    },
+    {
+      "tc": "TC-01",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-01-login.spec.ts:26",
+        "tests/TC-01-login.spec.ts:27"
+      ],
+      "note": "Checks the Login item and that the menu does not contain the email."
+    },
+    {
+      "tc": "TC-01",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-01-login.spec.ts:33"
+      ],
+      "note": "Checks the URL /#/search after the login."
+    },
+    {
+      "tc": "TC-01",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-01-login.spec.ts:38",
+        "tests/TC-01-login.spec.ts:39"
+      ],
+      "note": "Checks the email in the menu and the Logout item."
+    },
+    {
+      "tc": "TC-02",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-02-add-to-basket.spec.ts:18",
+        "tests/TC-02-add-to-basket.spec.ts:19",
+        "tests/TC-02-add-to-basket.spec.ts:20",
+        "tests/TC-02-add-to-basket.spec.ts:21"
+      ],
+      "note": "Checks the name, the price 8.99¤, the Add to Basket button and the counter 0."
+    },
+    {
+      "tc": "TC-02",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-02-add-to-basket.spec.ts:27"
+      ],
+      "note": "The message text is checked only inside topBar.expectSnackBar, and that page object is not in code/, so the check cannot be confirmed."
+    },
+    {
+      "tc": "TC-02",
+      "step": 3,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-02-add-to-basket.spec.ts:32",
+        "tests/TC-02-add-to-basket.spec.ts:33",
+        "tests/TC-02-add-to-basket.spec.ts:34"
+      ],
+      "note": "Does not check the /#/basket URL or that the basket has only one row in total."
+    },
+    {
+      "tc": "TC-02",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-02-add-to-basket.spec.ts:38"
+      ],
+      "note": "Checks Total Price 8.99¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:25",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:26",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:27",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:28"
+      ],
+      "note": "Checks both quantities, the total 13.98¤ and the counter 2."
+    },
+    {
+      "tc": "TC-03",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:33",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:34",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:35"
+      ],
+      "note": "Checks quantity 2, the total 18.97¤ and the counter 3."
+    },
+    {
+      "tc": "TC-03",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:40",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:41",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:42"
+      ],
+      "note": "Checks quantity 1, the total 13.98¤ and the counter 2."
+    },
+    {
+      "tc": "TC-03",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:47",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:48",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:49"
+      ],
+      "note": "Checks that the row stays, the quantity stays 1 and the total is 13.98¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:54",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:55",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:56",
+        "tests/TC-03-basket-quantity-and-remove.spec.ts:57"
+      ],
+      "note": "Checks that row A is gone, B has quantity 1, the total is 8.99¤ and the counter is 1."
+    },
+    {
+      "tc": "TC-04",
+      "step": 1,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-04-purchase-limit.spec.ts:20"
+      ],
+      "note": "The 'Placed ... into basket.' message is checked only in topBar.expectSnackBar, which is not in code/ and cannot be confirmed."
+    },
+    {
+      "tc": "TC-04",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-04-purchase-limit.spec.ts:27",
+        "tests/TC-04-purchase-limit.spec.ts:29",
+        "tests/TC-04-purchase-limit.spec.ts:30"
+      ],
+      "note": "Checks quantity 5, the total 9.95¤ and that the limit error does not show."
+    },
+    {
+      "tc": "TC-04",
+      "step": 3,
+      "verdict": "missing",
+      "evidence": [],
+      "note": "The error message is checked only inside topBar.expectSnackBar, which is not in code/, so no check can be confirmed."
+    },
+    {
+      "tc": "TC-04",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-04-purchase-limit.spec.ts:39",
+        "tests/TC-04-purchase-limit.spec.ts:40",
+        "tests/TC-04-purchase-limit.spec.ts:41"
+      ],
+      "note": "Checks quantity 5, the total 9.95¤ and the counter 5."
+    },
+    {
+      "tc": "TC-04",
+      "step": 5,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-04-purchase-limit.spec.ts:49"
+      ],
+      "note": "The limit error message is checked only in topBar.expectSnackBar, which is not in code/ and cannot be confirmed."
+    },
+    {
+      "tc": "TC-05",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-05-valid-coupon.spec.ts:33"
+      ],
+      "note": "Checks that the saved address is visible."
+    },
+    {
+      "tc": "TC-05",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-05-valid-coupon.spec.ts:40",
+        "tests/TC-05-valid-coupon.spec.ts:41",
+        "tests/TC-05-valid-coupon.spec.ts:42"
+      ],
+      "note": "Checks the three delivery options with their prices."
+    },
+    {
+      "tc": "TC-05",
+      "step": 3,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-05-valid-coupon.spec.ts:49",
+        "tests/TC-05-valid-coupon.spec.ts:50"
+      ],
+      "note": "Checks only that the card and the coupon panel are visible, not the card details or the panel text."
+    },
+    {
+      "tc": "TC-05",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-05-valid-coupon.spec.ts:56"
+      ],
+      "note": "Checks the exact discount message."
+    },
+    {
+      "tc": "TC-05",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-05-valid-coupon.spec.ts:63",
+        "tests/TC-05-valid-coupon.spec.ts:64",
+        "tests/TC-05-valid-coupon.spec.ts:65",
+        "tests/TC-05-valid-coupon.spec.ts:66"
+      ],
+      "note": "Checks Items, Delivery, Promotion and Total Price with the values from the test case."
+    },
+    {
+      "tc": "TC-06",
+      "step": 1,
+      "verdict": "missing",
+      "evidence": [],
+      "note": "Only deliveryPage.expectOpen is called, and that page object is not in code/, so no check can be confirmed."
+    },
+    {
+      "tc": "TC-06",
+      "step": 2,
+      "verdict": "missing",
+      "evidence": [],
+      "note": "Only paymentPage.expectOpen is called, and that page object is not in code/, so no check can be confirmed."
+    },
+    {
+      "tc": "TC-06",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:46",
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:47"
+      ],
+      "note": "Checks the 'Invalid coupon.' error and that no discount text shows."
+    },
+    {
+      "tc": "TC-06",
+      "step": 4,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:52",
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:53"
+      ],
+      "note": "The 'Invalid coupon.' error left over from step 3 can pass this check, so it does not prove that the expired coupon caused a new error."
+    },
+    {
+      "tc": "TC-06",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:60",
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:61",
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:62",
+        "tests/TC-06-invalid-and-expired-coupon.spec.ts:63"
+      ],
+      "note": "Checks Items, Delivery, Promotion 0.00¤ and Total Price 18.97¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:31"
+      ],
+      "note": "Checks the counter 3."
+    },
+    {
+      "tc": "TC-07",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:36",
+        "tests/TC-07-card-order-end-to-end.spec.ts:37",
+        "tests/TC-07-card-order-end-to-end.spec.ts:38"
+      ],
+      "note": "Checks both quantities and the total 20.97¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 3,
+      "verdict": "missing",
+      "evidence": [],
+      "note": "Only deliveryPage.expectOpen is called, and that page object is not in code/, so no check can be confirmed."
+    },
+    {
+      "tc": "TC-07",
+      "step": 4,
+      "verdict": "missing",
+      "evidence": [],
+      "note": "Only paymentPage.expectOpen is called, and that page object is not in code/, so no check can be confirmed."
+    },
+    {
+      "tc": "TC-07",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:57"
+      ],
+      "note": "Checks the exact discount message."
+    },
+    {
+      "tc": "TC-07",
+      "step": 6,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:64",
+        "tests/TC-07-card-order-end-to-end.spec.ts:65",
+        "tests/TC-07-card-order-end-to-end.spec.ts:66",
+        "tests/TC-07-card-order-end-to-end.spec.ts:67",
+        "tests/TC-07-card-order-end-to-end.spec.ts:68",
+        "tests/TC-07-card-order-end-to-end.spec.ts:69"
+      ],
+      "note": "Checks the address, the card, Items, Delivery, Promotion and Total Price."
+    },
+    {
+      "tc": "TC-07",
+      "step": 7,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:75"
+      ],
+      "note": "The test checks only that the order ID is not empty; the thank-you text and the URL are checked only in completion.expectOpen, which is not in code/."
+    },
+    {
+      "tc": "TC-07",
+      "step": 8,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:80",
+        "tests/TC-07-card-order-end-to-end.spec.ts:81",
+        "tests/TC-07-card-order-end-to-end.spec.ts:82",
+        "tests/TC-07-card-order-end-to-end.spec.ts:83",
+        "tests/TC-07-card-order-end-to-end.spec.ts:84",
+        "tests/TC-07-card-order-end-to-end.spec.ts:85"
+      ],
+      "note": "Checks both product quantities and all four summary lines."
+    },
+    {
+      "tc": "TC-07",
+      "step": 9,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:89",
+        "tests/TC-07-card-order-end-to-end.spec.ts:91",
+        "tests/TC-07-card-order-end-to-end.spec.ts:92",
+        "tests/TC-07-card-order-end-to-end.spec.ts:93"
+      ],
+      "note": "Checks the counter 0, that there are no product rows and that Checkout is disabled."
+    },
+    {
+      "tc": "TC-07",
+      "step": 10,
+      "verdict": "partial",
+      "evidence": [
+        "tests/TC-07-card-order-end-to-end.spec.ts:102",
+        "tests/TC-07-card-order-end-to-end.spec.ts:103",
+        "tests/TC-07-card-order-end-to-end.spec.ts:104",
+        "tests/TC-07-card-order-end-to-end.spec.ts:105"
+      ],
+      "note": "Does not check the product quantities 2 and 1, or that there is only one order."
+    },
+    {
+      "tc": "TC-08",
+      "step": 1,
+      "verdict": "missing",
+      "evidence": [],
+      "note": "Only deliveryPage.expectOpen is called, and that page object is not in code/, so no check can be confirmed."
+    },
+    {
+      "tc": "TC-08",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:54",
+        "tests/TC-08-wallet-payment.spec.ts:55"
+      ],
+      "note": "Checks the wallet balance 5.00 and the Pay 8.99¤ button."
+    },
+    {
+      "tc": "TC-08",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:59"
+      ],
+      "note": "Checks that the Pay 8.99¤ button is disabled."
+    },
+    {
+      "tc": "TC-08",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:66"
+      ],
+      "note": "Checks the text for no orders."
+    },
+    {
+      "tc": "TC-08",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:74"
+      ],
+      "note": "Checks the wallet balance 5.00."
+    },
+    {
+      "tc": "TC-08",
+      "step": 6,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:82",
+        "tests/TC-08-wallet-payment.spec.ts:83"
+      ],
+      "note": "Checks the balance 8.99 and that the Pay 8.99¤ button is enabled."
+    },
+    {
+      "tc": "TC-08",
+      "step": 7,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:89",
+        "tests/TC-08-wallet-payment.spec.ts:90"
+      ],
+      "note": "Checks the payment method Digital Wallet and Total Price 8.99¤."
+    },
+    {
+      "tc": "TC-08",
+      "step": 8,
+      "verdict": "missing",
+      "evidence": [],
+      "note": "Only completion.expectOpen is called, and that page object is not in code/, so the thank-you text check cannot be confirmed."
+    },
+    {
+      "tc": "TC-08",
+      "step": 9,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:104"
+      ],
+      "note": "Checks the wallet balance 1.00."
+    },
+    {
+      "tc": "TC-08",
+      "step": 10,
+      "verdict": "covered",
+      "evidence": [
+        "tests/TC-08-wallet-payment.spec.ts:113",
+        "tests/TC-08-wallet-payment.spec.ts:114",
+        "tests/TC-08-wallet-payment.spec.ts:115"
+      ],
+      "note": "Checks the order, Total Price 8.99¤ and Bonus 1."
+    }
+  ]
+}

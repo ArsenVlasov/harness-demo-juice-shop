@@ -1,0 +1,529 @@
+{
+  "label": "suite-1",
+  "model": "claude-opus-5-5",
+  "cost": 0.5358182,
+  "durationMs": 1039149,
+  "isError": false,
+  "stepsExpected": 49,
+  "stepsJudged": 49,
+  "missingSteps": [],
+  "extraSteps": [],
+  "counts": {
+    "covered": 26,
+    "partial": 23,
+    "missing": 0
+  },
+  "verdicts": [
+    {
+      "tc": "TC-01",
+      "step": 1,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:14",
+        "tests/tc-01-login.spec.ts:15",
+        "tests/tc-01-login.spec.ts:16",
+        "tests/tc-01-login.spec.ts:18"
+      ],
+      "note": "The title Login and the field labels Email and Password are checked only for visibility, not for text, and the pages/ folder with the locators is not in code/."
+    },
+    {
+      "tc": "TC-01",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:23",
+        "tests/tc-01-login.spec.ts:24"
+      ],
+      "note": "Checks the exact error text and that the URL stays on /#/login."
+    },
+    {
+      "tc": "TC-01",
+      "step": 3,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:30",
+        "tests/tc-01-login.spec.ts:31"
+      ],
+      "note": "The Login menu item is checked only for visibility, not for its text Login."
+    },
+    {
+      "tc": "TC-01",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:38"
+      ],
+      "note": "Checks that the URL is /#/search after the login."
+    },
+    {
+      "tc": "TC-01",
+      "step": 5,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-01-login.spec.ts:43",
+        "tests/tc-01-login.spec.ts:44"
+      ],
+      "note": "The email is checked by value, but the Logout item is checked only for visibility, not for its text."
+    },
+    {
+      "tc": "TC-02",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-02-add-to-basket.spec.ts:18",
+        "tests/tc-02-add-to-basket.spec.ts:19",
+        "tests/tc-02-add-to-basket.spec.ts:20",
+        "tests/tc-02-add-to-basket.spec.ts:21"
+      ],
+      "note": "Checks the product name, the price, the Add to Basket button and the counter 0."
+    },
+    {
+      "tc": "TC-02",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-02-add-to-basket.spec.ts:26",
+        "tests/tc-02-add-to-basket.spec.ts:27"
+      ],
+      "note": "Checks the snack bar message and the counter 1."
+    },
+    {
+      "tc": "TC-02",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-02-add-to-basket.spec.ts:32",
+        "tests/tc-02-add-to-basket.spec.ts:33",
+        "tests/tc-02-add-to-basket.spec.ts:35",
+        "tests/tc-02-add-to-basket.spec.ts:36"
+      ],
+      "note": "Checks the URL, one row, quantity 1 and the price."
+    },
+    {
+      "tc": "TC-02",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-02-add-to-basket.spec.ts:40"
+      ],
+      "note": "Checks the total text against the product price."
+    },
+    {
+      "tc": "TC-03",
+      "step": 1,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:19",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:20",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:25",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:26"
+      ],
+      "note": "The total is calculated with itemsTotal and is not compared with the fixed value 13.98¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:19",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:25",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:26"
+      ],
+      "note": "The total is calculated with itemsTotal and is not compared with the fixed value 18.97¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 3,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:19",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:25",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:26"
+      ],
+      "note": "The total is calculated with itemsTotal and is not compared with the fixed value 13.98¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 4,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:49",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:19",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:25"
+      ],
+      "note": "The total is calculated with itemsTotal and is not compared with the fixed value 13.98¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:55",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:57",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:58",
+        "tests/tc-03-basket-quantity-and-remove.spec.ts:59"
+      ],
+      "note": "Checks that row A is gone, B has quantity 1, the total is 8.99¤ and the counter is 1."
+    },
+    {
+      "tc": "TC-04",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:20",
+        "tests/tc-04-purchase-limit.spec.ts:21"
+      ],
+      "note": "Checks the snack bar message and the counter 1."
+    },
+    {
+      "tc": "TC-04",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:28",
+        "tests/tc-04-purchase-limit.spec.ts:30",
+        "tests/tc-04-purchase-limit.spec.ts:31"
+      ],
+      "note": "The total is calculated with itemsTotal, not the fixed 9.95¤, and only the limit message is checked to be absent, not every error."
+    },
+    {
+      "tc": "TC-04",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:36"
+      ],
+      "note": "Checks that the limit error message shows."
+    },
+    {
+      "tc": "TC-04",
+      "step": 4,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:40",
+        "tests/tc-04-purchase-limit.spec.ts:41",
+        "tests/tc-04-purchase-limit.spec.ts:42"
+      ],
+      "note": "The total is calculated with itemsTotal and is not compared with the fixed value 9.95¤."
+    },
+    {
+      "tc": "TC-04",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-04-purchase-limit.spec.ts:49",
+        "tests/tc-04-purchase-limit.spec.ts:50"
+      ],
+      "note": "Checks the limit error and the counter 5."
+    },
+    {
+      "tc": "TC-05",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-05-valid-coupon.spec.ts:35",
+        "tests/tc-05-valid-coupon.spec.ts:36"
+      ],
+      "note": "Checks the address page and that the saved address shows."
+    },
+    {
+      "tc": "TC-05",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-05-valid-coupon.spec.ts:41",
+        "tests/tc-05-valid-coupon.spec.ts:43"
+      ],
+      "note": "Checks the delivery page and the price of each of the three delivery methods."
+    },
+    {
+      "tc": "TC-05",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-05-valid-coupon.spec.ts:49",
+        "tests/tc-05-valid-coupon.spec.ts:50",
+        "tests/tc-05-valid-coupon.spec.ts:51"
+      ],
+      "note": "Checks the payment page, the saved card and the Add a coupon panel."
+    },
+    {
+      "tc": "TC-05",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-05-valid-coupon.spec.ts:57"
+      ],
+      "note": "Checks the exact coupon confirmation text."
+    },
+    {
+      "tc": "TC-05",
+      "step": 5,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-05-valid-coupon.spec.ts:66",
+        "tests/tc-05-valid-coupon.spec.ts:67",
+        "tests/tc-05-valid-coupon.spec.ts:68",
+        "tests/tc-05-valid-coupon.spec.ts:69"
+      ],
+      "note": "Items, Promotion and Total Price are calculated with helpers, not compared with the fixed values 17.98¤, 1.80¤ and 17.17¤."
+    },
+    {
+      "tc": "TC-06",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:36"
+      ],
+      "note": "Checks that the delivery page title is visible."
+    },
+    {
+      "tc": "TC-06",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:41"
+      ],
+      "note": "Checks that the payment page title is visible."
+    },
+    {
+      "tc": "TC-06",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:47",
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:48"
+      ],
+      "note": "Checks the Invalid coupon. error and that no discount confirmation shows."
+    },
+    {
+      "tc": "TC-06",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:55",
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:56"
+      ],
+      "note": "Checks the Invalid coupon. error and that no discount confirmation shows."
+    },
+    {
+      "tc": "TC-06",
+      "step": 5,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:62",
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:63",
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:64",
+        "tests/tc-06-invalid-and-expired-coupon.spec.ts:65"
+      ],
+      "note": "Items and Total Price are calculated with helpers, not compared with the fixed values 17.98¤ and 18.97¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 1,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:47",
+        "tests/tc-07-card-order-end-to-end.spec.ts:50"
+      ],
+      "note": "The final counter value is calculated with itemCount, not compared with the fixed value 3."
+    },
+    {
+      "tc": "TC-07",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:56",
+        "tests/tc-07-card-order-end-to-end.spec.ts:57",
+        "tests/tc-07-card-order-end-to-end.spec.ts:58"
+      ],
+      "note": "The total is calculated with itemsTotal and is not compared with the fixed value 20.97¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:64"
+      ],
+      "note": "Checks that the delivery page title is visible."
+    },
+    {
+      "tc": "TC-07",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:69"
+      ],
+      "note": "Checks that the payment page title is visible."
+    },
+    {
+      "tc": "TC-07",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:75"
+      ],
+      "note": "Checks the exact coupon confirmation text."
+    },
+    {
+      "tc": "TC-07",
+      "step": 6,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:83",
+        "tests/tc-07-card-order-end-to-end.spec.ts:88",
+        "tests/tc-07-card-order-end-to-end.spec.ts:90",
+        "tests/tc-07-card-order-end-to-end.spec.ts:91",
+        "tests/tc-07-card-order-end-to-end.spec.ts:92",
+        "tests/tc-07-card-order-end-to-end.spec.ts:93"
+      ],
+      "note": "Items, Promotion and Total Price are calculated with helpers, not compared with the fixed values 20.97¤, 2.10¤ and 19.86¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 7,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:98",
+        "tests/tc-07-card-order-end-to-end.spec.ts:99"
+      ],
+      "note": "The confirmation is checked only for visibility, not for the text Thank you for your purchase!."
+    },
+    {
+      "tc": "TC-07",
+      "step": 8,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:105",
+        "tests/tc-07-card-order-end-to-end.spec.ts:106",
+        "tests/tc-07-card-order-end-to-end.spec.ts:107",
+        "tests/tc-07-card-order-end-to-end.spec.ts:108",
+        "tests/tc-07-card-order-end-to-end.spec.ts:109",
+        "tests/tc-07-card-order-end-to-end.spec.ts:110"
+      ],
+      "note": "Items, Promotion and Total Price are calculated with helpers, not compared with the fixed values 20.97¤, 2.10¤ and 19.86¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 9,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:114",
+        "tests/tc-07-card-order-end-to-end.spec.ts:117",
+        "tests/tc-07-card-order-end-to-end.spec.ts:118"
+      ],
+      "note": "Checks the counter 0, no basket rows and the disabled Checkout button."
+    },
+    {
+      "tc": "TC-07",
+      "step": 10,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-07-card-order-end-to-end.spec.ts:124",
+        "tests/tc-07-card-order-end-to-end.spec.ts:126",
+        "tests/tc-07-card-order-end-to-end.spec.ts:127",
+        "tests/tc-07-card-order-end-to-end.spec.ts:128",
+        "tests/tc-07-card-order-end-to-end.spec.ts:129"
+      ],
+      "note": "The order Total Price is calculated with helpers and is not compared with the fixed value 19.86¤."
+    },
+    {
+      "tc": "TC-08",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:43"
+      ],
+      "note": "Checks that the delivery page title is visible."
+    },
+    {
+      "tc": "TC-08",
+      "step": 2,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:55",
+        "tests/tc-08-wallet-payment.spec.ts:56"
+      ],
+      "note": "The amount on the Pay button is calculated with orderTotal, not compared with the fixed value 8.99¤."
+    },
+    {
+      "tc": "TC-08",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:60"
+      ],
+      "note": "Checks that the wallet pay button is disabled."
+    },
+    {
+      "tc": "TC-08",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:66"
+      ],
+      "note": "Checks the text You have not placed any orders yet.."
+    },
+    {
+      "tc": "TC-08",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:73"
+      ],
+      "note": "Checks the wallet balance 5.00."
+    },
+    {
+      "tc": "TC-08",
+      "step": 6,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:87",
+        "tests/tc-08-wallet-payment.spec.ts:88",
+        "tests/tc-08-wallet-payment.spec.ts:89"
+      ],
+      "note": "The balance 8.99 and the button amount 8.99¤ are calculated with helpers, not compared with fixed values."
+    },
+    {
+      "tc": "TC-08",
+      "step": 7,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:95",
+        "tests/tc-08-wallet-payment.spec.ts:96"
+      ],
+      "note": "Total Price is calculated with orderTotal and is not compared with the fixed value 8.99¤."
+    },
+    {
+      "tc": "TC-08",
+      "step": 8,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:101",
+        "tests/tc-08-wallet-payment.spec.ts:102"
+      ],
+      "note": "The confirmation is checked only for visibility, not for the text Thank you for your purchase!."
+    },
+    {
+      "tc": "TC-08",
+      "step": 9,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:108"
+      ],
+      "note": "The balance is calculated with helpers, including bonusPoints, and is not compared with the fixed value 1.00."
+    },
+    {
+      "tc": "TC-08",
+      "step": 10,
+      "verdict": "partial",
+      "evidence": [
+        "tests/tc-08-wallet-payment.spec.ts:114",
+        "tests/tc-08-wallet-payment.spec.ts:116",
+        "tests/tc-08-wallet-payment.spec.ts:117"
+      ],
+      "note": "Total Price and Bonus are calculated with helpers, not compared with the fixed values 8.99¤ and 1."
+    }
+  ]
+}

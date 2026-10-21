@@ -1,0 +1,746 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "TC-01-login.spec.ts",
+      "file": "TC-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2206,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page /#/login",
+                      "duration": 614
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 618
+                    },
+                    {
+                      "title": "3. Open the account menu. It shows Login and not the email",
+                      "duration": 57
+                    },
+                    {
+                      "title": "4. Close the menu, then log in with the correct password",
+                      "duration": 347
+                    },
+                    {
+                      "title": "5. Open the account menu. It shows the email and Logout",
+                      "duration": 57
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:39:26.706Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6f0756e36c62a5e3e825-c9a74ada1cf466b01d6c",
+          "file": "TC-01-login.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-02-add-to-basket.spec.ts",
+      "file": "TC-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 17575,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts:27:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts:24:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts",
+                      "column": 51,
+                      "line": 27
+                    },
+                    "snippet": "  25 |     await products.addToBasket(product);\n  26 |     await topBar.expectSnackBar(`Placed ${product} into basket.`);\n> 27 |     await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                   ^\n  28 |   });\n  29 |\n  30 |   await test.step('3. Open the basket. It has one row with the name, quantity 1 and price 8.99¤', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts",
+                        "column": 51,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n\n  25 |     await products.addToBasket(product);\n  26 |     await topBar.expectSnackBar(`Placed ${product} into basket.`);\n> 27 |     await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                   ^\n  28 |   });\n  29 |\n  30 |   await test.step('3. Open the basket. It has one row with the name, quantity 1 and price 8.99¤', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts:27:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts:24:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list. The product, its price and Add to Basket are shown. Basket counter is 0",
+                      "duration": 822
+                    },
+                    {
+                      "title": "2. Click Add to Basket. A message shows and the basket counter is 1",
+                      "duration": 15089,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts:27:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts:24:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts",
+                          "column": 51,
+                          "line": 27
+                        },
+                        "snippet": "  25 |     await products.addToBasket(product);\n  26 |     await topBar.expectSnackBar(`Placed ${product} into basket.`);\n> 27 |     await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                   ^\n  28 |   });\n  29 |\n  30 |   await test.step('3. Open the basket. It has one row with the name, quantity 1 and price 8.99¤', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:39:26.704Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-02-add-to-basket-TC-02-Add-a-product-to-the-basket-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-02-add-to-basket.spec.ts",
+                    "column": 51,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9f679721f492e6d94c00-00842eaff5eeae40ceeb",
+          "file": "TC-02-add-to-basket.spec.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-03-basket-quantity-and-remove.spec.ts",
+      "file": "TC-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 3139,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts:25:45\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts:23:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts",
+                      "column": 45,
+                      "line": 25
+                    },
+                    "snippet": "  23 |   await test.step('1. Open the basket. A: quantity 1, B: quantity 1, Total 13.98¤, counter 2', async () => {\n  24 |     await topBar.openBasket();\n> 25 |     expect(await basket.quantity(productA)).toBe(1);\n     |                                             ^\n  26 |     expect(await basket.quantity(productB)).toBe(1);\n  27 |     await expect(basket.totalPrice('13.98¤')).toBeVisible();\n  28 |     await expect.poll(() => topBar.basketCount()).toBe(2);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts",
+                        "column": 45,
+                        "line": 25
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\n  23 |   await test.step('1. Open the basket. A: quantity 1, B: quantity 1, Total 13.98¤, counter 2', async () => {\n  24 |     await topBar.openBasket();\n> 25 |     expect(await basket.quantity(productA)).toBe(1);\n     |                                             ^\n  26 |     expect(await basket.quantity(productB)).toBe(1);\n  27 |     await expect(basket.totalPrice('13.98¤')).toBeVisible();\n  28 |     await expect.poll(() => topBar.basketCount()).toBe(2);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts:25:45\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket. A: quantity 1, B: quantity 1, Total 13.98¤, counter 2",
+                      "duration": 148,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts:25:45\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts:23:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts",
+                          "column": 45,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await test.step('1. Open the basket. A: quantity 1, B: quantity 1, Total 13.98¤, counter 2', async () => {\n  24 |     await topBar.openBasket();\n> 25 |     expect(await basket.quantity(productA)).toBe(1);\n     |                                             ^\n  26 |     expect(await basket.quantity(productB)).toBe(1);\n  27 |     await expect(basket.totalPrice('13.98¤')).toBeVisible();\n  28 |     await expect.poll(() => topBar.basketCount()).toBe(2);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:39:26.704Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-03-basket-quantity-and--7dacc-ove-a-product-in-the-basket-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-03-basket-quantity-and-remove.spec.ts",
+                    "column": 45,
+                    "line": 25
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf75024f698336085720-f2d75aa43785c511ca56",
+          "file": "TC-03-basket-quantity-and-remove.spec.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-04-purchase-limit.spec.ts",
+      "file": "TC-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16112,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts:20:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts:16:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts",
+                      "column": 51,
+                      "line": 20
+                    },
+                    "snippet": "  18 |     await products.addToBasket(product);\n  19 |     await topBar.expectSnackBar(`Placed ${product} into basket.`);\n> 20 |     await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                   ^\n  21 |   });\n  22 |\n  23 |   await test.step('2. Open the basket and click plus until quantity is 5. Total 9.95¤, no error', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts",
+                        "column": 51,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n\n  18 |     await products.addToBasket(product);\n  19 |     await topBar.expectSnackBar(`Placed ${product} into basket.`);\n> 20 |     await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                   ^\n  21 |   });\n  22 |\n  23 |   await test.step('2. Open the basket and click plus until quantity is 5. Total 9.95¤, no error', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts:20:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts:16:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list and add the product. Counter is 1",
+                      "duration": 15261,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts:20:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts:16:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts",
+                          "column": 51,
+                          "line": 20
+                        },
+                        "snippet": "  18 |     await products.addToBasket(product);\n  19 |     await topBar.expectSnackBar(`Placed ${product} into basket.`);\n> 20 |     await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                   ^\n  21 |   });\n  22 |\n  23 |   await test.step('2. Open the basket and click plus until quantity is 5. Total 9.95¤, no error', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:39:29.299Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-04-purchase-limit-TC-04-Purchase-limit-for-one-product-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-04-purchase-limit.spec.ts",
+                    "column": 51,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4ebbb7958e67e22de36e-7907ccbf04a7190918de",
+          "file": "TC-04-purchase-limit.spec.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-05-valid-coupon.spec.ts",
+      "file": "TC-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 16050,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:24:49",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts",
+                      "column": 49,
+                      "line": 24
+                    },
+                    "snippet": "  22 |   await products.open();\n  23 |   await products.addToBasket(product);\n> 24 |   await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                 ^\n  25 |   await products.addToBasket(product);\n  26 |   await expect.poll(() => topBar.basketCount()).toBe(2);\n  27 |   await basket.open();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts",
+                        "column": 49,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n\n  22 |   await products.open();\n  23 |   await products.addToBasket(product);\n> 24 |   await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                 ^\n  25 |   await products.addToBasket(product);\n  26 |   await expect.poll(() => topBar.basketCount()).toBe(2);\n  27 |   await basket.open();\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts:24:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T08:39:30.759Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-05-valid-coupon.spec.ts",
+                    "column": 49,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1bab9bf2cd910e6ba701-58a14e755bb7235bd75e",
+          "file": "TC-05-valid-coupon.spec.ts",
+          "line": 9,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-06-invalid-and-expired-coupon.spec.ts",
+      "file": "TC-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 16224,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-06-invalid-and-expired-coupon.spec.ts:24:49",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-06-invalid-and-expired-coupon.spec.ts",
+                      "column": 49,
+                      "line": 24
+                    },
+                    "snippet": "  22 |   await products.open();\n  23 |   await products.addToBasket(product);\n> 24 |   await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                 ^\n  25 |   await products.addToBasket(product);\n  26 |   await expect.poll(() => topBar.basketCount()).toBe(2);\n  27 |   await basket.open();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-06-invalid-and-expired-coupon.spec.ts",
+                        "column": 49,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n\n  22 |   await products.open();\n  23 |   await products.addToBasket(product);\n> 24 |   await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                 ^\n  25 |   await products.addToBasket(product);\n  26 |   await expect.poll(() => topBar.basketCount()).toBe(2);\n  27 |   await basket.open();\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-06-invalid-and-expired-coupon.spec.ts:24:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T08:39:45.201Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-06-invalid-and-expired--0fc2e-d-coupon-and-expired-coupon-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-06-invalid-and-expired-coupon.spec.ts",
+                    "column": 49,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0b42c65b46cbc82b081c-5d0a96423a0bfc6333d9",
+          "file": "TC-06-invalid-and-expired-coupon.spec.ts",
+          "line": 9,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-07-card-order-end-to-end.spec.ts",
+      "file": "TC-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16342,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:31:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:26:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                      "column": 51,
+                      "line": 31
+                    },
+                    "snippet": "  29 |     await products.addToBasket(productA);\n  30 |     await products.addToBasket(productB);\n> 31 |     await expect.poll(() => topBar.basketCount()).toBe(3);\n     |                                                   ^\n  32 |   });\n  33 |\n  34 |   await test.step('2. Open the basket. A: quantity 2, B: quantity 1, Total 20.97¤', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                        "column": 51,
+                        "line": 31
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n\n  29 |     await products.addToBasket(productA);\n  30 |     await products.addToBasket(productB);\n> 31 |     await expect.poll(() => topBar.basketCount()).toBe(3);\n     |                                                   ^\n  32 |   });\n  33 |\n  34 |   await test.step('2. Open the basket. A: quantity 2, B: quantity 1, Total 20.97¤', async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:31:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:26:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time. Counter is 3",
+                      "duration": 15366,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:31:51\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts:26:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                          "column": 51,
+                          "line": 31
+                        },
+                        "snippet": "  29 |     await products.addToBasket(productA);\n  30 |     await products.addToBasket(productB);\n> 31 |     await expect.poll(() => topBar.basketCount()).toBe(3);\n     |                                                   ^\n  32 |   });\n  33 |\n  34 |   await test.step('2. Open the basket. A: quantity 2, B: quantity 1, Total 20.97¤', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T08:39:46.009Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-07-card-order-end-to-en-883d0-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-07-card-order-end-to-end.spec.ts",
+                    "column": 51,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1d3845c20085e644a955-fe66db0c2ddb9c1ba5e1",
+          "file": "TC-07-card-order-end-to-end.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-08-wallet-payment.spec.ts",
+      "file": "TC-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 16061,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-08-wallet-payment.spec.ts:29:49",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-08-wallet-payment.spec.ts",
+                      "column": 49,
+                      "line": 29
+                    },
+                    "snippet": "  27 |   await products.open();\n  28 |   await products.addToBasket(product);\n> 29 |   await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                 ^\n  30 |\n  31 |   // Opens the basket, then goes through address and delivery to the payment page.\n  32 |   async function goToPaymentWithStandardDelivery(): Promise<void> {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-08-wallet-payment.spec.ts",
+                        "column": 49,
+                        "line": 29
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n\n  27 |   await products.open();\n  28 |   await products.addToBasket(product);\n> 29 |   await expect.poll(() => topBar.basketCount()).toBe(1);\n     |                                                 ^\n  30 |\n  31 |   // Opens the basket, then goes through address and delivery to the payment page.\n  32 |   async function goToPaymentWithStandardDelivery(): Promise<void> {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-08-wallet-payment.spec.ts:29:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T08:39:47.585Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/test-results/TC-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-1/suite-a/tests/TC-08-wallet-payment.spec.ts",
+                    "column": 49,
+                    "line": 29
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5af517408f2c6273c70b-83bdb87426abf74bcb83",
+          "file": "TC-08-wallet-payment.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T08:39:26.143Z",
+    "duration": 37790.496,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

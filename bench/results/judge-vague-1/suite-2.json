@@ -1,0 +1,545 @@
+{
+  "label": "suite-2",
+  "model": "claude-opus-5-5",
+  "cost": 0.8117361999999999,
+  "durationMs": 131052,
+  "isError": false,
+  "stepsExpected": 49,
+  "stepsJudged": 49,
+  "missingSteps": [],
+  "extraSteps": [],
+  "counts": {
+    "covered": 49,
+    "partial": 0,
+    "missing": 0
+  },
+  "verdicts": [
+    {
+      "tc": "TC-01",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/login-page.ts:52",
+        "page-objects/login-page.ts:53",
+        "page-objects/login-page.ts:55",
+        "page-objects/login-page.ts:57",
+        "page-objects/login-page.ts:59"
+      ],
+      "note": "Checks the URL, the title Login, the labels Email and Password, and the button Log in."
+    },
+    {
+      "tc": "TC-01",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/login-page.ts:79",
+        "page-objects/login-page.ts:80"
+      ],
+      "note": "Checks the exact error text and that the URL stays on the login page."
+    },
+    {
+      "tc": "TC-01",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/account-menu.component.ts:35",
+        "page-objects/components/account-menu.component.ts:39"
+      ],
+      "note": "Checks the Login item and that the menu does not contain the email."
+    },
+    {
+      "tc": "TC-01",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/account-menu.component.ts:30",
+        "page-objects/login-page.ts:84",
+        "page-objects/search-page.ts:26"
+      ],
+      "note": "Checks that the menu closes and that the URL is the product list /#/search."
+    },
+    {
+      "tc": "TC-01",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/account-menu.component.ts:43",
+        "page-objects/components/account-menu.component.ts:48"
+      ],
+      "note": "Checks the email in the menu and the Logout item."
+    },
+    {
+      "tc": "TC-02",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/search-page.ts:33",
+        "page-objects/search-page.ts:34",
+        "page-objects/search-page.ts:36",
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks the product name, the price 8.99¤, the Add to Basket button and the counter 0."
+    },
+    {
+      "tc": "TC-02",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/snack-bar.component.ts:19",
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks the confirmation text and the counter 1."
+    },
+    {
+      "tc": "TC-02",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:48",
+        "page-objects/basket-page.ts:54",
+        "page-objects/basket-page.ts:61",
+        "page-objects/basket-page.ts:62",
+        "page-objects/basket-page.ts:63"
+      ],
+      "note": "Checks the basket URL, one row, the name, the quantity 1 and the price 8.99¤."
+    },
+    {
+      "tc": "TC-02",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:81"
+      ],
+      "note": "Checks the exact text Total Price: 8.99¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:54",
+        "page-objects/basket-page.ts:62",
+        "page-objects/basket-page.ts:81",
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks both rows with quantity 1, the total 13.98¤ and the counter 2."
+    },
+    {
+      "tc": "TC-03",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:62",
+        "page-objects/basket-page.ts:81",
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks quantity 2 for A, the total 18.97¤ and the counter 3."
+    },
+    {
+      "tc": "TC-03",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:62",
+        "page-objects/basket-page.ts:81",
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks quantity 1 for A, the total 13.98¤ and the counter 2."
+    },
+    {
+      "tc": "TC-03",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:68",
+        "page-objects/basket-page.ts:54",
+        "page-objects/basket-page.ts:60",
+        "page-objects/basket-page.ts:85"
+      ],
+      "note": "Checks over a hold window that A keeps quantity 1, that its row stays and that the total stays 13.98¤."
+    },
+    {
+      "tc": "TC-03",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:72",
+        "page-objects/basket-page.ts:54",
+        "page-objects/basket-page.ts:62",
+        "page-objects/basket-page.ts:81",
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks that the A row is gone, B keeps quantity 1, the total is 8.99¤ and the counter is 1."
+    },
+    {
+      "tc": "TC-04",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/snack-bar.component.ts:19",
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks the confirmation text and the counter 1."
+    },
+    {
+      "tc": "TC-04",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:62",
+        "page-objects/components/snack-bar.component.ts:33",
+        "page-objects/basket-page.ts:81"
+      ],
+      "note": "Checks each quantity up to 5, that no error message shows, and the total 9.95¤."
+    },
+    {
+      "tc": "TC-04",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/snack-bar.component.ts:23",
+        "page-objects/components/snack-bar.component.ts:24"
+      ],
+      "note": "Checks that the error bar shows the limit message."
+    },
+    {
+      "tc": "TC-04",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:68",
+        "page-objects/basket-page.ts:85",
+        "page-objects/components/navbar.component.ts:49"
+      ],
+      "note": "Checks over a hold window that the quantity stays 5, the total stays 9.95¤ and the counter stays 5."
+    },
+    {
+      "tc": "TC-04",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/snack-bar.component.ts:24",
+        "page-objects/components/navbar.component.ts:49"
+      ],
+      "note": "Checks the limit error message and that the counter stays 5."
+    },
+    {
+      "tc": "TC-05",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/address-select-page.ts:25",
+        "page-objects/address-select-page.ts:31",
+        "page-objects/address-select-page.ts:32",
+        "page-objects/address-select-page.ts:33"
+      ],
+      "note": "Checks the page title and the name, address line and country of the saved address."
+    },
+    {
+      "tc": "TC-05",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/delivery-method-page.ts:26",
+        "page-objects/delivery-method-page.ts:32"
+      ],
+      "note": "Checks the page title and the three delivery methods with prices 0.99¤, 0.50¤ and 0.00¤."
+    },
+    {
+      "tc": "TC-05",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/payment-page.ts:31",
+        "page-objects/components/saved-cards.component.ts:19",
+        "page-objects/components/saved-cards.component.ts:20",
+        "page-objects/components/coupon-panel.component.ts:26"
+      ],
+      "note": "Checks the page title, the saved card and the title of the Add a coupon panel."
+    },
+    {
+      "tc": "TC-05",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/coupon-panel.component.ts:48",
+        "page-objects/components/coupon-panel.component.ts:50"
+      ],
+      "note": "Checks that the server accepts the coupon and the exact 10% discount message."
+    },
+    {
+      "tc": "TC-05",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-summary-page.ts:32",
+        "page-objects/order-summary-page.ts:79"
+      ],
+      "note": "Checks Items 17.98¤, Delivery 0.99¤, Promotion 1.80¤ and Total Price 17.17¤."
+    },
+    {
+      "tc": "TC-06",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/delivery-method-page.ts:25",
+        "page-objects/delivery-method-page.ts:26"
+      ],
+      "note": "Checks that the Choose a delivery speed page opens."
+    },
+    {
+      "tc": "TC-06",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/payment-page.ts:30",
+        "page-objects/payment-page.ts:31"
+      ],
+      "note": "Checks that the My Payment Options page opens."
+    },
+    {
+      "tc": "TC-06",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/coupon-panel.component.ts:54",
+        "page-objects/components/coupon-panel.component.ts:56",
+        "page-objects/components/coupon-panel.component.ts:60"
+      ],
+      "note": "Checks the server rejection, the Invalid coupon. text and that no discount message shows."
+    },
+    {
+      "tc": "TC-06",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/coupon-panel.component.ts:54",
+        "page-objects/components/coupon-panel.component.ts:56",
+        "page-objects/components/coupon-panel.component.ts:60"
+      ],
+      "note": "Checks the server rejection, the Invalid coupon. text and that no discount message shows."
+    },
+    {
+      "tc": "TC-06",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-summary-page.ts:32",
+        "page-objects/order-summary-page.ts:79"
+      ],
+      "note": "Checks Items 17.98¤, Delivery 0.99¤, Promotion 0.00¤ and Total Price 18.97¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/navbar.component.ts:44"
+      ],
+      "note": "Checks that the basket counter shows 3."
+    },
+    {
+      "tc": "TC-07",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/basket-page.ts:54",
+        "page-objects/basket-page.ts:62",
+        "page-objects/basket-page.ts:81"
+      ],
+      "note": "Checks A with quantity 2, B with quantity 1 and the total 20.97¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/delivery-method-page.ts:25",
+        "page-objects/delivery-method-page.ts:26"
+      ],
+      "note": "Checks that the Choose a delivery speed page opens."
+    },
+    {
+      "tc": "TC-07",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/payment-page.ts:30",
+        "page-objects/payment-page.ts:31"
+      ],
+      "note": "Checks that the My Payment Options page opens."
+    },
+    {
+      "tc": "TC-07",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/coupon-panel.component.ts:48",
+        "page-objects/components/coupon-panel.component.ts:50"
+      ],
+      "note": "Checks that the server accepts the coupon and the exact 10% discount message."
+    },
+    {
+      "tc": "TC-07",
+      "step": 6,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-summary-page.ts:37",
+        "page-objects/order-summary-page.ts:38",
+        "page-objects/order-summary-page.ts:44",
+        "page-objects/order-summary-page.ts:45",
+        "page-objects/order-summary-page.ts:79"
+      ],
+      "note": "Checks the address, the card, and Items 20.97¤, Delivery 0.99¤, Promotion 2.10¤ and Total Price 19.86¤."
+    },
+    {
+      "tc": "TC-07",
+      "step": 7,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-completion-page.ts:31",
+        "page-objects/order-completion-page.ts:33"
+      ],
+      "note": "Checks the URL with the order ID and the text Thank you for your purchase!"
+    },
+    {
+      "tc": "TC-07",
+      "step": 8,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-completion-page.ts:45",
+        "page-objects/order-completion-page.ts:48",
+        "page-objects/order-completion-page.ts:57",
+        "page-objects/order-completion-page.ts:58"
+      ],
+      "note": "Checks both product rows with their quantities and the four totals."
+    },
+    {
+      "tc": "TC-07",
+      "step": 9,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/navbar.component.ts:44",
+        "page-objects/basket-page.ts:77",
+        "page-objects/basket-page.ts:89"
+      ],
+      "note": "Checks the counter 0, that the basket has no rows and that Checkout is disabled."
+    },
+    {
+      "tc": "TC-07",
+      "step": 10,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-history-page.ts:32",
+        "page-objects/order-history-page.ts:41",
+        "page-objects/order-history-page.ts:46",
+        "page-objects/order-history-page.ts:47",
+        "page-objects/order-history-page.ts:53",
+        "page-objects/order-history-page.ts:55"
+      ],
+      "note": "Checks one order with the order ID, the total 19.86¤ and the product quantities."
+    },
+    {
+      "tc": "TC-08",
+      "step": 1,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/delivery-method-page.ts:25",
+        "page-objects/delivery-method-page.ts:26"
+      ],
+      "note": "Checks that the Choose a delivery speed page opens."
+    },
+    {
+      "tc": "TC-08",
+      "step": 2,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/payment-page.ts:31",
+        "page-objects/components/wallet-payment.component.ts:19",
+        "page-objects/components/wallet-payment.component.ts:24"
+      ],
+      "note": "Checks the wallet balance 5.00 and the button text Pay 8.99¤."
+    },
+    {
+      "tc": "TC-08",
+      "step": 3,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/wallet-payment.component.ts:28"
+      ],
+      "note": "Checks that the Pay button is disabled."
+    },
+    {
+      "tc": "TC-08",
+      "step": 4,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-history-page.ts:32",
+        "page-objects/order-history-page.ts:37"
+      ],
+      "note": "Checks the exact empty order history message."
+    },
+    {
+      "tc": "TC-08",
+      "step": 5,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/wallet-page.ts:22",
+        "page-objects/wallet-page.ts:27"
+      ],
+      "note": "Checks the wallet balance 5.00."
+    },
+    {
+      "tc": "TC-08",
+      "step": 6,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/components/wallet-payment.component.ts:19",
+        "page-objects/components/wallet-payment.component.ts:24",
+        "page-objects/components/wallet-payment.component.ts:32"
+      ],
+      "note": "Checks the balance 8.99, the button text Pay 8.99¤ and that the button is enabled."
+    },
+    {
+      "tc": "TC-08",
+      "step": 7,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-summary-page.ts:32",
+        "page-objects/order-summary-page.ts:50",
+        "page-objects/order-summary-page.ts:79"
+      ],
+      "note": "Checks the payment method Digital Wallet and the Total Price 8.99¤."
+    },
+    {
+      "tc": "TC-08",
+      "step": 8,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-completion-page.ts:31",
+        "page-objects/order-completion-page.ts:33"
+      ],
+      "note": "Checks the confirmation URL and the text Thank you for your purchase!"
+    },
+    {
+      "tc": "TC-08",
+      "step": 9,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/wallet-page.ts:27"
+      ],
+      "note": "Checks the wallet balance 1.00."
+    },
+    {
+      "tc": "TC-08",
+      "step": 10,
+      "verdict": "covered",
+      "evidence": [
+        "page-objects/order-history-page.ts:41",
+        "page-objects/order-history-page.ts:47",
+        "page-objects/order-history-page.ts:49"
+      ],
+      "note": "Checks one order with the Total Price 8.99¤ and the Bonus 1."
+    }
+  ]
+}

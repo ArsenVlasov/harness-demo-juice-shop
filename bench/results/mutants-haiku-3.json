@@ -1,0 +1,563 @@
+{
+  "generatedAt": "2026-10-21T09:35:55.411Z",
+  "recheckRuns": 3,
+  "suites": {
+    "A": {
+      "tests": 8,
+      "cleanGreen": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "recheckGreen": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    "B": {
+      "tests": 8,
+      "cleanGreen": [
+        "specs/regression/auth/login.spec.ts :: Login with a customer account > Login with a valid and an invalid password",
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket > Add a product to the basket from the product list",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket > Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket",
+        "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon",
+        "specs/regression/coupon/invalid-coupon.spec.ts :: Invalid coupon and expired coupon > Invalid and expired coupons give no discount on the payment step",
+        "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step > Valid coupon of the current month gives the discount on the products",
+        "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total"
+      ],
+      "recheckGreen": [
+        "specs/regression/auth/login.spec.ts :: Login with a customer account > Login with a valid and an invalid password",
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket > Add a product to the basket from the product list",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket > Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket",
+        "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon",
+        "specs/regression/coupon/invalid-coupon.spec.ts :: Invalid coupon and expired coupon > Invalid and expired coupons give no discount on the payment step",
+        "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step > Valid coupon of the current month gives the discount on the products",
+        "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total"
+      ]
+    }
+  },
+  "mutants": [
+    {
+      "id": "M01",
+      "patch": "01-discount-includes-delivery.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 8",
+      "suites": {
+        "A": {
+          "caught": false,
+          "catchingTests": [],
+          "failedTests": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon"
+          ],
+          "failedTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M03",
+      "patch": "03-delivery-not-added.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 8",
+      "suites": {
+        "A": {
+          "caught": false,
+          "catchingTests": [],
+          "failedTests": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon"
+          ],
+          "failedTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M05",
+      "patch": "05-wallet-strict-balance.patch",
+      "file": "routes/order.ts",
+      "kind": "operator",
+      "expected": "TC-08 step 8",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total"
+          ],
+          "failedTests": [
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M06",
+      "patch": "06-wallet-not-charged.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-08 step 9",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]",
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total"
+          ],
+          "failedTests": [
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M07",
+      "patch": "07-coupon-month-not-checked.patch",
+      "file": "lib/insecurity.ts",
+      "kind": "bug",
+      "expected": "TC-06 step 4",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+          ],
+          "failedTests": [
+            "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/coupon/invalid-coupon.spec.ts :: Invalid coupon and expired coupon > Invalid and expired coupons give no discount on the payment step"
+          ],
+          "failedTests": [
+            "specs/regression/coupon/invalid-coupon.spec.ts :: Invalid coupon and expired coupon > Invalid and expired coupons give no discount on the payment step [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M08",
+      "patch": "08-coupon-discount-as-fraction.patch",
+      "file": "lib/insecurity.ts",
+      "kind": "bug",
+      "expected": "TC-05 step 4",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+          ],
+          "failedTests": [
+            "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only [failed]",
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon",
+            "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step > Valid coupon of the current month gives the discount on the products"
+          ],
+          "failedTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon [failed]",
+            "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step > Valid coupon of the current month gives the discount on the products [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M09",
+      "patch": "09-coupon-not-saved.patch",
+      "file": "routes/coupon.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 8",
+      "suites": {
+        "A": {
+          "caught": false,
+          "catchingTests": [],
+          "failedTests": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon"
+          ],
+          "failedTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M10",
+      "patch": "10-limit-strict.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "operator",
+      "expected": "TC-04 step 2",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product"
+          ],
+          "failedTests": [
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket"
+          ],
+          "failedTests": [
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M11",
+      "patch": "11-limit-not-enforced.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "operator",
+      "expected": "TC-04 step 3",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product"
+          ],
+          "failedTests": [
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket"
+          ],
+          "failedTests": [
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M12",
+      "patch": "12-login-no-password-check.patch",
+      "file": "routes/login.ts",
+      "kind": "bug",
+      "expected": "TC-01 step 2",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password"
+          ],
+          "failedTests": [
+            "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password > login with a wrong and then a correct password [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/auth/login.spec.ts :: Login with a customer account > Login with a valid and an invalid password"
+          ],
+          "failedTests": [
+            "specs/regression/auth/login.spec.ts :: Login with a customer account > Login with a valid and an invalid password [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M13",
+      "patch": "13-basket-not-cleared.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 9",
+      "suites": {
+        "A": {
+          "caught": false,
+          "catchingTests": [],
+          "failedTests": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon"
+          ],
+          "failedTests": [
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M14",
+      "patch": "14-bonus-not-credited.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-08 step 9",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total"
+          ],
+          "failedTests": [
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M15",
+      "patch": "15-basket-item-quantity-lost.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "bug",
+      "expected": "TC-02 step 2",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket",
+            "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+            "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+            "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket > add one product and check the basket [failed]",
+            "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A [failed]",
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product [failed]",
+            "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only [failed]",
+            "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount [failed]",
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]",
+            "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket > Add a product to the basket from the product list",
+            "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket > Change the quantity and remove a product in the basket",
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket",
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon",
+            "specs/regression/coupon/invalid-coupon.spec.ts :: Invalid coupon and expired coupon > Invalid and expired coupons give no discount on the payment step",
+            "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step > Valid coupon of the current month gives the discount on the products",
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total"
+          ],
+          "failedTests": [
+            "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket > Add a product to the basket from the product list [failed]",
+            "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket > Change the quantity and remove a product in the basket [failed]",
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket [failed]",
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon [failed]",
+            "specs/regression/coupon/invalid-coupon.spec.ts :: Invalid coupon and expired coupon > Invalid and expired coupons give no discount on the payment step [failed]",
+            "specs/regression/coupon/valid-coupon.spec.ts :: Valid coupon on the payment step > Valid coupon of the current month gives the discount on the products [failed]",
+            "specs/regression/wallet/wallet-payment.spec.ts :: Payment with the wallet > Pay with the wallet only when the balance covers the order total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M16",
+      "patch": "16-quantity-update-clamped.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "bug",
+      "expected": "TC-03 step 2",
+      "suites": {
+        "A": {
+          "caught": true,
+          "catchingTests": [
+            "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product",
+            "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+            "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+          ],
+          "failedTests": [
+            "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket > change the quantity and remove product A [failed]",
+            "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product > the basket stops at 5 items of one product [failed]",
+            "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only [failed]",
+            "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount [failed]",
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [
+            "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "reportErrors": []
+        },
+        "B": {
+          "caught": true,
+          "catchingTests": [
+            "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket > Change the quantity and remove a product in the basket",
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket",
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon"
+          ],
+          "failedTests": [
+            "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket > Change the quantity and remove a product in the basket [failed]",
+            "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product > Purchase limit for one product in the basket [failed]",
+            "specs/regression/checkout/card-order.spec.ts :: Order with a card, from basket to order history > Order two Eggfruit Juice and one Carrot Juice with a card and a coupon [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "A": {
+      "bugsCaught": 7,
+      "bugsTotal": 11,
+      "bugsMissed": [
+        "M01",
+        "M03",
+        "M09",
+        "M13"
+      ],
+      "allCaught": 10,
+      "allTotal": 14,
+      "allMissed": [
+        "M01",
+        "M03",
+        "M09",
+        "M13"
+      ],
+      "mutationScore": 0.714
+    },
+    "B": {
+      "bugsCaught": 11,
+      "bugsTotal": 11,
+      "bugsMissed": [],
+      "allCaught": 14,
+      "allTotal": 14,
+      "allMissed": [],
+      "mutationScore": 1
+    }
+  }
+}

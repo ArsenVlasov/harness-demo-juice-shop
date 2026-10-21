@@ -1,0 +1,25 @@
+# Summary: suite A and suite B, condition vague, run 2
+
+Source: `bench/collect-metrics.mjs`, 2026-10-21T10:10:55.942Z. Inputs: `mutants-vague-2`, `flaky-vague-2`, `judge-vague-2`.
+
+| Metric | A (no harness) | B (harness) | Source |
+|---|---|---|---|
+| Realistic bugs missed | 0 of 11 | 0 of 11 | `mutants-vague-2.json` |
+| Bugs missed (IDs) | none | none | `mutants-vague-2.json` |
+| Mutation score | 14 of 14 (1) | 14 of 14 (1) | `mutants-vague-2.json` |
+| Flaky tests (20 runs) | 0 | 0 | `flaky-vague-2.json` |
+| Broken tests (20 runs) | 0 | 0 | `flaky-vague-2.json` |
+| Judge: steps covered / partial / missing | 28 / 21 / 0 of 49 | 49 / 0 / 0 of 49 | `judge-vague-2/` |
+| Judge model | claude-opus-5-5 | claude-opus-5-5 | `judge-vague-2/` |
+| Generation cost, USD | 2.66 | 8.42 | `gen-vague-*-2.json` |
+| Cost for each test case, USD | 0.33 | 1.05 | `gen-vague-*-2.json` |
+| Work time, min | 10.3 | 28.2 | `transcript` |
+| Work time for each test case, min | 1.3 | 3.5 | `transcript` |
+| Tool calls of the main agent | 73 | 193 | `transcript` |
+| Subagents | 0 | 4 | `gen-vague-*-2.json` |
+| Follow-up messages | 0 | 0 | `gen-vague-*-2.json` |
+| Tests | 8 | 8 | `clean-vague-*-2.json` |
+| Files written | 22 | 49 | `git diff gen-2~1 gen-2` |
+| Lines written | 1277 | 2153 | `git diff gen-2~1 gen-2` |
+
+Not measured: `rules:lint` for suite A. The linter checks only the folder layout of the harness, so its numbers for A do not compare with B.

@@ -1,0 +1,686 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "TC-01-login.spec.ts",
+      "file": "TC-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: login with a valid and an invalid password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7659,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page /#/login",
+                      "duration": 33
+                    },
+                    {
+                      "title": "2. Log in with the email and the wrong password",
+                      "duration": 889
+                    },
+                    {
+                      "title": "3. Open the account menu: it shows Login and not the email",
+                      "duration": 74
+                    },
+                    {
+                      "title": "4. Log in with the email and the correct password",
+                      "duration": 261
+                    },
+                    {
+                      "title": "5. Open the account menu: it shows the email and Logout",
+                      "duration": 70
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.760Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6f0756e36c62a5e3e825-3439935ead7f024e7036",
+          "file": "TC-01-login.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-02-add-to-basket.spec.ts",
+      "file": "TC-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-02: add a product to the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8543,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list: the product, its price and Add to Basket; basket counter 0",
+                      "duration": 839
+                    },
+                    {
+                      "title": "2. Click Add to Basket: message and basket counter 1",
+                      "duration": 1205
+                    },
+                    {
+                      "title": "3. Open the basket: one row with name, quantity 1 and price",
+                      "duration": 189
+                    },
+                    {
+                      "title": "4. The basket total is 8.99¤",
+                      "duration": 5
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.759Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9f679721f492e6d94c00-4e3b60c01e7dd89b48bf",
+          "file": "TC-02-add-to-basket.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-03-basket-quantity-and-remove.spec.ts",
+      "file": "TC-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-03: change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 9033,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket: A and B with quantity 1, total 13.98¤, counter 2",
+                      "duration": 101
+                    },
+                    {
+                      "title": "2. Click plus on A: A has quantity 2, total 18.97¤, counter 3",
+                      "duration": 262
+                    },
+                    {
+                      "title": "3. Click minus on A: A has quantity 1, total 13.98¤, counter 2",
+                      "duration": 151
+                    },
+                    {
+                      "title": "4. Click minus on A again: A keeps quantity 1 and stays in the basket, total 13.98¤",
+                      "duration": 41
+                    },
+                    {
+                      "title": "5. Click trash on A: no row for A, B stays with quantity 1, total 8.99¤, counter 1",
+                      "duration": 237
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.776Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf75024f698336085720-57f1259ddff5c193970f",
+          "file": "TC-03-basket-quantity-and-remove.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-04-purchase-limit.spec.ts",
+      "file": "TC-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-04: purchase limit for one product",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 13974,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> 4</span>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> 4</span>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n\n    at BasketPage.expectRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/pages/basket-page.ts:39:39)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/TC-04-purchase-limit.spec.ts:26:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/TC-04-purchase-limit.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/pages/basket-page.ts",
+                      "column": 39,
+                      "line": 39
+                    },
+                    "snippet": "   at pages/basket-page.ts:39\n\n  37 |   async expectRow(name: string, quantity: number): Promise<void> {\n  38 |     await expect(this.row(name)).toBeVisible();\n> 39 |     await expect(this.quantity(name)).toHaveText(String(quantity));\n     |                                       ^\n  40 |   }\n  41 |\n  42 |   async expectNoRow(name: string): Promise<void> {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/pages/basket-page.ts",
+                        "column": 39,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> 4</span>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n\n\n   at pages/basket-page.ts:39\n\n  37 |   async expectRow(name: string, quantity: number): Promise<void> {\n  38 |     await expect(this.row(name)).toBeVisible();\n> 39 |     await expect(this.quantity(name)).toHaveText(String(quantity));\n     |                                       ^\n  40 |   }\n  41 |\n  42 |   async expectNoRow(name: string): Promise<void> {\n    at BasketPage.expectRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/pages/basket-page.ts:39:39)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/TC-04-purchase-limit.spec.ts:26:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/TC-04-purchase-limit.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add the product from the product list: message and counter 1",
+                      "duration": 571
+                    },
+                    {
+                      "title": "2. Click plus until the quantity is 5: no error, total 9.95¤",
+                      "duration": 5853,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> 4</span>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\nExpected: \u001b[32m\"5\"\u001b[39m\nReceived: \u001b[31m\" 4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('row').filter({ hasText: 'Apple Juice (1000ml)' }).locator('.mat-column-quantity .cell-initial-font')\u001b[22m\n\u001b[2m    14 × locator resolved to <span class=\"cell-initial-font\" _ngcontent-ng-c125060177=\"\"> 4</span>\u001b[22m\n\u001b[2m       - unexpected value \" 4\"\u001b[22m\n\n    at BasketPage.expectRow (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/pages/basket-page.ts:39:39)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/TC-04-purchase-limit.spec.ts:26:7\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/TC-04-purchase-limit.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/pages/basket-page.ts",
+                          "column": 39,
+                          "line": 39
+                        },
+                        "snippet": "   at pages/basket-page.ts:39\n\n  37 |   async expectRow(name: string, quantity: number): Promise<void> {\n  38 |     await expect(this.row(name)).toBeVisible();\n> 39 |     await expect(this.quantity(name)).toHaveText(String(quantity));\n     |                                       ^\n  40 |   }\n  41 |\n  42 |   async expectNoRow(name: string): Promise<void> {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.759Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/test-results/TC-04-purchase-limit-TC-04-purchase-limit-for-one-product-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-3/run-2/suite-a/tests/pages/basket-page.ts",
+                    "column": 39,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4ebbb7958e67e22de36e-790a02a959294bf79a21",
+          "file": "TC-04-purchase-limit.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-05-valid-coupon.spec.ts",
+      "file": "TC-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-05: valid coupon on the payment step",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 13823,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, click Checkout: the saved address is shown",
+                      "duration": 176
+                    },
+                    {
+                      "title": "2. Select the saved address, click Continue: the delivery speeds are shown",
+                      "duration": 128
+                    },
+                    {
+                      "title": "3. Select One Day Delivery, click Continue: the saved card and the coupon panel are shown",
+                      "duration": 137
+                    },
+                    {
+                      "title": "4. Open the coupon panel, redeem the coupon of this month: the discount message shows",
+                      "duration": 146
+                    },
+                    {
+                      "title": "5. Select the saved card, click Continue: the order summary shows the 10% promotion",
+                      "duration": 152
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.747Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1bab9bf2cd910e6ba701-d7d4555cfc39d9ff2fd6",
+          "file": "TC-05-valid-coupon.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-06-invalid-and-expired-coupon.spec.ts",
+      "file": "TC-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-06: invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 13736,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, Checkout, select the address, Continue: the delivery page opens",
+                      "duration": 323
+                    },
+                    {
+                      "title": "2. Select One Day Delivery, click Continue: the payment page opens",
+                      "duration": 153
+                    },
+                    {
+                      "title": "3. Redeem the invalid code: the error shows, no discount message",
+                      "duration": 181
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the previous month: the error shows, no discount message",
+                      "duration": 117
+                    },
+                    {
+                      "title": "5. Select the saved card, click Continue: the summary shows no promotion",
+                      "duration": 210
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.760Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b42c65b46cbc82b081c-d713672150f996fbd5bf",
+          "file": "TC-06-invalid-and-expired-coupon.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-07-card-order-end-to-end.spec.ts",
+      "file": "TC-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-07: order with a card, from basket to order history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 15260,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time: the basket counter shows 3",
+                      "duration": 1840
+                    },
+                    {
+                      "title": "2. Open the basket: A with quantity 2, B with quantity 1, total 20.97¤",
+                      "duration": 139
+                    },
+                    {
+                      "title": "3. Click Checkout, select the saved address, Continue: the delivery page opens",
+                      "duration": 187
+                    },
+                    {
+                      "title": "4. Select One Day Delivery, Continue: the payment page opens",
+                      "duration": 179
+                    },
+                    {
+                      "title": "5. Redeem the coupon of this month: the discount message shows",
+                      "duration": 157
+                    },
+                    {
+                      "title": "6. Select the saved card, Continue: the summary shows address, card and totals",
+                      "duration": 166
+                    },
+                    {
+                      "title": "7. Click Place your order and pay: the confirmation page with the order ID opens",
+                      "duration": 323
+                    },
+                    {
+                      "title": "8. The confirmation page shows A with quantity 2, B with quantity 1 and the totals",
+                      "duration": 21
+                    },
+                    {
+                      "title": "9. The basket counter shows 0, the basket is empty and Checkout is disabled",
+                      "duration": 26
+                    },
+                    {
+                      "title": "10. Order History shows the order with its ID, total 19.86¤, A with 2 and B with 1",
+                      "duration": 611
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.773Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1d3845c20085e644a955-d52565e5f53d00f01db2",
+          "file": "TC-07-card-order-end-to-end.spec.ts",
+          "line": 17,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-08-wallet-payment.spec.ts",
+      "file": "TC-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: payment with the wallet",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 7,
+                  "status": "passed",
+                  "duration": 16541,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, Checkout, select the address, Continue: the delivery page opens",
+                      "duration": 227
+                    },
+                    {
+                      "title": "2. Select Standard Delivery, Continue: the wallet balance 5.00 and the button Pay 8.99¤ are shown",
+                      "duration": 228
+                    },
+                    {
+                      "title": "3. The button Pay 8.99¤ is disabled",
+                      "duration": 4
+                    },
+                    {
+                      "title": "4. Order History shows that no order is placed yet",
+                      "duration": 597
+                    },
+                    {
+                      "title": "5. Digital Wallet shows the balance 5.00",
+                      "duration": 743
+                    },
+                    {
+                      "title": "6. Add 3.99 to the wallet with the saved card: the balance 8.99 and the enabled Pay 8.99¤ button",
+                      "duration": 428
+                    },
+                    {
+                      "title": "7. Click Pay 8.99¤: the order summary shows Digital Wallet and Total Price 8.99¤",
+                      "duration": 82
+                    },
+                    {
+                      "title": "8. Click Place your order and pay: the confirmation page shows the thank you text",
+                      "duration": 141
+                    },
+                    {
+                      "title": "9. Digital Wallet shows the balance 1.00: 8.99 - 8.99 + 1 bonus point",
+                      "duration": 598
+                    },
+                    {
+                      "title": "10. Order History shows one order with Total Price 8.99¤ and Bonus 1",
+                      "duration": 681
+                    }
+                  ],
+                  "startTime": "2026-10-21T09:01:45.760Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5af517408f2c6273c70b-d640e68cd666856e3de0",
+          "file": "TC-08-wallet-payment.spec.ts",
+          "line": 16,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T09:01:45.028Z",
+    "duration": 18064.714,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
