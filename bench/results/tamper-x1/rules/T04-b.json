@@ -1,0 +1,772 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--workers=1",
+      "--reporter=json",
+      "--output=/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T04-b-output"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T04-b-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T04-b-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3100",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 503
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 275
+                    },
+                    {
+                      "title": "3. The account menu shows Login and no email",
+                      "duration": 67
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 348
+                    },
+                    {
+                      "title": "5. The account menu shows the email and Logout",
+                      "duration": 52
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:17.689Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b34bf74f2c2ef7a26f68-3f13381083f9e449f15d",
+          "file": "tc-01-login.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-02-add-to-basket.spec.ts",
+      "file": "tc-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1503,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 220
+                    },
+                    {
+                      "title": "2. Add the product to the basket",
+                      "duration": 210
+                    },
+                    {
+                      "title": "3. Open the basket",
+                      "duration": 130
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 6
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:19.506Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "22d97df45c3a3424b0cc-872148d67706da033e98",
+          "file": "tc-02-add-to-basket.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-03-basket-quantity-and-remove.spec.ts",
+      "file": "tc-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 251
+                    },
+                    {
+                      "title": "2. Click plus in the row of product A",
+                      "duration": 184
+                    },
+                    {
+                      "title": "3. Click minus in the row of product A",
+                      "duration": 175
+                    },
+                    {
+                      "title": "4. Click minus in the row of product A again",
+                      "duration": 671
+                    },
+                    {
+                      "title": "5. Click trash in the row of product A",
+                      "duration": 112
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:21.027Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4d01b774c6877a42b8c3-ab007e0ba36e8931538d",
+          "file": "tc-03-basket-quantity-and-remove.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-04-purchase-limit.spec.ts",
+      "file": "tc-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add the product from the product list",
+                      "duration": 391
+                    },
+                    {
+                      "title": "2. Click plus until the quantity is 5",
+                      "duration": 539
+                    },
+                    {
+                      "title": "3. Click plus one more time",
+                      "duration": 67
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 576
+                    },
+                    {
+                      "title": "5. Add the product again from the product list",
+                      "duration": 242
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:23.420Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4047ea462fa680f9ce53-49908356d3b6a68d004c",
+          "file": "tc-04-purchase-limit.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6759,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:67:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:62:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                      "column": 6,
+                      "line": 18
+                    },
+                    "snippet": "   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                        "column": 6,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:67:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:62:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click Checkout",
+                      "duration": 308
+                    },
+                    {
+                      "title": "2. Select the saved address and continue",
+                      "duration": 120
+                    },
+                    {
+                      "title": "3. Select One Day Delivery and continue",
+                      "duration": 138
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the current month",
+                      "duration": 148
+                    },
+                    {
+                      "title": "5. Select the saved card and continue",
+                      "duration": 5056,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:67:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:62:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                          "column": 6,
+                          "line": 18
+                        },
+                        "snippet": "   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:26.142Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T04-b-output/tc-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                    "column": 6,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c10621caa65da8f16e6b-2a214647788f0c9e1be2",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6893,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:57:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:52:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                      "column": 6,
+                      "line": 18
+                    },
+                    "snippet": "   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                        "column": 6,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:57:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:52:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout with the saved address",
+                      "duration": 407
+                    },
+                    {
+                      "title": "2. Select One Day Delivery and continue",
+                      "duration": 161
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 148
+                    },
+                    {
+                      "title": "4. Redeem the expired coupon",
+                      "duration": 96
+                    },
+                    {
+                      "title": "5. Select the saved card and continue",
+                      "duration": 5058,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:57:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:52:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                          "column": 6,
+                          "line": 18
+                        },
+                        "snippet": "   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:33.607Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T04-b-output/tc-06-invalid-and-expired--a7088-d-coupon-and-expired-coupon-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                    "column": 6,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2e2fd1be63dc96462f88-d7f60360ce76065565b4",
+          "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-07-card-order-end-to-end.spec.ts",
+      "file": "tc-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7392,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:82:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:68:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                      "column": 6,
+                      "line": 18
+                    },
+                    "snippet": "   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                        "column": 6,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:82:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:68:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time",
+                      "duration": 643
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 85
+                    },
+                    {
+                      "title": "3. Checkout with the saved address",
+                      "duration": 164
+                    },
+                    {
+                      "title": "4. Select One Day Delivery and continue",
+                      "duration": 133
+                    },
+                    {
+                      "title": "5. Redeem the coupon of the current month",
+                      "duration": 141
+                    },
+                    {
+                      "title": "6. Select the saved card and continue to the order summary",
+                      "duration": 5095,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0.99\u001b[39m\nReceived: \u001b[31m1.99\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:82:22\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:68:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                          "column": 6,
+                          "line": 18
+                        },
+                        "snippet": "   at support/assertions.ts:18\n\n  16 |       { message },\n  17 |     )\n> 18 |     .toBe(money(expected));\n     |      ^\n  19 | }\n  20 |"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:41.462Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T04-b-output/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts",
+                    "column": 6,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5b5235fa264a4d697318-e62662abf4411df83dcd",
+          "file": "tc-07-card-order-end-to-end.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6690,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').getByRole('button', { name: /^Pay / })\nExpected pattern: \u001b[32m/Pay 8.99¤/\u001b[39m\nReceived string:  \u001b[31m\" Pay 9.99¤ \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"submit\" color=\"primary\" disabled=\"true\" mat-raised-button=\"\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" Pay 9.99¤ \"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').getByRole('button', { name: /^Pay / })\nExpected pattern: \u001b[32m/Pay 8.99¤/\u001b[39m\nReceived string:  \u001b[31m\" Pay 9.99¤ \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"submit\" color=\"primary\" disabled=\"true\" mat-raised-button=\"\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" Pay 9.99¤ \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:44:43\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:40:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                      "column": 43,
+                      "line": 44
+                    },
+                    "snippet": "  42 |     await expect(payment.title).toBeVisible();\n  43 |     await expectPrice(payment.walletBalance, firstBalance);\n> 44 |     await expect(payment.walletPayButton).toHaveText(new RegExp(`Pay ${priceText(total)}`));\n     |                                           ^\n  45 |   });\n  46 |\n  47 |   await test.step(`3. The button Pay ${priceText(total)} is disabled`, async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                        "column": 43,
+                        "line": 44
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').getByRole('button', { name: /^Pay / })\nExpected pattern: \u001b[32m/Pay 8.99¤/\u001b[39m\nReceived string:  \u001b[31m\" Pay 9.99¤ \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"submit\" color=\"primary\" disabled=\"true\" mat-raised-button=\"\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" Pay 9.99¤ \"\u001b[22m\n\n\n  42 |     await expect(payment.title).toBeVisible();\n  43 |     await expectPrice(payment.walletBalance, firstBalance);\n> 44 |     await expect(payment.walletPayButton).toHaveText(new RegExp(`Pay ${priceText(total)}`));\n     |                                           ^\n  45 |   });\n  46 |\n  47 |   await test.step(`3. The button Pay ${priceText(total)} is disabled`, async () => {\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:44:43\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:40:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout with the saved address",
+                      "duration": 448
+                    },
+                    {
+                      "title": "2. Select Standard Delivery and continue",
+                      "duration": 5165,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').getByRole('button', { name: /^Pay / })\nExpected pattern: \u001b[32m/Pay 8.99¤/\u001b[39m\nReceived string:  \u001b[31m\" Pay 9.99¤ \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"submit\" color=\"primary\" disabled=\"true\" mat-raised-button=\"\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" Pay 9.99¤ \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').getByRole('button', { name: /^Pay / })\nExpected pattern: \u001b[32m/Pay 8.99¤/\u001b[39m\nReceived string:  \u001b[31m\" Pay 9.99¤ \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"submit\" color=\"primary\" disabled=\"true\" mat-raised-button=\"\" _ngcontent-ng-c1132546424=\"\" mat-ripple-loader-disabled=\"\" mat-ripple-loader-uninitialized=\"\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" Pay 9.99¤ \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:44:43\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:40:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                          "column": 43,
+                          "line": 44
+                        },
+                        "snippet": "  42 |     await expect(payment.title).toBeVisible();\n  43 |     await expectPrice(payment.walletBalance, firstBalance);\n> 44 |     await expect(payment.walletPayButton).toHaveText(new RegExp(`Pay ${priceText(total)}`));\n     |                                           ^\n  45 |   });\n  46 |\n  47 |   await test.step(`3. The button Pay ${priceText(total)} is disabled`, async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:50:49.779Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T04-b-output/tc-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts",
+                    "column": 43,
+                    "line": 44
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7c1eb09259c3bc780cd1-dfca555ecf4eda14da7e",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T10:50:17.086Z",
+    "duration": 39765.594,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

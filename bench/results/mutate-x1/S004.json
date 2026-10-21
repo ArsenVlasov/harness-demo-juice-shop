@@ -1,0 +1,203 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-01-login\\.spec\\.ts$:3"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6266,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-login .error')\nExpected: \u001b[32m\"Invalid email or password.\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Invalid email or password.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-login .error') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-login .error')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"alert\" class=\"error\" _ngcontent-ng-c347502026=\"\">Invalid email or password.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Invalid email or password.\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-login .error')\nExpected: \u001b[32m\"Invalid email or password.\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Invalid email or password.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-login .error') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-login .error')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"alert\" class=\"error\" _ngcontent-ng-c347502026=\"\">Invalid email or password.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Invalid email or password.\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts:18:42\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts:16:3",
+                    "location": {
+                      "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts",
+                      "column": 42,
+                      "line": 18
+                    },
+                    "snippet": "  16 |   await test.step('2. Log in with the wrong password', async () => {\n  17 |     await loginPage.submit(customer.email, wrongPassword);\n> 18 |     await expect(loginPage.errorMessage).toHaveText('Invalid email or password._mut');\n     |                                          ^\n  19 |     await expect(page).toHaveURL(/#\\/login/);\n  20 |     await expect(loginPage.title).toBeVisible();\n  21 |   });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts",
+                        "column": 42,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-login .error')\nExpected: \u001b[32m\"Invalid email or password.\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Invalid email or password.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-login .error') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-login .error')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"alert\" class=\"error\" _ngcontent-ng-c347502026=\"\">Invalid email or password.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Invalid email or password.\"\u001b[22m\n\n\n  16 |   await test.step('2. Log in with the wrong password', async () => {\n  17 |     await loginPage.submit(customer.email, wrongPassword);\n> 18 |     await expect(loginPage.errorMessage).toHaveText('Invalid email or password._mut');\n     |                                          ^\n  19 |     await expect(page).toHaveURL(/#\\/login/);\n  20 |     await expect(loginPage.title).toBeVisible();\n  21 |   });\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts:18:42\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts:16:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 698
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 5314,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-login .error')\nExpected: \u001b[32m\"Invalid email or password.\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Invalid email or password.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-login .error') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-login .error')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"alert\" class=\"error\" _ngcontent-ng-c347502026=\"\">Invalid email or password.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Invalid email or password.\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-login .error')\nExpected: \u001b[32m\"Invalid email or password.\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Invalid email or password.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-login .error') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-login .error')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"alert\" class=\"error\" _ngcontent-ng-c347502026=\"\">Invalid email or password.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Invalid email or password.\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts:18:42\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts:16:3",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts",
+                          "column": 42,
+                          "line": 18
+                        },
+                        "snippet": "  16 |   await test.step('2. Log in with the wrong password', async () => {\n  17 |     await loginPage.submit(customer.email, wrongPassword);\n> 18 |     await expect(loginPage.errorMessage).toHaveText('Invalid email or password._mut');\n     |                                          ^\n  19 |     await expect(page).toHaveURL(/#\\/login/);\n  20 |     await expect(loginPage.title).toBeVisible();\n  21 |   });"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T11:02:41.320Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/test-results/tc-01-login-TC-01-Login-with-a-valid-and-an-invalid-password-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-01-login.spec.ts",
+                    "column": 42,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b34bf74f2c2ef7a26f68-3f13381083f9e449f15d",
+          "file": "tc-01-login.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T11:02:40.316Z",
+    "duration": 7835.372,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

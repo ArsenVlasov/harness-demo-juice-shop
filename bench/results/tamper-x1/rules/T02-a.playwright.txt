@@ -1,0 +1,203 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:3:5 › TC-01: Login with a valid and an invalid password
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket
+  1) [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket › 3. Open the basket 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').filter({ hasText: 'Eggfruit Juice (500ml)' }) }).locator('mat-cell.mat-column-price')
+    Expected: "8.99¤"
+    Received: " 9.99¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').filter({ hasText: 'Eggfruit Juice (500ml)' }) }).locator('mat-cell.mat-column-price') with timeout 5000ms
+      - waiting for locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').filter({ hasText: 'Eggfruit Juice (500ml)' }) }).locator('mat-cell.mat-column-price')
+        14 × locator resolved to <mat-cell role="cell" _ngcontent-ng-c125060177="" class="mat-mdc-cell mdc-data-table__cell cdk-cell cell-initial-font cdk-column-price mat-column-price"> 9.99¤</mat-cell>
+           - unexpected value " 9.99¤"
+
+
+      27 |     await expect(basket.row(product.name)).toBeVisible();
+      28 |     await expect(basket.quantity(product.name)).toHaveText('1');
+    > 29 |     await expect(basket.price(product.name)).toHaveText(priceText(product.price));
+         |                                              ^
+      30 |   });
+      31 |
+      32 |   await test.step('4. Read the total of the basket', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-02-add-to-basket.spec.ts:29:46
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-02-add-to-basket.spec.ts:22:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T02-a-output/tc-02-add-to-basket-TC-02-Add-a-product-to-the-basket-chromium/error-context.md
+
+
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket
+  2) [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket › 1. Open the basket 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 13.98
+    Received: 15.98
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at support/assertions.ts:18
+
+      16 |       { message },
+      17 |     )
+    > 18 |     .toBe(money(expected));
+         |      ^
+      19 | }
+      20 |
+        at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:23:22
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:18:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T02-a-output/tc-03-basket-quantity-and--20eb8-ove-a-product-in-the-basket-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product
+  3) [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product › 2. Click plus until the quantity is 5 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 9.95
+    Received: 14.950000000000001
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at support/assertions.ts:18
+
+      16 |       { message },
+      17 |     )
+    > 18 |     .toBe(money(expected));
+         |      ^
+      19 | }
+      20 |
+        at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-04-purchase-limit.spec.ts:23:22
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-04-purchase-limit.spec.ts:16:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T02-a-output/tc-04-purchase-limit-TC-04-Purchase-limit-for-one-product-chromium/error-context.md
+
+
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step
+  4) [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step › 5. Select the saved card and continue 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 17.98
+    Received: 19.98
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at support/assertions.ts:18
+
+      16 |       { message },
+      17 |     )
+    > 18 |     .toBe(money(expected));
+         |      ^
+      19 | }
+      20 |
+        at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:66:22
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:62:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T02-a-output/tc-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md
+
+
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon
+  5) [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon › 5. Select the saved card and continue 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 17.98
+    Received: 19.98
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at support/assertions.ts:18
+
+      16 |       { message },
+      17 |     )
+    > 18 |     .toBe(money(expected));
+         |      ^
+      19 | }
+      20 |
+        at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:56:22
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:52:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T02-a-output/tc-06-invalid-and-expired--a7088-d-coupon-and-expired-coupon-chromium/error-context.md
+
+
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history
+  6) [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history › 2. Open the basket 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 20.97
+    Received: 23.97
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at support/assertions.ts:18
+
+      16 |       { message },
+      17 |     )
+    > 18 |     .toBe(money(expected));
+         |      ^
+      19 | }
+      20 |
+        at expectPrice (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/support/assertions.ts:18:6)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:46:22
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:41:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T02-a-output/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet
+  7) [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet › 2. Select Standard Delivery and continue 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('app-payment').getByRole('button', { name: /^Pay / })
+    Expected pattern: /Pay 8.99¤/
+    Received string:  " Pay 9.99¤ "
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms
+      - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })
+        14 × locator resolved to <button type="submit" color="primary" disabled="true" mat-raised-button="" _ngcontent-ng-c1132546424="" mat-ripple-loader-disabled="" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled">…</button>
+           - unexpected value " Pay 9.99¤ "
+
+
+      42 |     await expect(payment.title).toBeVisible();
+      43 |     await expectPrice(payment.walletBalance, firstBalance);
+    > 44 |     await expect(payment.walletPayButton).toHaveText(new RegExp(`Pay ${priceText(total)}`));
+         |                                           ^
+      45 |   });
+      46 |
+      47 |   await test.step(`3. The button Pay ${priceText(total)} is disabled`, async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:44:43
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:40:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T02-a-output/tc-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md
+
+
+  7 failed
+    [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket ────────
+    [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket 
+    [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product ────
+    [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step ────
+    [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon 
+    [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history 
+    [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet ───────────
+  1 passed (55.0s)

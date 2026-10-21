@@ -1,0 +1,235 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$:6"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10080,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-history').locator('.table-container')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-order-history').locator('.table-container') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-history').locator('.table-container')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-history').locator('.table-container')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-order-history').locator('.table-container') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-history').locator('.table-container')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts:99:39\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts:97:3",
+                    "location": {
+                      "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts",
+                      "column": 39,
+                      "line": 99
+                    },
+                    "snippet": "   97 |   await test.step('10. The order history shows the order', async () => {\n   98 |     await navBar.openOrderHistory();\n>  99 |     await expect(orderHistory.orders).toHaveCount(2);\n      |                                       ^\n  100 |     const order = orderHistory.orders.first();\n  101 |     await expectPrice(orderHistory.orderField(order, 'Total Price'), total);\n  102 |     await expect(orderHistory.orderField(order, 'Bonus')).toHaveText(String(bonus));"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts",
+                        "column": 39,
+                        "line": 99
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-history').locator('.table-container')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-order-history').locator('.table-container') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-history').locator('.table-container')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n   97 |   await test.step('10. The order history shows the order', async () => {\n   98 |     await navBar.openOrderHistory();\n>  99 |     await expect(orderHistory.orders).toHaveCount(2);\n      |                                       ^\n  100 |     const order = orderHistory.orders.first();\n  101 |     await expectPrice(orderHistory.orderField(order, 'Total Price'), total);\n  102 |     await expect(orderHistory.orderField(order, 'Bonus')).toHaveText(String(bonus));\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts:99:39\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts:97:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout with the saved address",
+                      "duration": 327
+                    },
+                    {
+                      "title": "2. Select Standard Delivery and continue",
+                      "duration": 333
+                    },
+                    {
+                      "title": "3. The button Pay 8.99¤ is disabled",
+                      "duration": 6
+                    },
+                    {
+                      "title": "4. The order history is empty",
+                      "duration": 602
+                    },
+                    {
+                      "title": "5. The wallet balance is unchanged",
+                      "duration": 771
+                    },
+                    {
+                      "title": "6. Checkout again to the payment options",
+                      "duration": 438
+                    },
+                    {
+                      "title": "7. Click Pay 8.99¤",
+                      "duration": 89
+                    },
+                    {
+                      "title": "8. Place the order",
+                      "duration": 99
+                    },
+                    {
+                      "title": "9. The wallet balance is the bonus of the order",
+                      "duration": 697
+                    },
+                    {
+                      "title": "10. The order history shows the order",
+                      "duration": 5575,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-history').locator('.table-container')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-order-history').locator('.table-container') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-history').locator('.table-container')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-order-history').locator('.table-container')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-order-history').locator('.table-container') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-history').locator('.table-container')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts:99:39\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts:97:3",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts",
+                          "column": 39,
+                          "line": 99
+                        },
+                        "snippet": "   97 |   await test.step('10. The order history shows the order', async () => {\n   98 |     await navBar.openOrderHistory();\n>  99 |     await expect(orderHistory.orders).toHaveCount(2);\n      |                                       ^\n  100 |     const order = orderHistory.orders.first();\n  101 |     await expectPrice(orderHistory.orderField(order, 'Total Price'), total);\n  102 |     await expect(orderHistory.orderField(order, 'Bonus')).toHaveText(String(bonus));"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T11:13:51.183Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/test-results/tc-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-S1Yo1A/tests/tc-08-wallet-payment.spec.ts",
+                    "column": 39,
+                    "line": 99
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7c1eb09259c3bc780cd1-dfca555ecf4eda14da7e",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T11:13:50.389Z",
+    "duration": 11257.517,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

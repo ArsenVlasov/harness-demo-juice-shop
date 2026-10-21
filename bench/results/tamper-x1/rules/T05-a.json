@@ -1,0 +1,716 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--workers=1",
+      "--reporter=json",
+      "--output=/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T05-a-output"
+    ],
+    "configFile": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/playwright.config.ts",
+    "rootDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T05-a-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T05-a-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+        "snapshotDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3100",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1475,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 495
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 266
+                    },
+                    {
+                      "title": "3. The account menu shows Login and no email",
+                      "duration": 63
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 354
+                    },
+                    {
+                      "title": "5. The account menu shows the email and Logout",
+                      "duration": 53
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:03.052Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b34bf74f2c2ef7a26f68-3f13381083f9e449f15d",
+          "file": "tc-01-login.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-02-add-to-basket.spec.ts",
+      "file": "tc-02-add-to-basket.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-02: Add a product to the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1471,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the product list",
+                      "duration": 223
+                    },
+                    {
+                      "title": "2. Add the product to the basket",
+                      "duration": 182
+                    },
+                    {
+                      "title": "3. Open the basket",
+                      "duration": 120
+                    },
+                    {
+                      "title": "4. Read the total of the basket",
+                      "duration": 6
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:04.855Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "22d97df45c3a3424b0cc-872148d67706da033e98",
+          "file": "tc-02-add-to-basket.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-03-basket-quantity-and-remove.spec.ts",
+      "file": "tc-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2289,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 254
+                    },
+                    {
+                      "title": "2. Click plus in the row of product A",
+                      "duration": 171
+                    },
+                    {
+                      "title": "3. Click minus in the row of product A",
+                      "duration": 164
+                    },
+                    {
+                      "title": "4. Click minus in the row of product A again",
+                      "duration": 674
+                    },
+                    {
+                      "title": "5. Click trash in the row of product A",
+                      "duration": 109
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:06.344Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4d01b774c6877a42b8c3-ab007e0ba36e8931538d",
+          "file": "tc-03-basket-quantity-and-remove.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-04-purchase-limit.spec.ts",
+      "file": "tc-04-purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-04: Purchase limit for one product",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2616,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add the product from the product list",
+                      "duration": 383
+                    },
+                    {
+                      "title": "2. Click plus until the quantity is 5",
+                      "duration": 543
+                    },
+                    {
+                      "title": "3. Click plus one more time",
+                      "duration": 117
+                    },
+                    {
+                      "title": "4. Read the basket",
+                      "duration": 468
+                    },
+                    {
+                      "title": "5. Add the product again from the product list",
+                      "duration": 251
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:08.652Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4047ea462fa680f9ce53-49908356d3b6a68d004c",
+          "file": "tc-04-purchase-limit.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6652,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:56:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:53:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                      "column": 46,
+                      "line": 56
+                    },
+                    "snippet": "  54 |     await payment.openCouponPanel();\n  55 |     await payment.redeemCoupon(coupon);\n> 56 |     await expect(payment.couponConfirmation).toHaveText(\n     |                                              ^\n  57 |       `Your discount of ${discountPercent}% will be applied during checkout.`,\n  58 |     );\n  59 |     await expect(payment.couponError).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                        "column": 46,
+                        "line": 56
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n\n\n  54 |     await payment.openCouponPanel();\n  55 |     await payment.redeemCoupon(coupon);\n> 56 |     await expect(payment.couponConfirmation).toHaveText(\n     |                                              ^\n  57 |       `Your discount of ${discountPercent}% will be applied during checkout.`,\n  58 |     );\n  59 |     await expect(payment.couponError).toHaveCount(0);\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:56:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:53:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket and click Checkout",
+                      "duration": 328
+                    },
+                    {
+                      "title": "2. Select the saved address and continue",
+                      "duration": 118
+                    },
+                    {
+                      "title": "3. Select One Day Delivery and continue",
+                      "duration": 130
+                    },
+                    {
+                      "title": "4. Redeem the coupon of the current month",
+                      "duration": 5123,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:56:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts:53:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                          "column": 46,
+                          "line": 56
+                        },
+                        "snippet": "  54 |     await payment.openCouponPanel();\n  55 |     await payment.redeemCoupon(coupon);\n> 56 |     await expect(payment.couponConfirmation).toHaveText(\n     |                                              ^\n  57 |       `Your discount of ${discountPercent}% will be applied during checkout.`,\n  58 |     );\n  59 |     await expect(payment.couponError).toHaveCount(0);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:11.283Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T05-a-output/tc-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-05-valid-coupon.spec.ts",
+                    "column": 46,
+                    "line": 56
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c10621caa65da8f16e6b-2a214647788f0c9e1be2",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-06: Invalid coupon and expired coupon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1990,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout with the saved address",
+                      "duration": 408
+                    },
+                    {
+                      "title": "2. Select One Day Delivery and continue",
+                      "duration": 140
+                    },
+                    {
+                      "title": "3. Redeem the invalid code",
+                      "duration": 155
+                    },
+                    {
+                      "title": "4. Redeem the expired coupon",
+                      "duration": 79
+                    },
+                    {
+                      "title": "5. Select the saved card and continue",
+                      "duration": 181
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:18.619Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2e2fd1be63dc96462f88-d7f60360ce76065565b4",
+          "file": "tc-06-invalid-and-expired-coupon.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-07-card-order-end-to-end.spec.ts",
+      "file": "tc-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7237,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:63:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:60:3",
+                    "location": {
+                      "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                      "column": 46,
+                      "line": 63
+                    },
+                    "snippet": "  61 |     await payment.openCouponPanel();\n  62 |     await payment.redeemCoupon(coupon);\n> 63 |     await expect(payment.couponConfirmation).toHaveText(\n     |                                              ^\n  64 |       `Your discount of ${discountPercent}% will be applied during checkout.`,\n  65 |     );\n  66 |   });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                        "column": 46,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n\n\n  61 |     await payment.openCouponPanel();\n  62 |     await payment.redeemCoupon(coupon);\n> 63 |     await expect(payment.couponConfirmation).toHaveText(\n     |                                              ^\n  64 |       `Your discount of ${discountPercent}% will be applied during checkout.`,\n  65 |     );\n  66 |   });\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:63:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:60:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time",
+                      "duration": 682
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 85
+                    },
+                    {
+                      "title": "3. Checkout with the saved address",
+                      "duration": 146
+                    },
+                    {
+                      "title": "4. Select One Day Delivery and continue",
+                      "duration": 134
+                    },
+                    {
+                      "title": "5. Redeem the coupon of the current month",
+                      "duration": 5151,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\nExpected: \u001b[32m\"Your discount of 1\u001b[7m0\u001b[27m% will be applied during checkout.\"\u001b[39m\nReceived: \u001b[31m\"Your discount of 1\u001b[7m1\u001b[27m% will be applied during checkout.\u001b[7m \u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('.confirmation').filter({ hasText: /discount/i })\u001b[22m\n\u001b[2m    14 × locator resolved to <div _ngcontent-ng-c1132546424=\"\" class=\"confirmation message-spacing\">Your discount of 11% will be applied during check…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Your discount of 11% will be applied during checkout. \"\u001b[22m\n\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:63:46\n    at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:60:3",
+                        "location": {
+                          "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                          "column": 46,
+                          "line": 63
+                        },
+                        "snippet": "  61 |     await payment.openCouponPanel();\n  62 |     await payment.redeemCoupon(coupon);\n> 63 |     await expect(payment.couponConfirmation).toHaveText(\n     |                                              ^\n  64 |       `Your discount of ${discountPercent}% will be applied during checkout.`,\n  65 |     );\n  66 |   });"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:20.915Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-juice-shop/bench/results/tamper-x1/rules/T05-a-output/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-07-card-order-end-to-end.spec.ts",
+                    "column": 46,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5b5235fa264a4d697318-e62662abf4411df83dcd",
+          "file": "tc-07-card-order-end-to-end.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5161,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Checkout with the saved address",
+                      "duration": 333
+                    },
+                    {
+                      "title": "2. Select Standard Delivery and continue",
+                      "duration": 171
+                    },
+                    {
+                      "title": "3. The button Pay 8.99¤ is disabled",
+                      "duration": 5
+                    },
+                    {
+                      "title": "4. The order history is empty",
+                      "duration": 605
+                    },
+                    {
+                      "title": "5. The wallet balance is unchanged",
+                      "duration": 773
+                    },
+                    {
+                      "title": "6. Checkout again to the payment options",
+                      "duration": 447
+                    },
+                    {
+                      "title": "7. Click Pay 8.99¤",
+                      "duration": 90
+                    },
+                    {
+                      "title": "8. Place the order",
+                      "duration": 330
+                    },
+                    {
+                      "title": "9. The wallet balance is the bonus of the order",
+                      "duration": 667
+                    },
+                    {
+                      "title": "10. The order history shows the order",
+                      "duration": 597
+                    }
+                  ],
+                  "startTime": "2026-10-21T10:51:28.788Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c1eb09259c3bc780cd1-dfca555ecf4eda14da7e",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T10:51:02.473Z",
+    "duration": 31840.043,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

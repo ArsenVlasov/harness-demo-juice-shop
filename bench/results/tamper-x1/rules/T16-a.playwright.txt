@@ -1,0 +1,41 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:3:5 › TC-01: Login with a valid and an invalid password
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet
+  1) [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet › 5. The wallet balance is unchanged 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('app-wallet').getByRole('heading', { name: 'Digital Wallet' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('app-wallet').getByRole('heading', { name: 'Digital Wallet' }) with timeout 5000ms
+      - waiting for locator('app-wallet').getByRole('heading', { name: 'Digital Wallet' })
+
+
+      57 |   await test.step('5. The wallet balance is unchanged', async () => {
+      58 |     await navBar.openDigitalWallet();
+    > 59 |     await expect(wallet.title).toBeVisible();
+         |                                ^
+      60 |     await expectPrice(wallet.balance, firstBalance);
+      61 |   });
+      62 |
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:59:32
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-1/suite-a/tests/tc-08-wallet-payment.spec.ts:57:3
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x1/rules/T16-a-output/tc-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet ───────────
+  7 passed (23.9s)

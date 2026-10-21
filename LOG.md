@@ -6,6 +6,19 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 14:30: the battery watcher stopped the E4 tool runs at 23 %
+
+Start from: on AC power, run `tamper-x2` and `mutate-x2` again (haiku A-3). The tools of vague A-1 are complete.
+
+- From `bench/.run/e4-tools.log`:
+  - `tamper-x1` 13:46:26 to 14:01:09, exit 0.
+  - `mutate-x1` 14:01:09 to 14:14:09, exit 0: `client: 44 killed, 1 survived, 0 error, 0 skipped of 45`.
+  - `tamper-x2` from 14:14:09, at 40 %. It stopped in the rule T15-f.
+- The Mac stayed on battery. A watcher (`bench/.run/e4-battery-watch.log`) gave `[14:28:02] on battery at 23%: stop the tool runs`.
+  It stopped the tool processes and the app, and then `stopped, juice-shop changes: 0`. The sequence ended with exit 144.
+- My first watcher had a fault: its pattern matched its own command line. I stopped it at 14:13, before it acted, and started a fixed one.
+- The partial output of `tamper-x2` is now `bench/results/tamper-x2-stopped/`. It does not count.
+
 ## 2026-10-21, 13:45: E4 on the client suite vague A-1, and an exploratory E4 on haiku A-3
 
 Start from: the tool runs of this entry and the workflow that builds the rest of E4. Then the auditor sessions.
