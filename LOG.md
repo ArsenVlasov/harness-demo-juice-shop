@@ -6,6 +6,67 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-22, 00:26: decision 25. Two forms of the judge result of H2.3. The push of `main`
+
+Start from: the summary of stage 2 (`bench/results/summary-stage2.md`), the README, the 2 drafts in the vault `demo/`, then the check by 2 independent agents. Section 10 of the plan, item 25, has the decision.
+
+- Arsen gave decision 25 in the task of this session. This is a human intervention.
+  1. The frozen result of H2.3 is the result of record. Judge steps `partial` on the vague test cases: A 2 / 21 / 18 against B 0 / 0 / 0, of 49.
+  2. A sensitivity check, with the label "post hoc". It leaves out each step of A whose `partial` verdict names only a helper or a calculated value. A 2 / 4 / 1 against B 0 / 0 / 0.
+     The reason: decision 19 found that B also calculates totals with `PriceHelper` from constants. The judge gave these steps of B `covered` (`bench/results/decision-19-x3-x4.md`).
+  3. The offer sentence and the client document use only the conservative form (item 2), with n = 3 and the spread.
+- During this session, before 00:26, Arsen said: "push changes in orgign main". This is a human intervention.
+  - Before the push, `main` was 40 commits ahead of `origin/main`. The remote `github.com/ArsenVlasov/harness-demo-juice-shop` is public (entry of 20.10, 17:15).
+  - `git push origin main`: `e07d5d1..ea113f2  main -> main`. After it, `git status -sb` gave `## main...origin/main`.
+  - The push holds the commits up to decision 24. The vault is not in this repository. `sealed/` and `sealed-ui/` stay out of git (`.gitignore`).
+  - The task of this session also says "Do not publish anything". The main session reads the message of Arsen as his "yes" to this one push only. Checkpoint 6 (the client document) still waits.
+
+### The derived numbers of `bench/results/summary-stage2.md`
+
+A `python3` command calculated them from the values in `bench/results/e4-before-after.md` and `aggregate-*.md`. The output:
+
+- vague A-1: audit 1874 s = 31.2 min, audit cost 1.18 USD. Audit plus fix 2480 s = 41.3 min, 3.3990 USD.
+  Manual 1 h = 25.00 USD, break-even person time 51.8 min. Manual 2 h = 50.00 USD, break-even 111.8 min.
+- haiku A-3: audit 2193 s = 36.55 min (the output gave 36.5, half-up rounding gives 36.6), audit cost 1.54 USD. Audit plus fix 3346 s = 55.8 min, 5.6558 USD.
+  Manual 1 h, break-even 46.4 min. Manual 2 h, break-even 106.4 min.
+- A second `python3` command gave the ratios B / A of the means of the listed values for each test case. Cost: 3.12 (precise), 3.07 (vague), 3.56 (haiku). Work time: 1.90, 2.24, 1.01.
+  The first command used the rounded means of `aggregate-*.md` and gave cost 3.07, 3.06, 3.56 and time 1.91, 2.24, 1.01.
+- `4000/25 = 160.0`: at 25 USD for each hour, 4,000 USD for each month is 160 hours. The plan does not give the hours.
+
+### A deviation from the freeze order of the plan, found during the summary
+
+- Section 4 of the plan v2 puts `sealed-ui` before the E4 audit. "What we publish" of `bench/hypotheses-v2.md` gives the same order.
+- The real order: the E4 tools from 21.10, 13:46, the auditors from 15:05, the fixers to 15:50, the measurements after the fix to 17:32. The seal of `sealed-ui/` was at 19:50.
+- The effect, as far as the main session can see: none on the results. E4 does not use the UI patches. During the UI patch session, the folders of `harness-demo-runs/` had mode 000, and its tool-call audit found no path in them (entry of 21.10, 19:12).
+- No earlier entry records this deviation. The README table "Order of the freezes" now gives the real order.
+
+### The check of the summary, the README and the 2 drafts by 2 independent agents
+
+The main session started 2 read-only subagents in parallel. They did not see the reading of the main session.
+
+1. **The numbers.** The agent checked each number against the raw files and calculated each derived number again with `python3`. It found no wrong number in a table. Its findings, all fixed:
+   - H3.2 said that the judge ranges overlap "at 3". They overlap from 3 to 5.
+   - A sentence said that 2 tamper rules survive in each audited suite. Before the fix, haiku A-3 has 3 survivors. Now the sentence names T14-b and T15-d.
+   - The plan does not give 160 hours for each month. The summary now says that the main session calculated it.
+   - The time of the n = 3 rule now follows the frozen file. Arsen did not approve the rule before the measurements of runs 2 and 3.
+   - 2193 s is 36.55 min. Half-up rounding gives 36.6, not 36.5. Fixed in the summary, the README, this entry and the draft of the block.
+   - The ratios B / A came from the rounded means. Now they come from the listed values: cost 3.12, 3.07, 3.56, time 1.90, 2.24, 1.01.
+2. **The labels and the publication rules.** The agent applied the rule "How we read n = 3" to each label again. It found no wrong label. Its findings:
+   - Must fix: the summary and the README did not have all frozen limits. Now both files have the leaks of the vague set, word for word.
+     They also have the E4 sentence "the gain before and after does not carry over to a typical suite".
+   - Must fix: the draft of the block used numbers outside the frozen scope of the offer sentence (only E4 and E5a).
+     The main session removed the generation cost. The E5b example stays, because Arsen asked for it in the task. It now names the trade-off, and the draft asks Arsen for a decision.
+   - Should fix, all applied: section 9 has the post hoc and exploratory marks. The conservative form has the strength "supported (post hoc sensitivity check, judge only, no frozen label)". The row "the audit is fast and cheap" is now a part of the audit row, with "not tested".
+     The rows of H2.1 and H2.2 are now separate. The audit row now gives the exact reason of the 2 hits. The README limits now name the result of decision 19.
+     The block now names the judge as a separate session of the same model. The video outline now says that the fixer saw the audit report and that TC-07 of haiku A-3 was flaky before the fix. It also limits "the ceiling" to the vague set.
+   - Minor, all applied:
+     - P2 of vague A-1: the classes give 2 of 22.
+     - `t_agent` has the mark "not in the formula".
+     - The block marks haiku A-3 as exploratory.
+     - The README gives the min and the max of the cost and the time.
+     - H5b.2 says "B fixed 2 of 5".
+- `ste-lint.py` after the fixes: `bench/results/summary-stage2.md` 0 hard, `README.md` 0 hard, `LOG.md` 0 hard.
+
 ## 2026-10-22, 00:02: decision 24. The estimate of the review time is now 1 to 2 hours
 
 Start from: the summary of stage 2, then the README, the ROI scenario and the draft of the block "Демо". Section 10 of the plan, item 24, has the decision.
