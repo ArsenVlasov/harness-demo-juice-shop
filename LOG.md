@@ -6,6 +6,25 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 19:52: checkpoint 5 passed, the seal of `sealed-ui/`, the E5b runs start
+
+Start from: the end of `bench/run-e5b.sh` (`bench/.run/e5b.log`). Then the table of E5b (H5b.1, H5b.2), `weakening()` of both fixes and the tool-call audits of the 2 fix sessions.
+
+- Between 19:13 and 19:50, Arsen said: "accept all, seal and start the runs". This is a human intervention: checkpoint 5 passed with all 4 patches. Arsen rejected no patch.
+- The seal, at 19:50:12:
+  - `shasum -a 256 sealed-ui/*` gives the same 5 values as the entry of 19:12. Thus no file changed after the session.
+  - `tar -cf sealed-ui/sealed-ui.tar` with the 4 patches and `ui-patches.md`. `tar -tvf` lists these 5 files only.
+  - `chmod 444` on the 6 files.
+
+  | File | sha256 |
+  |---|---|
+  | `sealed-ui/sealed-ui.tar` | `459ff7459d4fd59ac935fe2ec82a32b4d2fdf109787af7c0e8a5d2b812760616` |
+
+- Before the runs: both suites of `precise` run 1 are at the tag `gen-1` with no changes to tracked files. Both dry runs (`--dry`) gave the planned steps with no problem.
+- `bench/run-e5b.sh` runs 2 commands one after the other:
+  1. `node bench/run-ui-change.mjs --suite A=../harness-demo-runs/set-1/run-1/suite-a@gen-1 --suite B=../harness-demo-runs/set-1/run-1/suite-b@gen-1 --mode each --out ui-change-each`. It costs no money. It gives the count of H5b.1.
+  2. The same suites with `--repair --budget 10 --model claude-opus-5-5 --out ui-change-together`. All patches apply together, and each suite with broken tests gets one fix session with `bench/prompt-repair.txt`. This costs money, at most 10 USD for each suite. It gives H5b.2.
+
 ## 2026-10-21, 19:12: the UI patch session wrote 4 patches. Checkpoint 5 waits for Arsen
 
 Start from: Arsen reads `sealed-ui/ui-patches.md` and the 4 patches (checkpoint 5). Then the seal, then `run-ui-change.mjs --mode each` on A and B of `precise` run 1.
