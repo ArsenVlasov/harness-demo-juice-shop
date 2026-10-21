@@ -1,0 +1,44 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+  1) [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product › 3. Plus button once more: the error shows 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('You can order only up to 5 items of this product.').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('You can order only up to 5 items of this product.').first() with timeout 5000ms
+      - waiting for getByText('You can order only up to 5 items of this product.').first()
+
+
+       at pages/shop.ts:112
+
+      110 |
+      111 |   async expectMessage(text: string): Promise<void> {
+    > 112 |     await expect(this.page.getByText(text).first()).toBeVisible();
+          |                                                     ^
+      113 |   }
+      114 |
+      115 |   /** Waits until the message is gone, for example a message that is left from a previous step. */
+        at ProductListPage.expectMessage (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:112:53)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/purchase-limit.spec.ts:32:22
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/purchase-limit.spec.ts:30:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T15-b-output/purchase-limit-Purchase-li-62442-s-at-5-items-of-one-product-chromium/error-context.md
+
+
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  1 failed
+    [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product 
+  7 passed (25.0s)

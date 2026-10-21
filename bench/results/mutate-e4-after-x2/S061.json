@@ -1,0 +1,586 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+      "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+      "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+      "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "card-order-end-to-end.spec.ts",
+      "file": "card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "file": "card-order-end-to-end.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "order two products with a card and find the order in the history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts",
+                        "line": 9,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9626,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    10 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    10 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[22m\n\n    at OrderCompletionPage.expectOpen (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:180:29)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:77:34\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:75:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                          "column": 29,
+                          "line": 180
+                        },
+                        "snippet": "   at pages/checkout.ts:180\n\n  178 |\n  179 |   async expectOpen(): Promise<string> {\n> 180 |     await expect(this.page).toHaveURL(/(?:#\\/order-completion\\/.+)_mut/);\n      |                             ^\n  181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();\n  182 |     const match = /#\\/order-completion\\/([^/?#]+)/.exec(this.page.url());\n  183 |     if (!match) {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                            "column": 29,
+                            "line": 180
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    10 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[22m\n\n\n   at pages/checkout.ts:180\n\n  178 |\n  179 |   async expectOpen(): Promise<string> {\n> 180 |     await expect(this.page).toHaveURL(/(?:#\\/order-completion\\/.+)_mut/);\n      |                             ^\n  181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();\n  182 |     const match = /#\\/order-completion\\/([^/?#]+)/.exec(this.page.url());\n  183 |     if (!match) {\n    at OrderCompletionPage.expectOpen (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:180:29)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:77:34\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:75:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add product A two times and product B one time: counter 3",
+                          "duration": 992
+                        },
+                        {
+                          "title": "2. The basket shows both products and the total 20.97¤",
+                          "duration": 127
+                        },
+                        {
+                          "title": "3. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 194
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue: payment page opens",
+                          "duration": 133
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 211
+                        },
+                        {
+                          "title": "6. Select the saved card and continue: order summary with 19.86¤",
+                          "duration": 188
+                        },
+                        {
+                          "title": "7. Place the order: the confirmation page opens",
+                          "duration": 5045,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    10 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    4 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    10 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/3b86-06e6e50c9d5f8192\"\u001b[22m\n\n    at OrderCompletionPage.expectOpen (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:180:29)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:77:34\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:75:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                              "column": 29,
+                              "line": 180
+                            },
+                            "snippet": "   at pages/checkout.ts:180\n\n  178 |\n  179 |   async expectOpen(): Promise<string> {\n> 180 |     await expect(this.page).toHaveURL(/(?:#\\/order-completion\\/.+)_mut/);\n      |                             ^\n  181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();\n  182 |     const match = /#\\/order-completion\\/([^/?#]+)/.exec(this.page.url());\n  183 |     if (!match) {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:23:02.139Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-07",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts",
+                            "line": 9,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                        "column": 29,
+                        "line": 180
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6ef0a1144dc3c4749c9a-fb762b97d3a394ea536d",
+              "file": "card-order-end-to-end.spec.ts",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "invalid-and-expired-coupon.spec.ts",
+      "file": "invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Invalid coupon and expired coupon",
+          "file": "invalid-and-expired-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "neither an invalid code nor an expired coupon gives a discount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4480,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 346
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue: payment page opens",
+                          "duration": 155
+                        },
+                        {
+                          "title": "3. Redeem the invalid code: the error shows, no discount",
+                          "duration": 168
+                        },
+                        {
+                          "title": "4. Redeem the expired coupon of the previous month: the error shows, no discount",
+                          "duration": 165
+                        },
+                        {
+                          "title": "5. Select the saved card and continue: order summary without discount",
+                          "duration": 230
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:23:02.138Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-06",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b61334558eecfc563208-b2c0b7c465000934395f",
+              "file": "invalid-and-expired-coupon.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "valid-coupon.spec.ts",
+      "file": "valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Valid coupon on the payment step",
+          "file": "valid-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the 10% coupon of the current month reduces the items only",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 4351,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout shows the saved address",
+                          "duration": 223
+                        },
+                        {
+                          "title": "2. Select the saved address and continue: delivery speeds with prices",
+                          "duration": 136
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue: payment options and the coupon panel",
+                          "duration": 153
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 147
+                        },
+                        {
+                          "title": "5. Select the saved card and continue: order summary with the discount",
+                          "duration": 199
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:23:02.142Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-05",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f0ade0c2cc9ea5623c7-c3623c9738f1d161000a",
+              "file": "valid-coupon.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "wallet-payment.spec.ts",
+      "file": "wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Payment with the wallet",
+          "file": "wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the wallet cannot pay a short balance and pays the exact total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 10495,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    12 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    12 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[22m\n\n    at OrderCompletionPage.expectOpen (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:180:29)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:90:34\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:88:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                          "column": 29,
+                          "line": 180
+                        },
+                        "snippet": "   at pages/checkout.ts:180\n\n  178 |\n  179 |   async expectOpen(): Promise<string> {\n> 180 |     await expect(this.page).toHaveURL(/(?:#\\/order-completion\\/.+)_mut/);\n      |                             ^\n  181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();\n  182 |     const match = /#\\/order-completion\\/([^/?#]+)/.exec(this.page.url());\n  183 |     if (!match) {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                            "column": 29,
+                            "line": 180
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    12 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[22m\n\n\n   at pages/checkout.ts:180\n\n  178 |\n  179 |   async expectOpen(): Promise<string> {\n> 180 |     await expect(this.page).toHaveURL(/(?:#\\/order-completion\\/.+)_mut/);\n      |                             ^\n  181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();\n  182 |     const match = /#\\/order-completion\\/([^/?#]+)/.exec(this.page.url());\n  183 |     if (!match) {\n    at OrderCompletionPage.expectOpen (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:180:29)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:90:34\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:88:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 364
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue: wallet balance 5.00 and the pay button 8.99¤",
+                          "duration": 200
+                        },
+                        {
+                          "title": "3. The pay button 8.99¤ is disabled",
+                          "duration": 6
+                        },
+                        {
+                          "title": "4. Order history shows no orders",
+                          "duration": 598
+                        },
+                        {
+                          "title": "5. Digital wallet shows the balance 5.00",
+                          "duration": 716
+                        },
+                        {
+                          "title": "6. Add 3.99 with the saved card; checkout to payment: pay button 8.99¤ is enabled",
+                          "duration": 364
+                        },
+                        {
+                          "title": "7. Pay with the wallet: order summary shows Digital Wallet and 8.99¤",
+                          "duration": 118
+                        },
+                        {
+                          "title": "8. Place the order: the confirmation shows the thank you text",
+                          "duration": 5030,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    12 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/order-completion\\/.+)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:3000/#/order-summary\"\u001b[22m\n\u001b[2m    12 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/order-completion/b389-4d6e6a3c8616fa9e\"\u001b[22m\n\n    at OrderCompletionPage.expectOpen (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:180:29)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:90:34\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:88:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                              "column": 29,
+                              "line": 180
+                            },
+                            "snippet": "   at pages/checkout.ts:180\n\n  178 |\n  179 |   async expectOpen(): Promise<string> {\n> 180 |     await expect(this.page).toHaveURL(/(?:#\\/order-completion\\/.+)_mut/);\n      |                             ^\n  181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();\n  182 |     const match = /#\\/order-completion\\/([^/?#]+)/.exec(this.page.url());\n  183 |     if (!match) {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:23:02.145Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-08",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results/wallet-payment-Payment-wit-cc5a1-ce-and-pays-the-exact-total-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                        "column": 29,
+                        "line": 180
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6c222ca136d813f0c0f7-0c0b52d79b13c451b58f",
+              "file": "wallet-payment.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:23:01.436Z",
+    "duration": 11659.426,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

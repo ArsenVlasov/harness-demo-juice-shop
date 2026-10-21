@@ -1,0 +1,69 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:6:5 › TC-01: Login with a valid and an invalid password
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history
+  1) [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history › 7. Place the order 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('app-order-completion').getByRole('heading', { name: 'Thank you for your purchase!' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('app-order-completion').getByRole('heading', { name: 'Thank you for your purchase!' }) with timeout 5000ms
+      - waiting for locator('app-order-completion').getByRole('heading', { name: 'Thank you for your purchase!' })
+
+
+      89 |     expect(orderId).not.toBe('');
+      90 |     await expect(page).toHaveURL(new RegExp(`#/order-completion/${orderId}$`));
+    > 91 |     await expect(orderCompletion.title).toBeVisible();
+         |                                         ^
+      92 |   });
+      93 |
+      94 |   await test.step('8. Read the order summary on the confirmation page', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-07-card-order-end-to-end.spec.ts:91:41
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-07-card-order-end-to-end.spec.ts:87:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T15-e-output/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet
+  2) [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet › 8. Place the order 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('app-order-completion').getByRole('heading', { name: 'Thank you for your purchase!' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('app-order-completion').getByRole('heading', { name: 'Thank you for your purchase!' }) with timeout 5000ms
+      - waiting for locator('app-order-completion').getByRole('heading', { name: 'Thank you for your purchase!' })
+
+
+      87 |     await orderSummary.placeOrder();
+      88 |     await expect(page).toHaveURL(/#\/order-completion\/.+/);
+    > 89 |     await expect(orderCompletion.title).toBeVisible();
+         |                                         ^
+      90 |   });
+      91 |
+      92 |   await test.step('9. The wallet balance is the bonus of the order', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-08-wallet-payment.spec.ts:89:41
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-08-wallet-payment.spec.ts:86:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T15-e-output/tc-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md
+
+
+  2 failed
+    [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history 
+    [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet ───────────
+  6 passed (28.7s)

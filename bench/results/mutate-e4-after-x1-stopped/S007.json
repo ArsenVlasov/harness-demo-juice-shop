@@ -1,0 +1,211 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6006,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/search)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/search\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m    - unexpected value \"http://localhost:3000/#/login\"\u001b[22m\n\u001b[2m    13 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/search\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/search)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/search\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m    - unexpected value \"http://localhost:3000/#/login\"\u001b[22m\n\u001b[2m    13 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/search\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts:37:24\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts:34:3",
+                    "location": {
+                      "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts",
+                      "column": 24,
+                      "line": 37
+                    },
+                    "snippet": "  35 |     await navBar.closeMenu();\n  36 |     await loginPage.submit(customer.email, customer.password);\n> 37 |     await expect(page).toHaveURL(/(?:#\\/search)_mut/);\n     |                        ^\n  38 |   });\n  39 |\n  40 |   await test.step('5. The account menu shows the email and Logout', async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts",
+                        "column": 24,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/search)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/search\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m    - unexpected value \"http://localhost:3000/#/login\"\u001b[22m\n\u001b[2m    13 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/search\"\u001b[22m\n\n\n  35 |     await navBar.closeMenu();\n  36 |     await loginPage.submit(customer.email, customer.password);\n> 37 |     await expect(page).toHaveURL(/(?:#\\/search)_mut/);\n     |                        ^\n  38 |   });\n  39 |\n  40 |   await test.step('5. The account menu shows the email and Logout', async () => {\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts:37:24\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts:34:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 425
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 239
+                    },
+                    {
+                      "title": "3. The account menu shows Login and no email",
+                      "duration": 69
+                    },
+                    {
+                      "title": "4. Close the menu and log in with the correct password",
+                      "duration": 5099,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/search)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/search\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m    - unexpected value \"http://localhost:3000/#/login\"\u001b[22m\n\u001b[2m    13 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/search\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/search)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/search\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m    - unexpected value \"http://localhost:3000/#/login\"\u001b[22m\n\u001b[2m    13 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/search\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts:37:24\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts:34:3",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts",
+                          "column": 24,
+                          "line": 37
+                        },
+                        "snippet": "  35 |     await navBar.closeMenu();\n  36 |     await loginPage.submit(customer.email, customer.password);\n> 37 |     await expect(page).toHaveURL(/(?:#\\/search)_mut/);\n     |                        ^\n  38 |   });\n  39 |\n  40 |   await test.step('5. The account menu shows the email and Logout', async () => {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T13:23:26.824Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/test-results/tc-01-login-TC-01-Login-with-a-valid-and-an-invalid-password-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-ALkyYv/tests/tc-01-login.spec.ts",
+                    "column": 24,
+                    "line": 37
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b34bf74f2c2ef7a26f68-3f13381083f9e449f15d",
+          "file": "tc-01-login.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T13:23:26.222Z",
+    "duration": 7089.7029999999995,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

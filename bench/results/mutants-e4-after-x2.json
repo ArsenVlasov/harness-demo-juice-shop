@@ -1,0 +1,344 @@
+{
+  "generatedAt": "2026-10-21T13:46:51.970Z",
+  "recheckRuns": 3,
+  "suites": {
+    "after": {
+      "tests": 8,
+      "cleanGreen": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "recheckGreen": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    }
+  },
+  "mutants": [
+    {
+      "id": "M01",
+      "patch": "01-discount-includes-delivery.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 8",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "failedTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M03",
+      "patch": "03-delivery-not-added.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 8",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "failedTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M05",
+      "patch": "05-wallet-strict-balance.patch",
+      "file": "routes/order.ts",
+      "kind": "operator",
+      "expected": "TC-08 step 8",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M06",
+      "patch": "06-wallet-not-charged.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-08 step 9",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M07",
+      "patch": "07-coupon-month-not-checked.patch",
+      "file": "lib/insecurity.ts",
+      "kind": "bug",
+      "expected": "TC-06 step 4",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+          ],
+          "failedTests": [
+            "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M08",
+      "patch": "08-coupon-discount-as-fraction.patch",
+      "file": "lib/insecurity.ts",
+      "kind": "bug",
+      "expected": "TC-05 step 4",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+            "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+          ],
+          "failedTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]",
+            "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M09",
+      "patch": "09-coupon-not-saved.patch",
+      "file": "routes/coupon.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 8",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "failedTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M10",
+      "patch": "10-limit-strict.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "operator",
+      "expected": "TC-04 step 2",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+          ],
+          "failedTests": [
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product [timedOut]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M11",
+      "patch": "11-limit-not-enforced.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "operator",
+      "expected": "TC-04 step 3",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+          ],
+          "failedTests": [
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M12",
+      "patch": "12-login-no-password-check.patch",
+      "file": "routes/login.ts",
+      "kind": "bug",
+      "expected": "TC-01 step 2",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+          ],
+          "failedTests": [
+            "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M13",
+      "patch": "13-basket-not-cleared.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-07 step 9",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+          ],
+          "failedTests": [
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M14",
+      "patch": "14-bonus-not-credited.patch",
+      "file": "routes/order.ts",
+      "kind": "bug",
+      "expected": "TC-08 step 9",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M15",
+      "patch": "15-basket-item-quantity-lost.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "bug",
+      "expected": "TC-02 step 2",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+            "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+            "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+            "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+          ],
+          "failedTests": [
+            "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket [failed]",
+            "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A [failed]",
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]",
+            "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount [failed]",
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product [failed]",
+            "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only [failed]",
+            "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    },
+    {
+      "id": "M16",
+      "patch": "16-quantity-update-clamped.patch",
+      "file": "routes/basketItems.ts",
+      "kind": "bug",
+      "expected": "TC-03 step 2",
+      "suites": {
+        "after": {
+          "caught": true,
+          "catchingTests": [
+            "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+            "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+            "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+          ],
+          "failedTests": [
+            "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A [failed]",
+            "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history [failed]",
+            "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount [failed]",
+            "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product [failed]",
+            "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only [failed]"
+          ],
+          "droppedByRecheck": [],
+          "reportErrors": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "after": {
+      "bugsCaught": 11,
+      "bugsTotal": 11,
+      "bugsMissed": [],
+      "allCaught": 14,
+      "allTotal": 14,
+      "allMissed": [],
+      "mutationScore": 1
+    }
+  }
+}

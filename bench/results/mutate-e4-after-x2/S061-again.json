@@ -1,0 +1,338 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12",
+      "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "card-order-end-to-end.spec.ts",
+      "file": "card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "file": "card-order-end-to-end.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "order two products with a card and find the order in the history",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts",
+                        "line": 9,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3563,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add product A two times and product B one time: counter 3",
+                          "duration": 557
+                        },
+                        {
+                          "title": "2. The basket shows both products and the total 20.97¤",
+                          "duration": 111
+                        },
+                        {
+                          "title": "3. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 187
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue: payment page opens",
+                          "duration": 131
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 136
+                        },
+                        {
+                          "title": "6. Select the saved card and continue: order summary with 19.86¤",
+                          "duration": 246
+                        },
+                        {
+                          "title": "7. Place the order: the confirmation page opens",
+                          "duration": 119
+                        },
+                        {
+                          "title": "8. The confirmation shows both products and the totals",
+                          "duration": 14
+                        },
+                        {
+                          "title": "9. The basket counter is 0 and the basket is empty",
+                          "duration": 92
+                        },
+                        {
+                          "title": "10. Order history shows the order with the total 19.86¤",
+                          "duration": 621
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:23:14.713Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-07",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts",
+                            "line": 9,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6ef0a1144dc3c4749c9a-fb762b97d3a394ea536d",
+              "file": "card-order-end-to-end.spec.ts",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "wallet-payment.spec.ts",
+      "file": "wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Payment with the wallet",
+          "file": "wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the wallet cannot pay a short balance and pays the exact total",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5284,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 266
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue: wallet balance 5.00 and the pay button 8.99¤",
+                          "duration": 184
+                        },
+                        {
+                          "title": "3. The pay button 8.99¤ is disabled",
+                          "duration": 4
+                        },
+                        {
+                          "title": "4. Order history shows no orders",
+                          "duration": 588
+                        },
+                        {
+                          "title": "5. Digital wallet shows the balance 5.00",
+                          "duration": 686
+                        },
+                        {
+                          "title": "6. Add 3.99 with the saved card; checkout to payment: pay button 8.99¤ is enabled",
+                          "duration": 423
+                        },
+                        {
+                          "title": "7. Pay with the wallet: order summary shows Digital Wallet and 8.99¤",
+                          "duration": 102
+                        },
+                        {
+                          "title": "8. Place the order: the confirmation shows the thank you text",
+                          "duration": 128
+                        },
+                        {
+                          "title": "9. Digital wallet shows the balance 1.00 (8.99 - 8.99 + 1 bonus point)",
+                          "duration": 618
+                        },
+                        {
+                          "title": "10. Order history shows one order with total 8.99¤ and bonus 1",
+                          "duration": 709
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:23:14.714Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-08",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6c222ca136d813f0c0f7-0c0b52d79b13c451b58f",
+              "file": "wallet-payment.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:23:14.088Z",
+    "duration": 6279.357999999999,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

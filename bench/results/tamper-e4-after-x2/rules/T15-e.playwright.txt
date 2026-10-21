@@ -1,0 +1,75 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+  1) [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history › 7. Place the order: the confirmation page opens 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Thank you for your purchase!')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Thank you for your purchase!') with timeout 5000ms
+      - waiting for getByText('Thank you for your purchase!')
+
+
+       at pages/checkout.ts:181
+
+      179 |   async expectOpen(): Promise<string> {
+      180 |     await expect(this.page).toHaveURL(/#\/order-completion\/.+/);
+    > 181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();
+          |                                                                       ^
+      182 |     const match = /#\/order-completion\/([^/?#]+)/.exec(this.page.url());
+      183 |     if (!match) {
+      184 |       throw new Error(`No order ID in URL: ${this.page.url()}`);
+        at OrderCompletionPage.expectOpen (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:181:71)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:77:17
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:75:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T15-e-output/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  2) [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total › 8. Place the order: the confirmation shows the thank you text 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Thank you for your purchase!')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Thank you for your purchase!') with timeout 5000ms
+      - waiting for getByText('Thank you for your purchase!')
+
+
+       at pages/checkout.ts:181
+
+      179 |   async expectOpen(): Promise<string> {
+      180 |     await expect(this.page).toHaveURL(/#\/order-completion\/.+/);
+    > 181 |     await expect(this.page.getByText('Thank you for your purchase!')).toBeVisible();
+          |                                                                       ^
+      182 |     const match = /#\/order-completion\/([^/?#]+)/.exec(this.page.url());
+      183 |     if (!match) {
+      184 |       throw new Error(`No order ID in URL: ${this.page.url()}`);
+        at OrderCompletionPage.expectOpen (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:181:71)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:90:17
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:88:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T15-e-output/wallet-payment-Payment-wit-cc5a1-ce-and-pays-the-exact-total-chromium/error-context.md
+
+
+  2 failed
+    [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history 
+    [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total 
+  6 passed (34.0s)

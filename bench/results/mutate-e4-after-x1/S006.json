@@ -1,0 +1,207 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-01-login.spec.ts",
+      "file": "tc-01-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-01: Login with a valid and an invalid password",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5999,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('menuitem', { name: 'Go to login page' })\nExpected pattern: \u001b[32m/(?:Login)_mut/\u001b[39m\nReceived string:  \u001b[31m\" exit_to_app  Login \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('menuitem', { name: 'Go to login page' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Go to login page' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button tabindex=\"0\" role=\"menuitem\" mat-menu-item=\"\" routerlink=\"/login\" id=\"navbarLoginButton\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Go to login page\" class=\"mat-mdc-menu-item mat-focus-indicator cdk-focused cdk-mouse-focused\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" exit_to_app  Login \"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('menuitem', { name: 'Go to login page' })\nExpected pattern: \u001b[32m/(?:Login)_mut/\u001b[39m\nReceived string:  \u001b[31m\" exit_to_app  Login \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('menuitem', { name: 'Go to login page' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Go to login page' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button tabindex=\"0\" role=\"menuitem\" mat-menu-item=\"\" routerlink=\"/login\" id=\"navbarLoginButton\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Go to login page\" class=\"mat-mdc-menu-item mat-focus-indicator cdk-focused cdk-mouse-focused\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" exit_to_app  Login \"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts:29:40\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts:26:3",
+                    "location": {
+                      "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts",
+                      "column": 40,
+                      "line": 29
+                    },
+                    "snippet": "  27 |     await navBar.openAccountMenu();\n  28 |     await expect(navBar.loginMenuItem).toBeVisible();\n> 29 |     await expect(navBar.loginMenuItem).toHaveText(/(?:Login)_mut/);\n     |                                        ^\n  30 |     await expect(navBar.accountMenu).not.toContainText(ANY_EMAIL);\n  31 |     await expect(navBar.logoutMenuItem).toBeHidden();\n  32 |   });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts",
+                        "column": 40,
+                        "line": 29
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('menuitem', { name: 'Go to login page' })\nExpected pattern: \u001b[32m/(?:Login)_mut/\u001b[39m\nReceived string:  \u001b[31m\" exit_to_app  Login \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('menuitem', { name: 'Go to login page' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Go to login page' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button tabindex=\"0\" role=\"menuitem\" mat-menu-item=\"\" routerlink=\"/login\" id=\"navbarLoginButton\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Go to login page\" class=\"mat-mdc-menu-item mat-focus-indicator cdk-focused cdk-mouse-focused\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" exit_to_app  Login \"\u001b[22m\n\n\n  27 |     await navBar.openAccountMenu();\n  28 |     await expect(navBar.loginMenuItem).toBeVisible();\n> 29 |     await expect(navBar.loginMenuItem).toHaveText(/(?:Login)_mut/);\n     |                                        ^\n  30 |     await expect(navBar.accountMenu).not.toContainText(ANY_EMAIL);\n  31 |     await expect(navBar.logoutMenuItem).toBeHidden();\n  32 |   });\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts:29:40\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts:26:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the login page",
+                      "duration": 458
+                    },
+                    {
+                      "title": "2. Log in with the wrong password",
+                      "duration": 270
+                    },
+                    {
+                      "title": "3. The account menu shows Login and no email",
+                      "duration": 5072,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('menuitem', { name: 'Go to login page' })\nExpected pattern: \u001b[32m/(?:Login)_mut/\u001b[39m\nReceived string:  \u001b[31m\" exit_to_app  Login \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('menuitem', { name: 'Go to login page' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Go to login page' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button tabindex=\"0\" role=\"menuitem\" mat-menu-item=\"\" routerlink=\"/login\" id=\"navbarLoginButton\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Go to login page\" class=\"mat-mdc-menu-item mat-focus-indicator cdk-focused cdk-mouse-focused\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" exit_to_app  Login \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('menuitem', { name: 'Go to login page' })\nExpected pattern: \u001b[32m/(?:Login)_mut/\u001b[39m\nReceived string:  \u001b[31m\" exit_to_app  Login \"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('menuitem', { name: 'Go to login page' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Go to login page' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button tabindex=\"0\" role=\"menuitem\" mat-menu-item=\"\" routerlink=\"/login\" id=\"navbarLoginButton\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Go to login page\" class=\"mat-mdc-menu-item mat-focus-indicator cdk-focused cdk-mouse-focused\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" exit_to_app  Login \"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts:29:40\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts:26:3",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts",
+                          "column": 40,
+                          "line": 29
+                        },
+                        "snippet": "  27 |     await navBar.openAccountMenu();\n  28 |     await expect(navBar.loginMenuItem).toBeVisible();\n> 29 |     await expect(navBar.loginMenuItem).toHaveText(/(?:Login)_mut/);\n     |                                        ^\n  30 |     await expect(navBar.accountMenu).not.toContainText(ANY_EMAIL);\n  31 |     await expect(navBar.logoutMenuItem).toBeHidden();\n  32 |   });"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T13:30:15.593Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/test-results/tc-01-login-TC-01-Login-with-a-valid-and-an-invalid-password-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-tKyjMV/tests/tc-01-login.spec.ts",
+                    "column": 40,
+                    "line": 29
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b34bf74f2c2ef7a26f68-3f13381083f9e449f15d",
+          "file": "tc-01-login.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T13:30:14.955Z",
+    "duration": 6978.52,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

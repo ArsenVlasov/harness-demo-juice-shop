@@ -1,0 +1,630 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+      "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+      "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+      "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "card-order-end-to-end.spec.ts",
+      "file": "card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "file": "card-order-end-to-end.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "order two products with a card and find the order in the history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts",
+                        "line": 9,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9702,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/20\\.97¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/20\\.97¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:72:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:66:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                          "column": 36,
+                          "line": 148
+                        },
+                        "snippet": "   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                            "column": 36,
+                            "line": 148
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/20\\.97¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n\n   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:72:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:66:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add product A two times and product B one time: counter 3",
+                          "duration": 1310
+                        },
+                        {
+                          "title": "2. The basket shows both products and the total 20.97¤",
+                          "duration": 124
+                        },
+                        {
+                          "title": "3. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 222
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue: payment page opens",
+                          "duration": 138
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 135
+                        },
+                        {
+                          "title": "6. Select the saved card and continue: order summary with 19.86¤",
+                          "duration": 5157,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/20\\.97¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/20\\.97¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:72:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts:66:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                              "column": 36,
+                              "line": 148
+                            },
+                            "snippet": "   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:21:45.714Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-07",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/card-order-end-to-end.spec.ts",
+                            "line": 9,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                        "column": 36,
+                        "line": 148
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6ef0a1144dc3c4749c9a-fb762b97d3a394ea536d",
+              "file": "card-order-end-to-end.spec.ts",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "invalid-and-expired-coupon.spec.ts",
+      "file": "invalid-and-expired-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Invalid coupon and expired coupon",
+          "file": "invalid-and-expired-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "neither an invalid code nor an expired coupon gives a discount",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-06",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 9119,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts:61:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts:57:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                          "column": 36,
+                          "line": 148
+                        },
+                        "snippet": "   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                            "column": 36,
+                            "line": 148
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n\n   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts:61:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts:57:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 282
+                        },
+                        {
+                          "title": "2. Select One Day Delivery and continue: payment page opens",
+                          "duration": 137
+                        },
+                        {
+                          "title": "3. Redeem the invalid code: the error shows, no discount",
+                          "duration": 157
+                        },
+                        {
+                          "title": "4. Redeem the expired coupon of the previous month: the error shows, no discount",
+                          "duration": 99
+                        },
+                        {
+                          "title": "5. Select the saved card and continue: order summary without discount",
+                          "duration": 5114,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts:61:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts:57:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                              "column": 36,
+                              "line": 148
+                            },
+                            "snippet": "   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:21:45.716Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-06",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/invalid-and-expired-coupon.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results/invalid-and-expired-coupon-e314d-red-coupon-gives-a-discount-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                        "column": 36,
+                        "line": 148
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b61334558eecfc563208-b2c0b7c465000934395f",
+              "file": "invalid-and-expired-coupon.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "valid-coupon.spec.ts",
+      "file": "valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Valid coupon on the payment step",
+          "file": "valid-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the 10% coupon of the current month reduces the items only",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-05",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 9081,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts:60:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts:56:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                          "column": 36,
+                          "line": 148
+                        },
+                        "snippet": "   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                            "column": 36,
+                            "line": 148
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n\n   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts:60:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts:56:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout shows the saved address",
+                          "duration": 172
+                        },
+                        {
+                          "title": "2. Select the saved address and continue: delivery speeds with prices",
+                          "duration": 125
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue: payment options and the coupon panel",
+                          "duration": 171
+                        },
+                        {
+                          "title": "4. Redeem the coupon of the current month",
+                          "duration": 140
+                        },
+                        {
+                          "title": "5. Select the saved card and continue: order summary with the discount",
+                          "duration": 5119,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\nExpected pattern: \u001b[32m/17\\.98¤/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Items_mut', exact: true }) })\u001b[22m\n\n    at OrderSummaryPage.expectLine (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:148:36)\n    at OrderSummaryPage.expectTotals (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts:152:16)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts:60:21\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts:56:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                              "column": 36,
+                              "line": 148
+                            },
+                            "snippet": "   at pages/checkout.ts:148\n\n  146 |\n  147 |   async expectLine(label: string, value: string): Promise<void> {\n> 148 |     await expect(this.line(label)).toContainText(price(value));\n      |                                    ^\n  149 |   }\n  150 |\n  151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:21:45.719Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-05",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/valid-coupon.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results/valid-coupon-Valid-coupon--ab0ad-onth-reduces-the-items-only-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/checkout.ts",
+                        "column": 36,
+                        "line": 148
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3f0ade0c2cc9ea5623c7-c3623c9738f1d161000a",
+              "file": "valid-coupon.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "wallet-payment.spec.ts",
+      "file": "wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Payment with the wallet",
+          "file": "wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the wallet cannot pay a short balance and pays the exact total",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 6756,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 284
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue: wallet balance 5.00 and the pay button 8.99¤",
+                          "duration": 233
+                        },
+                        {
+                          "title": "3. The pay button 8.99¤ is disabled",
+                          "duration": 4
+                        },
+                        {
+                          "title": "4. Order history shows no orders",
+                          "duration": 596
+                        },
+                        {
+                          "title": "5. Digital wallet shows the balance 5.00",
+                          "duration": 716
+                        },
+                        {
+                          "title": "6. Add 3.99 with the saved card; checkout to payment: pay button 8.99¤ is enabled",
+                          "duration": 372
+                        },
+                        {
+                          "title": "7. Pay with the wallet: order summary shows Digital Wallet and 8.99¤",
+                          "duration": 100
+                        },
+                        {
+                          "title": "8. Place the order: the confirmation shows the thank you text",
+                          "duration": 131
+                        },
+                        {
+                          "title": "9. Digital wallet shows the balance 1.00 (8.99 - 8.99 + 1 bonus point)",
+                          "duration": 626
+                        },
+                        {
+                          "title": "10. Order history shows one order with total 8.99¤ and bonus 1",
+                          "duration": 696
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:21:45.712Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-08",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6c222ca136d813f0c0f7-0c0b52d79b13c451b58f",
+              "file": "wallet-payment.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:21:45.014Z",
+    "duration": 10867.827000000001,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,143 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+  1) [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history › 6. Select the saved card and continue: order summary with 19.86¤ 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })
+    Expected pattern: /0\.99¤/
+    Received string:  "Delivery1.99¤"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms
+      - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })
+        14 × locator resolved to <tr class="mat-row" _ngcontent-ng-c4138824240="">…</tr>
+           - unexpected value "Delivery1.99¤"
+
+
+       at pages/checkout.ts:148
+
+      146 |
+      147 |   async expectLine(label: string, value: string): Promise<void> {
+    > 148 |     await expect(this.line(label)).toContainText(price(value));
+          |                                    ^
+      149 |   }
+      150 |
+      151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {
+        at OrderSummaryPage.expectLine (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:148:36)
+        at OrderSummaryPage.expectTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:153:16)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:72:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:66:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T04-b-output/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+  2) [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount › 5. Select the saved card and continue: order summary without discount 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })
+    Expected pattern: /0\.99¤/
+    Received string:  "Delivery1.99¤"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms
+      - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })
+        14 × locator resolved to <tr class="mat-row" _ngcontent-ng-c4138824240="">…</tr>
+           - unexpected value "Delivery1.99¤"
+
+
+       at pages/checkout.ts:148
+
+      146 |
+      147 |   async expectLine(label: string, value: string): Promise<void> {
+    > 148 |     await expect(this.line(label)).toContainText(price(value));
+          |                                    ^
+      149 |   }
+      150 |
+      151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {
+        at OrderSummaryPage.expectLine (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:148:36)
+        at OrderSummaryPage.expectTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:153:16)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/invalid-and-expired-coupon.spec.ts:61:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/invalid-and-expired-coupon.spec.ts:57:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T04-b-output/invalid-and-expired-coupon-e314d-red-coupon-gives-a-discount-chromium/error-context.md
+
+
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+  3) [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only › 5. Select the saved card and continue: order summary with the discount 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })
+    Expected pattern: /0\.99¤/
+    Received string:  "Delivery1.99¤"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) }) with timeout 5000ms
+      - waiting for locator('tr.mat-row').filter({ has: getByRole('cell', { name: 'Delivery', exact: true }) })
+        14 × locator resolved to <tr class="mat-row" _ngcontent-ng-c4138824240="">…</tr>
+           - unexpected value "Delivery1.99¤"
+
+
+       at pages/checkout.ts:148
+
+      146 |
+      147 |   async expectLine(label: string, value: string): Promise<void> {
+    > 148 |     await expect(this.line(label)).toContainText(price(value));
+          |                                    ^
+      149 |   }
+      150 |
+      151 |   async expectTotals(items: string, delivery: string, promotion: string, total: string): Promise<void> {
+        at OrderSummaryPage.expectLine (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:148:36)
+        at OrderSummaryPage.expectTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:153:16)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/valid-coupon.spec.ts:60:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/valid-coupon.spec.ts:56:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T04-b-output/valid-coupon-Valid-coupon--ab0ad-onth-reduces-the-items-only-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  4) [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total › 2. Select Standard Delivery and continue: wallet balance 5.00 and the pay button 8.99¤ 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Pay 8.99¤' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Pay 8.99¤' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Pay 8.99¤' })
+
+
+      46 |       await paymentPage.expectOpen();
+      47 |       await paymentPage.expectWalletBalance('5.00');
+    > 48 |       await expect(paymentPage.walletPayButton('8.99¤')).toBeVisible();
+         |                                                          ^
+      49 |     });
+      50 |
+      51 |     await test.step('3. The pay button 8.99¤ is disabled', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:48:58
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:43:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T04-b-output/wallet-payment-Payment-wit-cc5a1-ce-and-pays-the-exact-total-chromium/error-context.md
+
+
+  4 failed
+    [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history 
+    [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount 
+    [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only 
+    [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total 
+  4 passed (42.5s)

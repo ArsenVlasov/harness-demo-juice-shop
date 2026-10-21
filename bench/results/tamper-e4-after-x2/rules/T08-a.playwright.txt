@@ -1,0 +1,46 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+  1) [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history › 8. The confirmation shows both products and the totals 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('row').filter({ has: locator('table') })
+    Expected pattern: /Items\s*Delivery\s*Promotion\s*Total Price\s*20\.97¤\s*0\.99¤\s*2\.10¤\s*19\.86¤/
+    Received string:  "ItemsDeliveryPromotionTotal Price19.97¤1.99¤2.10¤19.86¤"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('row').filter({ has: locator('table') }) with timeout 5000ms
+      - waiting for getByRole('row').filter({ has: locator('table') })
+        14 × locator resolved to <mat-footer-row role="row" mat-footer-row="" _ngcontent-ng-c1619742415="" class="mat-mdc-footer-row mdc-data-table__row cdk-footer-row">…</mat-footer-row>
+           - unexpected value "ItemsDeliveryPromotionTotal Price19.97¤1.99¤2.10¤19.86¤"
+
+
+       at pages/checkout.ts:171
+
+      169 |     // The outer row is the one that contains the nested table with the labels.
+      170 |     const totals = this.page.getByRole('row').filter({ has: this.page.locator('table') });
+    > 171 |     await expect(totals).toContainText(new RegExp(`Items\\s*Delivery\\s*Promotion\\s*Total Price\\s*${values}`));
+          |                          ^
+      172 |   }
+      173 | }
+      174 |
+        at ConfirmationTotals.expectTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:171:26)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:84:32
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:81:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T08-a-output/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  1 failed
+    [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history 
+  7 passed (30.0s)

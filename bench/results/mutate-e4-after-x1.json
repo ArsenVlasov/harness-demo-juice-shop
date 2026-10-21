@@ -1,0 +1,1827 @@
+{
+  "generatedAt": "2026-10-21T13:39:14.491Z",
+  "label": "client",
+  "suite": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q",
+  "ref": "fixed",
+  "commit": "2fbd06d55dc0567c059d15f39ac328ce91a45a32",
+  "typescript": "5.9.3",
+  "restartEvery": 5,
+  "max": null,
+  "complete": true,
+  "totals": {
+    "sites": 45,
+    "mutants": 45,
+    "killed": 44,
+    "survived": 1,
+    "error": 0,
+    "skipped": 0
+  },
+  "baseline": {
+    "report": "mutate-e4-after-x1/baseline.json",
+    "tests": 8,
+    "leftOut": []
+  },
+  "tests": {
+    "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": {
+      "id": "T01",
+      "sites": 7,
+      "killed": 7,
+      "survived": 0,
+      "error": 0
+    },
+    "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": {
+      "id": "T02",
+      "sites": 6,
+      "killed": 6,
+      "survived": 0,
+      "error": 0
+    },
+    "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": {
+      "id": "T03",
+      "sites": 15,
+      "killed": 14,
+      "survived": 1,
+      "error": 0
+    },
+    "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product": {
+      "id": "T04",
+      "sites": 3,
+      "killed": 3,
+      "survived": 0,
+      "error": 0
+    },
+    "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step": {
+      "id": "T05",
+      "sites": 2,
+      "killed": 2,
+      "survived": 0,
+      "error": 0
+    },
+    "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": {
+      "id": "T06",
+      "sites": 6,
+      "killed": 6,
+      "survived": 0,
+      "error": 0
+    },
+    "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": {
+      "id": "T07",
+      "sites": 8,
+      "killed": 8,
+      "survived": 0,
+      "error": 0
+    },
+    "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet": {
+      "id": "T08",
+      "sites": 5,
+      "killed": 5,
+      "survived": 0,
+      "error": 0
+    }
+  },
+  "mutants": [
+    {
+      "id": "S001",
+      "file": "tests/support/shop-api.ts",
+      "line": 22,
+      "operator": "number",
+      "original": "201",
+      "mutated": "202",
+      "function": "register",
+      "targets": [
+        "(?:^|/)tests/tc-01-login\\.spec\\.ts$",
+        "(?:^|/)tests/tc-02-add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/tc-04-purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/tc-05-valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/tc-06-invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password",
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket",
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket",
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product",
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step",
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon",
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history",
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": "failed",
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": "failed",
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed",
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product": "failed",
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step": "failed",
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": "failed",
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed",
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password",
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket",
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket",
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product",
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step",
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon",
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history",
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password",
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket",
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket",
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product",
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step",
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon",
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history",
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S002",
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 11,
+      "operator": "string",
+      "original": "'Login'",
+      "mutated": "'Login_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": "failed"
+      },
+      "killers": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S003",
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 16,
+      "operator": "regex",
+      "original": "/Log in/",
+      "mutated": "/(?:Log in)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": "failed"
+      },
+      "killers": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S004",
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 21,
+      "operator": "string",
+      "original": "'Invalid email or password.'",
+      "mutated": "'Invalid email or password._mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": "failed"
+      },
+      "killers": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S005",
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 22,
+      "operator": "regex",
+      "original": "/#\\/login/",
+      "mutated": "/(?:#\\/login)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": "failed"
+      },
+      "killers": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S006",
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 29,
+      "operator": "regex",
+      "original": "/Login/",
+      "mutated": "/(?:Login)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": "failed"
+      },
+      "killers": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S007",
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 37,
+      "operator": "regex",
+      "original": "/#\\/search/",
+      "mutated": "/(?:#\\/search)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-01-login\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password": "failed"
+      },
+      "killers": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-01-login.spec.ts :: TC-01: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S008",
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 13,
+      "operator": "string",
+      "original": "'0'",
+      "mutated": "'0_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-02-add-to-basket\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": "failed"
+      },
+      "killers": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ]
+    },
+    {
+      "id": "S009",
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 19,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-02-add-to-basket\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": "failed"
+      },
+      "killers": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ]
+    },
+    {
+      "id": "S010",
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 25,
+      "operator": "regex",
+      "original": "/#\\/basket/",
+      "mutated": "/(?:#\\/basket)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-02-add-to-basket\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": "failed"
+      },
+      "killers": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ]
+    },
+    {
+      "id": "S011",
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 26,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-02-add-to-basket\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": "failed"
+      },
+      "killers": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ]
+    },
+    {
+      "id": "S012",
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 28,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-02-add-to-basket\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket": "failed"
+      },
+      "killers": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-02-add-to-basket.spec.ts :: TC-02: Add a product to the basket"
+      ]
+    },
+    {
+      "id": "S013",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 20,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S014",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 21,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S015",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 22,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S016",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 24,
+      "operator": "string",
+      "original": "'2'",
+      "mutated": "'2_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S017",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 29,
+      "operator": "string",
+      "original": "'2'",
+      "mutated": "'2_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S018",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 31,
+      "operator": "string",
+      "original": "'3'",
+      "mutated": "'3_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S019",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 36,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S020",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 38,
+      "operator": "string",
+      "original": "'2'",
+      "mutated": "'2_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S021",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 44,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S022",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 50,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S023",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 56,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "survived",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "passed"
+      },
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S024",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 57,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S025",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 58,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S026",
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 60,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-03-basket-quantity-and-remove.spec.ts :: TC-03: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S027",
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 13,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-04-purchase-limit\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product": "failed"
+      },
+      "killers": [
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product"
+      ]
+    },
+    {
+      "id": "S028",
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 26,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-04-purchase-limit\\.spec\\.ts$:5"
+      ],
+      "tests": [
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product": "failed"
+      },
+      "killers": [
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-04-purchase-limit.spec.ts :: TC-04: Purchase limit for one product"
+      ]
+    },
+    {
+      "id": "S029",
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 59,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-05-valid-coupon\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step": "failed"
+      },
+      "killers": [
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-05-valid-coupon.spec.ts :: TC-05: Valid coupon on the payment step"
+      ]
+    },
+    {
+      "id": "S030",
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 42,
+      "operator": "string",
+      "original": "'Invalid coupon.'",
+      "mutated": "'Invalid coupon._mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-06-invalid-and-expired-coupon\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": "failed"
+      },
+      "killers": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ]
+    },
+    {
+      "id": "S031",
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 43,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-06-invalid-and-expired-coupon\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": "failed"
+      },
+      "killers": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ]
+    },
+    {
+      "id": "S032",
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 48,
+      "operator": "string",
+      "original": "'Invalid coupon.'",
+      "mutated": "'Invalid coupon._mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-06-invalid-and-expired-coupon\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": "failed"
+      },
+      "killers": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ]
+    },
+    {
+      "id": "S033",
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 49,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-06-invalid-and-expired-coupon\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": "failed"
+      },
+      "killers": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ]
+    },
+    {
+      "id": "S034",
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 58,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-06-invalid-and-expired-coupon\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon": "failed"
+      },
+      "killers": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-06-invalid-and-expired-coupon.spec.ts :: TC-06: Invalid coupon and expired coupon"
+      ]
+    },
+    {
+      "id": "S035",
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 34,
+      "operator": "string",
+      "original": "'1'",
+      "mutated": "'1_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S036",
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 36,
+      "operator": "string",
+      "original": "'2'",
+      "mutated": "'2_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S037",
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 43,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S038",
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 78,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S039",
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 106,
+      "operator": "string",
+      "original": "'0'",
+      "mutated": "'0_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S040",
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 108,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S041",
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 115,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-07-card-order-end-to-end.spec.ts :: TC-07: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S042",
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 54,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S043",
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 82,
+      "operator": "string",
+      "original": "'Digital Wallet'",
+      "mutated": "'Digital Wallet_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S044",
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 88,
+      "operator": "regex",
+      "original": "/#\\/order-completion\\/.+/",
+      "mutated": "/(?:#\\/order-completion\\/.+)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S045",
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 99,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$:6"
+      ],
+      "tests": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "tc-08-wallet-payment.spec.ts :: TC-08: Payment with the wallet"
+      ]
+    }
+  ],
+  "notMutated": [
+    {
+      "file": "tests/pages/basket-page.ts",
+      "line": 29,
+      "text": "(await serverBasket).Products.length",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/basket-page.ts",
+      "line": 28,
+      "text": "'The basket table shows the products of the server basket'",
+      "reason": "message"
+    },
+    {
+      "file": "tests/pages/nav-bar.ts",
+      "line": 43,
+      "text": "String(itemCount(await serverBasket))",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/nav-bar.ts",
+      "line": 42,
+      "text": "'The basket counter shows the item count of the server basket'",
+      "reason": "message"
+    },
+    {
+      "file": "tests/support/assertions.ts",
+      "line": 18,
+      "text": "money(expected)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/support/assertions.ts",
+      "line": 16,
+      "text": "message",
+      "reason": "message"
+    },
+    {
+      "file": "tests/support/shop-api.ts",
+      "line": 22,
+      "text": "await response.text()",
+      "reason": "message"
+    },
+    {
+      "file": "tests/support/shop-api.ts",
+      "line": 27,
+      "text": "await response.text()",
+      "reason": "message"
+    },
+    {
+      "file": "tests/support/shop-api.ts",
+      "line": 48,
+      "text": "await response.text()",
+      "reason": "message"
+    },
+    {
+      "file": "tests/support/shop-api.ts",
+      "line": 56,
+      "text": "await response.text()",
+      "reason": "message"
+    },
+    {
+      "file": "tests/support/shop-api.ts",
+      "line": 70,
+      "text": "await response.text()",
+      "reason": "message"
+    },
+    {
+      "file": "tests/support/shop-api.ts",
+      "line": 80,
+      "text": "await response.text()",
+      "reason": "message"
+    },
+    {
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 30,
+      "text": "ANY_EMAIL",
+      "reason": "cannot fail: negated check"
+    },
+    {
+      "file": "tests/tc-01-login.spec.ts",
+      "line": 42,
+      "text": "customer.email",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 10,
+      "text": "product.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 11,
+      "text": "priceText(product.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 29,
+      "text": "priceText(product.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-02-add-to-basket.spec.ts",
+      "line": 33,
+      "text": "product.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 23,
+      "text": "a.price + b.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 30,
+      "text": "2 * a.price + b.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 37,
+      "text": "a.price + b.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 45,
+      "text": "a.price + b.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 51,
+      "text": "a.price + b.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-03-basket-quantity-and-remove.spec.ts",
+      "line": 59,
+      "text": "b.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 21,
+      "text": "`The shop accepts quantity ${quantity}`",
+      "reason": "message"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 22,
+      "text": "String(quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 24,
+      "text": "String(APPLE_JUICE_LIMIT)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 25,
+      "text": "APPLE_JUICE_LIMIT * product.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 35,
+      "text": "String(APPLE_JUICE_LIMIT)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 36,
+      "text": "APPLE_JUICE_LIMIT * product.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 37,
+      "text": "String(APPLE_JUICE_LIMIT)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 41,
+      "text": "String(APPLE_JUICE_LIMIT)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 42,
+      "text": "APPLE_JUICE_LIMIT * product.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-04-purchase-limit.spec.ts",
+      "line": 49,
+      "text": "String(APPLE_JUICE_LIMIT)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 32,
+      "text": "ADDRESS.fullName",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 33,
+      "text": "ADDRESS.streetAddress",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 34,
+      "text": "ADDRESS.country",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 42,
+      "text": "priceText(option.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 49,
+      "text": "CARD_LAST_DIGITS",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 57,
+      "text": "`Your discount of ${discountPercent}% will be applied during checkout.`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 65,
+      "text": "String(quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 66,
+      "text": "items",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 67,
+      "text": "DELIVERY.oneDay.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 68,
+      "text": "promotion",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-05-valid-coupon.spec.ts",
+      "line": 69,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 55,
+      "text": "String(quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 56,
+      "text": "items",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 57,
+      "text": "DELIVERY.oneDay.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-06-invalid-and-expired-coupon.spec.ts",
+      "line": 59,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 38,
+      "text": "String(a.quantity + b.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 44,
+      "text": "String(a.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 45,
+      "text": "String(b.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 46,
+      "text": "items",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 64,
+      "text": "`Your discount of ${discountPercent}% will be applied during checkout.`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 71,
+      "text": "ADDRESS.fullName",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 73,
+      "text": "`${ADDRESS.streetAddress}, ${ADDRESS.city}, ${ADDRESS.state}, ${ADDRESS.zipCode}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 75,
+      "text": "ADDRESS.country",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 76,
+      "text": "`Card ending in ${CARD_LAST_DIGITS}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 77,
+      "text": "CARD.fullName",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 79,
+      "text": "String(a.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 80,
+      "text": "String(b.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 81,
+      "text": "items",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 82,
+      "text": "DELIVERY.oneDay.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 83,
+      "text": "promotion",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 84,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 89,
+      "text": "''",
+      "reason": "cannot fail: negated check"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 90,
+      "text": "new RegExp(`#/order-completion/${orderId}$`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 95,
+      "text": "` ${a.quantity} `",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 96,
+      "text": "` ${b.quantity} `",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 98,
+      "text": "items",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 99,
+      "text": "DELIVERY.oneDay.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 100,
+      "text": "promotion",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 101,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 117,
+      "text": "`#${orderId}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 118,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 119,
+      "text": "String(a.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-07-card-order-end-to-end.spec.ts",
+      "line": 120,
+      "text": "String(b.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 28,
+      "text": "firstBalance",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 43,
+      "text": "firstBalance",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 44,
+      "text": "new RegExp(`Pay ${priceText(total)}`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 60,
+      "text": "firstBalance",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 64,
+      "text": "firstBalance + topUp",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 64,
+      "text": "2",
+      "reason": "matcher option"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 66,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 74,
+      "text": "balance",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 75,
+      "text": "new RegExp(`Pay ${priceText(total)}`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 83,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 94,
+      "text": "balance - total + bonus",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 101,
+      "text": "total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/tc-08-wallet-payment.spec.ts",
+      "line": 102,
+      "text": "String(bonus)",
+      "reason": "computed expected value"
+    }
+  ]
+}

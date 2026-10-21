@@ -1,0 +1,3140 @@
+{
+  "generatedAt": "2026-10-21T14:32:34.113Z",
+  "label": "client",
+  "suite": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s",
+  "ref": "fixed",
+  "commit": "d67bf601809cb7da00aa939d071176ade20ce779",
+  "typescript": "5.9.3",
+  "restartEvery": 5,
+  "max": null,
+  "complete": true,
+  "totals": {
+    "sites": 91,
+    "mutants": 91,
+    "killed": 89,
+    "survived": 2,
+    "error": 0,
+    "skipped": 0
+  },
+  "baseline": {
+    "report": "mutate-e4-after-x2/baseline.json",
+    "tests": 8,
+    "leftOut": []
+  },
+  "tests": {
+    "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": {
+      "id": "T01",
+      "sites": 7,
+      "killed": 7,
+      "survived": 0,
+      "error": 0
+    },
+    "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": {
+      "id": "T02",
+      "sites": 21,
+      "killed": 20,
+      "survived": 1,
+      "error": 0
+    },
+    "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": {
+      "id": "T03",
+      "sites": 34,
+      "killed": 34,
+      "survived": 0,
+      "error": 0
+    },
+    "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": {
+      "id": "T04",
+      "sites": 18,
+      "killed": 18,
+      "survived": 0,
+      "error": 0
+    },
+    "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": {
+      "id": "T05",
+      "sites": 5,
+      "killed": 5,
+      "survived": 0,
+      "error": 0
+    },
+    "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": {
+      "id": "T06",
+      "sites": 11,
+      "killed": 10,
+      "survived": 1,
+      "error": 0
+    },
+    "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": {
+      "id": "T07",
+      "sites": 16,
+      "killed": 16,
+      "survived": 0,
+      "error": 0
+    },
+    "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": {
+      "id": "T08",
+      "sites": 18,
+      "killed": 18,
+      "survived": 0,
+      "error": 0
+    }
+  },
+  "mutants": [
+    {
+      "id": "S001",
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 17,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "failed"
+      },
+      "killers": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ]
+    },
+    {
+      "id": "S002",
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 23,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "failed"
+      },
+      "killers": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ]
+    },
+    {
+      "id": "S003",
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 28,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "failed"
+      },
+      "killers": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ]
+    },
+    {
+      "id": "S004",
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 29,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "failed"
+      },
+      "killers": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket"
+      ]
+    },
+    {
+      "id": "S005",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 20,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S006",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 24,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S007",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 25,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S008",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 26,
+      "operator": "string",
+      "original": "'13.98¤'",
+      "mutated": "'13.98¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S009",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 27,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S010",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 32,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S011",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 33,
+      "operator": "string",
+      "original": "'18.97¤'",
+      "mutated": "'18.97¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S012",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 34,
+      "operator": "number",
+      "original": "3",
+      "mutated": "4",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S013",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 39,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S014",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 40,
+      "operator": "string",
+      "original": "'13.98¤'",
+      "mutated": "'13.98¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S015",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 41,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S016",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 46,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S017",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 47,
+      "operator": "string",
+      "original": "'13.98¤'",
+      "mutated": "'13.98¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S018",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 48,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S019",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 54,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S020",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 55,
+      "operator": "string",
+      "original": "'8.99¤'",
+      "mutated": "'8.99¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S021",
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 56,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "status": "killed",
+      "results": {
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S022",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 37,
+      "operator": "number",
+      "original": "3",
+      "mutated": "4",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S023",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 42,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S024",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 43,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S025",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 44,
+      "operator": "string",
+      "original": "'20.97¤'",
+      "mutated": "'20.97¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S026",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 72,
+      "operator": "string",
+      "original": "'20.97¤'",
+      "mutated": "'20.97¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S027",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 72,
+      "operator": "string",
+      "original": "'0.99¤'",
+      "mutated": "'0.99¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S028",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 72,
+      "operator": "string",
+      "original": "'2.10¤'",
+      "mutated": "'2.10¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S029",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 72,
+      "operator": "string",
+      "original": "'19.86¤'",
+      "mutated": "'19.86¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S030",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 82,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S031",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 83,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S032",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 84,
+      "operator": "string",
+      "original": "'20.97¤'",
+      "mutated": "'20.97¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S033",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 84,
+      "operator": "string",
+      "original": "'0.99¤'",
+      "mutated": "'0.99¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S034",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 84,
+      "operator": "string",
+      "original": "'2.10¤'",
+      "mutated": "'2.10¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S035",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 84,
+      "operator": "string",
+      "original": "'19.86¤'",
+      "mutated": "'19.86¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S036",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 88,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S037",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 94,
+      "operator": "regex",
+      "original": "/#\\/order-history/",
+      "mutated": "/(?:#\\/order-history)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S038",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 95,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S039",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 96,
+      "operator": "string",
+      "original": "'19.86¤'",
+      "mutated": "'19.86¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S040",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 97,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S041",
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 98,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$:12"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S042",
+      "file": "tests/fixtures.ts",
+      "line": 28,
+      "operator": "regex",
+      "original": "/#\\/search/",
+      "mutated": "/(?:#\\/search)_mut/",
+      "function": "loggedInPage",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "failed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "passed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S043",
+      "file": "tests/invalid-and-expired-coupon.spec.ts",
+      "line": 27,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "status": "killed",
+      "results": {
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed"
+      },
+      "killers": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ]
+    },
+    {
+      "id": "S044",
+      "file": "tests/invalid-and-expired-coupon.spec.ts",
+      "line": 47,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "status": "killed",
+      "results": {
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed"
+      },
+      "killers": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ]
+    },
+    {
+      "id": "S045",
+      "file": "tests/invalid-and-expired-coupon.spec.ts",
+      "line": 54,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "status": "killed",
+      "results": {
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed"
+      },
+      "killers": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ]
+    },
+    {
+      "id": "S046",
+      "file": "tests/invalid-and-expired-coupon.spec.ts",
+      "line": 61,
+      "operator": "string",
+      "original": "'17.98¤'",
+      "mutated": "'17.98¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "status": "killed",
+      "results": {
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed"
+      },
+      "killers": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ]
+    },
+    {
+      "id": "S047",
+      "file": "tests/invalid-and-expired-coupon.spec.ts",
+      "line": 61,
+      "operator": "string",
+      "original": "'0.99¤'",
+      "mutated": "'0.99¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "status": "killed",
+      "results": {
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed"
+      },
+      "killers": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ]
+    },
+    {
+      "id": "S048",
+      "file": "tests/invalid-and-expired-coupon.spec.ts",
+      "line": 61,
+      "operator": "string",
+      "original": "'0.00¤'",
+      "mutated": "'0.00¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "status": "killed",
+      "results": {
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed"
+      },
+      "killers": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ]
+    },
+    {
+      "id": "S049",
+      "file": "tests/invalid-and-expired-coupon.spec.ts",
+      "line": 61,
+      "operator": "string",
+      "original": "'18.97¤'",
+      "mutated": "'18.97¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "status": "killed",
+      "results": {
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed"
+      },
+      "killers": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount"
+      ]
+    },
+    {
+      "id": "S050",
+      "file": "tests/login.spec.ts",
+      "line": 21,
+      "operator": "regex",
+      "original": "/#\\/login/",
+      "mutated": "/(?:#\\/login)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/login\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ],
+      "status": "killed",
+      "results": {
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "failed"
+      },
+      "killers": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ]
+    },
+    {
+      "id": "S051",
+      "file": "tests/login.spec.ts",
+      "line": 33,
+      "operator": "regex",
+      "original": "/#\\/search/",
+      "mutated": "/(?:#\\/search)_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/login\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ],
+      "status": "killed",
+      "results": {
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "failed"
+      },
+      "killers": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ]
+    },
+    {
+      "id": "S052",
+      "file": "tests/pages/account.ts",
+      "line": 9,
+      "operator": "regex",
+      "original": "/#\\/order-history/",
+      "mutated": "/(?:#\\/order-history)_mut/",
+      "function": "expectOpen",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S053",
+      "file": "tests/pages/checkout.ts",
+      "line": 16,
+      "operator": "regex",
+      "original": "/#\\/address\\/select/",
+      "mutated": "/(?:#\\/address\\/select)_mut/",
+      "function": "expectOpen",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S054",
+      "file": "tests/pages/checkout.ts",
+      "line": 38,
+      "operator": "regex",
+      "original": "/#\\/delivery-method/",
+      "mutated": "/(?:#\\/delivery-method)_mut/",
+      "function": "expectOpen",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S055",
+      "file": "tests/pages/checkout.ts",
+      "line": 66,
+      "operator": "regex",
+      "original": "/#\\/payment\\/shop/",
+      "mutated": "/(?:#\\/payment\\/shop)_mut/",
+      "function": "expectOpen",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S056",
+      "file": "tests/pages/checkout.ts",
+      "line": 114,
+      "operator": "regex",
+      "original": "/#\\/order-summary/",
+      "mutated": "/(?:#\\/order-summary)_mut/",
+      "function": "expectOpen",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S057",
+      "file": "tests/pages/checkout.ts",
+      "line": 152,
+      "operator": "string",
+      "original": "'Items'",
+      "mutated": "'Items_mut'",
+      "function": "expectTotals",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S058",
+      "file": "tests/pages/checkout.ts",
+      "line": 153,
+      "operator": "string",
+      "original": "'Delivery'",
+      "mutated": "'Delivery_mut'",
+      "function": "expectTotals",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S059",
+      "file": "tests/pages/checkout.ts",
+      "line": 154,
+      "operator": "string",
+      "original": "'Promotion'",
+      "mutated": "'Promotion_mut'",
+      "function": "expectTotals",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S060",
+      "file": "tests/pages/checkout.ts",
+      "line": 155,
+      "operator": "string",
+      "original": "'Total Price'",
+      "mutated": "'Total Price_mut'",
+      "function": "expectTotals",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S061",
+      "file": "tests/pages/checkout.ts",
+      "line": 180,
+      "operator": "regex",
+      "original": "/#\\/order-completion\\/.+/",
+      "mutated": "/(?:#\\/order-completion\\/.+)_mut/",
+      "function": "expectOpen",
+      "targets": [
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S062",
+      "file": "tests/pages/login.ts",
+      "line": 37,
+      "operator": "string",
+      "original": "'Email'",
+      "mutated": "'Email_mut'",
+      "function": "expectForm",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "passed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "passed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "passed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "failed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ]
+    },
+    {
+      "id": "S063",
+      "file": "tests/pages/login.ts",
+      "line": 39,
+      "operator": "string",
+      "original": "'Password'",
+      "mutated": "'Password_mut'",
+      "function": "expectForm",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "passed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "passed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "passed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "failed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ]
+    },
+    {
+      "id": "S064",
+      "file": "tests/pages/login.ts",
+      "line": 41,
+      "operator": "string",
+      "original": "'Log in'",
+      "mutated": "'Log in_mut'",
+      "function": "expectForm",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "passed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "passed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "passed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "failed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password"
+      ]
+    },
+    {
+      "id": "S065",
+      "file": "tests/pages/shop.ts",
+      "line": 58,
+      "operator": "regex",
+      "original": "/#\\/basket/",
+      "mutated": "/(?:#\\/basket)_mut/",
+      "function": "openBasket",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "failed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "passed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S066",
+      "file": "tests/pages/shop.ts",
+      "line": 72,
+      "operator": "regex",
+      "original": "/#\\/search/",
+      "mutated": "/(?:#\\/search)_mut/",
+      "function": "goto",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "failed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "passed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "passed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "failed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "passed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S067",
+      "file": "tests/pages/shop.ts",
+      "line": 79,
+      "operator": "regex",
+      "original": "/#\\/search/",
+      "mutated": "/(?:#\\/search)_mut/",
+      "function": "search",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "passed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "failed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "passed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S068",
+      "file": "tests/pages/shop.ts",
+      "line": 117,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": "expectNoMessage",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "survived",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "passed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "passed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "passed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "passed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S069",
+      "file": "tests/pages/shop.ts",
+      "line": 181,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": "expectNoRow",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "survived",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "passed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "passed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "passed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "passed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "counted": [
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A"
+      ]
+    },
+    {
+      "id": "S070",
+      "file": "tests/pages/shop.ts",
+      "line": 202,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": "expectEmptyWhenOpened",
+      "targets": [
+        "(?:^|/)tests/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/basket-quantity-and-remove\\.spec\\.ts$",
+        "(?:^|/)tests/card-order-end-to-end\\.spec\\.ts$",
+        "(?:^|/)tests/invalid-and-expired-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/login\\.spec\\.ts$",
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "add-to-basket.spec.ts :: Add a product to the basket > add one product and check the basket": "passed",
+        "basket-quantity-and-remove.spec.ts :: Change the quantity and remove a product in the basket > change the quantity and remove product A": "passed",
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history": "failed",
+        "invalid-and-expired-coupon.spec.ts :: Invalid coupon and expired coupon > neither an invalid code nor an expired coupon gives a discount": "passed",
+        "login.spec.ts :: Login with a valid and an invalid password > login with a wrong and then a correct password": "passed",
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "passed",
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "passed",
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "passed"
+      },
+      "killers": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "card-order-end-to-end.spec.ts :: Order with a card, from basket to order history > order two products with a card and find the order in the history"
+      ]
+    },
+    {
+      "id": "S071",
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 17,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "status": "killed",
+      "results": {
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed"
+      },
+      "killers": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S072",
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 26,
+      "operator": "string",
+      "original": "'9.95¤'",
+      "mutated": "'9.95¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "status": "killed",
+      "results": {
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed"
+      },
+      "killers": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S073",
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 27,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "status": "killed",
+      "results": {
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed"
+      },
+      "killers": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S074",
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 36,
+      "operator": "number",
+      "original": "5",
+      "mutated": "6",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "status": "killed",
+      "results": {
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed"
+      },
+      "killers": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S075",
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 37,
+      "operator": "string",
+      "original": "'9.95¤'",
+      "mutated": "'9.95¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "status": "killed",
+      "results": {
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed"
+      },
+      "killers": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S076",
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 38,
+      "operator": "number",
+      "original": "5",
+      "mutated": "6",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "status": "killed",
+      "results": {
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed"
+      },
+      "killers": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S077",
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 46,
+      "operator": "number",
+      "original": "5",
+      "mutated": "6",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+      ],
+      "tests": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "status": "killed",
+      "results": {
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product": "failed"
+      },
+      "killers": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "purchase-limit.spec.ts :: Purchase limit for one product > the basket stops at 5 items of one product"
+      ]
+    },
+    {
+      "id": "S078",
+      "file": "tests/valid-coupon.spec.ts",
+      "line": 27,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "status": "killed",
+      "results": {
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed"
+      },
+      "killers": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S079",
+      "file": "tests/valid-coupon.spec.ts",
+      "line": 60,
+      "operator": "string",
+      "original": "'17.98¤'",
+      "mutated": "'17.98¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "status": "killed",
+      "results": {
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed"
+      },
+      "killers": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S080",
+      "file": "tests/valid-coupon.spec.ts",
+      "line": 60,
+      "operator": "string",
+      "original": "'0.99¤'",
+      "mutated": "'0.99¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "status": "killed",
+      "results": {
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed"
+      },
+      "killers": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S081",
+      "file": "tests/valid-coupon.spec.ts",
+      "line": 60,
+      "operator": "string",
+      "original": "'1.80¤'",
+      "mutated": "'1.80¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "status": "killed",
+      "results": {
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed"
+      },
+      "killers": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S082",
+      "file": "tests/valid-coupon.spec.ts",
+      "line": 60,
+      "operator": "string",
+      "original": "'17.17¤'",
+      "mutated": "'17.17¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/valid-coupon\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "status": "killed",
+      "results": {
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only": "failed"
+      },
+      "killers": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "valid-coupon.spec.ts :: Valid coupon on the payment step > the 10% coupon of the current month reduces the items only"
+      ]
+    },
+    {
+      "id": "S083",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 31,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S084",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 47,
+      "operator": "string",
+      "original": "'5.00'",
+      "mutated": "'5.00_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S085",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 62,
+      "operator": "string",
+      "original": "'5.00'",
+      "mutated": "'5.00_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S086",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 77,
+      "operator": "string",
+      "original": "'8.99'",
+      "mutated": "'8.99_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S087",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 85,
+      "operator": "string",
+      "original": "'8.99¤'",
+      "mutated": "'8.99¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S088",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 95,
+      "operator": "string",
+      "original": "'1.00'",
+      "mutated": "'1.00_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S089",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 100,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S090",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 101,
+      "operator": "string",
+      "original": "'8.99¤'",
+      "mutated": "'8.99¤_mut'",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    },
+    {
+      "id": "S091",
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 102,
+      "operator": "regex",
+      "original": "/Bonus\\s*1(?![\\d.])/",
+      "mutated": "/(?:Bonus\\s*1(?![\\d.]))_mut/",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "status": "killed",
+      "results": {
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total": "failed"
+      },
+      "killers": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "wallet-payment.spec.ts :: Payment with the wallet > the wallet cannot pay a short balance and pays the exact total"
+      ]
+    }
+  ],
+  "notMutated": [
+    {
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 16,
+      "text": "product.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 16,
+      "text": "product.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 22,
+      "text": "`Placed ${product.name} into basket.`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 29,
+      "text": "product.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 30,
+      "text": "product.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/add-to-basket.spec.ts",
+      "line": 34,
+      "text": "product.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 24,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 25,
+      "text": "productB.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 32,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 39,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 46,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 53,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/basket-quantity-and-remove.spec.ts",
+      "line": 54,
+      "text": "productB.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 42,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 43,
+      "text": "productB.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 78,
+      "text": "''",
+      "reason": "cannot fail: negated check"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 82,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 82,
+      "text": "productA.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 83,
+      "text": "productB.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 83,
+      "text": "productB.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 89,
+      "text": "() => topBar.openBasket()",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 96,
+      "text": "orderId",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 97,
+      "text": "productA.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 97,
+      "text": "productA.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 98,
+      "text": "productB.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/card-order-end-to-end.spec.ts",
+      "line": 98,
+      "text": "productB.price",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/login.spec.ts",
+      "line": 27,
+      "text": "customer.email",
+      "reason": "cannot fail: negated check"
+    },
+    {
+      "file": "tests/login.spec.ts",
+      "line": 38,
+      "text": "customer.email",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/account.ts",
+      "line": 26,
+      "text": "new RegExp(`Total Price\\\\s*${escapeRegExp(total)}`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/account.ts",
+      "line": 32,
+      "text": "price(unitPrice)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 47,
+      "text": "price(DELIVERY.oneDay.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 48,
+      "text": "price(DELIVERY.fast.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 49,
+      "text": "price(DELIVERY.standard.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 128,
+      "text": "SAVED_ADDRESS.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 130,
+      "text": "`${SAVED_ADDRESS.address}, ${SAVED_ADDRESS.city}, ${SAVED_ADDRESS.state}, ${SAVED_ADDRESS.zip}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 132,
+      "text": "SAVED_ADDRESS.country",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 133,
+      "text": "SAVED_ADDRESS.mobileNumber",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 138,
+      "text": "new RegExp(`Card ending in\\\\s*${SAVED_CARD_LAST_DIGITS}`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 139,
+      "text": "SAVED_CARD.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 148,
+      "text": "price(value)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 171,
+      "text": "new RegExp(`Items\\\\s*Delivery\\\\s*Promotion\\\\s*Total Price\\\\s*${values}`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/checkout.ts",
+      "line": 193,
+      "text": "String(quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/shop.ts",
+      "line": 62,
+      "text": "new RegExp(`Your Basket\\\\s*${count}\\\\s*$`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/shop.ts",
+      "line": 95,
+      "text": "`Placed ${name} into basket.`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/shop.ts",
+      "line": 101,
+      "text": "`Added another ${name} to basket.`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/pages/shop.ts",
+      "line": 117,
+      "text": "timeout: MESSAGE_LIFETIME",
+      "reason": "timing option"
+    },
+    {
+      "file": "tests/pages/shop.ts",
+      "line": 201,
+      "text": "'products in the basket on the server'",
+      "reason": "message"
+    },
+    {
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 24,
+      "text": "product.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 24,
+      "text": "quantity",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 32,
+      "text": "PURCHASE_LIMIT_MESSAGE",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 36,
+      "text": "product.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 43,
+      "text": "PURCHASE_LIMIT_MESSAGE",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/purchase-limit.spec.ts",
+      "line": 45,
+      "text": "PURCHASE_LIMIT_MESSAGE",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/wallet-payment.spec.ts",
+      "line": 101,
+      "text": "orderId",
+      "reason": "computed expected value"
+    }
+  ]
+}

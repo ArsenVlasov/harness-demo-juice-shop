@@ -1,0 +1,69 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+  1) [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history › 5. Redeem the coupon of the current month 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Your discount of 10% will be applied during checkout.')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Your discount of 10% will be applied during checkout.') with timeout 5000ms
+      - waiting for getByText('Your discount of 10% will be applied during checkout.')
+
+
+      61 |     await test.step('5. Redeem the coupon of the current month', async () => {
+      62 |       await paymentPage.redeemCoupon(couponCode(10));
+    > 63 |       await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();
+         |                                                                                             ^
+      64 |     });
+      65 |
+      66 |     await test.step('6. Select the saved card and continue: order summary with 19.86¤', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:63:93
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:61:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T05-a-output/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+  2) [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only › 4. Redeem the coupon of the current month 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Your discount of 10% will be applied during checkout.')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Your discount of 10% will be applied during checkout.') with timeout 5000ms
+      - waiting for getByText('Your discount of 10% will be applied during checkout.')
+
+
+      51 |     await test.step('4. Redeem the coupon of the current month', async () => {
+      52 |       await paymentPage.redeemCoupon(couponCode(10));
+    > 53 |       await expect(page.getByText('Your discount of 10% will be applied during checkout.')).toBeVisible();
+         |                                                                                             ^
+      54 |     });
+      55 |
+      56 |     await test.step('5. Select the saved card and continue: order summary with the discount', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/valid-coupon.spec.ts:53:93
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/valid-coupon.spec.ts:51:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T05-a-output/valid-coupon-Valid-coupon--ab0ad-onth-reduces-the-items-only-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  2 failed
+    [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history 
+    [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only 
+  6 passed (35.2s)

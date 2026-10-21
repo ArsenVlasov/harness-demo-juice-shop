@@ -1,0 +1,43 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:6:5 › TC-01: Login with a valid and an invalid password
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history
+  1) [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history › 10. Open the order history 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-history').locator('.table-container').filter({ hasText: '#04cc-d5be0c4a7a266342' }).locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }).locator('mat-cell.mat-column-quantity')
+    Expected: "2"
+    Received: "3"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-order-history').locator('.table-container').filter({ hasText: '#04cc-d5be0c4a7a266342' }).locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }).locator('mat-cell.mat-column-quantity') with timeout 5000ms
+      - waiting for locator('app-order-history').locator('.table-container').filter({ hasText: '#04cc-d5be0c4a7a266342' }).locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }).locator('mat-cell.mat-column-quantity')
+        14 × locator resolved to <mat-cell role="cell" _ngcontent-ng-c4079035162="" class="mat-mdc-cell mdc-data-table__cell cdk-cell cdk-column-quantity mat-column-quantity">…</mat-cell>
+           - unexpected value "3"
+
+
+      117 |     await expect(orderHistory.orderField(order, 'Order ID')).toHaveText(`#${orderId}`);
+      118 |     await expectPrice(orderHistory.orderField(order, 'Total Price'), total);
+    > 119 |     await expect(orderHistory.productQuantity(order, a.product.name)).toHaveText(String(a.quantity));
+          |                                                                       ^
+      120 |     await expect(orderHistory.productQuantity(order, b.product.name)).toHaveText(String(b.quantity));
+      121 |   });
+      122 | });
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-07-card-order-end-to-end.spec.ts:119:71
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-07-card-order-end-to-end.spec.ts:112:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T10-a-output/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet
+  1 failed
+    [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history 
+  7 passed (24.7s)

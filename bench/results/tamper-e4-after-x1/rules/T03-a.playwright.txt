@@ -1,0 +1,225 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:6:5 › TC-01: Login with a valid and an invalid password
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket
+  1) [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket › 2. Add the product to the basket 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification')
+    Expected: "1"
+    Received: "2"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification')
+        14 × locator resolved to <span _ngcontent-ng-c1731522247="" class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">2</span>
+           - unexpected value "2"
+
+
+      17 |     await productList.addToBasket(product.name);
+      18 |     await expect(productList.message(`Placed ${product.name} into basket.`).first()).toBeVisible();
+    > 19 |     await expect(navBar.basketCounter).toHaveText('1');
+         |                                        ^
+      20 |   });
+      21 |
+      22 |   await test.step('3. Open the basket', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-02-add-to-basket.spec.ts:19:40
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-02-add-to-basket.spec.ts:16:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T03-a-output/tc-02-add-to-basket-TC-02-Add-a-product-to-the-basket-chromium/error-context.md
+
+
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket
+  2) [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket › 1. Open the basket 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').filter({ hasText: 'Raspberry Juice (1000ml)' }) }).locator('mat-cell.mat-column-quantity > span')
+    Expected: "1"
+    Received: " 2"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').filter({ hasText: 'Raspberry Juice (1000ml)' }) }).locator('mat-cell.mat-column-quantity > span') with timeout 5000ms
+      - waiting for locator('app-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').filter({ hasText: 'Raspberry Juice (1000ml)' }) }).locator('mat-cell.mat-column-quantity > span')
+        14 × locator resolved to <span class="cell-initial-font" _ngcontent-ng-c125060177=""> 2</span>
+           - unexpected value " 2"
+
+
+      19 |     await basket.open();
+      20 |     await expect(basket.rows).toHaveCount(2);
+    > 21 |     await expect(basket.quantity(a.name)).toHaveText('1');
+         |                                           ^
+      22 |     await expect(basket.quantity(b.name)).toHaveText('1');
+      23 |     await expectPrice(basket.totalPrice, a.price + b.price);
+      24 |     await expect(navBar.basketCounter).toHaveText('2');
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-03-basket-quantity-and-remove.spec.ts:21:43
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-03-basket-quantity-and-remove.spec.ts:18:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T03-a-output/tc-03-basket-quantity-and--20eb8-ove-a-product-in-the-basket-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product
+  3) [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product › 1. Add the product from the product list 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification')
+    Expected: "1"
+    Received: "2"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification')
+        14 × locator resolved to <span _ngcontent-ng-c1731522247="" class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">2</span>
+           - unexpected value "2"
+
+
+      11 |     await productList.addToBasket(product.name);
+      12 |     await expect(productList.message(`Placed ${product.name} into basket.`).first()).toBeVisible();
+    > 13 |     await expect(navBar.basketCounter).toHaveText('1');
+         |                                        ^
+      14 |   });
+      15 |
+      16 |   await test.step(`2. Click plus until the quantity is ${APPLE_JUICE_LIMIT}`, async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-04-purchase-limit.spec.ts:13:40
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-04-purchase-limit.spec.ts:9:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T03-a-output/tc-04-purchase-limit-TC-04-Purchase-limit-for-one-product-chromium/error-context.md
+
+
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step
+  4) [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step › 5. Select the saved card and continue 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('app-order-summary').locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' })
+    Expected substring: "2"
+    Received string:    " Eggfruit Juice (500ml) 3 8.99¤"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" locator('app-order-summary').locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }) with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' })
+        13 × locator resolved to <mat-row role="row" _ngcontent-ng-c125060177="" class="mat-mdc-row mdc-data-table__row cdk-row">…</mat-row>
+           - unexpected value " Eggfruit Juice (500ml) 3 8.99¤"
+
+
+      63 |     await payment.selectSavedCardAndContinue();
+      64 |     await orderSummary.waitForLoad();
+    > 65 |     await expect(orderSummary.row(product.name)).toContainText(String(quantity));
+         |                                                  ^
+      66 |     await expectPrice(orderSummary.totals.items, items);
+      67 |     await expectPrice(orderSummary.totals.delivery, DELIVERY.oneDay.price);
+      68 |     await expectPrice(orderSummary.totals.promotion, promotion);
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-05-valid-coupon.spec.ts:65:50
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-05-valid-coupon.spec.ts:62:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T03-a-output/tc-05-valid-coupon-TC-05-Valid-coupon-on-the-payment-step-chromium/error-context.md
+
+
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon
+  5) [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon › 5. Select the saved card and continue 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('app-order-summary').locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' })
+    Expected substring: "2"
+    Received string:    " Eggfruit Juice (500ml) 3 8.99¤"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" locator('app-order-summary').locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }) with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' })
+        13 × locator resolved to <mat-row role="row" _ngcontent-ng-c125060177="" class="mat-mdc-row mdc-data-table__row cdk-row">…</mat-row>
+           - unexpected value " Eggfruit Juice (500ml) 3 8.99¤"
+
+
+      53 |     await payment.selectSavedCardAndContinue();
+      54 |     await orderSummary.waitForLoad();
+    > 55 |     await expect(orderSummary.row(product.name)).toContainText(String(quantity));
+         |                                                  ^
+      56 |     await expectPrice(orderSummary.totals.items, items);
+      57 |     await expectPrice(orderSummary.totals.delivery, DELIVERY.oneDay.price);
+      58 |     await expectPrice(orderSummary.totals.promotion, 0);
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-06-invalid-and-expired-coupon.spec.ts:55:50
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-06-invalid-and-expired-coupon.spec.ts:52:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T03-a-output/tc-06-invalid-and-expired--a7088-d-coupon-and-expired-coupon-chromium/error-context.md
+
+
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history
+  6) [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history › 1. Add product A two times and product B one time 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification')
+    Expected: "1"
+    Received: "2"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.warn-notification')
+        2 × locator resolved to <span _ngcontent-ng-c1731522247="" class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">0</span>
+          - unexpected value "0"
+        12 × locator resolved to <span _ngcontent-ng-c1731522247="" class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">2</span>
+           - unexpected value "2"
+
+
+      32 |     await productList.open();
+      33 |     await productList.addToBasket(a.product.name);
+    > 34 |     await expect(navBar.basketCounter).toHaveText('1');
+         |                                        ^
+      35 |     await productList.addToBasket(a.product.name);
+      36 |     await expect(navBar.basketCounter).toHaveText('2');
+      37 |     await productList.addToBasket(b.product.name);
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-07-card-order-end-to-end.spec.ts:34:40
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-07-card-order-end-to-end.spec.ts:31:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T03-a-output/tc-07-card-order-end-to-en-15675-rom-basket-to-order-history-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet
+  7) [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet › 2. Select Standard Delivery and continue 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('app-payment').getByRole('button', { name: /^Pay / })
+    Expected pattern: /Pay 8.99¤/
+    Received string:  " Pay 17.98¤ "
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms
+      - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })
+        14 × locator resolved to <button type="submit" color="primary" disabled="true" mat-raised-button="" _ngcontent-ng-c1132546424="" mat-ripple-loader-disabled="" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled">…</button>
+           - unexpected value " Pay 17.98¤ "
+
+
+      42 |     await expect(payment.title).toBeVisible();
+      43 |     await expectPrice(payment.walletBalance, firstBalance);
+    > 44 |     await expect(payment.walletPayButton).toHaveText(new RegExp(`Pay ${priceText(total)}`));
+         |                                           ^
+      45 |   });
+      46 |
+      47 |   await test.step(`3. The button Pay ${priceText(total)} is disabled`, async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-08-wallet-payment.spec.ts:44:43
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-08-wallet-payment.spec.ts:40:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T03-a-output/tc-08-wallet-payment-TC-08-Payment-with-the-wallet-chromium/error-context.md
+
+
+  7 failed
+    [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket ────────
+    [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket 
+    [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product ────
+    [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step ────
+    [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon 
+    [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history 
+    [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet ───────────
+  1 passed (53.4s)

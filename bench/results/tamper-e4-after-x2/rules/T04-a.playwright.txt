@@ -1,0 +1,46 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+  1) [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only › 2. Select the saved address and continue: delivery speeds with prices 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('row').filter({ hasText: 'One Day Delivery' })
+    Expected pattern: /0\.99¤/
+    Received string:  " One Day Delivery1.99¤1 Days"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('row').filter({ hasText: 'One Day Delivery' }) with timeout 5000ms
+      - waiting for getByRole('row').filter({ hasText: 'One Day Delivery' })
+        14 × locator resolved to <mat-row role="row" _ngcontent-ng-c3670083191="" class="mat-mdc-row mdc-data-table__row cdk-row">…</mat-row>
+           - unexpected value " One Day Delivery1.99¤1 Days"
+
+
+       at pages/checkout.ts:47
+
+      45 |
+      46 |   async expectOptions(): Promise<void> {
+    > 47 |     await expect(this.option(DELIVERY.oneDay.name)).toContainText(price(DELIVERY.oneDay.price));
+         |                                                     ^
+      48 |     await expect(this.option(DELIVERY.fast.name)).toContainText(price(DELIVERY.fast.price));
+      49 |     await expect(this.option(DELIVERY.standard.name)).toContainText(price(DELIVERY.standard.price));
+      50 |   }
+        at DeliveryPage.expectOptions (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/checkout.ts:47:53)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/valid-coupon.spec.ts:40:26
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/valid-coupon.spec.ts:36:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T04-a-output/valid-coupon-Valid-coupon--ab0ad-onth-reduces-the-items-only-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  1 failed
+    [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only 
+  7 passed (29.5s)

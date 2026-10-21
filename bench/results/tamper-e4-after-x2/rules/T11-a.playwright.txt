@@ -1,0 +1,75 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+  1) [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history › 10. Order history shows the order with the total 19.86¤ 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('ba55-3fddcedd6435b782').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('ba55-3fddcedd6435b782').first() with timeout 5000ms
+      - waiting for getByText('ba55-3fddcedd6435b782').first()
+
+
+       at pages/account.ts:25
+
+      23 |   async expectOrder(orderId: string, total: string): Promise<void> {
+      24 |     await this.expectOpen();
+    > 25 |     await expect(this.page.getByText(orderId).first()).toBeVisible();
+         |                                                        ^
+      26 |     await expect(this.page.locator('body')).toContainText(new RegExp(`Total Price\\s*${escapeRegExp(total)}`));
+      27 |   }
+      28 |
+        at OrderHistoryPage.expectOrder (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/account.ts:25:56)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:96:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:92:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T11-a-output/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  2) [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total › 10. Order history shows one order with total 8.99¤ and bonus 1 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('09a8-24c215083dd325ed').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('09a8-24c215083dd325ed').first() with timeout 5000ms
+      - waiting for getByText('09a8-24c215083dd325ed').first()
+
+
+       at pages/account.ts:25
+
+      23 |   async expectOrder(orderId: string, total: string): Promise<void> {
+      24 |     await this.expectOpen();
+    > 25 |     await expect(this.page.getByText(orderId).first()).toBeVisible();
+         |                                                        ^
+      26 |     await expect(this.page.locator('body')).toContainText(new RegExp(`Total Price\\s*${escapeRegExp(total)}`));
+      27 |   }
+      28 |
+        at OrderHistoryPage.expectOrder (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/account.ts:25:56)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:101:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:98:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T11-a-output/wallet-payment-Payment-wit-cc5a1-ce-and-pays-the-exact-total-chromium/error-context.md
+
+
+  2 failed
+    [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history 
+    [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total 
+  6 passed (35.3s)

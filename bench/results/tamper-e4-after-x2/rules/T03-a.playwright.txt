@@ -1,0 +1,246 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+  1) [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket › 2. Add the product to the basket 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('button').filter({ hasText: 'Your Basket' })
+    Expected pattern: /Your Basket\s*1\s*$/
+    Received string:  " shopping_cart  Your Basket2"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms
+      - waiting for locator('button').filter({ hasText: 'Your Basket' })
+        - locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+        - unexpected value " shopping_cart  Your Basket0"
+        13 × locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+           - unexpected value " shopping_cart  Your Basket2"
+
+
+       at pages/shop.ts:62
+
+      60 |
+      61 |   async expectBasketCounter(count: number): Promise<void> {
+    > 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\s*${count}\\s*$`));
+         |                                     ^
+      63 |   }
+      64 | }
+      65 |
+        at TopBar.expectBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:62:37)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/add-to-basket.spec.ts:23:20
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/add-to-basket.spec.ts:20:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T03-a-output/add-to-basket-Add-a-produc-e81d4-roduct-and-check-the-basket-chromium/error-context.md
+
+
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+  2) [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('button').filter({ hasText: 'Your Basket' })
+    Expected pattern: /Your Basket\s*2\s*$/
+    Received string:  " shopping_cart  Your Basket4"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms
+      - waiting for locator('button').filter({ hasText: 'Your Basket' })
+        14 × locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+           - unexpected value " shopping_cart  Your Basket4"
+
+
+       at pages/shop.ts:62
+
+      60 |
+      61 |   async expectBasketCounter(count: number): Promise<void> {
+    > 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\s*${count}\\s*$`));
+         |                                     ^
+      63 |   }
+      64 | }
+      65 |
+        at TopBar.expectBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:62:37)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/basket-quantity-and-remove.spec.ts:20:18
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T03-a-output/basket-quantity-and-remove-11b45-antity-and-remove-product-A-chromium/error-context.md
+
+
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+  3) [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history › 1. Add product A two times and product B one time: counter 3 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('button').filter({ hasText: 'Your Basket' })
+    Expected pattern: /Your Basket\s*3\s*$/
+    Received string:  " shopping_cart  Your Basket5"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms
+      - waiting for locator('button').filter({ hasText: 'Your Basket' })
+        14 × locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+           - unexpected value " shopping_cart  Your Basket5"
+
+
+       at pages/shop.ts:62
+
+      60 |
+      61 |   async expectBasketCounter(count: number): Promise<void> {
+    > 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\s*${count}\\s*$`));
+         |                                     ^
+      63 |   }
+      64 | }
+      65 |
+        at TopBar.expectBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:62:37)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:37:20
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/card-order-end-to-end.spec.ts:31:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T03-a-output/card-order-end-to-end-Orde-628f9-nd-the-order-in-the-history-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+  4) [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('button').filter({ hasText: 'Your Basket' })
+    Expected pattern: /Your Basket\s*2\s*$/
+    Received string:  " shopping_cart  Your Basket3"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms
+      - waiting for locator('button').filter({ hasText: 'Your Basket' })
+        14 × locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+           - unexpected value " shopping_cart  Your Basket3"
+
+
+       at pages/shop.ts:62
+
+      60 |
+      61 |   async expectBasketCounter(count: number): Promise<void> {
+    > 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\s*${count}\\s*$`));
+         |                                     ^
+      63 |   }
+      64 | }
+      65 |
+        at TopBar.expectBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:62:37)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/invalid-and-expired-coupon.spec.ts:27:18
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T03-a-output/invalid-and-expired-coupon-e314d-red-coupon-gives-a-discount-chromium/error-context.md
+
+
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+  5) [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product › 1. Add the product to the basket from the product list 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('button').filter({ hasText: 'Your Basket' })
+    Expected pattern: /Your Basket\s*1\s*$/
+    Received string:  " shopping_cart  Your Basket2"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms
+      - waiting for locator('button').filter({ hasText: 'Your Basket' })
+        - locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+        - unexpected value " shopping_cart  Your Basket0"
+        13 × locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+           - unexpected value " shopping_cart  Your Basket2"
+
+
+       at pages/shop.ts:62
+
+      60 |
+      61 |   async expectBasketCounter(count: number): Promise<void> {
+    > 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\s*${count}\\s*$`));
+         |                                     ^
+      63 |   }
+      64 | }
+      65 |
+        at TopBar.expectBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:62:37)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/purchase-limit.spec.ts:17:20
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/purchase-limit.spec.ts:14:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T03-a-output/purchase-limit-Purchase-li-62442-s-at-5-items-of-one-product-chromium/error-context.md
+
+
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+  6) [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('button').filter({ hasText: 'Your Basket' })
+    Expected pattern: /Your Basket\s*2\s*$/
+    Received string:  " shopping_cart  Your Basket3"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms
+      - waiting for locator('button').filter({ hasText: 'Your Basket' })
+        14 × locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+           - unexpected value " shopping_cart  Your Basket3"
+
+
+       at pages/shop.ts:62
+
+      60 |
+      61 |   async expectBasketCounter(count: number): Promise<void> {
+    > 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\s*${count}\\s*$`));
+         |                                     ^
+      63 |   }
+      64 | }
+      65 |
+        at TopBar.expectBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:62:37)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/valid-coupon.spec.ts:27:18
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T03-a-output/valid-coupon-Valid-coupon--ab0ad-onth-reduces-the-items-only-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  7) [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('button').filter({ hasText: 'Your Basket' })
+    Expected pattern: /Your Basket\s*1\s*$/
+    Received string:  " shopping_cart  Your Basket2"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms
+      - waiting for locator('button').filter({ hasText: 'Your Basket' })
+        - locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+        - unexpected value " shopping_cart  Your Basket0"
+        13 × locator resolved to <button mat-button="" routerlink="/basket" _ngcontent-ng-c1731522247="" mat-ripple-loader-uninitialized="" aria-label="Show the shopping cart" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed">…</button>
+           - unexpected value " shopping_cart  Your Basket2"
+
+
+       at pages/shop.ts:62
+
+      60 |
+      61 |   async expectBasketCounter(count: number): Promise<void> {
+    > 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\s*${count}\\s*$`));
+         |                                     ^
+      63 |   }
+      64 | }
+      65 |
+        at TopBar.expectBasketCounter (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/pages/shop.ts:62:37)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:31:18
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T03-a-output/wallet-payment-Payment-wit-cc5a1-ce-and-pays-the-exact-total-chromium/error-context.md
+
+
+  7 failed
+    [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket 
+    [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A 
+    [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history 
+    [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount 
+    [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product 
+    [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only 
+    [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total 
+  1 passed (49.8s)

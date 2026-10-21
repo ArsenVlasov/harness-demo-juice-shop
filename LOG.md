@@ -6,6 +6,43 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 17:45: the measurements after the E4 fix and the table "before and after"
+
+Start from: the end of `bench/run-x3-x4.sh` (`bench/.run/x3-x4.log`). Then E5a round 2, the manual check of the judge (item 1.1) and E5b.
+
+### The measurements (`bench/.run/e4-after.log`)
+
+`bench/run-e4-after.sh` ended at 17:32:34: `e4 after done. Failed: none`. Each step gave `EXIT 0`.
+
+| Step | vague A-1 (`desk-q`, tag `fixed`, `2fbd06d55dc0`) | haiku A-3 (`desk-s`, tag `fixed`, `d67bf601809c`) |
+|---|---|---|
+| `run-mutants.mjs` | 15:51:58 to 16:00:17. `after`: 11 of 11 bugs caught, none missed, 14 of 14. Recheck `24/24 test runs passed` | 16:39:15 to 16:46:52. 11 of 11, none missed, 14 of 14. Recheck `24/24 test runs passed` |
+| `run-flaky.mjs` | 16:00:17 to 16:05:11. 8 stable, 0 flaky, 0 broken, 160 test runs | 16:46:52 to 16:50:42. 8 stable, 0 flaky, 0 broken, 160 test runs |
+| `run-judge.mjs`, `claude-opus-5-5` | 16:05:11 to 16:08:05. 49 / 0 / 0 of 49. 0.8700346 USD | 16:50:42 to 16:52:11. 48 / 1 / 0 of 49 (TC-06 step 4 `partial`). 0.5494782 USD |
+| `run-audit-tamper.mjs` (for information) | 16:08:05 to 16:21:45. `Rules: 22. Caught: 20. Survived: 2.` (T14-b, T15-d) | 16:52:11 to 17:07:35. `Caught: 20. Survived: 2.` (T14-b, T15-d) |
+| `run-audit-mutate.mjs` (for information) | 16:28:41 to 16:39:15, after the restart. `client: 44 killed, 1 survived, 0 error, 0 skipped of 45` | 17:07:35 to 17:32:34. `client: 89 killed, 2 survived, 0 error, 0 skipped of 91` |
+
+- `bench/collect-metrics.mjs --suite after=<fix folder> --ref fixed` wrote `summary-e4-after-x1.md` and `summary-e4-after-x2.md`, each with exit 0.
+
+### The table and its check
+
+- `bench/results/e4-before-after.md` holds the table "before and after", the readings of the hypotheses, the measures of the audit, the cost and the time, and the limits.
+- vague A-1, the frozen client: H4.1 and H4.2 are "not tested", because the suite misses no realistic bug and no patch. H4.3 gives "no change": 0 of 11 before and after.
+  The judge steps `partial` went from 2 to 0. `weakening()` found nothing.
+- haiku A-3 is exploratory, with no label. Missed bugs: 4 of 11 to 0 of 11. Flaky tests: 1 to 0. Judge steps `partial`: 7 to 1. `weakening()`: 1 finding.
+- The cause of the gain of haiku A-3: before the fix, TC-07 failed at step 1 (`tests/pages/shop.ts:92`) on M01, M09 and M13. It failed there in the recheck run too. After the fix, the checks that catch the 4 patches are the same lines as at `gen-3`.
+  Thus the gain comes completely from a stable step 1, not from new checks.
+- A workflow with 3 independent agents (`verify-e4-table`, run `wf_a11a16a6-ed0`) checked the first draft of the table. Each agent had one lens: the numbers, the frozen rules, and completeness.
+  - The numbers agent found no wrong number.
+  - The other 2 agents found 17 issues, with overlap. The main session checked the main ones with its own commands and changed the table. The changes:
+    - haiku A-3 now has no H-ID and no threshold.
+    - The causal claim now says "completely", with the failure lines.
+    - The table now has the full measures of the audit (R1, R2, P1, P2 and the 3 classes for the 3 variants).
+    - The time of the audit now includes the tool runs.
+    - The minutes of Arsen on the audit are now "not measured", not 0.
+    - The table now has a section of limits and a section "For the offer".
+  - One finding is new. `bench/e4-prepare.mjs` dropped the line `FLAG TC-04 step 5`, because its reason also names step 3. The parse rule is from commit `1cc17b4` (14:38), before the auditor sessions. With this line, the strict variant of haiku A-3 gives P1 2 of 9 and P2 7 of 9. The table gives both results.
+
 ## 2026-10-21, 16:30: the E4 run after the fix stopped at 16:27 and started again. The runs of decision 19 are late
 
 Start from: the end of `bench/run-e4-after.sh` (`bench/.run/e4-after.log`), then the table "before and after" of E4. After that, the end of `bench/run-x3-x4.sh` (`bench/.run/x3-x4.log`).

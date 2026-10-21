@@ -1,0 +1,63 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/add-to-basket.spec.ts:8:7 › Add a product to the basket › add one product and check the basket
+[2/8] [chromium] › tests/basket-quantity-and-remove.spec.ts:8:7 › Change the quantity and remove a product in the basket › change the quantity and remove product A
+[3/8] [chromium] › tests/card-order-end-to-end.spec.ts:12:7 › Order with a card, from basket to order history › order two products with a card and find the order in the history
+[4/8] [chromium] › tests/invalid-and-expired-coupon.spec.ts:11:7 › Invalid coupon and expired coupon › neither an invalid code nor an expired coupon gives a discount
+[5/8] [chromium] › tests/login.spec.ts:8:7 › Login with a valid and an invalid password › login with a wrong and then a correct password
+[6/8] [chromium] › tests/purchase-limit.spec.ts:8:7 › Purchase limit for one product › the basket stops at 5 items of one product
+[7/8] [chromium] › tests/valid-coupon.spec.ts:11:7 › Valid coupon on the payment step › the 10% coupon of the current month reduces the items only
+[8/8] [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total
+  1) [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total › 10. Order history shows one order with total 8.99¤ and bonus 1 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('body')
+    Timeout: 5000ms
+    Expected pattern: /Bonus\s*1(?![\d.])/
+    Received string:  "This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!
+       OWASP Juice ShopAccount account_circle  tc-1792591308463-5fb54749@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket0 language  EN  Order History Order ID#c148-93f52e0e3315c38aTotal Price8.99¤Bonus2In Transitlocal_shippingnoteProductPriceQuantityTotal PriceEggfruit Juice (500ml)8.99¤18.99¤rate_review··
+    Open side menuChoose languageWrite a reviewTrack OrderPrint Order Confirmation"
+
+    Call log:
+      - Expect "toContainText" locator('body') with timeout 5000ms
+      - waiting for locator('body')
+        3 × locator resolved to <body class="bluegrey-lightgreen-theme">…</body>
+          - unexpected value "This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!
+       OWASP Juice ShopAccount account_circle  tc-1792591308463-5fb54749@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket0 language  EN  Order History Order ID#c148-93f52e0e3315c38aTotal Price8.99¤Bonus2In Transitlocal_shippingnoteProductPriceQuantityTotal PriceEggfruit Juice (500ml)8.99¤18.99¤rate_review
+    
+    
+    Open side menuChoose languageWrite a reviewTrack OrderPrint Order Confirmation Placed Eggfruit Juice (500ml) into basket.
+     X  account_circle  tc-1792591308463-5fb54749@example.test  check_circle_outline  Orders & Payment  security  Privacy & Security  power_settings_new  Logout  archive  Order History  autorenew  Recycle  my_location  My saved addresses  credit_card  My Payment Options  account_balance_wallet  Digital Wallet "
+        4 × locator resolved to <body class="bluegrey-lightgreen-theme">…</body>
+          - unexpected value "This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!
+       OWASP Juice ShopAccount account_circle  tc-1792591308463-5fb54749@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket0 language  EN  Order History Order ID#c148-93f52e0e3315c38aTotal Price8.99¤Bonus2In Transitlocal_shippingnoteProductPriceQuantityTotal PriceEggfruit Juice (500ml)8.99¤18.99¤rate_review
+    
+    
+    Open side menuChoose languageWrite a reviewTrack OrderPrint Order Confirmation Placed Eggfruit Juice (500ml) into basket.
+     X "
+        7 × locator resolved to <body class="bluegrey-lightgreen-theme">…</body>
+          - unexpected value "This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait!Me want it!
+       OWASP Juice ShopAccount account_circle  tc-1792591308463-5fb54749@example.test  check_circle_outline  Orders & Payment  expand_more  security  Privacy & Security  expand_more  power_settings_new  Logout Contactfeedback Customer Feedback sentiment_dissatisfied Complaint auto_awesome AI Chat ImprovedCompanybusiness_center About Us camera Photo Wall card_membership Deluxe Membership OWASP Juice Shopv20.3.0              menu OWASP Juice Shop searchsearchclose account_circle  Account  shopping_cart  Your Basket0 language  EN  Order History Order ID#c148-93f52e0e3315c38aTotal Price8.99¤Bonus2In Transitlocal_shippingnoteProductPriceQuantityTotal PriceEggfruit Juice (500ml)8.99¤18.99¤rate_review
+    
+    
+    Open side menuChoose languageWrite a reviewTrack OrderPrint Order Confirmation"
+
+
+      100 |       await history.expectOrderCount(1);
+      101 |       await history.expectOrder(orderId, '8.99¤');
+    > 102 |       await expect(page.locator('body')).toContainText(/Bonus\s*1(?![\d.])/);
+          |                                          ^
+      103 |     });
+      104 |   });
+      105 | });
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:102:42
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-s/tests/wallet-payment.spec.ts:98:5
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x2/rules/T12-a-output/wallet-payment-Payment-wit-cc5a1-ce-and-pays-the-exact-total-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › tests/wallet-payment.spec.ts:11:7 › Payment with the wallet › the wallet cannot pay a short balance and pays the exact total 
+  7 passed (29.4s)

@@ -1,0 +1,43 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:6:5 › TC-01: Login with a valid and an invalid password
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket
+  1) [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket › 1. Open the product list 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('mat-card').filter({ has: locator('.name').filter({ hasText: /^\s*Eggfruit Juice \(500ml\)\s*$/ }) }).locator('.price')
+    Expected: "8.99¤"
+    Received: " 9.99¤ "
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('mat-card').filter({ has: locator('.name').filter({ hasText: /^\s*Eggfruit Juice \(500ml\)\s*$/ }) }).locator('.price') with timeout 5000ms
+      - waiting for locator('mat-card').filter({ has: locator('.name').filter({ hasText: /^\s*Eggfruit Juice \(500ml\)\s*$/ }) }).locator('.price')
+        14 × locator resolved to <div class="price" _ngcontent-ng-c1648923913="">…</div>
+           - unexpected value " 9.99¤ "
+
+
+       9 |     await productList.open();
+      10 |     await expect(productList.productName(product.name)).toHaveText(product.name);
+    > 11 |     await expect(productList.productPrice(product.name)).toHaveText(priceText(product.price));
+         |                                                          ^
+      12 |     await expect(productList.addToBasketButton(product.name)).toBeVisible();
+      13 |     await expect(navBar.basketCounter).toHaveText('0');
+      14 |   });
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-02-add-to-basket.spec.ts:11:58
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/tc-02-add-to-basket.spec.ts:8:3
+
+    Error Context: ../../harness-demo-juice-shop/bench/results/tamper-e4-after-x1/rules/T01-a-output/tc-02-add-to-basket-TC-02-Add-a-product-to-the-basket-chromium/error-context.md
+
+
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:5:5 › TC-03: Change the quantity and remove a product in the basket
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:5:5 › TC-04: Purchase limit for one product
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:6:5 › TC-05: Valid coupon on the payment step
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:6:5 › TC-06: Invalid coupon and expired coupon
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:6:5 › TC-07: Order with a card, from basket to order history
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:6:5 › TC-08: Payment with the wallet
+  1 failed
+    [chromium] › tests/tc-02-add-to-basket.spec.ts:5:5 › TC-02: Add a product to the basket ────────
+  7 passed (24.7s)

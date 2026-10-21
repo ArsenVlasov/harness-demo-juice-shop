@@ -1,0 +1,240 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/purchase-limit\\.spec\\.ts$:8"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "purchase-limit.spec.ts",
+      "file": "purchase-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Purchase limit for one product",
+          "file": "purchase-limit.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the basket stops at 5 items of one product",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-04",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7079,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button').filter({ hasText: 'Your Basket' })\nExpected pattern: \u001b[32m/Your Basket\\s*6\\s*$/\u001b[39m\nReceived string:  \u001b[31m\" shopping_cart  Your Basket5\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button').filter({ hasText: 'Your Basket' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button mat-button=\"\" routerlink=\"/basket\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Show the shopping cart\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" shopping_cart  Your Basket5\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button').filter({ hasText: 'Your Basket' })\nExpected pattern: \u001b[32m/Your Basket\\s*6\\s*$/\u001b[39m\nReceived string:  \u001b[31m\" shopping_cart  Your Basket5\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button').filter({ hasText: 'Your Basket' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button mat-button=\"\" routerlink=\"/basket\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Show the shopping cart\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" shopping_cart  Your Basket5\"\u001b[22m\n\n    at TopBar.expectBasketCounter (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/shop.ts:62:37)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts:38:20\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts:35:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/shop.ts",
+                          "column": 37,
+                          "line": 62
+                        },
+                        "snippet": "   at pages/shop.ts:62\n\n  60 |\n  61 |   async expectBasketCounter(count: number): Promise<void> {\n> 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\\\s*${count}\\\\s*$`));\n     |                                     ^\n  63 |   }\n  64 | }\n  65 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/shop.ts",
+                            "column": 37,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button').filter({ hasText: 'Your Basket' })\nExpected pattern: \u001b[32m/Your Basket\\s*6\\s*$/\u001b[39m\nReceived string:  \u001b[31m\" shopping_cart  Your Basket5\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button').filter({ hasText: 'Your Basket' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button mat-button=\"\" routerlink=\"/basket\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Show the shopping cart\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" shopping_cart  Your Basket5\"\u001b[22m\n\n\n   at pages/shop.ts:62\n\n  60 |\n  61 |   async expectBasketCounter(count: number): Promise<void> {\n> 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\\\s*${count}\\\\s*$`));\n     |                                     ^\n  63 |   }\n  64 | }\n  65 |\n    at TopBar.expectBasketCounter (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/shop.ts:62:37)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts:38:20\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts:35:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the product to the basket from the product list",
+                          "duration": 278
+                        },
+                        {
+                          "title": "2. Plus button until the quantity is 5: total 9.95¤, no error",
+                          "duration": 856
+                        },
+                        {
+                          "title": "3. Plus button once more: the error shows",
+                          "duration": 80
+                        },
+                        {
+                          "title": "4. The product keeps quantity 5 and the total 9.95¤",
+                          "duration": 5016,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button').filter({ hasText: 'Your Basket' })\nExpected pattern: \u001b[32m/Your Basket\\s*6\\s*$/\u001b[39m\nReceived string:  \u001b[31m\" shopping_cart  Your Basket5\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button').filter({ hasText: 'Your Basket' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button mat-button=\"\" routerlink=\"/basket\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Show the shopping cart\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" shopping_cart  Your Basket5\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button').filter({ hasText: 'Your Basket' })\nExpected pattern: \u001b[32m/Your Basket\\s*6\\s*$/\u001b[39m\nReceived string:  \u001b[31m\" shopping_cart  Your Basket5\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('button').filter({ hasText: 'Your Basket' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button').filter({ hasText: 'Your Basket' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button mat-button=\"\" routerlink=\"/basket\" _ngcontent-ng-c1731522247=\"\" aria-label=\"Show the shopping cart\" mat-ripple-loader-class-name=\"mat-mdc-button-ripple\" class=\"mdc-button mat-mdc-button-base buttons nav-button mat-mdc-button mat-unthemed\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \" shopping_cart  Your Basket5\"\u001b[22m\n\n    at TopBar.expectBasketCounter (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/shop.ts:62:37)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts:38:20\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts:35:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/shop.ts",
+                              "column": 37,
+                              "line": 62
+                            },
+                            "snippet": "   at pages/shop.ts:62\n\n  60 |\n  61 |   async expectBasketCounter(count: number): Promise<void> {\n> 62 |     await expect(this.basketButton).toHaveText(new RegExp(`Your Basket\\\\s*${count}\\\\s*$`));\n     |                                     ^\n  63 |   }\n  64 | }\n  65 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:28:06.104Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-04",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/purchase-limit.spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results/purchase-limit-Purchase-li-62442-s-at-5-items-of-one-product-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/shop.ts",
+                        "column": 37,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "9541eec693afffaefac9-7f0dfab1a3f915e013e5",
+              "file": "purchase-limit.spec.ts",
+              "line": 8,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:28:05.506Z",
+    "duration": 7997.723000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

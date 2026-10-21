@@ -1,0 +1,260 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/wallet-payment\\.spec\\.ts$:11"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "wallet-payment.spec.ts",
+      "file": "wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Payment with the wallet",
+          "file": "wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the wallet cannot pay a short balance and pays the exact total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                        "line": 8,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9054,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/Wallet Balance\\s*1\\.00_mut\\b/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/Wallet Balance\\s*1\\.00_mut\\b/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\u001b[22m\n\n    at WalletPage.expectBalance (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/account.ts:42:100)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:95:20\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:93:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/account.ts",
+                          "column": 100,
+                          "line": 42
+                        },
+                        "snippet": "   at pages/account.ts:42\n\n  40 |\n  41 |   async expectBalance(balance: string): Promise<void> {\n> 42 |     await expect(this.page.getByText(new RegExp(`Wallet Balance\\\\s*${escapeRegExp(balance)}\\\\b`))).toBeVisible();\n     |                                                                                                    ^\n  43 |   }\n  44 | }\n  45 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/account.ts",
+                            "column": 100,
+                            "line": 42
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/Wallet Balance\\s*1\\.00_mut\\b/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\u001b[22m\n\n\n   at pages/account.ts:42\n\n  40 |\n  41 |   async expectBalance(balance: string): Promise<void> {\n> 42 |     await expect(this.page.getByText(new RegExp(`Wallet Balance\\\\s*${escapeRegExp(balance)}\\\\b`))).toBeVisible();\n     |                                                                                                    ^\n  43 |   }\n  44 | }\n  45 |\n    at WalletPage.expectBalance (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/account.ts:42:100)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:95:20\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:93:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout, select the saved address and continue: delivery page opens",
+                          "duration": 265
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue: wallet balance 5.00 and the pay button 8.99¤",
+                          "duration": 153
+                        },
+                        {
+                          "title": "3. The pay button 8.99¤ is disabled",
+                          "duration": 10
+                        },
+                        {
+                          "title": "4. Order history shows no orders",
+                          "duration": 589
+                        },
+                        {
+                          "title": "5. Digital wallet shows the balance 5.00",
+                          "duration": 697
+                        },
+                        {
+                          "title": "6. Add 3.99 with the saved card; checkout to payment: pay button 8.99¤ is enabled",
+                          "duration": 402
+                        },
+                        {
+                          "title": "7. Pay with the wallet: order summary shows Digital Wallet and 8.99¤",
+                          "duration": 88
+                        },
+                        {
+                          "title": "8. Place the order: the confirmation shows the thank you text",
+                          "duration": 132
+                        },
+                        {
+                          "title": "9. Digital wallet shows the balance 1.00 (8.99 - 8.99 + 1 bonus point)",
+                          "duration": 5594,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/Wallet Balance\\s*1\\.00_mut\\b/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/Wallet Balance\\s*1\\.00_mut\\b/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Wallet Balance\\s*1\\.00_mut\\b/)\u001b[22m\n\n    at WalletPage.expectBalance (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/account.ts:42:100)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:95:20\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts:93:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/account.ts",
+                              "column": 100,
+                              "line": 42
+                            },
+                            "snippet": "   at pages/account.ts:42\n\n  40 |\n  41 |   async expectBalance(balance: string): Promise<void> {\n> 42 |     await expect(this.page.getByText(new RegExp(`Wallet Balance\\\\s*${escapeRegExp(balance)}\\\\b`))).toBeVisible();\n     |                                                                                                    ^\n  43 |   }\n  44 | }\n  45 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:31:18.643Z",
+                      "annotations": [
+                        {
+                          "type": "test-case",
+                          "description": "TC-08",
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/wallet-payment.spec.ts",
+                            "line": 8,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/test-results/wallet-payment-Payment-wit-cc5a1-ce-and-pays-the-exact-total-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-HO4NcS/tests/pages/account.ts",
+                        "column": 100,
+                        "line": 42
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6c222ca136d813f0c0f7-0c0b52d79b13c451b58f",
+              "file": "wallet-payment.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:31:18.068Z",
+    "duration": 9944.547,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
