@@ -6,6 +6,51 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 12:55: the resume sequence ended, the Mac slept 512 minutes, a rule for the re-runs
+
+Start from: the re-runs of this entry. Then all results of E2 and E3 in the next entry.
+
+### The end of `bench/resume-e2-e3.sh`, from `bench/.run/resume-e2-e3.log`
+
+- 23:10:32 to 12:45:58. The last line: `resume done. Failed steps: flaky vague 2 judge vague 2 mutants vague 3 flaky vague 3 chain haiku (see its own lines)`.
+- Vague B-4: generation 23:10:36 to 23:28:18, then the clean run and the commit, each exit 0. No follow-up.
+- Haiku A-1 to B-3: each generation, clean run and commit gave exit 0, from 07:59:15 to 11:25:35. No follow-up.
+- The chain of `haiku` reported `Failed steps: audit 1 audit 2`. The entry of 12:00 explains the false alarm of these audits.
+  All measurements of `haiku` gave exit 0.
+
+### The sleep of the Mac
+
+- At 00:07:23, `pmset -g log` gives "Entering Sleep state due to 'Clamshell Sleep'": the lid was closed. `caffeinate -i` does not stop this sleep.
+- I counted the time from each `Sleep` line to the next `Wake` or `DarkWake` line. The "Wake Requests" lines are not wakes.
+  The result: 23 intervals, 512 minutes in total, from 00:07:23 to 08:56:26.
+- The minutes of sleep in each step:
+
+| Step | Time | Exit | Asleep |
+|---|---|---|---|
+| vague B-4 generation | 23:10:36 to 23:28:18 | 0 | 0 min |
+| vague run 1: patches, flaky, judge | 23:28:45 to 23:55:48 | 0 | 0 min |
+| vague run 2: patches | 23:55:48 to 00:14:46 | 0 | 6.7 min |
+| vague run 2: flaky | 00:14:46 to 00:46:54 | 1 | 30.0 min |
+| vague run 2: judge | 00:46:54 to 01:56:05 | 1 | 63.7 min |
+| vague pair A-3 and B-4: patches | 01:56:05 to 02:51:36 | 1 | 54.8 min |
+| vague pair A-3 and B-4: flaky | 02:51:36 to 04:59:55 | 1 | 126.8 min |
+| vague pair A-3 and B-4: judge | 04:59:55 to 07:59:10 | 0 | 175.2 min |
+| haiku A-1 generation | 07:59:15 to 09:26:14 | 0 | 55.0 min |
+| all other steps of `haiku` | 09:26:46 to 12:45:58 | 0 | 0 min |
+
+### The rule for the re-runs, written before I read any result of these steps
+
+1. The patches (`run-mutants.mjs`) and flaky (`run-flaky.mjs`) depend on the time: a test that stops during a sleep can fail without a code cause.
+   Thus each of these steps with more than 0 minutes of sleep runs again, also when its exit was 0.
+2. The judge does not depend on the time. A judge step runs again only when it failed (exit not 0).
+3. A generation run that ended with a result is not a stopped run (section "Stopped runs" of `bench/hypotheses-v2.md`). Haiku A-1 slept 55 minutes and ended with `success`, so it counts.
+   Stage 1 did the same for B-1 (plan, section 12, decision 17).
+4. The outputs of the steps that run again keep their files with the suffix `-slept`. I do not read them before the re-runs end.
+   The summaries and the aggregate of `vague` that used them get the suffix `-slept` too.
+
+The re-runs by this rule: vague run 2 patches, flaky and judge. Vague pair A-3 and B-4 patches and flaky. Then `collect-metrics` for vague runs 2, 3 (A) and 4 (B), the merge and the aggregate of `vague`.
+The judge of the pair (exit 0) stays. The steps of vague run 1 and all steps of `haiku` stay.
+
 ## 2026-10-21, 12:00: a message from another Claude session reached haiku B-1, B-1 stays valid
 
 Start from: the end of `bench/resume-e2-e3.sh` (the measurements of `haiku`). Then the next entry with all results of E2 and E3.
