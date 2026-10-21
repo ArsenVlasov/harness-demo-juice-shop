@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-10-21T12:52:20.034Z",
+  "results": [
+    {
+      "suite": "?",
+      "file": "-",
+      "id": "9ce9f102-9946-41db-88c2-17976983fb4b",
+      "workDir": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q",
+      "transcripts": 2,
+      "calls": 81,
+      "forbidden": [],
+      "outside": [
+        {
+          "where": "9ce9f102-9946-41db-88c2-17976983fb4b.jsonl:92",
+          "tool": "Bash",
+          "input": "{\"command\":\"mkdir -p /tmp/probe && cd /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q && cat > /tmp/probe/probe.spec.ts <<'EOF'\\nimport { test } from '../../Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/support/fixtures';\\nimport { addSavedAddressAndCard } from '../../Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/support/checkout';\\ntest('TC-99 probe', async ({ page, loggedInCustomer, productList, basket, selectAddress, deliveryMethod, payment }) => {\\n  await addSavedAddressAndCard(loggedInCustomer);\\n  await productList.open();\\n  await productList.addToBasket('Carrot Juice (1000ml)');\\n  await productList.addToBasket('Apple Juice (1000ml)');\\n  await page.waitForTimeout(500);\\n  await basket.open();\\n  for (let i = 0; i < 5; i++) { await basket.increase('Apple Juice (1000ml)'); }\\n  await page.waitForTimeout(300);\\n  console.log('SNACK', await page.locator('.mat-mdc-snack-bar-container').evaluateAll(e => e.map(x => x.outerHTML.slice(0, 400))));\\n  console.log('ERRORS', await page.locator('app-basket .error, app-basket mat-error').evaluateAll(e => e.map(x => x.outerHTML)));\\n  await basket.checkout();\\n  await selectAddress.selectSavedAddressAndContinue();\\n  await deliveryMethod.selectAndContinue('One Day Delivery');\\n  await payment.selectSavedCardAndContinue();\\n  await page.locator('app-order-summary mat-row').first().waitFor();\\n  console.log('ROW', await page.locator('app-order-summary mat-row').first().evaluate(e => e.outerHTML));\\n});\\nEOF\\nnpx playwright test /tmp/probe/probe.spec.ts --reporter=line 2>&1 | tail -30\",\"description\":\"Probe live DOM for snack bar and order summary rows\",\"timeout\":120000}",
+          "paths": [
+            "/tmp/probe",
+            "/tmp/probe/probe.spec.ts"
+          ]
+        },
+        {
+          "where": "9ce9f102-9946-41db-88c2-17976983fb4b.jsonl:239",
+          "tool": "Bash",
+          "input": "{\"command\":\"mkdir -p /tmp/mutation-backup && cp tests/tc-02-add-to-basket.spec.ts tests/tc-07-card-order-end-to-end.spec.ts tests/tc-04-purchase-limit.spec.ts /tmp/mutation-backup/\",\"description\":\"Back up specs before temporary mutations\"}",
+          "paths": [
+            "/tmp/mutation-backup",
+            "/tmp/mutation-backup/"
+          ]
+        },
+        {
+          "where": "9ce9f102-9946-41db-88c2-17976983fb4b.jsonl:328",
+          "tool": "Bash",
+          "input": "{\"command\":\"npx playwright test --reporter=line --repeat-each=3 2>&1 | tail -2; npm run check > /tmp/check.log 2>&1; echo \\\"check exit=$?\\\"; grep -E \\\"error TS|✗|New rule|problems\\\" /tmp/check.log\",\"description\":\"Run suite three times and npm run check\",\"timeout\":400000}",
+          "paths": [
+            "/tmp/check.log"
+          ]
+        }
+      ],
+      "dotdot": [
+        {
+          "where": "9ce9f102-9946-41db-88c2-17976983fb4b.jsonl:92",
+          "tool": "Bash",
+          "input": "{\"command\":\"mkdir -p /tmp/probe && cd /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q && cat > /tmp/probe/probe.spec.ts <<'EOF'\\nimport { test } from '../../Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/support/fixtures';\\nimport { addSavedAddressAndCard } from '../../Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/support/checkout';\\ntest('TC-99 probe', async ({ page, loggedInCustomer, productList, basket, selectAddress, deliveryMethod, payment }) => {\\n  await addSavedAddressAndCard(loggedInCustomer);\\n  await productList.open();\\n  await productList.addToBasket('Carrot Juice (1000ml)');\\n  await productList.addToBasket('Apple Juice (1000ml)');\\n  await page.waitForTimeout(500);\\n  await basket.open();\\n  for (let i = 0; i < 5; i++) { await basket.increase('Apple Juice (1000ml)'); }\\n  await page.waitForTimeout(300);\\n  console.log('SNACK', await page.locator('.mat-mdc-snack-bar-container').evaluateAll(e => e.map(x => x.outerHTML.slice(0, 400))));\\n  console.log('ERRORS', await page.locator('app-basket .error, app-basket mat-error').evaluateAll(e => e.map(x => x.outerHTML)));\\n  await basket.checkout();\\n  await selectAddress.selectSavedAddressAndContinue();\\n  await deliveryMethod.selectAndContinue('One Day Delivery');\\n  await payment.selectSavedCardAndContinue();\\n  await page.locator('app-order-summary mat-row').first().waitFor();\\n  console.log('ROW', await page.locator('app-order-summary mat-row').first().evaluate(e => e.outerHTML));\\n});\\nEOF\\nnpx playwright test /tmp/probe/probe.spec.ts --reporter=line 2>&1 | tail -30\",\"description\":\"Probe live DOM for snack bar and order summary rows\",\"timeout\":120000}"
+        },
+        {
+          "where": "9ce9f102-9946-41db-88c2-17976983fb4b.jsonl:137",
+          "tool": "Edit",
+          "input": "{\"replace_all\":false,\"file_path\":\"/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/pages/basket-page.ts\",\"old_string\":\"import { Locator, Page } from '@playwright/test';\\n\\nexport class BasketPage {\\n  readonly rows: Locator;\\n  readonly totalPrice: Locator;\\n  readonly checkoutButton: Locator;\\n  readonly snackBar: Locator;\\n\\n  constructor(private readonly page: Page) {\\n    this.rows = page.locator('app-basket mat-row');\\n    this.totalPrice = page.locator('app-basket #price');\\n    this.checkoutButton = page.locator('app-basket #checkoutButton');\\n    this.snackBar = page.locator('.mat-mdc-snack-bar-container');\\n  }\\n\\n  async open(): Promise<void> {\\n    await this.page.goto('/#/basket');\\n    await this.waitForLoad();\\n  }\",\"new_string\":\"import { expect, Locator, Page, Response } from '@playwright/test';\\nimport { nextBasketResponse } from '../support/basket-response';\\n\\nexport class BasketPage {\\n  readonly rows: Locator;\\n  readonly totalPrice: Locator;\\n  readonly checkoutButton: Locator;\\n  readonly snackBar: Locator;\\n  readonly errorMessages: Locator;\\n\\n  constructor(private readonly page: Page) {\\n    this.rows = page.locator('app-basket mat-row');\\n    this.totalPrice = page.locator('app-basket #price');\\n    this.checkoutButton = page.locator('app-basket #checkoutButton');\\n    this.snackBar = page.locator('.mat-mdc-snack-bar-container');\\n    this.errorMessages = this.snackBar.and(page.locator('.errorBar'));\\n  }\\n\\n  /**\\n   * Opens the basket and waits until the table shows the products that the server sent.\\n   * `#price` renders with `0` before the data arrives, so it does not prove that the basket loaded.\\n   */\\n  async open(): Promise<void> {\\n    const serverBasket = nextBasketResponse(this.page);\\n    await this.page.goto('/#/basket');\\n    await this.waitForLoad();\\n    await expect(this.rows, 'The basket table shows the products of the server basket').toHaveCount(\\n      (await serverBasket).Products.length,\\n    );\\n  }\"}"
+        },
+        {
+          "where": "9ce9f102-9946-41db-88c2-17976983fb4b.jsonl:151",
+          "tool": "Edit",
+          "input": "{\"replace_all\":false,\"file_path\":\"/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/desk-q/tests/pages/basket-page.ts\",\"old_string\":\"import { nextBasketResponse } from '../support/basket-response';\",\"new_string\":\"import { nextBasketResponse } from '@/tests/support/basket-response';\"}"
+        }
+      ],
+      "cross": []
+    }
+  ]
+}

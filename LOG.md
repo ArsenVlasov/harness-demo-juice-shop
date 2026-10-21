@@ -39,6 +39,34 @@ Start from: the end of `mutate-x2`. Then the auditor session of vague A-1.
   2. The manual check of the judge (item 1.1) and the full E5a review by the checklist, with the timer, are now required, together with E4.
 - No file of the experiment changed. The frozen files and the measurements stay as they are.
 
+## 2026-10-21, 15:55: the fixer sessions, the weakening check and the tool-call audits
+
+Start from: the result of `bench/run-e4-after.sh` in `bench/.run/e4-after.log` (the measurements after the fix). Then the table "before and after" of E4.
+
+### The fixer sessions, with proof (`bench/.run/fixers.log`)
+
+| Session | Folder | Time | Cost, USD | Denied calls | Clean run | Fix commit (tag `fixed`) |
+|---|---|---|---|---|---|---|
+| `fixer-x1` (vague A-1) | `desk-q` | 15:20:07 to 15:30:26, wall 606 s | 2.2226188 | 0 | `8 passed (15.0s)` | `2fbd06d55dc0567c059d15f39ac328ce91a45a32`, 9 files, +224, -13 |
+| `fixer-x2` (haiku A-3) | `desk-s` | 15:30:55 to 15:50:25, wall 1153 s | 4.1148693 | 13 | `8 passed (23.4s)` | `d67bf601809cb7da00aa939d071176ade20ce779`, 17 files, +497, -41 |
+
+- The sessions: `9ce9f102-9946-41db-88c2-17976983fb4b` and `81ebe4ac-891f-47d8-b0f6-1ae450a3296c`. Each `claude exit=0`. Both clean runs passed, so no session got the follow-up.
+- After the sessions: the modes came back. No lock folder, no folder of hidden items, and no path with mode 000 stayed.
+- The denied calls of `fixer-x2` were shell commands outside the allowed tools: `git mv`, `sed -i`, `git add`, a heredoc and a `for` loop. Then the session made the same changes with `Edit` and `Write`.
+- The fixer of haiku A-3 renamed the spec files, for example `tests/tc-01-login.spec.ts` to `tests/login.spec.ts`. The rule `test-naming-no-tc-ids` of the harness asks for this.
+
+### The weakening check of each fix (`bench/weakening.mjs`, the diff `HEAD~1..HEAD` of the code files)
+
+- vague A-1: no finding. Assertion calls: added 14, removed 8. Value checks: added 6, removed 4.
+- haiku A-3: 1 finding, "added a timeout option (timeout: MESSAGE_LIFETIME)". The line: `await expect(this.page.getByText(text)).toHaveCount(0, { timeout: MESSAGE_LIFETIME })`.
+  Assertion calls: added 54, removed 24. Value checks: added 21, removed 2.
+  The line waits until an old message is gone before the next check. The audit named this gap for TC-04 step 5. By the frozen rule, the finding counts.
+
+### The tool-call audits of the fixers
+
+- `audit-fixer-x1`: 81 calls, 0 forbidden, 0 cross-session. `audit-fixer-x2`: 153 calls, 0 forbidden, 0 cross-session.
+- The outside paths are in `/tmp` (probe scripts, backups, check logs). `/Users/` is again the endpoint `/api/Users/` of the app.
+
 ## 2026-10-21, 15:30: the fix folders of both client suites, the fixer sessions start
 
 Start from: the result of `bench/run-fixers.sh` in `bench/.run/fixers.log`. Then the measurements after the fix (frozen item 8).
