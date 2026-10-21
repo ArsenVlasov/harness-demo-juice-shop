@@ -6,6 +6,35 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 19:15: decision 21, E5b starts. The UI patch session
+
+Start from: the end of `bench/run-ui-patch-session.sh` (`bench/results/ui-patch-session.meta`). Then the tool-call audit, the check of `juice-shop/`, and checkpoint 5 (Arsen reads the patches). Then the seal.
+
+- At about 19:10, Arsen said: "yes, start E5b now". This is checkpoint 5 of the stage 2 plan. Section 10 of the plan, item 21, has it.
+- The order by the frozen rules: first the UI patch session, then Arsen reads the patches, then the seal (sha256 in this log).
+  After that come the runs on A and B of `precise` run 1, and then the fixes.
+  At checkpoint 5, Arsen can reject a patch only for one of two reasons. The patch is not one of the 3 kinds. Or a person cannot do a step of TC-01 to TC-08 by hand.
+- The frozen rules do not give a mode for `bench/run-ui-change.mjs`. The main session decides:
+  - H5b.1 sums the broken tests over all UI patches. Thus the count uses `--mode each`, with one patch at a time.
+  - The fix (H5b.2) works only with all patches together. Thus `--repair` runs in the default mode, with the cap of 10 USD for each suite (answer 7).
+  - The prompt tells the session that all patches must also apply together.
+- The new files for the session, before its start:
+
+  | File | sha256 |
+  |---|---|
+  | `bench/prompt-ui-patches.txt` | `7ed95a195a3d38e60330cca2ce0943a1e4efe8148474a2b7feea463810ae540f` |
+  | `bench/ui-patch-settings.json` | `ff82a0efa426316b93b4a824cba331494ad4494da9fd731aec96c67b26bab621` |
+  | `bench/run-ui-patch-session.sh` | `da1ae9ded3c73086513c563862d72784621f0ee2c8c2a4a83f0b46418c94d044` |
+
+- The session:
+  - It uses the pinned CLI, as in `bench/claude-locked.sh`: `env -i`, `claude-opus-5-5`, a cap of 10 USD, no MCP server, no subagents and no web.
+  - It starts in `sealed-ui/`, with `--add-dir` for `juice-shop/` and `test-cases/` only. It builds the frontend into a temp folder, not into `juice-shop/frontend/dist`.
+  - The session does not use the lock set of `bench/claude-locked.sh`, because that set hides `sealed-ui/`.
+  - Mode 000 during the session applies to each top-level folder of `harness-demo-runs/` (the rule of E5b), and also to `sealed/`, `LOG.md` and the lab `.git`. A trap puts the old modes back.
+  - `bench/results/` stays open, so that Arsen can read the packet of item 1.1. It has deny rules in `bench/ui-patch-settings.json`, and the tool-call audit covers it.
+  - The session loads the lab `CLAUDE.md`, because its folder is in the lab. The patch session of stage 1 also did this.
+  - The lock also covers the review copies in `harness-demo-runs/review/` during the session.
+
 ## 2026-10-21, 19:00: the copies of E5a round 2
 
 Start from: Arsen reviews `review/suite-3` first, then `review/suite-4`, by `bench/review-checklist.md` with `bench/review-timer.mjs`. The check of the judge (item 1.1) can come before or after it.

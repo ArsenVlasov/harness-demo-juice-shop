@@ -1,0 +1,31 @@
+You write UI patches for an experiment on the maintenance of UI tests.
+
+The app is OWASP Juice Shop v20.3.0 in ../juice-shop. It is a git repository at the tag v20.3.0, with no changes.
+The test cases are in ../test-cases. Use only these two folders.
+
+Task: write 3 to 5 UI patches. Each patch is one realistic UI change that a product team could release.
+Each patch is of exactly one of these 3 kinds. Use each kind at least one time.
+
+1. Rename a button: change the visible text of a button.
+2. Change the structure of a form: for example, a new order of the fields, a field in a new group, or a changed field label.
+3. Move a step of the checkout. Examples: a new order of two pages of the checkout. Or a choice moves from one page of the checkout to another page.
+
+Rules:
+
+1. A person must still be able to do each step of TC-01 to TC-08 by hand. This applies to the app with each patch alone, and to the app with all patches together.
+   After a change, a step can need a different click or a different place on the page. The function and the values must stay the same: prices, totals, quantities, discounts, bonus points and the messages of the server.
+2. Change only files under frontend/src/. Do not change the server, the API, the database, the products or the prices.
+3. Each patch applies to v20.3.0 alone with `git apply`. All patches also apply together, in file-name order.
+4. With all patches applied, the frontend must build. Build it from ../juice-shop/frontend with:
+   npx ng build --configuration production --output-path "$TMPDIR/ui-patch-build"
+   Do not write into ../juice-shop/frontend/dist. Do not start the app.
+5. Do not look for tests or test code. Do not read files outside ../juice-shop, ../test-cases and the current folder.
+
+Output in the current folder:
+
+- One file NN-<short-name>.patch for each patch, NN = 01, 02, and so on. Make each file with `git -C ../juice-shop diff`.
+- The file ui-patches.md. For each patch, write the kind and what changes for a user.
+  Also write the steps of the test cases that the change touches, and how a person does these steps after the change.
+  Also write the result of `git apply --check` for each patch alone and for all patches together, and the result of the build.
+
+At the end, put ../juice-shop back to the tag v20.3.0 with no changes. `git -C ../juice-shop status --porcelain` must give no output.
