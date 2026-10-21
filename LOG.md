@@ -39,6 +39,33 @@ Start from: the end of `mutate-x2`. Then the auditor session of vague A-1.
   2. The manual check of the judge (item 1.1) and the full E5a review by the checklist, with the timer, are now required, together with E4.
 - No file of the experiment changed. The frozen files and the measurements stay as they are.
 
+## 2026-10-21, 15:25: the score of the 2 audits (section "Measures of the audit")
+
+Start from: the fix folders and the fixer sessions of both client suites (frozen items 5 to 8).
+
+The commands, at 15:17:51 to 15:17:52, after the commit `d45dd17` with the hashes of the entry of 15:20:
+`node bench/e4-prepare.mjs score --flags <flags json> --mutants <mutants json> --label A --judge <judge json> --sealed sealed/mutants.md --out bench/results/e4-score-<x>`
+- vague A-1: `--mutants bench/results/mutants-vague-1.json --judge bench/results/judge-vague-1/suite-1.json`.
+- haiku A-3: `--mutants bench/results/mutants-haiku-3.json --judge bench/results/judge-haiku-3/suite-2.json`, one time with each flag list.
+- `sealed/mutants.md` sha256 in the 3 outputs: `8490378e5d1ab2581b375b21c3318fa515f7c3618ed4081649eb288aa556c30c`.
+
+| Measure | vague A-1 (frozen E4) | haiku A-3, strict (exploratory) | haiku A-3, key variant (exploratory) |
+|---|---|---|---|
+| Missed bugs before the fix | 0 of 11 | 4 of 11 (M01, M03, M09, M13) | 4 of 11 |
+| R1 | not tested (no missed bug) | 4 of 4 = 1 | 4 of 4 = 1 |
+| R2 | not tested | 4 of 4 = 1 | 4 of 4 = 1 |
+| P1 | not tested (no missed patch) | 2 of 8 = 0.25 | 2 of 23 = 0.087 |
+| P2 | not tested | 7 of 8 = 0.875 | 8 of 23 = 0.348 |
+| Flags: hit, weak by the judge, other | 0, 2, 20 | 2, 5, 1 | 2, 6, 15 |
+
+- Outputs: `bench/results/e4-score-x1.{md,json}`, `e4-score-x2.{md,json}` and `e4-score-x2-tcfix.{md,json}`.
+- Vague A-1, by the frozen rules: H4.1 and H4.2 are "not tested", because the suite misses no patch. The audit gave 22 flags. 2 of them are steps that the judge gave `partial`.
+- Haiku A-3: M01, M03 and M09 have the target step TC-07 step 8, and M13 has TC-07 step 9. The auditor flagged both steps.
+  - Its reason for step 8: the quantities on the confirmation page are not checked, and the tamper rule T07-a survived.
+  - Its reason for step 9: `expectNoRow` and the disabled `Checkout` pass before the basket loads.
+  - The 4 bugs were missed because the TC-07 test failed a recheck run (a flaky test), not because of these checks. Thus the flags hit the right steps, partly for a different reason.
+- Haiku A-3 is exploratory (decision 17). The thresholds of H4.1 and H4.2 do not apply to it.
+
 ## 2026-10-21, 15:20: the 2 auditor sessions, and the flag lists before the read of the target steps
 
 Start from: the score of each audit (`bench/e4-prepare.mjs score`). The hashes of this entry are recorded before the score reads the target steps of `sealed/mutants.md`.
