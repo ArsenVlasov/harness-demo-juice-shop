@@ -3,6 +3,7 @@
 //
 //   node bench/prepare-review.mjs --suite A1=<path of suite A>@gen-1 --suite B1=<path of suite B>@gen-1
 //   node bench/prepare-review.mjs --suite ... --dest <folder, default RUNS/review> --harness-repo <suite B repo>
+//   node bench/prepare-review.mjs --suite ... --drop audit-report.md     one more exact path to leave out, repeatable
 //
 // Give all suites of one review round in one call. A second call continues the numbers (suite-3, suite-4).
 // For each suite, the script extracts the files of <ref> (git archive) into <dest>/suite-<k>. The order of k is random.
@@ -11,6 +12,8 @@
 //   2. all files in the agent configuration folders .claude/ and .githooks/ (an agent can add files there),
 //   3. all files in the output folders .agent-log/, .playwright-mcp/ and test-results/.
 // Other folders of the harness (docs/, scripts/) use only the exact list 1: an agent can put its own files there.
+// --drop adds exact paths to list 1, for example the audit report of an E4 fix folder (it is an input of the fix, not
+// a part of the suite). The mapping names these paths in droppedByOption.
 // Exception: package.json, package-lock.json, playwright.config.ts and tsconfig.json stay when the ref holds them.
 // The tests need them to run. The harness changes .gitignore, so no copy holds .gitignore. Each copy ignores
 // node_modules/ and the Playwright outputs through .git/info/exclude.
@@ -27,7 +30,7 @@ import { randomInt } from 'node:crypto'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import { LAB, RESULTS, RUNS, log, must, opt, run } from './lib.mjs'
+import { LAB, RESULTS, RUNS, log, must, opt, optAll, run } from './lib.mjs'
 
 export const PROJECT_FILES = ['package.json', 'package-lock.json', 'playwright.config.ts', 'tsconfig.json']
 export const HARNESS_DIRS = ['.agent-log/', '.claude/', '.githooks/', '.playwright-mcp/', 'test-results/']
@@ -134,7 +137,7 @@ function prepareCopy (s, dir, harness) {
   if (dirty) throw new Error(`${name}: playwright --list changed the files:\n${dirty}`)
   const left = leftoverHarness(dir, harness)
   if (left.length) throw new Error(`${name} holds harness paths: ${left.join(', ')}`)
-  return { droppedByFolder: dropped.filter(f => !harness.files.has(f)), originalScripts }
+  return { droppedByFolder: dropped.filter(f => !harness.files.has(f)), droppedByOption: dropped.filter(f => harness.drops.includes(f)), originalScripts }
 }
 
 function main () {
@@ -148,7 +151,8 @@ function main () {
     s.commit = must('git', ['-C', s.path, 'rev-parse', '--verify', '--quiet', `${s.ref}^{commit}`])
     if (!fs.existsSync(path.join(s.path, 'node_modules'))) throw new Error(`no node_modules in ${s.path}`)
   }
-  const harness = harnessPaths(harnessRepo)
+  const harness = { ...harnessPaths(harnessRepo), drops: optAll('--drop') }
+  for (const d of harness.drops) harness.files.add(d)
   const mapping = fs.existsSync(MAPPING) ? JSON.parse(fs.readFileSync(MAPPING, 'utf8')) : {}
   const first = Object.keys(mapping).length + 1
   const plan = shuffle(suites).map((s, i) => ({ ...s, name: `suite-${first + i}` }))

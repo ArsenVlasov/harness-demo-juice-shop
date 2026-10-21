@@ -6,6 +6,22 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 19:00: the copies of E5a round 2
+
+Start from: Arsen reviews `review/suite-3` first, then `review/suite-4`, by `bench/review-checklist.md` with `bench/review-timer.mjs`. The check of the judge (item 1.1) can come before or after it.
+
+- At about 18:50, Arsen said: "yes, prepare the E5a round 2 copies".
+- The client suite of round 2 is vague A-1, the frozen client of E4. Before the fix, it is `set-2/run-1/suite-a` at the tag `gen-1`. After the fix, it is `desk-q` at the tag `fixed`. haiku A-3 is not in round 2.
+- `desk-q` at `fixed` holds `audit-report.md`, the input of the fix. It is not a part of the suite, and no frozen rule names it. The new option `--drop <path>` of `bench/prepare-review.mjs` leaves out exact paths. The mapping names them in `droppedByOption`.
+  `node --test bench/test/review.test.mjs`: `tests 17`, `pass 17`, `fail 0`.
+- The command: `node bench/prepare-review.mjs --suite A1-vague-before=../harness-demo-runs/set-2/run-1/suite-a@gen-1 --suite A1-vague-after=../harness-demo-runs/desk-q@fixed --drop audit-report.md`.
+  The output: `suite-3 ready`, `suite-4 ready`, exit 0. The script made the names in a random order and wrote the map only to `bench/results/review-mapping.json`.
+- By the frozen rule, the main session gives Arsen the order: `suite-3` first, then `suite-4`.
+- The checks after the script:
+  - The code of the copies differs only in the fix: 7 changed files and 1 new file (`tests/support/basket-response.ts`). This is the same diff as `git diff ad9d04b fixed` in `desk-q`: 8 files, +70, -13.
+  - The copies do not hold `audit-report.md` or `.agent-log/`.
+  - The copy of `desk-q` keeps `tsconfig.json` and the devDependencies of the harness in `package.json` (`eslint`, `typescript` and other packages). The frozen rule keeps these project files, as for B-1 in round 1. Thus round 2 is not blind, as the frozen rule already says.
+
 ## 2026-10-21, 19:00: decision 20. The claim of decision 18 waits. The manual check of the judge (item 1.1) starts
 
 Start from: Arsen fills `bench/judge-check-1.1.csv` with the packet `bench/results/judge-check-1.1.md`. Then the main session compares his verdicts with the judge and records the result here.
