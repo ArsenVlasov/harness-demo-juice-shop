@@ -6,6 +6,25 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 18:35: the result of decision 19. The judge applies its rule on calculated values differently to A and B
+
+Start from: Arsen reads `bench/results/decision-19-x3-x4.md` and decides on the main claim of the offer (decision 18). Then the manual check of the judge (item 1.1), E5a round 2 and E5b.
+
+- `bench/run-x3-x4.sh` ran from 17:32:56 to 18:28:00: `x3 x4 done. Failed: none`. Before each step, `pmset -g batt` gave AC power and 100 %.
+  - `tamper-x3` (vague A-2): `Rules: 22. Caught: 20. Survived: 2.` (T14-b, T15-d). `mutate-x3`: `client: 51 killed, 2 survived, 0 error, 0 skipped of 53`.
+  - `tamper-x4` (vague B-2): `Rules: 22. Caught: 20. Survived: 2.` (T14-b, T15-d). `mutate-x4`: `client: 23 killed, 1 survived, 0 error, 0 skipped of 24`.
+- The expectation of decision 19 did not come true. No rule of the group of prices, totals, the discount and the bonus survived in A-2. The note that A-2 has fewer mutants was also wrong: 53 against 24.
+- The cause: the helpers of A-2 calculate the expected values from fixed constants in `data/test-data.ts`. They do not read the page. Thus a changed price fails the test.
+- A workflow with 2 independent agents (run `wf_94c9d4db-d14`) checked the 21 steps `partial` of A-2 one by one:
+  - 13 steps failed at the step itself under a tamper rule. 6 steps did not run, because the test failed at an earlier step. 1 step has only the rule T15-d, which survives in each suite. 1 step has no rule.
+  - The refuter gave the verdict "reading-holds".
+- A new finding, a check after the results: the judge applies the rubric line `bench/judge.md:16` differently to A and B.
+  - B-2 calculates the totals with `PriceHelper` from constants, as A-2 does. The judge gave these steps of B-2 `covered`, and the same steps of A-2 `partial`.
+  - Count the steps `partial` plus `missing` whose note names a helper or a calculated value. The result: 0 of 2 (A-1), 17 of 21 (A-2) and 17 of 18 (A-3). Each vague B suite uses total helpers in 8 files and has 0 such steps.
+  - Without these steps, the counts are A 2 / 4 / 1 and B 0 / 0 / 0.
+- This does not change the frozen result of H2.3. It is a limit on its reading, and it touches the main claim of the offer of decision 18. The main session tells Arsen and waits for his decision.
+- The details are in `bench/results/decision-19-x3-x4.md`.
+
 ## 2026-10-21, 17:45: the measurements after the E4 fix and the table "before and after"
 
 Start from: the end of `bench/run-x3-x4.sh` (`bench/.run/x3-x4.log`). Then E5a round 2, the manual check of the judge (item 1.1) and E5b.

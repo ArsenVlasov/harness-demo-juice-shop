@@ -1,0 +1,240 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-07-card-order-end-to-end\\.spec\\.ts$:9"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-07-card-order-end-to-end.spec.ts",
+      "file": "tc-07-card-order-end-to-end.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-07: Order with a card, from basket to order history",
+          "file": "tc-07-card-order-end-to-end.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-07 card order with a coupon reaches the order history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7408,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-basket').locator('app-purchase-basket mat-row') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-basket').locator('app-purchase-basket mat-row') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts:117:43\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts:113:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts",
+                          "column": 43,
+                          "line": 117
+                        },
+                        "snippet": "  115 |       await basketPage.goto();\n  116 |       await expect(basketPage.totalPrice).toBeVisible();\n> 117 |       await expect(basketPage.table.rows).toHaveCount(1);\n      |                                           ^\n  118 |       await expect(basketPage.checkoutButton).toBeDisabled();\n  119 |     });\n  120 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts",
+                            "column": 43,
+                            "line": 117
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-basket').locator('app-purchase-basket mat-row') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  115 |       await basketPage.goto();\n  116 |       await expect(basketPage.totalPrice).toBeVisible();\n> 117 |       await expect(basketPage.table.rows).toHaveCount(1);\n      |                                           ^\n  118 |       await expect(basketPage.checkoutButton).toBeDisabled();\n  119 |     });\n  120 |\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts:117:43\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts:113:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Add the products from the product list",
+                          "duration": 632
+                        },
+                        {
+                          "title": "2. Open the basket",
+                          "duration": 73
+                        },
+                        {
+                          "title": "3. Checkout and select the saved address",
+                          "duration": 160
+                        },
+                        {
+                          "title": "4. Select One Day Delivery and continue",
+                          "duration": 155
+                        },
+                        {
+                          "title": "5. Redeem the coupon of the current month",
+                          "duration": 149
+                        },
+                        {
+                          "title": "6. Select the saved card and continue",
+                          "duration": 176
+                        },
+                        {
+                          "title": "7. Place the order",
+                          "duration": 137
+                        },
+                        {
+                          "title": "8. Read the order summary on the confirmation page",
+                          "duration": 19
+                        },
+                        {
+                          "title": "9. The basket is empty",
+                          "duration": 5018,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-basket').locator('app-purchase-basket mat-row') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('app-basket').locator('app-purchase-basket mat-row') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts:117:43\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts:113:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts",
+                              "column": 43,
+                              "line": 117
+                            },
+                            "snippet": "  115 |       await basketPage.goto();\n  116 |       await expect(basketPage.totalPrice).toBeVisible();\n> 117 |       await expect(basketPage.table.rows).toHaveCount(1);\n      |                                           ^\n  118 |       await expect(basketPage.checkoutButton).toBeDisabled();\n  119 |     });\n  120 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:55:11.589Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results/tc-07-card-order-end-to-en-2b973-n-reaches-the-order-history-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-07-card-order-end-to-end.spec.ts",
+                        "column": 43,
+                        "line": 117
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5b5235fa264a4d697318-7bf7cdcd9acfed7faaab",
+              "file": "tc-07-card-order-end-to-end.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:55:11.026Z",
+    "duration": 8279.895,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

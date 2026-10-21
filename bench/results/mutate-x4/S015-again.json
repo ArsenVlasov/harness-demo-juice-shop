@@ -1,0 +1,197 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$:22"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/regression/basket/basket-quantity.spec.ts",
+      "file": "specs/regression/basket/basket-quantity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Change the quantity and remove a product in the basket",
+          "ok": true,
+          "tags": [
+            "cart"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-03",
+                  "location": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/basket/basket-quantity.spec.ts",
+                    "line": 22,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3429,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket",
+                      "duration": 111
+                    },
+                    {
+                      "title": "2. Click the plus button in the row of product A",
+                      "duration": 220
+                    },
+                    {
+                      "title": "3. Click the minus button in the row of product A",
+                      "duration": 128
+                    },
+                    {
+                      "title": "4. Click the minus button in the row of product A again",
+                      "duration": 2116
+                    },
+                    {
+                      "title": "5. Click the trash button in the row of product A",
+                      "duration": 120
+                    }
+                  ],
+                  "startTime": "2026-10-21T15:24:54.009Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-03",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/basket/basket-quantity.spec.ts",
+                        "line": 22,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc420ed1cc9d25527ff4-e306b02b75e98c43a4c2",
+          "file": "specs/regression/basket/basket-quantity.spec.ts",
+          "line": 22,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T15:24:53.412Z",
+    "duration": 4324.8189999999995,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

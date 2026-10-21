@@ -1,0 +1,43 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:4:7 › TC-01: Login with a valid and an invalid password › TC-01 login fails with a wrong password and works with the correct one
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:6:7 › TC-02: Add a product to the basket › TC-02 product added from the product list shows in the basket
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:6:7 › TC-03: Change the quantity and remove a product in the basket › TC-03 plus, minus and trash buttons update the basket
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:6:7 › TC-04: Purchase limit for one product › TC-04 basket holds at most the limit of a limited product
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:9:7 › TC-05: Valid coupon on the payment step › TC-05 coupon of the current month lowers the price of the products
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:10:7 › TC-06: Invalid coupon and expired coupon › TC-06 invalid and expired coupons give no discount
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:9:7 › TC-07: Order with a card, from basket to order history › TC-07 card order with a coupon reaches the order history
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › TC-08 wallet pays only when it holds the order total
+  1) [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › TC-08 wallet pays only when it holds the order total › 7. Click Pay 8.99¤ 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()
+    Expected substring: "Digital Wallet"
+    Received string:    "Payment MethodMUT"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()
+        13 × locator resolved to <mat-card appearance="outlined" _ngcontent-ng-c4138824240="" class="mat-mdc-card mdc-card mat-elevation-z0 flex-40 mat-mdc-card-outlined mdc-card--outlined">…</mat-card>
+           - unexpected value "Payment MethodMUT"
+
+
+      93 |       await paymentPage.payWithWalletButton.click();
+      94 |       await expect(page).toHaveURL(/#\/order-summary/);
+    > 95 |       await expect(orderSummaryPage.paymentMethod).toContainText('Digital Wallet');
+         |                                                    ^
+      96 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(total));
+      97 |     });
+      98 |
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:95:52
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:92:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T16-a-output/tc-08-wallet-payment-TC-08-4fe6c-en-it-holds-the-order-total-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › TC-08 wallet pays only when it holds the order total 
+  7 passed (22.3s)

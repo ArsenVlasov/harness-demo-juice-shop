@@ -1,0 +1,328 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$:22",
+      "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$:22"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/regression/order/card-order.spec.ts",
+      "file": "specs/regression/order/card-order.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": true,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts",
+                    "line": 22,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 1039
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 92
+                    },
+                    {
+                      "title": "3. Click `Checkout`, select the saved address and click `Continue`",
+                      "duration": 206
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 137
+                    },
+                    {
+                      "title": "5. Redeem the coupon of the current month",
+                      "duration": 145
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 202
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 116
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 24
+                    },
+                    {
+                      "title": "9. Read the basket counter and open the basket",
+                      "duration": 39
+                    },
+                    {
+                      "title": "10. Open `Orders & Payment`, then `Order History`",
+                      "duration": 592
+                    }
+                  ],
+                  "startTime": "2026-10-21T15:23:15.527Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts",
+                        "line": 22,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c13fda6170ed84702f26-95d33770d83f399fe42a",
+          "file": "specs/regression/order/card-order.spec.ts",
+          "line": 22,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/regression/payment/wallet-payment.spec.ts",
+      "file": "specs/regression/payment/wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Payment with the wallet",
+          "ok": true,
+          "tags": [
+            "wallet"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-08",
+                  "location": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/payment/wallet-payment.spec.ts",
+                    "line": 22,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5206,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Open the basket, check out with the saved address",
+                      "duration": 394
+                    },
+                    {
+                      "title": "2. Select `Standard Delivery` and click `Continue`",
+                      "duration": 139
+                    },
+                    {
+                      "title": "3. Read the button `Pay`",
+                      "duration": 4
+                    },
+                    {
+                      "title": "4. Open `Orders & Payment`, then `Order History`",
+                      "duration": 604
+                    },
+                    {
+                      "title": "5. Open `Orders & Payment`, then `Digital Wallet`",
+                      "duration": 658
+                    },
+                    {
+                      "title": "Precondition: add 3.99 to the wallet with the saved card",
+                      "duration": 22
+                    },
+                    {
+                      "title": "6. Check out again with the saved address and `Standard Delivery`",
+                      "duration": 386
+                    },
+                    {
+                      "title": "7. Click the button `Pay`",
+                      "duration": 105
+                    },
+                    {
+                      "title": "8. Click `Place your order and pay`",
+                      "duration": 147
+                    },
+                    {
+                      "title": "9. Open `Orders & Payment`, then `Digital Wallet`",
+                      "duration": 591
+                    },
+                    {
+                      "title": "10. Open `Orders & Payment`, then `Order History`",
+                      "duration": 667
+                    }
+                  ],
+                  "startTime": "2026-10-21T15:23:15.528Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-08",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/payment/wallet-payment.spec.ts",
+                        "line": 22,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e3130c5e2e41169512bb-11568fe7a57f6c7ce732",
+          "file": "specs/regression/payment/wallet-payment.spec.ts",
+          "line": 22,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T15:23:14.872Z",
+    "duration": 6220.3330000000005,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

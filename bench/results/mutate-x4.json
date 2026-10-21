@@ -1,0 +1,2645 @@
+{
+  "generatedAt": "2026-10-21T15:27:32.240Z",
+  "label": "client",
+  "suite": "/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b",
+  "ref": "gen-2",
+  "commit": "dd4680b32d9ee5e174653874f683d17e3a5ef3e4",
+  "typescript": "5.9.3",
+  "restartEvery": 5,
+  "max": null,
+  "complete": true,
+  "totals": {
+    "sites": 24,
+    "mutants": 24,
+    "killed": 23,
+    "survived": 1,
+    "error": 0,
+    "skipped": 0
+  },
+  "baseline": {
+    "report": "mutate-x4/baseline.json",
+    "tests": 8,
+    "leftOut": []
+  },
+  "tests": {
+    "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": {
+      "id": "T01",
+      "sites": 3,
+      "killed": 3,
+      "survived": 0,
+      "error": 0
+    },
+    "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": {
+      "id": "T02",
+      "sites": 5,
+      "killed": 4,
+      "survived": 1,
+      "error": 0
+    },
+    "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": {
+      "id": "T03",
+      "sites": 4,
+      "killed": 4,
+      "survived": 0,
+      "error": 0
+    },
+    "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": {
+      "id": "T04",
+      "sites": 4,
+      "killed": 4,
+      "survived": 0,
+      "error": 0
+    },
+    "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": {
+      "id": "T05",
+      "sites": 11,
+      "killed": 11,
+      "survived": 0,
+      "error": 0
+    },
+    "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": {
+      "id": "T06",
+      "sites": 6,
+      "killed": 6,
+      "survived": 0,
+      "error": 0
+    },
+    "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": {
+      "id": "T07",
+      "sites": 5,
+      "killed": 5,
+      "survived": 0,
+      "error": 0
+    },
+    "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": {
+      "id": "T08",
+      "sites": 10,
+      "killed": 10,
+      "survived": 0,
+      "error": 0
+    }
+  },
+  "mutants": [
+    {
+      "id": "S001",
+      "file": "page-objects/basket-page.ts",
+      "line": 36,
+      "operator": "regex",
+      "original": "/#\\/basket$/",
+      "mutated": "/(?:#\\/basket$)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "failed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "failed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "failed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "failed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "failed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S002",
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 22,
+      "operator": "regex",
+      "original": "/#\\/address\\/select$/",
+      "mutated": "/(?:#\\/address\\/select$)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "failed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "failed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S003",
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 23,
+      "operator": "regex",
+      "original": "/#\\/delivery-method$/",
+      "mutated": "/(?:#\\/delivery-method$)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "failed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "failed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S004",
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 32,
+      "operator": "regex",
+      "original": "/#\\/order-summary$/",
+      "mutated": "/(?:#\\/order-summary$)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "failed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "failed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S005",
+      "file": "page-objects/checkout/payment-page.ts",
+      "line": 27,
+      "operator": "regex",
+      "original": "/#\\/payment\\/shop$/",
+      "mutated": "/(?:#\\/payment\\/shop$)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "failed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "failed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S006",
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 69,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": "shouldSeeNoProducts",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "passed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S007",
+      "file": "page-objects/login-page.ts",
+      "line": 37,
+      "operator": "string",
+      "original": "'Login'",
+      "mutated": "'Login_mut'",
+      "function": "shouldSeeLoginForm",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "failed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "passed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "passed"
+      },
+      "killers": [
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S008",
+      "file": "page-objects/login-page.ts",
+      "line": 41,
+      "operator": "regex",
+      "original": "/Log in/",
+      "mutated": "/(?:Log in)_mut/",
+      "function": "shouldSeeLoginForm",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "failed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "passed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "passed"
+      },
+      "killers": [
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S009",
+      "file": "page-objects/login-page.ts",
+      "line": 56,
+      "operator": "regex",
+      "original": "/#\\/login$/",
+      "mutated": "/(?:#\\/login$)_mut/",
+      "function": "shouldStayOnLoginPage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "failed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "passed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "passed"
+      },
+      "killers": [
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password"
+      ]
+    },
+    {
+      "id": "S010",
+      "file": "page-objects/order-history-page.ts",
+      "line": 29,
+      "operator": "regex",
+      "original": "/#\\/order-history$/",
+      "mutated": "/(?:#\\/order-history$)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S011",
+      "file": "page-objects/order-history-page.ts",
+      "line": 36,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": "shouldSeeEmptyHistory",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "passed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S012",
+      "file": "page-objects/search-page.ts",
+      "line": 22,
+      "operator": "regex",
+      "original": "/#\\/search/",
+      "mutated": "/(?:#\\/search)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "failed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "failed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "failed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "passed"
+      },
+      "killers": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S013",
+      "file": "page-objects/wallet-page.ts",
+      "line": 19,
+      "operator": "regex",
+      "original": "/#\\/wallet$/",
+      "mutated": "/(?:#\\/wallet$)_mut/",
+      "function": "shouldSeePage",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "passed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "passed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S014",
+      "file": "tests/specs/regression/basket/add-to-basket.spec.ts",
+      "line": 21,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$:11"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "failed"
+      },
+      "killers": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket"
+      ]
+    },
+    {
+      "id": "S015",
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 38,
+      "operator": "number",
+      "original": "2",
+      "mutated": "3",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S016",
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 45,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ],
+      "status": "survived",
+      "results": {
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed"
+      },
+      "counted": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S017",
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 52,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "failed"
+      },
+      "killers": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket"
+      ]
+    },
+    {
+      "id": "S018",
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 96,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S019",
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 106,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S020",
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 107,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "failed"
+      },
+      "killers": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history"
+      ]
+    },
+    {
+      "id": "S021",
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 106,
+      "operator": "number",
+      "original": "1",
+      "mutated": "2",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S022",
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 107,
+      "operator": "number",
+      "original": "0",
+      "mutated": "1",
+      "function": null,
+      "targets": [
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$:22"
+      ],
+      "tests": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "failed"
+      },
+      "killers": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ]
+    },
+    {
+      "id": "S023",
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 53,
+      "operator": "boolean",
+      "original": "false",
+      "mutated": "true",
+      "function": "expectTextStays",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "failed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "failed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "passed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "passed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "passed"
+      },
+      "killers": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product"
+      ]
+    },
+    {
+      "id": "S024",
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 67,
+      "operator": "boolean",
+      "original": "false",
+      "mutated": "true",
+      "function": "expectStaysHidden",
+      "targets": [
+        "(?:^|/)tests/specs/regression/basket/add-to-basket\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/basket-quantity\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/basket/purchase-limit\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/login/login\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/invalid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/valid-coupon\\.spec\\.ts$",
+        "(?:^|/)tests/specs/regression/payment/wallet-payment\\.spec\\.ts$"
+      ],
+      "tests": [
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet"
+      ],
+      "status": "killed",
+      "results": {
+        "specs/regression/basket/add-to-basket.spec.ts :: Add a product to the basket": "passed",
+        "specs/regression/basket/basket-quantity.spec.ts :: Change the quantity and remove a product in the basket": "passed",
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product": "failed",
+        "specs/regression/login/login.spec.ts :: Login with a valid and an invalid password": "passed",
+        "specs/regression/order/card-order.spec.ts :: Order with a card, from basket to order history": "passed",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon": "failed",
+        "specs/regression/payment/valid-coupon.spec.ts :: Valid coupon on the payment step": "passed",
+        "specs/regression/payment/wallet-payment.spec.ts :: Payment with the wallet": "passed"
+      },
+      "killers": [
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon"
+      ],
+      "unconfirmed": [],
+      "counted": [
+        "specs/regression/basket/purchase-limit.spec.ts :: Purchase limit for one product",
+        "specs/regression/payment/invalid-coupon.spec.ts :: Invalid coupon and expired coupon"
+      ]
+    }
+  ],
+  "notMutated": [
+    {
+      "file": "page-objects/basket-page.ts",
+      "line": 36,
+      "text": "'Basket page'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/basket-page.ts",
+      "line": 37,
+      "text": "'Basket title'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/basket-page.ts",
+      "line": 57,
+      "text": "`Total Price: ${PriceHelper.format(amount)}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/basket-page.ts",
+      "line": 57,
+      "text": "'Basket total price'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/basket-page.ts",
+      "line": 61,
+      "text": "'Button `Checkout`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectDisabled",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/basket-page.ts",
+      "line": 80,
+      "text": "product",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/basket-page.ts",
+      "line": 80,
+      "text": "quantity",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 22,
+      "text": "'Address step'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 23,
+      "text": "'Title `Select an address`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 28,
+      "text": "'Saved address row'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 29,
+      "text": "address.fullName",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 29,
+      "text": "'Saved address name'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 32,
+      "text": "`${address.streetAddress}, ${address.city}, ${address.state}, ${address.zipCode}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 33,
+      "text": "'Saved address'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 35,
+      "text": "address.country",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/address-select-page.ts",
+      "line": 35,
+      "text": "'Saved address country'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 27,
+      "text": "'Panel `Add a coupon`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 32,
+      "text": "'Field `Coupon`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 49,
+      "text": "UI_MESSAGES.couponDiscount(discountPercent)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 49,
+      "text": "'Coupon discount message'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 53,
+      "text": "'Server answer to the last coupon code'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectRejectedStatus",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 54,
+      "text": "UI_MESSAGES.invalidCoupon",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 54,
+      "text": "'Coupon error message'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 58,
+      "text": "NO_CHANGE_HOLD_MS",
+      "reason": "timing option"
+    },
+    {
+      "file": "page-objects/checkout/components/coupon-panel.component.ts",
+      "line": 58,
+      "text": "'Coupon discount message'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectStaysHidden",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/saved-cards.component.ts",
+      "line": 18,
+      "text": "'Saved card row'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/saved-cards.component.ts",
+      "line": 19,
+      "text": "new RegExp(`\\\\*+${lastDigits}$`)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/components/saved-cards.component.ts",
+      "line": 19,
+      "text": "'Saved card number'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/saved-cards.component.ts",
+      "line": 20,
+      "text": "card.fullName",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/components/saved-cards.component.ts",
+      "line": 20,
+      "text": "'Saved card holder'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/saved-cards.component.ts",
+      "line": 21,
+      "text": "`${card.expMonth}/${card.expYear}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/components/saved-cards.component.ts",
+      "line": 21,
+      "text": "'Saved card expiry'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/wallet-payment.component.ts",
+      "line": 16,
+      "text": "PriceHelper.formatBalance(amount)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/components/wallet-payment.component.ts",
+      "line": 16,
+      "text": "'Wallet balance on the payment page'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/wallet-payment.component.ts",
+      "line": 20,
+      "text": "'Button `Pay`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/wallet-payment.component.ts",
+      "line": 21,
+      "text": "`Pay ${PriceHelper.format(amount)}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/components/wallet-payment.component.ts",
+      "line": 21,
+      "text": "'Button `Pay`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/wallet-payment.component.ts",
+      "line": 25,
+      "text": "'Button `Pay`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectDisabled",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/components/wallet-payment.component.ts",
+      "line": 29,
+      "text": "'Button `Pay`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectEnabled",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 23,
+      "text": "'Delivery step'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 24,
+      "text": "'Title `Choose a delivery speed`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 30,
+      "text": "`Delivery method ${method.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 31,
+      "text": "method.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 31,
+      "text": "'Delivery method name'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 32,
+      "text": "PriceHelper.format(method.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/delivery-method-page.ts",
+      "line": 32,
+      "text": "`Price of ${method.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 25,
+      "text": "ORDER_COMPLETION_URL",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 25,
+      "text": "'Order confirmation page'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 26,
+      "text": "'Order confirmation title'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 31,
+      "text": "UI_MESSAGES.orderPlaced",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 31,
+      "text": "'Order confirmation message'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 43,
+      "text": "lines.length",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 43,
+      "text": "'Order confirmation product rows'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectCount",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 48,
+      "text": "String(line.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 48,
+      "text": "`Quantity of ${line.product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 51,
+      "text": "PriceHelper.format(line.product.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 52,
+      "text": "`Price of ${line.product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 59,
+      "text": "expected",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-completion-page.ts",
+      "line": 59,
+      "text": "'Order confirmation: items, delivery, promotion, total price'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 32,
+      "text": "'Order summary step'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 33,
+      "text": "'Title `Order Summary`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 41,
+      "text": "PriceHelper.format(totals.items)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 41,
+      "text": "'Order summary: items'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 42,
+      "text": "PriceHelper.format(totals.delivery)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 42,
+      "text": "'Order summary: delivery'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 43,
+      "text": "PriceHelper.format(totals.promotion)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 43,
+      "text": "'Order summary: promotion'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 44,
+      "text": "PriceHelper.format(totals.total)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 44,
+      "text": "'Order summary: total price'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 48,
+      "text": "address.fullName",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 48,
+      "text": "'Order summary: address name'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectContainText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 51,
+      "text": "`${address.streetAddress}, ${address.city}, ${address.state}, ${address.zipCode}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 52,
+      "text": "'Order summary: address'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectContainText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 54,
+      "text": "address.country",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 54,
+      "text": "'Order summary: address country'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectContainText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 59,
+      "text": "UI_MESSAGES.cardPaymentMethod(lastDigits)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 59,
+      "text": "'Order summary: card'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectContainText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 60,
+      "text": "card.fullName",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 60,
+      "text": "'Order summary: card holder'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectContainText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 64,
+      "text": "UI_MESSAGES.walletPaymentMethod",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/checkout/order-summary-page.ts",
+      "line": 64,
+      "text": "'Order summary: payment method'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectContainText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/payment-page.ts",
+      "line": 27,
+      "text": "'Payment step'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/checkout/payment-page.ts",
+      "line": 28,
+      "text": "'Title `My Payment Options`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/account-menu.component.ts",
+      "line": 17,
+      "text": "'Account menu item `Login`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/account-menu.component.ts",
+      "line": 21,
+      "text": "'Account menu item `Logout`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/account-menu.component.ts",
+      "line": 25,
+      "text": "`Account menu item with the email ${email}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/account-menu.component.ts",
+      "line": 29,
+      "text": "`Account menu item with the email ${email}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectHidden",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/account-menu.component.ts",
+      "line": 34,
+      "text": "'Account menu'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectHidden",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 30,
+      "text": "lines.length",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 30,
+      "text": "'Basket rows'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectCount",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 32,
+      "text": "line",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 38,
+      "text": "`Basket row of ${line.product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 39,
+      "text": "line.product",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 39,
+      "text": "line.quantity",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 42,
+      "text": "PriceHelper.format(line.product.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 43,
+      "text": "`Price of ${line.product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 50,
+      "text": "String(quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 51,
+      "text": "`Quantity of ${product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 58,
+      "text": "String(quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 59,
+      "text": "NO_CHANGE_HOLD_MS",
+      "reason": "timing option"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 60,
+      "text": "`Quantity of ${product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectTextStays",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 65,
+      "text": "`Basket row of ${product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectHidden",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/basket-lines.component.ts",
+      "line": 69,
+      "text": "'Basket rows'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectCount",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/navbar.component.ts",
+      "line": 29,
+      "text": "String(count)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/navbar.component.ts",
+      "line": 29,
+      "text": "'Basket counter in the top bar'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/navbar.component.ts",
+      "line": 33,
+      "text": "String(count)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/navbar.component.ts",
+      "line": 33,
+      "text": "NO_CHANGE_HOLD_MS",
+      "reason": "timing option"
+    },
+    {
+      "file": "page-objects/components/navbar.component.ts",
+      "line": 33,
+      "text": "'Basket counter in the top bar'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectTextStays",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/product-card.component.ts",
+      "line": 27,
+      "text": "this.product.name",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/product-card.component.ts",
+      "line": 27,
+      "text": "'Product name on the card'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/product-card.component.ts",
+      "line": 28,
+      "text": "PriceHelper.format(this.product.price)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/components/product-card.component.ts",
+      "line": 28,
+      "text": "`Price of ${this.product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/product-card.component.ts",
+      "line": 29,
+      "text": "`Button \\`Add to Basket\\` of ${this.product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/snack-bar.component.ts",
+      "line": 21,
+      "text": "`Confirmation message \"${text}\"`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/snack-bar.component.ts",
+      "line": 25,
+      "text": "`Error message \"${text}\"`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/snack-bar.component.ts",
+      "line": 29,
+      "text": "NO_CHANGE_HOLD_MS",
+      "reason": "timing option"
+    },
+    {
+      "file": "page-objects/components/snack-bar.component.ts",
+      "line": 29,
+      "text": "'Error message'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectStaysHidden",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/snack-bar.component.ts",
+      "line": 44,
+      "text": "timeout: DateHelper.secondsToMs(10)",
+      "reason": "timing option"
+    },
+    {
+      "file": "page-objects/components/snack-bar.component.ts",
+      "line": 43,
+      "text": "'Pop-up messages'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectHidden",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/components/snack-bar.component.ts",
+      "line": 43,
+      "text": "CLOSE_ATTEMPT_MS",
+      "reason": "timing option"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 33,
+      "text": "'Login page title'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 37,
+      "text": "'Login page title'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 38,
+      "text": "'Field `Email`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 39,
+      "text": "'Field `Password`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 40,
+      "text": "'Button `Log in`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 41,
+      "text": "'Button `Log in`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 52,
+      "text": "UI_MESSAGES.invalidLogin",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 52,
+      "text": "'Login error message'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 56,
+      "text": "'Login page'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/login-page.ts",
+      "line": 74,
+      "text": "'Product list after the login'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 29,
+      "text": "'Order history page'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 30,
+      "text": "'Title `Order History`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 35,
+      "text": "'Empty order history message'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 36,
+      "text": "'Orders in the history'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectCount",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 40,
+      "text": "'Orders in the history'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectCount",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 51,
+      "text": "`#${entry.orderId}`",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 51,
+      "text": "'Order ID'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 53,
+      "text": "PriceHelper.format(entry.totalPrice)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 53,
+      "text": "'Order total price'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 55,
+      "text": "String(entry.bonus)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 55,
+      "text": "'Order bonus'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 61,
+      "text": "String(line.quantity)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/order-history-page.ts",
+      "line": 61,
+      "text": "`Quantity of ${line.product.name}`",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/search-page.ts",
+      "line": 22,
+      "text": "'Product list'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/search-page.ts",
+      "line": 23,
+      "text": "'Product list'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/wallet-page.ts",
+      "line": 19,
+      "text": "'Wallet page'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectUrl",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/wallet-page.ts",
+      "line": 20,
+      "text": "'Title `Digital Wallet`'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectVisible",
+      "param": "description"
+    },
+    {
+      "file": "page-objects/wallet-page.ts",
+      "line": 24,
+      "text": "PriceHelper.formatBalance(amount)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "page-objects/wallet-page.ts",
+      "line": 24,
+      "text": "'Wallet balance'",
+      "reason": "argument reaches only a failure message",
+      "helper": "expectText",
+      "param": "description"
+    },
+    {
+      "file": "tests/specs/regression/basket/add-to-basket.spec.ts",
+      "line": 20,
+      "text": "product",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/add-to-basket.spec.ts",
+      "line": 26,
+      "text": "UI_MESSAGES.placedIntoBasket(product.name)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/add-to-basket.spec.ts",
+      "line": 27,
+      "text": "PriceHelper.itemCount(basketAfterAdding)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/add-to-basket.spec.ts",
+      "line": 33,
+      "text": "basketAfterAdding",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/add-to-basket.spec.ts",
+      "line": 37,
+      "text": "PriceHelper.basketTotal(basketAfterAdding)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 31,
+      "text": "startBasket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 32,
+      "text": "PriceHelper.basketTotal(startBasket)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 33,
+      "text": "PriceHelper.itemCount(startBasket)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 38,
+      "text": "productA",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 39,
+      "text": "PriceHelper.basketTotal(basketWithTwoOfA)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 40,
+      "text": "PriceHelper.itemCount(basketWithTwoOfA)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 45,
+      "text": "productA",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 46,
+      "text": "PriceHelper.basketTotal(startBasket)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 47,
+      "text": "PriceHelper.itemCount(startBasket)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 52,
+      "text": "productA",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 53,
+      "text": "startBasket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 54,
+      "text": "PriceHelper.basketTotal(startBasket)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 59,
+      "text": "productA",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 60,
+      "text": "basketWithoutA",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 61,
+      "text": "PriceHelper.basketTotal(basketWithoutA)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/basket-quantity.spec.ts",
+      "line": 62,
+      "text": "PriceHelper.itemCount(basketWithoutA)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 23,
+      "text": "UI_MESSAGES.placedIntoBasket(product.name)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 24,
+      "text": "PriceHelper.itemCount(basketWithOne)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 30,
+      "text": "product",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 30,
+      "text": "limit",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 31,
+      "text": "PriceHelper.basketTotal(basketAtLimit)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 37,
+      "text": "UI_MESSAGES.purchaseLimit(limit)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 41,
+      "text": "product",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 41,
+      "text": "limit",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 43,
+      "text": "product",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 43,
+      "text": "limit",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 44,
+      "text": "PriceHelper.basketTotal(basketAtLimit)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 45,
+      "text": "PriceHelper.itemCount(basketAtLimit)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 51,
+      "text": "UI_MESSAGES.purchaseLimit(limit)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/basket/purchase-limit.spec.ts",
+      "line": 52,
+      "text": "PriceHelper.itemCount(basketAtLimit)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/login/login.spec.ts",
+      "line": 34,
+      "text": "customer.email",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/login/login.spec.ts",
+      "line": 45,
+      "text": "customer.email",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 51,
+      "text": "PriceHelper.itemCount(basket)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 56,
+      "text": "basket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 57,
+      "text": "PriceHelper.basketTotal(basket)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 71,
+      "text": "COUPON_DISCOUNT_PERCENT",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 78,
+      "text": "SAVED_ADDRESS",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 79,
+      "text": "SAVED_CARD",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 80,
+      "text": "basket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 81,
+      "text": "orderTotals",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 91,
+      "text": "basket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 92,
+      "text": "orderTotals",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 107,
+      "text": "orderId",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 107,
+      "text": "orderTotals.total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/order/card-order.spec.ts",
+      "line": 107,
+      "text": "basket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/invalid-coupon.spec.ts",
+      "line": 47,
+      "text": "basket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/invalid-coupon.spec.ts",
+      "line": 48,
+      "text": "PriceHelper.orderTotals(basket, delivery, NO_DISCOUNT_PERCENT)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/valid-coupon.spec.ts",
+      "line": 25,
+      "text": "SAVED_ADDRESS",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/valid-coupon.spec.ts",
+      "line": 32,
+      "text": "ALL_DELIVERY_METHODS",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/valid-coupon.spec.ts",
+      "line": 39,
+      "text": "SAVED_CARD",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/valid-coupon.spec.ts",
+      "line": 46,
+      "text": "COUPON_DISCOUNT_PERCENT",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/valid-coupon.spec.ts",
+      "line": 53,
+      "text": "basket",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/valid-coupon.spec.ts",
+      "line": 54,
+      "text": "PriceHelper.orderTotals(basket, delivery, COUPON_DISCOUNT_PERCENT)",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 50,
+      "text": "WALLET_AMOUNTS.firstBalance",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 51,
+      "text": "orderTotals.total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 68,
+      "text": "WALLET_AMOUNTS.firstBalance",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 78,
+      "text": "balanceBeforeOrder",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 79,
+      "text": "orderTotals.total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 87,
+      "text": "orderTotals",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 99,
+      "text": "balanceAfterOrder",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 107,
+      "text": "orderTotals.total",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "tests/specs/regression/payment/wallet-payment.spec.ts",
+      "line": 107,
+      "text": "bonus",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "utils/assertions/response-assertions.ts",
+      "line": 7,
+      "text": "`${description}: the server sent an answer`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/response-assertions.ts",
+      "line": 8,
+      "text": "FIRST_CLIENT_ERROR_STATUS",
+      "reason": "computed expected value"
+    },
+    {
+      "file": "utils/assertions/response-assertions.ts",
+      "line": 8,
+      "text": "`${description}: the server rejected the request`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 6,
+      "text": "`${description} is visible`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 10,
+      "text": "timeout",
+      "reason": "timing option"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 10,
+      "text": "`${description} is hidden`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 19,
+      "text": "`${description} has the text \"${text}\"`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 23,
+      "text": "`${description} contains \"${text}\"`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 27,
+      "text": "`${description}: count is ${count}`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 31,
+      "text": "`${description} is enabled`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 35,
+      "text": "`${description} is disabled`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 39,
+      "text": "`${description}: the URL matches ${url}`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 48,
+      "text": "timeout: holdMs",
+      "reason": "timing option"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 53,
+      "text": "`${description} keeps the text \"${text}\" for ${holdMs} ms`",
+      "reason": "message"
+    },
+    {
+      "file": "utils/assertions/ui-assertions.ts",
+      "line": 67,
+      "text": "`${description} stays hidden for ${holdMs} ms`",
+      "reason": "message"
+    }
+  ]
+}

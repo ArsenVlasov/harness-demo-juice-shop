@@ -1,0 +1,158 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+  1) [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout › 6. Select the saved card and click `Continue` 
+
+    Error: Order summary: delivery has the text "0.99¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price')
+    Expected: "0.99¤"
+    Received: "1.99¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Order summary: delivery has the text "0.99¤" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price') with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price')
+        14 × locator resolved to <td class="mat-cell price" _ngcontent-ng-c4138824240="">1.99¤</td>
+           - unexpected value "1.99¤"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at OrderSummaryPage.shouldSeeTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/order-summary-page.ts:42:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:81:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:74:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T04-b-output/specs-regression-order-car-5bece-rom-basket-to-order-history-chromium/error-context.md
+
+
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+  2) [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon › 5. Select the saved card and click `Continue` 
+
+    Error: Order summary: delivery has the text "0.99¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price')
+    Expected: "0.99¤"
+    Received: "1.99¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Order summary: delivery has the text "0.99¤" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price') with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price')
+        14 × locator resolved to <td class="mat-cell price" _ngcontent-ng-c4138824240="">1.99¤</td>
+           - unexpected value "1.99¤"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at OrderSummaryPage.shouldSeeTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/order-summary-page.ts:42:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/invalid-coupon.spec.ts:48:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/invalid-coupon.spec.ts:43:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T04-b-output/specs-regression-payment-i-bc8ba-d-coupon-and-expired-coupon-chromium/error-context.md
+
+
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+  3) [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon › 5. Select the saved card and click `Continue` 
+
+    Error: Order summary: delivery has the text "0.99¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price')
+    Expected: "0.99¤"
+    Received: "1.99¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Order summary: delivery has the text "0.99¤" locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price') with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('tr').filter({ has: locator('td.label').filter({ hasText: 'Delivery' }) }).locator('td.price')
+        14 × locator resolved to <td class="mat-cell price" _ngcontent-ng-c4138824240="">1.99¤</td>
+           - unexpected value "1.99¤"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at OrderSummaryPage.shouldSeeTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/order-summary-page.ts:42:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/valid-coupon.spec.ts:54:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/valid-coupon.spec.ts:49:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T04-b-output/specs-regression-payment-v-068c5--coupon-on-the-payment-step-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  4) [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet › 2. Select `Standard Delivery` and click `Continue` 
+
+    Error: Button `Pay` has the text "Pay 8.99¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-payment').getByRole('button', { name: /^Pay / })
+    Expected: "Pay 8.99¤"
+    Received: " Pay 9.99¤ "
+    Timeout:  5000ms
+
+    Call log:
+      - Button `Pay` has the text "Pay 8.99¤" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms
+      - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })
+        14 × locator resolved to <button type="submit" color="primary" disabled="true" mat-raised-button="" _ngcontent-ng-c1132546424="" mat-ripple-loader-disabled="" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled">…</button>
+           - unexpected value " Pay 9.99¤ "
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at WalletPaymentComponent.shouldSeePayButton (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/components/wallet-payment.component.ts:21:21)
+        at PaymentPage.shouldSeeWalletPayButton (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/payment-page.ts:69:5)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:51:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:48:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T04-b-output/specs-regression-payment-w-2c67d-ent-Payment-with-the-wallet-chromium/error-context.md
+
+
+  4 failed
+    [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout 
+    [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon 
+    [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon 
+    [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet 
+  4 passed (48.9s)

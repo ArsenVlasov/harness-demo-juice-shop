@@ -1,0 +1,39 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  1) [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet › 5. Open `Orders & Payment`, then `Digital Wallet` 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for locator('.cdk-overlay-container').getByRole('menuitem').filter({ hasText: 'Digital Wallet' })
+
+
+       at ../page-objects/components/account-menu.component.ts:44
+
+      42 |   async clickDigitalWallet(): Promise<void> {
+      43 |     await this.item('Orders & Payment').click();
+    > 44 |     await this.item('Digital Wallet').click();
+         |                                       ^
+      45 |   }
+      46 | }
+      47 |
+        at AccountMenuComponent.clickDigitalWallet (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/account-menu.component.ts:44:39)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:66:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:64:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T16-a-output/specs-regression-payment-w-2c67d-ent-Payment-with-the-wallet-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet 
+  7 passed (2.4m)

@@ -1,0 +1,216 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-05-valid-coupon\\.spec\\.ts$:9"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-05-valid-coupon.spec.ts",
+      "file": "tc-05-valid-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-05: Valid coupon on the payment step",
+          "file": "tc-05-valid-coupon.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-05 coupon of the current month lowers the price of the products",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6393,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement')\nExpected substring: \u001b[32m\"Add a coupon\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m \u001b[27mAdd a coupon\u001b[7m  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment').locator('#collapseCouponElement') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement')\u001b[22m\n\u001b[2m    3 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m      - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\u001b[2m    11 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0 mat-expansion-panel-animations-enabled\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m       - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement')\nExpected substring: \u001b[32m\"Add a coupon\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m \u001b[27mAdd a coupon\u001b[7m  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment').locator('#collapseCouponElement') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement')\u001b[22m\n\u001b[2m    3 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m      - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\u001b[2m    11 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0 mat-expansion-panel-animations-enabled\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m       - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts:51:45\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts:47:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts",
+                          "column": 45,
+                          "line": 51
+                        },
+                        "snippet": "  49 |       await expect(paymentPage.title).toBeVisible();\n  50 |       await expect(paymentPage.card(CARD_LAST_DIGITS)).toBeVisible();\n> 51 |       await expect(paymentPage.couponPanel).toContainText('Add a coupon_mut');\n     |                                             ^\n  52 |     });\n  53 |\n  54 |     await test.step('4. Redeem the coupon of the current month', async () => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts",
+                            "column": 45,
+                            "line": 51
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement')\nExpected substring: \u001b[32m\"Add a coupon\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m \u001b[27mAdd a coupon\u001b[7m  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment').locator('#collapseCouponElement') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement')\u001b[22m\n\u001b[2m    3 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m      - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\u001b[2m    11 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0 mat-expansion-panel-animations-enabled\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m       - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\n\n  49 |       await expect(paymentPage.title).toBeVisible();\n  50 |       await expect(paymentPage.card(CARD_LAST_DIGITS)).toBeVisible();\n> 51 |       await expect(paymentPage.couponPanel).toContainText('Add a coupon_mut');\n     |                                             ^\n  52 |     });\n  53 |\n  54 |     await test.step('4. Redeem the coupon of the current month', async () => {\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts:51:45\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts:47:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket and click Checkout",
+                          "duration": 283
+                        },
+                        {
+                          "title": "2. Select the saved address and continue",
+                          "duration": 126
+                        },
+                        {
+                          "title": "3. Select One Day Delivery and continue",
+                          "duration": 5156,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement')\nExpected substring: \u001b[32m\"Add a coupon\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m \u001b[27mAdd a coupon\u001b[7m  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment').locator('#collapseCouponElement') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement')\u001b[22m\n\u001b[2m    3 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m      - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\u001b[2m    11 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0 mat-expansion-panel-animations-enabled\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m       - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-payment').locator('#collapseCouponElement')\nExpected substring: \u001b[32m\"Add a coupon\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m \u001b[27mAdd a coupon\u001b[7m  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-payment').locator('#collapseCouponElement') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-payment').locator('#collapseCouponElement')\u001b[22m\n\u001b[2m    3 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m      - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\u001b[2m    11 × locator resolved to <mat-expansion-panel id=\"collapseCouponElement\" _ngcontent-ng-c1132546424=\"\" class=\"mat-expansion-panel mat-elevation-z0 mat-expansion-panel-animations-enabled\">…</mat-expansion-panel>\u001b[22m\n\u001b[2m       - unexpected value \" Add a coupon  Add a coupon code to receive discounts CouponNeed a coupon code? Follow us on BlueSky or Reddit for monthly coupons and other spam!0/10 redeem  Redeem \"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts:51:45\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts:47:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts",
+                              "column": 45,
+                              "line": 51
+                            },
+                            "snippet": "  49 |       await expect(paymentPage.title).toBeVisible();\n  50 |       await expect(paymentPage.card(CARD_LAST_DIGITS)).toBeVisible();\n> 51 |       await expect(paymentPage.couponPanel).toContainText('Add a coupon_mut');\n     |                                             ^\n  52 |     });\n  53 |\n  54 |     await test.step('4. Redeem the coupon of the current month', async () => {"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:52:20.558Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results/tc-05-valid-coupon-TC-05-V-c4c83-s-the-price-of-the-products-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-05-valid-coupon.spec.ts",
+                        "column": 45,
+                        "line": 51
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c10621caa65da8f16e6b-a1692953fcd865a4f471",
+              "file": "tc-05-valid-coupon.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:52:19.959Z",
+    "duration": 7329.531,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

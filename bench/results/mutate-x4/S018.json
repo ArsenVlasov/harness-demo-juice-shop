@@ -1,0 +1,253 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/specs/regression/order/card-order\\.spec\\.ts$:22"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/regression/order/card-order.spec.ts",
+      "file": "specs/regression/order/card-order.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Order with a card, from basket to order history",
+          "ok": false,
+          "tags": [
+            "checkout"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [
+                {
+                  "type": "test-case",
+                  "description": "TC-07",
+                  "location": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts",
+                    "line": 22,
+                    "column": 5
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7949,
+                  "error": {
+                    "message": "Error: Basket counter in the top bar has the text \"1\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Basket counter in the top bar has the text \"1\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: Basket counter in the top bar has the text \"1\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Basket counter in the top bar has the text \"1\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at expectText (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/utils/assertions/ui-assertions.ts:19:66)\n    at NavbarComponent.shouldSeeBasketCount (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/page-objects/components/navbar.component.ts:29:21)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts:96:40\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts:95:5",
+                    "location": {
+                      "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/utils/assertions/ui-assertions.ts",
+                      "column": 66,
+                      "line": 19
+                    },
+                    "snippet": "   at ../utils/assertions/ui-assertions.ts:19\n\n  17 |   description: string,\n  18 | ): Promise<void> {\n> 19 |   await expect(locator, `${description} has the text \"${text}\"`).toHaveText(text);\n     |                                                                  ^\n  20 | }\n  21 |\n  22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/utils/assertions/ui-assertions.ts",
+                        "column": 66,
+                        "line": 19
+                      },
+                      "message": "Error: Basket counter in the top bar has the text \"1\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Basket counter in the top bar has the text \"1\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n   at ../utils/assertions/ui-assertions.ts:19\n\n  17 |   description: string,\n  18 | ): Promise<void> {\n> 19 |   await expect(locator, `${description} has the text \"${text}\"`).toHaveText(text);\n     |                                                                  ^\n  20 | }\n  21 |\n  22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {\n    at expectText (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/utils/assertions/ui-assertions.ts:19:66)\n    at NavbarComponent.shouldSeeBasketCount (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/page-objects/components/navbar.component.ts:29:21)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts:96:40\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts:95:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "1. Add product A two times and product B one time from the product list",
+                      "duration": 1039
+                    },
+                    {
+                      "title": "2. Open the basket",
+                      "duration": 95
+                    },
+                    {
+                      "title": "3. Click `Checkout`, select the saved address and click `Continue`",
+                      "duration": 195
+                    },
+                    {
+                      "title": "4. Select `One Day Delivery` and click `Continue`",
+                      "duration": 129
+                    },
+                    {
+                      "title": "5. Redeem the coupon of the current month",
+                      "duration": 141
+                    },
+                    {
+                      "title": "6. Select the saved card and click `Continue`",
+                      "duration": 197
+                    },
+                    {
+                      "title": "7. Click `Place your order and pay`",
+                      "duration": 328
+                    },
+                    {
+                      "title": "8. Read the order summary on the confirmation page",
+                      "duration": 25
+                    },
+                    {
+                      "title": "9. Read the basket counter and open the basket",
+                      "duration": 5010,
+                      "error": {
+                        "message": "Error: Basket counter in the top bar has the text \"1\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Basket counter in the top bar has the text \"1\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: Basket counter in the top bar has the text \"1\"\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Basket counter in the top bar has the text \"1\" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')\u001b[22m\n\u001b[2m    14 × locator resolved to <span _ngcontent-ng-c1731522247=\"\" class=\"fa-layers-counter fa-layers-top-right fa-3x warn-notification\">0</span>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at expectText (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/utils/assertions/ui-assertions.ts:19:66)\n    at NavbarComponent.shouldSeeBasketCount (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/page-objects/components/navbar.component.ts:29:21)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts:96:40\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts:95:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/utils/assertions/ui-assertions.ts",
+                          "column": 66,
+                          "line": 19
+                        },
+                        "snippet": "   at ../utils/assertions/ui-assertions.ts:19\n\n  17 |   description: string,\n  18 | ): Promise<void> {\n> 19 |   await expect(locator, `${description} has the text \"${text}\"`).toHaveText(text);\n     |                                                                  ^\n  20 | }\n  21 |\n  22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-21T15:25:22.238Z",
+                  "annotations": [
+                    {
+                      "type": "test-case",
+                      "description": "TC-07",
+                      "location": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/tests/specs/regression/order/card-order.spec.ts",
+                        "line": 22,
+                        "column": 5
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/test-results/specs-regression-order-car-5bece-rom-basket-to-order-history-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-JbLvE5/utils/assertions/ui-assertions.ts",
+                    "column": 66,
+                    "line": 19
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c13fda6170ed84702f26-95d33770d83f399fe42a",
+          "file": "specs/regression/order/card-order.spec.ts",
+          "line": 22,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T15:25:21.600Z",
+    "duration": 8887.416,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,50 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+  1) [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart › 1. Open the product list 
+
+    Error: Price of Eggfruit Juice (500ml) has the text "8.99¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-product').filter({ has: locator('.name').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('.price')
+    Expected: "8.99¤"
+    Received: " 9.99¤ "
+    Timeout:  5000ms
+
+    Call log:
+      - Price of Eggfruit Juice (500ml) has the text "8.99¤" locator('app-product').filter({ has: locator('.name').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('.price') with timeout 5000ms
+      - waiting for locator('app-product').filter({ has: locator('.name').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('.price')
+        14 × locator resolved to <div class="price" _ngcontent-ng-c1648923913="">…</div>
+           - unexpected value " 9.99¤ "
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at ProductCardComponent.shouldSeeNamePriceAndButton (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/product-card.component.ts:28:21)
+        at SearchPage.shouldSeeProduct (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/search-page.ts:31:5)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts:20:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts:18:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T01-a-output/specs-regression-basket-ad-a51f7-Add-a-product-to-the-basket-chromium/error-context.md
+
+
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  1 failed
+    [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart 
+  7 passed (35.4s)

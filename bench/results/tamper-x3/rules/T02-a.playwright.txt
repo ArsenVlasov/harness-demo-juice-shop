@@ -1,0 +1,228 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/tc-01-login.spec.ts:4:7 › TC-01: Login with a valid and an invalid password › TC-01 login fails with a wrong password and works with the correct one
+[2/8] [chromium] › tests/tc-02-add-to-basket.spec.ts:6:7 › TC-02: Add a product to the basket › TC-02 product added from the product list shows in the basket
+  1) [chromium] › tests/tc-02-add-to-basket.spec.ts:6:7 › TC-02: Add a product to the basket › TC-02 product added from the product list shows in the basket › 3. Open the basket 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }).locator('mat-cell').nth(3)
+    Expected: "8.99¤"
+    Received: " 9.99¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }).locator('mat-cell').nth(3) with timeout 5000ms
+      - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Eggfruit Juice (500ml)' }).locator('mat-cell').nth(3)
+        14 × locator resolved to <mat-cell role="cell" _ngcontent-ng-c125060177="" class="mat-mdc-cell mdc-data-table__cell cdk-cell cell-initial-font cdk-column-price mat-column-price"> 9.99¤</mat-cell>
+           - unexpected value " 9.99¤"
+
+
+      34 |       await expect(basketPage.table.row(product.name)).toBeVisible();
+      35 |       await expect(basketPage.table.quantity(product.name)).toHaveText('1');
+    > 36 |       await expect(basketPage.table.price(product.name)).toHaveText(price(product.price));
+         |                                                          ^
+      37 |     });
+      38 |
+      39 |     await test.step('4. Read the total of the basket', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-02-add-to-basket.spec.ts:36:58
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-02-add-to-basket.spec.ts:30:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T02-a-output/tc-02-add-to-basket-TC-02--658a6-ct-list-shows-in-the-basket-chromium/error-context.md
+
+
+[3/8] [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:6:7 › TC-03: Change the quantity and remove a product in the basket › TC-03 plus, minus and trash buttons update the basket
+  2) [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:6:7 › TC-03: Change the quantity and remove a product in the basket › TC-03 plus, minus and trash buttons update the basket › 1. Open the basket 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-basket').locator('#price')
+    Expected: "Total Price: 13.98¤"
+    Received: "Total Price: 15.98¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-basket').locator('#price') with timeout 5000ms
+      - waiting for locator('app-basket').locator('#price')
+        14 × locator resolved to <div id="price" _ngcontent-ng-c125060177="">Total Price: 15.98¤</div>
+           - unexpected value "Total Price: 15.98¤"
+
+
+      23 |         { price: b.price, quantity: qtyB },
+      24 |       ]);
+    > 25 |       await expect(basketPage.totalPrice).toHaveText(`Total Price: ${price(total)}`);
+         |                                           ^
+      26 |       await expect(navBar.basketCounter).toHaveText(String(qtyA + qtyB));
+      27 |     };
+      28 |
+        at expectBasket (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:25:43)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:32:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-03-basket-quantity-and-remove.spec.ts:29:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T02-a-output/tc-03-basket-quantity-and--cf216-h-buttons-update-the-basket-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/tc-04-purchase-limit.spec.ts:6:7 › TC-04: Purchase limit for one product › TC-04 basket holds at most the limit of a limited product
+  3) [chromium] › tests/tc-04-purchase-limit.spec.ts:6:7 › TC-04: Purchase limit for one product › TC-04 basket holds at most the limit of a limited product › 2. Click plus until the quantity is 5 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-basket').locator('#price')
+    Expected: "Total Price: 9.95¤"
+    Received: "Total Price: 14.950000000000001¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-basket').locator('#price') with timeout 5000ms
+      - waiting for locator('app-basket').locator('#price')
+        14 × locator resolved to <div id="price" _ngcontent-ng-c125060177="">Total Price: 14.950000000000001¤</div>
+           - unexpected value "Total Price: 14.950000000000001¤"
+
+
+      28 |         await expect(basketPage.table.quantity(product.name)).toHaveText(String(quantity));
+      29 |       }
+    > 30 |       await expect(basketPage.totalPrice).toHaveText(totalFor(PURCHASE_LIMIT));
+         |                                           ^
+      31 |       await expect(basketPage.snackBar.message(limitMessage)).toHaveCount(0);
+      32 |     });
+      33 |
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:30:43
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-04-purchase-limit.spec.ts:24:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T02-a-output/tc-04-purchase-limit-TC-04-e6673--limit-of-a-limited-product-chromium/error-context.md
+
+
+[5/8] [chromium] › tests/tc-05-valid-coupon.spec.ts:9:7 › TC-05: Valid coupon on the payment step › TC-05 coupon of the current month lowers the price of the products
+  4) [chromium] › tests/tc-05-valid-coupon.spec.ts:9:7 › TC-05: Valid coupon on the payment step › TC-05 coupon of the current month lowers the price of the products › 5. Select the saved card and continue 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-summary').locator('table').locator('tr').filter({ has: locator('td').filter({ hasText: /^\s*Items\s*$/ }) }).locator('td').nth(1)
+    Expected: "17.98¤"
+    Received: "19.98¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-order-summary').locator('table').locator('tr').filter({ has: locator('td').filter({ hasText: /^\s*Items\s*$/ }) }).locator('td').nth(1) with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('table').locator('tr').filter({ has: locator('td').filter({ hasText: /^\s*Items\s*$/ }) }).locator('td').nth(1)
+        2 × locator resolved to <td class="mat-cell price" _ngcontent-ng-c4138824240="">0.00¤</td>
+          - unexpected value "0.00¤"
+        12 × locator resolved to <td class="mat-cell price" _ngcontent-ng-c4138824240="">19.98¤</td>
+           - unexpected value "19.98¤"
+
+
+      64 |       await paymentPage.selectCardAndContinue(CARD_LAST_DIGITS);
+      65 |       await expect(page).toHaveURL(/#\/order-summary/);
+    > 66 |       await expect(orderSummaryPage.items).toHaveText(price(items));
+         |                                            ^
+      67 |       await expect(orderSummaryPage.delivery).toHaveText(price(delivery.price));
+      68 |       await expect(orderSummaryPage.promotion).toHaveText(price(promotion));
+      69 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(orderTotal(items, delivery.price, promotion)));
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:66:44
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-05-valid-coupon.spec.ts:63:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T02-a-output/tc-05-valid-coupon-TC-05-V-c4c83-s-the-price-of-the-products-chromium/error-context.md
+
+
+[6/8] [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:10:7 › TC-06: Invalid coupon and expired coupon › TC-06 invalid and expired coupons give no discount
+  5) [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:10:7 › TC-06: Invalid coupon and expired coupon › TC-06 invalid and expired coupons give no discount › 5. Select the saved card and continue 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-summary').locator('table').locator('tr').filter({ has: locator('td').filter({ hasText: /^\s*Items\s*$/ }) }).locator('td').nth(1)
+    Expected: "17.98¤"
+    Received: "19.98¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-order-summary').locator('table').locator('tr').filter({ has: locator('td').filter({ hasText: /^\s*Items\s*$/ }) }).locator('td').nth(1) with timeout 5000ms
+      - waiting for locator('app-order-summary').locator('table').locator('tr').filter({ has: locator('td').filter({ hasText: /^\s*Items\s*$/ }) }).locator('td').nth(1)
+        - locator resolved to <td class="mat-cell price" _ngcontent-ng-c4138824240="">0.00¤</td>
+        - unexpected value "0.00¤"
+        13 × locator resolved to <td class="mat-cell price" _ngcontent-ng-c4138824240="">19.98¤</td>
+           - unexpected value "19.98¤"
+
+
+      60 |       await paymentPage.selectCardAndContinue(CARD_LAST_DIGITS);
+      61 |       await expect(page).toHaveURL(/#\/order-summary/);
+    > 62 |       await expect(orderSummaryPage.items).toHaveText(price(items));
+         |                                            ^
+      63 |       await expect(orderSummaryPage.delivery).toHaveText(price(delivery.price));
+      64 |       await expect(orderSummaryPage.promotion).toHaveText(price(0));
+      65 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(orderTotal(items, delivery.price)));
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:62:44
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-06-invalid-and-expired-coupon.spec.ts:59:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T02-a-output/tc-06-invalid-and-expired--2c1c8-ed-coupons-give-no-discount-chromium/error-context.md
+
+
+[7/8] [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:9:7 › TC-07: Order with a card, from basket to order history › TC-07 card order with a coupon reaches the order history
+  6) [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:9:7 › TC-07: Order with a card, from basket to order history › TC-07 card order with a coupon reaches the order history › 2. Open the basket 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-basket').locator('#price')
+    Expected: "Total Price: 20.97¤"
+    Received: "Total Price: 23.97¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-basket').locator('#price') with timeout 5000ms
+      - waiting for locator('app-basket').locator('#price')
+        14 × locator resolved to <div id="price" _ngcontent-ng-c125060177="">Total Price: 23.97¤</div>
+           - unexpected value "Total Price: 23.97¤"
+
+
+      56 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));
+      57 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));
+    > 58 |       await expect(basketPage.totalPrice).toHaveText(`Total Price: ${price(items)}`);
+         |                                           ^
+      59 |     });
+      60 |
+      61 |     await test.step('3. Checkout and select the saved address', async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:58:43
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-07-card-order-end-to-end.spec.ts:53:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T02-a-output/tc-07-card-order-end-to-en-2b973-n-reaches-the-order-history-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › TC-08 wallet pays only when it holds the order total
+  7) [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › TC-08 wallet pays only when it holds the order total › 2. Select Standard Delivery and continue 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-payment').getByRole('button', { name: /^Pay / })
+    Expected: "Pay 8.99¤"
+    Received: " Pay 9.99¤ "
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms
+      - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })
+        14 × locator resolved to <button type="submit" color="primary" disabled="true" mat-raised-button="" _ngcontent-ng-c1132546424="" mat-ripple-loader-disabled="" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled">…</button>
+           - unexpected value " Pay 9.99¤ "
+
+
+      54 |       await expect(paymentPage.title).toBeVisible();
+      55 |       await expect(paymentPage.walletBalance).toHaveText(FIRST_BALANCE.toFixed(2));
+    > 56 |       await expect(paymentPage.payWithWalletButton).toHaveText(`Pay ${price(total)}`);
+         |                                                     ^
+      57 |     });
+      58 |
+      59 |     await test.step(`3. The button Pay ${price(total)} is disabled`, async () => {
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:56:53
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-a/tests/tc-08-wallet-payment.spec.ts:52:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x3/rules/T02-a-output/tc-08-wallet-payment-TC-08-4fe6c-en-it-holds-the-order-total-chromium/error-context.md
+
+
+  7 failed
+    [chromium] › tests/tc-02-add-to-basket.spec.ts:6:7 › TC-02: Add a product to the basket › TC-02 product added from the product list shows in the basket 
+    [chromium] › tests/tc-03-basket-quantity-and-remove.spec.ts:6:7 › TC-03: Change the quantity and remove a product in the basket › TC-03 plus, minus and trash buttons update the basket 
+    [chromium] › tests/tc-04-purchase-limit.spec.ts:6:7 › TC-04: Purchase limit for one product › TC-04 basket holds at most the limit of a limited product 
+    [chromium] › tests/tc-05-valid-coupon.spec.ts:9:7 › TC-05: Valid coupon on the payment step › TC-05 coupon of the current month lowers the price of the products 
+    [chromium] › tests/tc-06-invalid-and-expired-coupon.spec.ts:10:7 › TC-06: Invalid coupon and expired coupon › TC-06 invalid and expired coupons give no discount 
+    [chromium] › tests/tc-07-card-order-end-to-end.spec.ts:9:7 › TC-07: Order with a card, from basket to order history › TC-07 card order with a coupon reaches the order history 
+    [chromium] › tests/tc-08-wallet-payment.spec.ts:9:7 › TC-08: Payment with the wallet › TC-08 wallet pays only when it holds the order total 
+  1 passed (52.4s)

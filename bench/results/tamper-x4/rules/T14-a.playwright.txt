@@ -1,0 +1,47 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+  1) [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth › 5. Open the account menu 
+
+    Error: Account menu item with the email customer-1792595465329-e2770300@example.test is visible
+
+    expect(locator).toBeVisible() failed
+
+    Locator: locator('.cdk-overlay-container').getByRole('menuitem').filter({ hasText: 'customer-1792595465329-e2770300@example.test' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Account menu item with the email customer-1792595465329-e2770300@example.test is visible locator('.cdk-overlay-container').getByRole('menuitem').filter({ hasText: 'customer-1792595465329-e2770300@example.test' }) with timeout 5000ms
+      - waiting for locator('.cdk-overlay-container').getByRole('menuitem').filter({ hasText: 'customer-1792595465329-e2770300@example.test' })
+
+
+       at ../utils/assertions/ui-assertions.ts:6
+
+      4 |
+      5 | export async function expectVisible(locator: Locator, description: string): Promise<void> {
+    > 6 |   await expect(locator, `${description} is visible`).toBeVisible();
+        |                                                      ^
+      7 | }
+      8 |
+      9 | export async function expectHidden(locator: Locator, description: string, timeout?: number): Promise<void> {
+        at expectVisible (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:6:54)
+        at AccountMenuComponent.shouldSeeEmail (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/account-menu.component.ts:25:24)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/login/login.spec.ts:45:43
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/login/login.spec.ts:43:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T14-a-output/specs-regression-login-log-5170e-lid-and-an-invalid-password-chromium/error-context.md
+
+
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  1 failed
+    [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth 
+  7 passed (36.4s)

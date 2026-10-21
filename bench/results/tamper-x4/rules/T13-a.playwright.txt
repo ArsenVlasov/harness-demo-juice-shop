@@ -1,0 +1,50 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  1) [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet › 2. Select `Standard Delivery` and click `Continue` 
+
+    Error: Wallet balance on the payment page has the text "5.00"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-payment .confirmation.card-title')
+    Expected: "5.00"
+    Received: " 6.00"
+    Timeout:  5000ms
+
+    Call log:
+      - Wallet balance on the payment page has the text "5.00" locator('app-payment .confirmation.card-title') with timeout 5000ms
+      - waiting for locator('app-payment .confirmation.card-title')
+        14 × locator resolved to <span _ngcontent-ng-c1132546424="" class="confirmation card-title"> 6.00</span>
+           - unexpected value " 6.00"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at WalletPaymentComponent.shouldSeeBalance (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/components/wallet-payment.component.ts:16:21)
+        at PaymentPage.shouldSeeWalletBalance (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/payment-page.ts:65:23)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:50:25
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:48:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T13-a-output/specs-regression-payment-w-2c67d-ent-Payment-with-the-wallet-chromium/error-context.md
+
+
+  1 failed
+    [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet 
+  7 passed (31.8s)

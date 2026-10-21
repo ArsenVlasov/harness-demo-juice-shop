@@ -1,0 +1,85 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+  1) [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout › 10. Open `Orders & Payment`, then `Order History` 
+
+    Error: Order total price has the text "19.86¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-history').locator('.table-container').first().locator('.heading-row .col').filter({ hasText: 'Total Price' }).locator('div').nth(1)
+    Expected: "19.86¤"
+    Received: "20.86¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Order total price has the text "19.86¤" locator('app-order-history').locator('.table-container').first().locator('.heading-row .col').filter({ hasText: 'Total Price' }).locator('div').nth(1) with timeout 5000ms
+      - waiting for locator('app-order-history').locator('.table-container').first().locator('.heading-row .col').filter({ hasText: 'Total Price' }).locator('div').nth(1)
+        14 × locator resolved to <div _ngcontent-ng-c4079035162="">20.86¤</div>
+           - unexpected value "20.86¤"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at OrderHistoryPage.shouldSeeOrder (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/order-history-page.ts:53:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:107:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:102:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T09-a-output/specs-regression-order-car-5bece-rom-basket-to-order-history-chromium/error-context.md
+
+
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  2) [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet › 10. Open `Orders & Payment`, then `Order History` 
+
+    Error: Order total price has the text "8.99¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-order-history').locator('.table-container').first().locator('.heading-row .col').filter({ hasText: 'Total Price' }).locator('div').nth(1)
+    Expected: "8.99¤"
+    Received: "9.99¤"
+    Timeout:  5000ms
+
+    Call log:
+      - Order total price has the text "8.99¤" locator('app-order-history').locator('.table-container').first().locator('.heading-row .col').filter({ hasText: 'Total Price' }).locator('div').nth(1) with timeout 5000ms
+      - waiting for locator('app-order-history').locator('.table-container').first().locator('.heading-row .col').filter({ hasText: 'Total Price' }).locator('div').nth(1)
+        14 × locator resolved to <div _ngcontent-ng-c4079035162="">9.99¤</div>
+           - unexpected value "9.99¤"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at OrderHistoryPage.shouldSeeOrder (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/order-history-page.ts:53:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:107:30
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:102:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T09-a-output/specs-regression-payment-w-2c67d-ent-Payment-with-the-wallet-chromium/error-context.md
+
+
+  2 failed
+    [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout 
+    [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet 
+  6 passed (41.2s)

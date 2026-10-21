@@ -1,0 +1,244 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$:9"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-08 wallet pays only when it holds the order total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8869,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/wallet)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/wallet\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/wallet)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/wallet\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:107:26\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:105:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                          "column": 26,
+                          "line": 107
+                        },
+                        "snippet": "  105 |     await test.step('9. The wallet balance is the rest plus the bonus', async () => {\n  106 |       await navBar.openDigitalWallet();\n> 107 |       await expect(page).toHaveURL(/(?:#\\/wallet)_mut/);\n      |                          ^\n  108 |       await expect(walletPage.balance).toHaveText(balanceAfterOrder.toFixed(2));\n  109 |     });\n  110 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                            "column": 26,
+                            "line": 107
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/wallet)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/wallet\"\u001b[22m\n\n\n  105 |     await test.step('9. The wallet balance is the rest plus the bonus', async () => {\n  106 |       await navBar.openDigitalWallet();\n> 107 |       await expect(page).toHaveURL(/(?:#\\/wallet)_mut/);\n      |                          ^\n  108 |       await expect(walletPage.balance).toHaveText(balanceAfterOrder.toFixed(2));\n  109 |     });\n  110 |\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:107:26\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:105:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 278
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue",
+                          "duration": 161
+                        },
+                        {
+                          "title": "3. The button Pay 8.99¤ is disabled",
+                          "duration": 5
+                        },
+                        {
+                          "title": "4. The order history is empty",
+                          "duration": 601
+                        },
+                        {
+                          "title": "5. The wallet balance is unchanged",
+                          "duration": 664
+                        },
+                        {
+                          "title": "Top up the wallet with 3.99 from the saved card",
+                          "duration": 45
+                        },
+                        {
+                          "title": "6. Checkout to the payment step again",
+                          "duration": 325
+                        },
+                        {
+                          "title": "7. Click Pay 8.99¤",
+                          "duration": 72
+                        },
+                        {
+                          "title": "8. Place the order",
+                          "duration": 231
+                        },
+                        {
+                          "title": "9. The wallet balance is the rest plus the bonus",
+                          "duration": 5551,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/wallet)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/wallet\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/(?:#\\/wallet)_mut/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/#/wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × locator resolved to <html lang=\"en\" data-beasties-container=\"\" class=\"fontawesome-i2svg-active fontawesome-i2svg-complete\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/#/wallet\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:107:26\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:105:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                              "column": 26,
+                              "line": 107
+                            },
+                            "snippet": "  105 |     await test.step('9. The wallet balance is the rest plus the bonus', async () => {\n  106 |       await navBar.openDigitalWallet();\n> 107 |       await expect(page).toHaveURL(/(?:#\\/wallet)_mut/);\n      |                          ^\n  108 |       await expect(walletPage.balance).toHaveText(balanceAfterOrder.toFixed(2));\n  109 |     });\n  110 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:58:02.970Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results/tc-08-wallet-payment-TC-08-4fe6c-en-it-holds-the-order-total-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                        "column": 26,
+                        "line": 107
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-a288132db21e2dec12f3",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:58:02.357Z",
+    "duration": 9804.997,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

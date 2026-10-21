@@ -1,0 +1,208 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-03-basket-quantity-and-remove\\.spec\\.ts$:6"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-03-basket-quantity-and-remove.spec.ts",
+      "file": "tc-03-basket-quantity-and-remove.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-03: Change the quantity and remove a product in the basket",
+          "file": "tc-03-basket-quantity-and-remove.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-03 plus, minus and trash buttons update the basket",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6001,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n    at expectBasket (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:32:13\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:29:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                          "column": 55,
+                          "line": 19
+                        },
+                        "snippet": "  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                            "column": 55,
+                            "line": 19
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n\n  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },\n    at expectBasket (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:32:13\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:29:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Open the basket",
+                          "duration": 5215,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\nExpected: \u001b[32m\"2\"\u001b[39m\nReceived: \u001b[31m\" 1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-basket').locator('app-purchase-basket mat-row').filter({ hasText: 'Raspberry Juice (1000ml)' }).locator('mat-cell').nth(2)\u001b[22m\n\u001b[2m    14 × locator resolved to <mat-cell role=\"cell\" _ngcontent-ng-c125060177=\"\" class=\"mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity\">…</mat-cell>\u001b[22m\n\u001b[2m       - unexpected value \" 1\"\u001b[22m\n\n    at expectBasket (/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:19:55)\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:32:13\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts:29:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                              "column": 55,
+                              "line": 19
+                            },
+                            "snippet": "  17 |\n  18 |     const expectBasket = async (qtyA: number, qtyB: number) => {\n> 19 |       await expect(basketPage.table.quantity(a.name)).toHaveText(String(qtyA));\n     |                                                       ^\n  20 |       await expect(basketPage.table.quantity(b.name)).toHaveText(String(qtyB));\n  21 |       const total = itemsTotal([\n  22 |         { price: a.price, quantity: qtyA },"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:49:35.807Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results/tc-03-basket-quantity-and--cf216-h-buttons-update-the-basket-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-03-basket-quantity-and-remove.spec.ts",
+                        "column": 55,
+                        "line": 19
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4d01b774c6877a42b8c3-8905364103c7c40efb38",
+              "file": "tc-03-basket-quantity-and-remove.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:49:35.204Z",
+    "duration": 6920.533,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

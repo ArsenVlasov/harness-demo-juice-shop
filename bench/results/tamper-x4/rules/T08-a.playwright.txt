@@ -1,0 +1,57 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+  1) [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout › 8. Read the order summary on the confirmation page 
+
+    Error: Order confirmation: items, delivery, promotion, total price has the text "20.97¤,0.99¤,2.10¤,19.86¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator: locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')
+    Timeout: 5000ms
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+    -   "20.97¤",
+    -   "0.99¤",
+    +   "19.97¤",
+    +   "1.99¤",
+        "2.10¤",
+        "19.86¤",
+      ]
+
+    Call log:
+      - Order confirmation: items, delivery, promotion, total price has the text "20.97¤,0.99¤,2.10¤,19.86¤" locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td') with timeout 5000ms
+      - waiting for locator('app-order-completion').locator('mat-footer-cell.mat-column-total-price td')
+        14 × locator resolved to 4 elements
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at OrderCompletionPage.shouldSeeTotals (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/order-completion-page.ts:59:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:92:33
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:90:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T08-a-output/specs-regression-order-car-5bece-rom-basket-to-order-history-chromium/error-context.md
+
+
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  1 failed
+    [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout 
+  7 passed (35.2s)

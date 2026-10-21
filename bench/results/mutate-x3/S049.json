@@ -1,0 +1,236 @@
+{
+  "config": {
+    "argv": [
+      "/Users/arsenvlasov/.local/node-v24.21.0/bin/node",
+      "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/node_modules/.bin/playwright",
+      "test",
+      "--retries=0",
+      "--reporter=json",
+      "(?:^|/)tests/tc-08-wallet-payment\\.spec\\.ts$:9"
+    ],
+    "configFile": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/playwright.config.ts",
+    "rootDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "snapshotDir": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tc-08-wallet-payment.spec.ts",
+      "file": "tc-08-wallet-payment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC-08: Payment with the wallet",
+          "file": "tc-08-wallet-payment.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-08 wallet pays only when it holds the order total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8045,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7mPayment Method\u001b[27mDigital Wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m    13 × locator resolved to <mat-card appearance=\"outlined\" _ngcontent-ng-c4138824240=\"\" class=\"mat-mdc-card mdc-card mat-elevation-z0 flex-40 mat-mdc-card-outlined mdc-card--outlined\">…</mat-card>\u001b[22m\n\u001b[2m       - unexpected value \"Payment MethodDigital Wallet\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7mPayment Method\u001b[27mDigital Wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m    13 × locator resolved to <mat-card appearance=\"outlined\" _ngcontent-ng-c4138824240=\"\" class=\"mat-mdc-card mdc-card mat-elevation-z0 flex-40 mat-mdc-card-outlined mdc-card--outlined\">…</mat-card>\u001b[22m\n\u001b[2m       - unexpected value \"Payment MethodDigital Wallet\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:95:52\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:92:5",
+                        "location": {
+                          "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                          "column": 52,
+                          "line": 95
+                        },
+                        "snippet": "  93 |       await paymentPage.payWithWalletButton.click();\n  94 |       await expect(page).toHaveURL(/#\\/order-summary/);\n> 95 |       await expect(orderSummaryPage.paymentMethod).toContainText('Digital Wallet_mut');\n     |                                                    ^\n  96 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(total));\n  97 |     });\n  98 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                            "column": 52,
+                            "line": 95
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7mPayment Method\u001b[27mDigital Wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m    13 × locator resolved to <mat-card appearance=\"outlined\" _ngcontent-ng-c4138824240=\"\" class=\"mat-mdc-card mdc-card mat-elevation-z0 flex-40 mat-mdc-card-outlined mdc-card--outlined\">…</mat-card>\u001b[22m\n\u001b[2m       - unexpected value \"Payment MethodDigital Wallet\"\u001b[22m\n\n\n  93 |       await paymentPage.payWithWalletButton.click();\n  94 |       await expect(page).toHaveURL(/#\\/order-summary/);\n> 95 |       await expect(orderSummaryPage.paymentMethod).toContainText('Digital Wallet_mut');\n     |                                                    ^\n  96 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(total));\n  97 |     });\n  98 |\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:95:52\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:92:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Checkout and select the saved address",
+                          "duration": 269
+                        },
+                        {
+                          "title": "2. Select Standard Delivery and continue",
+                          "duration": 164
+                        },
+                        {
+                          "title": "3. The button Pay 8.99¤ is disabled",
+                          "duration": 5
+                        },
+                        {
+                          "title": "4. The order history is empty",
+                          "duration": 600
+                        },
+                        {
+                          "title": "5. The wallet balance is unchanged",
+                          "duration": 677
+                        },
+                        {
+                          "title": "Top up the wallet with 3.99 from the saved card",
+                          "duration": 42
+                        },
+                        {
+                          "title": "6. Checkout to the payment step again",
+                          "duration": 369
+                        },
+                        {
+                          "title": "7. Click Pay 8.99¤",
+                          "duration": 5052,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7mPayment Method\u001b[27mDigital Wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m    13 × locator resolved to <mat-card appearance=\"outlined\" _ngcontent-ng-c4138824240=\"\" class=\"mat-mdc-card mdc-card mat-elevation-z0 flex-40 mat-mdc-card-outlined mdc-card--outlined\">…</mat-card>\u001b[22m\n\u001b[2m       - unexpected value \"Payment MethodDigital Wallet\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\nExpected substring: \u001b[32m\"Digital Wallet\u001b[7m_mut\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7mPayment Method\u001b[27mDigital Wallet\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-order-summary').locator('mat-card').filter({ hasText: 'Payment Method' }).last()\u001b[22m\n\u001b[2m    13 × locator resolved to <mat-card appearance=\"outlined\" _ngcontent-ng-c4138824240=\"\" class=\"mat-mdc-card mdc-card mat-elevation-z0 flex-40 mat-mdc-card-outlined mdc-card--outlined\">…</mat-card>\u001b[22m\n\u001b[2m       - unexpected value \"Payment MethodDigital Wallet\"\u001b[22m\n\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:95:52\n    at /private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts:92:5",
+                            "location": {
+                              "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                              "column": 52,
+                              "line": 95
+                            },
+                            "snippet": "  93 |       await paymentPage.payWithWalletButton.click();\n  94 |       await expect(page).toHaveURL(/#\\/order-summary/);\n> 95 |       await expect(orderSummaryPage.paymentMethod).toContainText('Digital Wallet_mut');\n     |                                                    ^\n  96 |       await expect(orderSummaryPage.totalPrice).toHaveText(price(total));\n  97 |     });\n  98 |"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-21T14:57:27.393Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/test-results/tc-08-wallet-payment-TC-08-4fe6c-en-it-holds-the-order-total-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/var/folders/8v/tjlqcph57g934z54rbf7jfk40000gn/T/audit-mutate-client-vVUIPc/tests/tc-08-wallet-payment.spec.ts",
+                        "column": 52,
+                        "line": 95
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7c1eb09259c3bc780cd1-a288132db21e2dec12f3",
+              "file": "tc-08-wallet-payment.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T14:57:26.826Z",
+    "duration": 8924.567000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

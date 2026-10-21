@@ -1,0 +1,280 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart
+  1) [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart › 2. Click `Add to Basket` on the product 
+
+    Error: Basket counter in the top bar has the text "1"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')
+    Expected: "1"
+    Received: "2"
+    Timeout:  5000ms
+
+    Call log:
+      - Basket counter in the top bar has the text "1" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')
+        - locator resolved to <span _ngcontent-ng-c1731522247="" class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">0</span>
+        - unexpected value "0"
+        13 × locator resolved to <span _ngcontent-ng-c1731522247="" class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">2</span>
+           - unexpected value "2"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at NavbarComponent.shouldSeeBasketCount (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/navbar.component.ts:29:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts:27:31
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/add-to-basket.spec.ts:24:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T03-a-output/specs-regression-basket-ad-a51f7-Add-a-product-to-the-basket-chromium/error-context.md
+
+
+[2/8] [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart
+  2) [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart › 1. Open the basket 
+
+    Error: Quantity of Raspberry Juice (1000ml) has the text "1"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+    Expected: "1"
+    Received: " 2"
+    Timeout:  5000ms
+
+    Call log:
+      - Quantity of Raspberry Juice (1000ml) has the text "1" locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity') with timeout 5000ms
+      - waiting for locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Raspberry Juice (1000ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+        14 × locator resolved to <mat-cell role="cell" _ngcontent-ng-c125060177="" class="mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity">…</mat-cell>
+           - unexpected value " 2"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at BasketLinesComponent.shouldSeeQuantity (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:48:21)
+        at BasketLinesComponent.shouldSeeLine (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:39:16)
+        at BasketLinesComponent.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:32:7)
+        at BasketPage.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/basket-page.ts:41:5)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:31:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/basket-quantity.spec.ts:29:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T03-a-output/specs-regression-basket-ba-f00ad-ove-a-product-in-the-basket-chromium/error-context.md
+
+
+[3/8] [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart
+  3) [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart › 1. Open the product list and click `Add to Basket` on the product 
+
+    Error: Basket counter in the top bar has the text "1"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')
+    Expected: "1"
+    Received: "2"
+    Timeout:  5000ms
+
+    Call log:
+      - Basket counter in the top bar has the text "1" getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Show the shopping cart' }).locator('.fa-layers-counter')
+        14 × locator resolved to <span _ngcontent-ng-c1731522247="" class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">2</span>
+           - unexpected value "2"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at NavbarComponent.shouldSeeBasketCount (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/navbar.component.ts:29:21)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:24:31
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/basket/purchase-limit.spec.ts:20:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T03-a-output/specs-regression-basket-pu-95de3-chase-limit-for-one-product-chromium/error-context.md
+
+
+[4/8] [chromium] › tests/specs/regression/login/login.spec.ts:7:5 › Login with a valid and an invalid password @auth
+[5/8] [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout
+  4) [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout › 2. Open the basket 
+
+    Error: Quantity of Eggfruit Juice (500ml) has the text "2"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+    Expected: "2"
+    Received: " 3"
+    Timeout:  5000ms
+
+    Call log:
+      - Quantity of Eggfruit Juice (500ml) has the text "2" locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity') with timeout 5000ms
+      - waiting for locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+        14 × locator resolved to <mat-cell role="cell" _ngcontent-ng-c125060177="" class="mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity">…</mat-cell>
+           - unexpected value " 3"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at BasketLinesComponent.shouldSeeQuantity (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:48:21)
+        at BasketLinesComponent.shouldSeeLine (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:39:16)
+        at BasketLinesComponent.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:32:7)
+        at BasketPage.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/basket-page.ts:41:5)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:56:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/order/card-order.spec.ts:54:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T03-a-output/specs-regression-order-car-5bece-rom-basket-to-order-history-chromium/error-context.md
+
+
+[6/8] [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon
+  5) [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon › 5. Select the saved card and click `Continue` 
+
+    Error: Quantity of Eggfruit Juice (500ml) has the text "2"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+    Expected: "2"
+    Received: " 3"
+    Timeout:  5000ms
+
+    Call log:
+      - Quantity of Eggfruit Juice (500ml) has the text "2" locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity') with timeout 5000ms
+      - waiting for locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+        14 × locator resolved to <mat-cell role="cell" _ngcontent-ng-c125060177="" class="mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity">…</mat-cell>
+           - unexpected value " 3"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at BasketLinesComponent.shouldSeeQuantity (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:48:21)
+        at BasketLinesComponent.shouldSeeLine (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:39:16)
+        at BasketLinesComponent.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:32:7)
+        at OrderSummaryPage.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/order-summary-page.ts:37:5)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/invalid-coupon.spec.ts:47:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/invalid-coupon.spec.ts:43:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T03-a-output/specs-regression-payment-i-bc8ba-d-coupon-and-expired-coupon-chromium/error-context.md
+
+
+[7/8] [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon
+  6) [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon › 5. Select the saved card and click `Continue` 
+
+    Error: Quantity of Eggfruit Juice (500ml) has the text "2"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+    Expected: "2"
+    Received: " 3"
+    Timeout:  5000ms
+
+    Call log:
+      - Quantity of Eggfruit Juice (500ml) has the text "2" locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity') with timeout 5000ms
+      - waiting for locator('app-purchase-basket mat-row').filter({ has: locator('mat-cell.mat-column-product').getByText('Eggfruit Juice (500ml)', { exact: true }) }).locator('mat-cell.mat-column-quantity')
+        14 × locator resolved to <mat-cell role="cell" _ngcontent-ng-c125060177="" class="mat-mdc-cell mdc-data-table__cell cdk-cell content-align cdk-column-quantity mat-column-quantity">…</mat-cell>
+           - unexpected value " 3"
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at BasketLinesComponent.shouldSeeQuantity (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:48:21)
+        at BasketLinesComponent.shouldSeeLine (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:39:16)
+        at BasketLinesComponent.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/components/basket-lines.component.ts:32:7)
+        at OrderSummaryPage.shouldSeeLines (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/order-summary-page.ts:37:5)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/valid-coupon.spec.ts:53:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/valid-coupon.spec.ts:49:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T03-a-output/specs-regression-payment-v-068c5--coupon-on-the-payment-step-chromium/error-context.md
+
+
+[8/8] [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet
+  7) [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet › 2. Select `Standard Delivery` and click `Continue` 
+
+    Error: Button `Pay` has the text "Pay 8.99¤"
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('app-payment').getByRole('button', { name: /^Pay / })
+    Expected: "Pay 8.99¤"
+    Received: " Pay 17.98¤ "
+    Timeout:  5000ms
+
+    Call log:
+      - Button `Pay` has the text "Pay 8.99¤" locator('app-payment').getByRole('button', { name: /^Pay / }) with timeout 5000ms
+      - waiting for locator('app-payment').getByRole('button', { name: /^Pay / })
+        14 × locator resolved to <button type="submit" color="primary" disabled="true" mat-raised-button="" _ngcontent-ng-c1132546424="" mat-ripple-loader-disabled="" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button-base btn btn-float-right mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled">…</button>
+           - unexpected value " Pay 17.98¤ "
+
+
+       at ../utils/assertions/ui-assertions.ts:19
+
+      17 |   description: string,
+      18 | ): Promise<void> {
+    > 19 |   await expect(locator, `${description} has the text "${text}"`).toHaveText(text);
+         |                                                                  ^
+      20 | }
+      21 |
+      22 | export async function expectContainText(locator: Locator, text: string | RegExp, description: string): Promise<void> {
+        at expectText (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/utils/assertions/ui-assertions.ts:19:66)
+        at WalletPaymentComponent.shouldSeePayButton (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/components/wallet-payment.component.ts:21:21)
+        at PaymentPage.shouldSeeWalletPayButton (/Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/page-objects/checkout/payment-page.ts:69:5)
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:51:7
+        at /Users/arsenvlasov/Documents/WorkFolder/harness-demo-runs/set-2/run-2/suite-b/tests/specs/regression/payment/wallet-payment.spec.ts:48:5
+
+    Error Context: ../../../../harness-demo-juice-shop/bench/results/tamper-x4/rules/T03-a-output/specs-regression-payment-w-2c67d-ent-Payment-with-the-wallet-chromium/error-context.md
+
+
+  7 failed
+    [chromium] › tests/specs/regression/basket/add-to-basket.spec.ts:11:5 › Add a product to the basket @cart 
+    [chromium] › tests/specs/regression/basket/basket-quantity.spec.ts:22:5 › Change the quantity and remove a product in the basket @cart 
+    [chromium] › tests/specs/regression/basket/purchase-limit.spec.ts:13:5 › Purchase limit for one product @cart 
+    [chromium] › tests/specs/regression/order/card-order.spec.ts:22:5 › Order with a card, from basket to order history @checkout 
+    [chromium] › tests/specs/regression/payment/invalid-coupon.spec.ts:15:5 › Invalid coupon and expired coupon @coupon 
+    [chromium] › tests/specs/regression/payment/valid-coupon.spec.ts:14:5 › Valid coupon on the payment step @coupon 
+    [chromium] › tests/specs/regression/payment/wallet-payment.spec.ts:22:5 › Payment with the wallet @wallet 
+  1 passed (55.1s)
