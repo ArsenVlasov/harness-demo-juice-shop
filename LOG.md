@@ -6,6 +6,14 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 23:43: the log file of the full E5a reviews
+
+Start from: the reviews of Arsen with `--log bench/review-log-full.csv`. Then `node bench/review-timer.mjs summary --log bench/review-log-full.csv`.
+
+- `bench/review-log.csv` holds the quick look of 20.10 (decision 12): `suite-1` and `suite-2` each have `start` and `stop`. After a `stop`, the timer refuses a new `start` for the same suite.
+- Decision 12 keeps these 4 rows as they are. Thus the full reviews of round 1 and round 2 use a separate file: each command of `bench/review-timer.mjs` gets `--log bench/review-log-full.csv`.
+- A test on a temp file: `start suite-1`, `pause suite-1` and `summary` with `--log` worked, and `bench/review-log.csv` did not change.
+
 ## 2026-10-21, 23:03: the result of E5b
 
 Start from: Arsen reads `bench/results/e5b-summary.md`. His open tasks: item 1.1 (`bench/judge-check-1.1.csv`), E5a round 1 and round 2. Then the wrap-up.
