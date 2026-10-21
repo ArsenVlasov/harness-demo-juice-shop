@@ -6,6 +6,23 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-21, 19:00: decision 20. The claim of decision 18 waits. The manual check of the judge (item 1.1) starts
+
+Start from: Arsen fills `bench/judge-check-1.1.csv` with the packet `bench/results/judge-check-1.1.md`. Then the main session compares his verdicts with the judge and records the result here.
+
+- At about 18:40, Arsen said: "yes, start item 1.1 and hold the claim". This is a human intervention. Section 10 of the stage 2 plan, item 20, has it.
+  - The main claim of the offer from decision 18 waits. It does not go into the offer or the README until the check of the judge ends.
+  - The frozen result of H2.3 does not change. The check of decision 19 came after the results, so the README gives it as a limit.
+  - The judge does not run again with a new rubric, unless Arsen asks. A run like that is a measurement after the results, and its label says so.
+- One more fact about the judge: the first run of the judge on vague run 2 failed on one suite (`judge-vague-2-slept/`, no `mapping.json`). It completed A-2 as `suite-1` with 23 steps `partial`, with the same notes about helpers ("not compared with the fixed value").
+  The judge of the re-run gave A-2 21 steps `partial`. Thus the different treatment of A and B repeats on the same code.
+- `node bench/judge-check-packet.mjs` (new) wrote the packet `bench/results/judge-check-1.1.md` and the answer sheet `bench/judge-check-1.1.csv`. The output: `50 step rows and the row principle`.
+  - Part 1: one question of principle, with TC-05 step 5 of A-2 and B-2 side by side.
+  - Part 2: the 7 steps of A with `partial` for another reason, and the same steps of B.
+  - Part 3: the sample of item 1.1, TC-07 and TC-08 of vague runs 2 and 3. These are the 18 steps of A with a note about a helper, and the same steps of B.
+- For each step, the packet gives the precise step text and the verdict and the note of the judge. It also gives the code lines of the evidence at the generation tag. The packet quotes the notes of the judge in `text` blocks.
+- The limit: the check is not blind. Arsen sees the verdict of the judge and knows which suite is A. Part 1 also tells the pattern of the judge. A blind check would need steps with `covered` mixed in. It is too much work for a check by one person.
+
 ## 2026-10-21, 18:35: the result of decision 19. The judge applies its rule on calculated values differently to A and B
 
 Start from: Arsen reads `bench/results/decision-19-x3-x4.md` and decides on the main claim of the offer (decision 18). Then the manual check of the judge (item 1.1), E5a round 2 and E5b.
