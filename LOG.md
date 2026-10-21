@@ -6,6 +6,15 @@ For each measurement, record the command and its real result.
 
 ---
 
+## 2026-10-22, 00:02: decision 24. The estimate of the review time is now 1 to 2 hours
+
+Start from: the summary of stage 2, then the README, the ROI scenario and the draft of the block "Демо". Section 10 of the plan, item 24, has the decision.
+
+- Arsen said: "lat change avarage manual review time for any suit - let it be from 1 to 2 hours". This is a human intervention.
+- The new input of the ROI scenario: the manual review of one suite takes 1 to 2 hours. The estimate of decision 23 was 30 to 60 minutes.
+- It is still an estimate of Arsen, not a measurement, and it is the same for A and B. Thus it shows no difference between A and B, and the offer sentence does not use it.
+- The README and the ROI give the new value with the label "estimate, not measured". They also say that the estimate was 30 to 60 minutes before.
+
 ## 2026-10-21, 23:58: decision 23. No E5a review. The estimate of Arsen is not a measurement
 
 Start from: the summary of stage 2 (`bench/results/summary-stage-2.md`, the workflow `stage2-summary`). Then the README, the ROI scenario and the draft of the block "Демо". Section 10 of the plan, item 23, has the decision.
